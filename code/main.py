@@ -21,6 +21,7 @@ def train(features):
     return model
 
 NWORDS = train(words(file('../resources/LibreOffice_es_ES.dic').read()))
+NOMBRESPROPIOS = train(words(file('../resources/nombres_propios.txt').read()))
 alphabet = u'abcdefghijklmnopqrstuvwxyz\xf1\xe1\xe9\xed\xf3\xfa'
 
 def edits1(word): 
@@ -66,22 +67,51 @@ def correct(word):
     candidates = known([word]) or known(edits1(word)) or known_edits2(word) or [word]  
     return max(candidates, key = NWORDS.get).encode('utf-8')
 
-def spellChecker(text):
+def isUrl(word):
+    return re.match('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', word)
+
+def isUsername(word):
+    return re.match('@[a-zA-Z0-9_]*$', word)
+
+def isHashtag(word):
+    return re.match('#[a-zA-Z0-9_]*$', word)
+
+def validWord(word):
+    return not(isUsername(word)) and not(isHashtag(word)) and not(isUrl(word))
+
+def isPunctuationSign(word):
+    return not(re.match("^[a-zA-Z0-9_]*$", word))
+
+def getValidText(text):
     unicodeText = unicode(text.lower(), 'utf-8')
     textWithoutEmojis = removeEmojiFromText(unicodeText)
     normalizedText = ''
 
     for word in textWithoutEmojis.split():
-        if not(re.match('@[a-zA-Z0-9_]*$', word)) and not(re.match('#[a-zA-Z0-9_]*$', word)):
-            if re.match("^[a-zA-Z0-9_]*$", word):
-                wordCorrect = correct(word)
-            else:
-                wordCorrect = word
-
-            normalizedText = normalizedText + wordCorrect + ' '
+        if validWord(word):
+            normalizedText = normalizedText + word + ' '
 
     return normalizedText
 
-text = 'Hola aaa sii no 😒 sde hoy, @jmorenov #aaa la mejor camión karateka de la historia en katas de españa 👏 👏'
-normalizedText = spellChecker(text)
-print(normalizedText)
+def spellChecker(text):
+    print(text)
+
+    normalizedText = getValidText(text)
+
+    for word in normalizedText.split():
+        if not(isPunctuationSign(word)):
+            if word in NOMBRESPROPIOS:
+                print(word + '\t1')
+            elif not(word in NWORDS):
+                wordCorrect = correct(word)
+                
+                if wordCorrect == word:
+                    print(word + '\t2')
+                else:
+                    print(word + '\t0\t' + wordCorrect)
+
+
+text = 'Hola aaa sii no 😒 sde hoy, @jmorenov #aaa la mejor camion karateka de la historia en katas de españa 👏 👏 http://hola.com'
+text3 = 'la'
+print(NOMBRESPROPIOS.)
+spellChecker(text3)
