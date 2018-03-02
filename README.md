@@ -1,2 +1,2 @@
-# TweetSP
-Tweet Spell Checker (TweetSP) is a spell checker for tweets of twitter.
+# TweetSC
+Tweet Spell Checker (TweetSC) is a spell checker for tweets.
