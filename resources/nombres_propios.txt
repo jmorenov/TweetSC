@@ -240,7 +240,6 @@ D'Ebo
 D'Ebre
 D'Empordà
 D'Empúries
-D'En
 D'Enveja
 D'Escarp
 D'Escornalbou
@@ -250,7 +249,6 @@ D'Hostoles
 D'Oló
 D'Ondara
 D'Onyar
-D'os
 D'Osormort
 D'Uixó
 D'Urgell
@@ -305,7 +303,6 @@ d'Ebo
 d'Ebre
 d'Empordà
 d'Empúries
-d'En
 d'Enveja
 d'Escarp
 d'Escornalbou
@@ -315,7 +312,6 @@ d'Hostoles
 d'Oló
 d'Ondara
 d'Onyar
-d'os
 d'Osormort
 d'Uixó
 d'Urgell
@@ -2556,7 +2552,6 @@ Castilforte
 Castilfrío
 Castiliscar
 Castilla
-Castilla-La
 Castillazuelo
 Castilleja
 Castillejo

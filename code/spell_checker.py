@@ -22,7 +22,7 @@ def train(features):
 
 NWORDS = train(words(file('../resources/LibreOffice_es_ES.dic').read()))
 NOMBRESPROPIOS = train(words(file('../resources/nombres_propios.txt').read()))
-alphabet = u'abcdefghijklmnopqrstuvwxyz\xf1\xe1\xe9\xed\xf3\xfa'
+alphabet = u'abcdefghijklmnñopqrstuvwxyz\xf1\xe1\xe9\xed\xf3\xfa'
 
 def edits1(word): 
     """
@@ -65,7 +65,7 @@ def extract_emojis(str):
 
 def correct(word):
     candidates = known([word]) or known(edits1(word)) or known_edits2(word) or [word]  
-    return max(candidates, key = NWORDS.get).encode('utf-8')
+    return max(candidates, key = NWORDS.get)
 
 def isUrl(word):
     return re.match('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', word)
@@ -94,24 +94,27 @@ def getValidText(text):
     return normalizedText
 
 def spellChecker(text):
-    print(text)
+    output = ''
+    
+    if text != 'Not Available':
+        normalizedText = getValidText(text)
 
-    normalizedText = getValidText(text)
+        for word in normalizedText.split():
+            if not(isPunctuationSign(word)):
+                if not(word in NWORDS):
+                    if word in NOMBRESPROPIOS:
+                        output = output + '\n\t' + word + ' 1 -'
+                    else:
+                        wordCorrect = correct(word)
+                        
+                        if wordCorrect == word:
+                            output = output + '\n\t' + word + ' 2 -'
+                        else:
+                            output = output + '\n\t' + word + ' 0 ' + wordCorrect
+            
+    output = output + '\n'
 
-    for word in normalizedText.split():
-        if not(isPunctuationSign(word)):
-            if word in NOMBRESPROPIOS:
-                print(word + '\t1')
-            elif not(word in NWORDS):
-                wordCorrect = correct(word)
-                
-                if wordCorrect == word:
-                    print(word + '\t2')
-                else:
-                    print(word + '\t0\t' + wordCorrect)
+    return output.encode('utf-8')
 
-
-text = 'Hola aaa sii no 😒 sde hoy, @jmorenov #aaa la mejor camion karateka de la historia en katas de españa 👏 👏 http://hola.com'
-text3 = 'la'
-print(NOMBRESPROPIOS.)
-spellChecker(text3)
+#text = 'Hola aaa sii no 😒 sde hoy, @jmorenov #aaa la mejor camion karateka de la historia en katas de españa 👏 👏 http://google.com'
+#spellChecker(text)
