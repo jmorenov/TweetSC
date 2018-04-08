@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*- 
 
 import re, collections
-import emoji
 
 def words(text):
     """
