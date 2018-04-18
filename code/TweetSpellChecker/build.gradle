@@ -1,0 +1,17 @@
+group 'org.jmorenov.tweetsc'
+version 'v0.2.0-alpha'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'joda-time:joda-time:2.9.4'
+    compile 'jollyday:jollyday:0.5.2'
+    classpath "gradle.plugin.com.google.protobuf:protobuf-gradle-plugin:0.8.5"
+}
