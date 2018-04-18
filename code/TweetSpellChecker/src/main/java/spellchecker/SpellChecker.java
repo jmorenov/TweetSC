@@ -1,13 +1,18 @@
 package spellchecker;
 
+import postagging.POSTagging;
+import postagging.StanfordNLP;
+
 import java.util.ArrayList;
 
-public class SpellChecker {
-    public SpellChecker(String text) {
+class SpellChecker {
+    private POSTagging post;
 
+    SpellChecker(String text) {
+        post = new StanfordNLP(text);
     }
 
-    /*private ArrayList<String> words(String text) {
-
-    }*/
+    ArrayList<String> words() {
+        return post.getTokens();
+    }
 }
