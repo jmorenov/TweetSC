@@ -1,4 +1,4 @@
-package spellchecker;
+package com.jmorenov.spellchecker;
 
 import org.junit.Test;
 import java.util.ArrayList;

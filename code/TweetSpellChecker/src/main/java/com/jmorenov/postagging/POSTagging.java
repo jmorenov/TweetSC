@@ -1,4 +1,4 @@
-package postagging;
+package com.jmorenov.postagging;
 
 import java.util.ArrayList;
 

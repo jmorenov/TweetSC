@@ -1,4 +1,4 @@
-package postagging;
+package com.jmorenov.postagging;
 
 import edu.stanford.nlp.ling.*;
 import edu.stanford.nlp.io.IOUtils;
