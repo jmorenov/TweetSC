@@ -1,0 +1,181 @@
+\documentclass[14pt]{extarticle}
+
+% Esto es para poder escribir acentos directamente:
+\usepackage[utf8]{inputenc}
+% Esto es para que el LaTeX sepa que el texto est en espaol:
+\usepackage[spanish, activeacute]{babel}
+
+% Paquetes de la AMS:
+\usepackage{amsmath, amsthm, amsfonts}
+
+\usepackage{extsizes}
+
+\usepackage{pdflscape}
+\usepackage{fontawesome}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{listings}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{hyperref} % For hyperlinks in the PDF
+\usepackage{multirow}
+\usepackage{xifthen}
+\usepackage{tabularx}
+
+% Teoremas
+%--------------------------------------------------------------------------
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{prop}[thm]{Proposicin}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definicin}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Observacin}
+
+% Atajos.
+% Se pueden definir comandos nuevos para acortar cosas que se usan
+% frecuentemente. Como ejemplo, aqu se definen la R y la Z dobles que
+% suelen representar a los conjuntos de nmeros reales y enteros.
+%--------------------------------------------------------------------------
+
+\def\RR{\mathbb{R}}
+\def\ZZ{\mathbb{Z}}
+
+% De la misma forma se pueden definir comandos con argumentos. Por
+% ejemplo, aqu definimos un comando para escribir el valor absoluto
+% de algo ms fcilmente.
+%--------------------------------------------------------------------------
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+
+\newcommand{\newtableitem}[1] {
+	\multicolumn{4}{|l|}{· #1} \\
+}
+
+\newcommand{\newtableline}[1] { %55 caracteres
+	\multicolumn{4}{|l|}{#1} \\
+}
+
+\newcommand{\userstory}[9]{
+	\begin{center}
+	\resizebox{15cm}{!} {
+	\begin{tabular}{|c|c|c|c|}
+    	\hline 
+		\multicolumn{4}{|c|}{\textbf{#1}} \\
+		\multicolumn{4}{|c|}{} \\
+		\hline	
+		\textbf{Identificador:} #2 & \textbf{Prioridad:} #3 & \textbf{Iteración:} #4 & \textbf{Puntos de historia:} #5 \\ 
+		\hline 
+		\multicolumn{4}{|l|}{\textbf{Descripción:}} \\
+		#6
+		\hline 
+		\multicolumn{4}{|l|}{\textbf{Tareas:}} \\
+		#7
+		\hline 
+		\multicolumn{4}{|l|}{\textbf{Pruebas de aceptación:}} \\
+		#8
+		\hline 
+		\multicolumn{4}{|l|}{\textbf{Observaciones:}} \\
+		#9
+		\hline 
+	\end{tabular}
+	}
+	\end{center}
+}
+
+\newcommand{\sprinttask}[2] {
+	\multicolumn{1}{|>{\hsize=\dimexpr1\hsize+1\tabcolsep+\arrayrulewidth\relax}X|}{#1} & \multicolumn{3}{|>{\hsize=\dimexpr3\hsize+3\tabcolsep+\arrayrulewidth\relax}X|}{#2}\\
+}
+
+\newcommand{\sprint}[4]{
+	\begin{center}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+    	\hline 
+		\multicolumn{2}{|>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X|}{\textbf{Sprint:} #1} &
+		\multicolumn{2}{|>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X|}{\textbf{Inicio:} #2} \\
+		\hline 
+		Versión & \multicolumn{3}{|>{\hsize=\dimexpr3\hsize+3\tabcolsep+\arrayrulewidth\relax}X|}{#4} \\
+		\hline 
+		Identificador & \multicolumn{3}{|>{\hsize=\dimexpr3\hsize+3\tabcolsep+\arrayrulewidth\relax}X|}{Historia de usuario} \\
+		\hline
+		#3
+		\hline 
+	\end{tabularx}
+	\end{center}
+}
+
+% Operadores.
+% Los operadores nuevos deben definirse como tales para que aparezcan
+% correctamente. Como ejemplo definimos en jacobiano:
+%--------------------------------------------------------------------------
+\DeclareMathOperator{\Jac}{Jac}
+
+%--------------------------------------------------------------------------
+%\title{Trabajo Fin de Máster \\  TweetSC: Corrector de texto para twitter.}
+%\author{Javier Moreno}
+\begin{document}
+%\maketitle
+\begin{titlepage}
+
+\begin{center}
+\vspace*{-1in}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.8]{logoUPM.jpg}
+\end{center}
+\end{figure}
+ESCUELA TÉCNICA SUPERIOR DE INGENIEROS INFORMÁTICOS\\
+\vspace*{0.15in}
+MÁSTER UNIVERSITARIO EN INTELIGENCIA ARTIFICIAL \\
+\vspace*{0.6in}
+\begin{large}
+TRABAJO DE FIN DE MÁSTER:\\
+\end{large}
+\vspace*{0.2in}
+\begin{Large}
+\textbf{TWEETSC: CORRECTOR DE TEXTO PARA TWITTER} \\
+\end{Large}
+\vspace*{0.3in}
+\begin{large}
+JAVIER MORENO VEGA\\
+\end{large}
+\vspace*{0.3in}
+\rule{80mm}{0.1mm}\\
+\vspace*{0.1in}
+\begin{large}
+TUTOR DE PROYECTO: \\
+OSCAR CORCHO GARCÍA \\
+\vspace*{0.3in}
+CO-TUTOR DE PROYECTO: \\
+VÍCTOR RODRÍGUEZ DONCEL \\
+\end{large}
+\vspace*{2in}
+\url{http://tweetsc.github.io}
+\vspace*{0.2in}\\
+\today
+\end{center}
+\end{titlepage}
+\newpage
+\tableofcontents % índice de contenidos
+\cleardoublepage
+\section{Introducción}\label{sec:introduccion}
+Prueba referencia \citep{wiki:test}
+\subsection{Motivación}\label{sec:motivacion}
+\subsection{Objetivos}\label{sec:objetivos}
+\subsection{Resumen del documento}\label{sec:resumen}
+\section{Estado del arte}\label{sec:estadodelarte}
+\section{Análisis y diseño}\label{sec:analisisydiseno}
+\subsection{Metodología de desarrollo}\label{sec:metodologiadedesarrollo}
+\subsection{Análisis de requisitos}\label{sec:analisisderequisitos}
+\subsection{Herramientas utilizadas}
+\section{Apéndices}\label{sec:apendices}
+\subsection{Apéndice A: Bibliografía}\label{sec:bibliografia}
+\bibliographystyle{plain}
+\bibliography{References}
+\newpage
+\subsection{Apéndice B: Glosario de Términos}\label{sec:glosariodeterminos}
+\end{document}
