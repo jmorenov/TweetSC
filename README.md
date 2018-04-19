@@ -13,7 +13,7 @@ gradlew clean build (Linux)
 
 ## How to run an example
 
-java -jar org.jmorenov.tweetsc-0.2.0-alpha.jar --text='Texto de prueba'
+java -jar org.jmorenov.tweetsc-0.2.0-alpha.jar -text "Texto de prueba"
 
 ## Where to find test files
 
