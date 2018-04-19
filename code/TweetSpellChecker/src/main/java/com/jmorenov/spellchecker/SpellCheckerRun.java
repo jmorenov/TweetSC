@@ -19,4 +19,8 @@ public class SpellCheckerRun {
             }
         }
     }
+
+    private void generateResult() {
+        // From generate_result.py
+    }
 }

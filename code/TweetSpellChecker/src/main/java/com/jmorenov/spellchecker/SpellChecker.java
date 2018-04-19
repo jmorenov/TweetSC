@@ -6,13 +6,13 @@ import com.jmorenov.postagging.StanfordNLP;
 import java.util.ArrayList;
 
 class SpellChecker {
-    private POSTagging post;
+    private POSTagging _post;
 
     SpellChecker(String text) {
-        post = new StanfordNLP(text);
+        _post = new StanfordNLP(text);
     }
 
     ArrayList<String> words() {
-        return post.getTokens();
+        return _post.getTokens();
     }
 }
