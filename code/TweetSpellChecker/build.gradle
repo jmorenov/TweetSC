@@ -3,12 +3,12 @@ plugins {
 }
 
 group 'com.jmorenov.tweetsc'
-version 'v0.2.0-alpha'
+version 'v0.3.0-alpha'
 
 sourceCompatibility = 1.8
 
 //create a single Jar with all dependencies
-task fatJar(type: Jar) {
+task createJar(type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'Gradle Jar File Example',
                 'Implementation-Version': version,

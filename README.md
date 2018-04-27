@@ -8,12 +8,17 @@ Tweet Spell Checker (TweetSC) is a spell checker for tweets. It corrects errors 
 
 ```
 git clone https://github.com/jmorenov/TweetSC
-gradlew clean build (Linux)
+```
+
+### Linux
+```
+gradlew clean build
+gradlew createJar
 ```
 
 ## How to run an example
 
-java -jar org.jmorenov.tweetsc-0.2.0-alpha.jar -text "Texto de prueba"
+java -jar org.jmorenov.tweetsc-0.3.0-alpha.jar -text "Texto de prueba"
 
 ## Where to find test files
 
