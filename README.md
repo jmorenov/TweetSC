@@ -21,7 +21,7 @@ https://github.com/jmorenov/TweetSC/blob/master/resources/
 
 ## Final Master's Work Report
 
-https://github.com/jmorenov/TweetSC/blob/master/documentation/Report.pdf
+https://github.com/jmorenov/TweetSC/blob/master/documentation/Memoria.pdf
 
 ## Software versioning
 
