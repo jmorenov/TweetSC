@@ -17,8 +17,9 @@ gradlew createJar
 ```
 
 ## How to run an example
-
+```
 java -jar org.jmorenov.tweetsc-0.3.0-alpha.jar -text "Texto de prueba"
+```
 
 ## Where to find test files
 
