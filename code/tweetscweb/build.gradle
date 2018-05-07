@@ -3,21 +3,12 @@ buildscript {
 		springBootVersion = '2.0.1.RELEASE'
 	}
 	repositories {
-		jcenter()
 		mavenCentral()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath 'com.google.cloud.tools:appengine-gradle-plugin:+'
 	}
-}
-
-repositories {   // repositories for Jar's you access in your code
-	maven {
-		url 'https://oss.sonatype.org/content/repositories/snapshots' // SNAPSHOT repository (if needed)
-	}
-	mavenCentral()
-	jcenter()
 }
 
 apply plugin: 'java'
@@ -27,51 +18,20 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 
+group = 'com.jmorenov'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
 configurations {
 	providedRuntime
 }
 
 dependencies {
-	compile 'com.google.appengine:appengine-api-1.0-sdk:+'
 	compile('org.springframework.boot:spring-boot-starter-web')
-	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
-	compile 'jstl:jstl:1.2'
-
+	providedCompile('javax.servlet:javax.servlet-api:3.1.0')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile 'junit:junit:4.12'
-	testCompile 'com.google.truth:truth:0.33'
-	testCompile 'org.mockito:mockito-all:1.10.19'
-
-	testCompile 'com.google.appengine:appengine-testing:+'
-	testCompile 'com.google.appengine:appengine-api-stubs:+'
-	testCompile 'com.google.appengine:appengine-tools-sdk:+'
 }
-
-appengineDeploy.dependsOn test
-appengineStage.dependsOn test
-
-appengine {  // App Engine tasks configuration
-	deploy {   // deploy configuration
-
-	}
-}
-
-test {
-	useJUnit()
-	testLogging.showStandardStreams = true
-	beforeTest { descriptor ->
-		logger.lifecycle("test: " + descriptor + "  Running")
-	}
-
-	onOutput { descriptor, event ->
-		logger.lifecycle("test: " + descriptor + ": " + event.message )
-	}
-	afterTest { descriptor, result ->
-		logger.lifecycle("test: " + descriptor + ": " + result )
-	}
-}
-
-group = 'com.jmorenov'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
