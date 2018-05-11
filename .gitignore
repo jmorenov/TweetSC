@@ -103,3 +103,9 @@ ENV/
 .vscode/
 .idea/
 .gradle/
+
+*.aux
+*.blg
+*.out
+*.synctex.gz
+*.toc
