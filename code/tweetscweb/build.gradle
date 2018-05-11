@@ -18,8 +18,8 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 
-group = 'com.jmorenov'
-version = '0.0.1-SNAPSHOT'
+group = 'com.jmorenov.tweetscweb'
+version = 'v0.1.0-alpha'
 sourceCompatibility = 1.8
 
 repositories {
@@ -30,8 +30,37 @@ configurations {
 	providedRuntime
 }
 
+configurations.all {
+	exclude module: 'slf4j-log4j12'
+}
+
 dependencies {
+	compile project(':tweetsccore')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	providedCompile('javax.servlet:javax.servlet-api:3.1.0')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile 'junit:junit:4.12'
+	testCompile 'com.google.truth:truth:0.33'
+	testCompile 'org.mockito:mockito-all:1.10.19'
+
+	testCompile 'com.google.appengine:appengine-testing:+'
+	testCompile 'com.google.appengine:appengine-api-stubs:+'
+	testCompile 'com.google.appengine:appengine-tools-sdk:+'
+}
+
+test {
+	useJUnit()
+	testLogging.showStandardStreams = true
+	beforeTest { descriptor ->
+		logger.lifecycle("test: " + descriptor + "  Running")
+	}
+
+	onOutput { descriptor, event ->
+		logger.lifecycle("test: " + descriptor + ": " + event.message )
+	}
+	afterTest { descriptor, result ->
+		logger.lifecycle("test: " + descriptor + ": " + result )
+	}
 }

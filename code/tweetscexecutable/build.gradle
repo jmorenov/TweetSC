@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'com.jmorenov.tweetscexecutable'
+version 'v0.1.0-alpha'
+
+sourceCompatibility = 1.8
+
+//create a single Jar with all dependencies
+task createJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'TweetSpellChecker Executable',
+                'Implementation-Version': version,
+                'Main-Class': 'com.jmorenov.tweetscexecutable.SpellCheckerRun'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':tweetsccore')
+
+    testCompile 'junit:junit:4.12'
+}
