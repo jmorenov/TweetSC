@@ -109,3 +109,4 @@ ENV/
 *.out
 *.synctex.gz
 *.toc
+*.bbl
