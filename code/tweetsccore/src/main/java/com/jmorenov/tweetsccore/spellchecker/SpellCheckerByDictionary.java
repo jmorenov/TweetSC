@@ -57,6 +57,33 @@ public class SpellCheckerByDictionary {
         return textCorrected;
     }
 
+    public String correctText(String text) {
+        String textCorrected = "";
+        String normalizedText = getValidText(text);
+        ArrayList<String> wordsOfText = getWords(normalizedText);
+
+
+        for (String word : wordsOfText) {
+            if (!isPunctuationSign(word)) {
+                if (!_dictionaryWords.containsKey(word)) {
+                    if (_nombresPropiosWords.containsKey(word)) {
+                        textCorrected = textCorrected + word;
+                    } else {
+                        String wordCorrect = correctWord(word);
+
+                        if (wordCorrect.equals(word)) {
+                            textCorrected = textCorrected + word;
+                        } else {
+                            textCorrected = textCorrected + wordCorrect;
+                        }
+                    }
+                }
+            }
+        }
+
+        return textCorrected;
+    }
+
     private void readDictionaries() throws IOException {
         _dictionaryWords = readDictionary(_dictionaryFileName);
         _nombresPropiosWords = readDictionary(_nombresPropiosFileName);
