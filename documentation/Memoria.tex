@@ -166,23 +166,31 @@ VÍCTOR RODRÍGUEZ DONCEL \\
 \cleardoublepage
 \section{Introducción}\label{sec:introduccion}
 \subsection{Motivación}\label{sec:motivacion}
+¿Por qué interesa realizar este trabajo?
+
+Empresas analizar tweets
+
 
 
 \subsection{Objetivos}\label{sec:objetivos}
-\subsection{Resumen del documento}\label{sec:resumen}
-\section{Estado del arte}\label{sec:estadodelarte}
+¿Qué planteamos construir?
 
+
+\subsection{Resumen del documento}\label{sec:resumen}
+TODO
+
+\section{Estado del arte}\label{sec:estadodelarte}
 En la actualidad, la normalización lingüística de tuits \citep{baldwin:2011} supone un campo de gran interés y en donde la mayoría de trabajos se han realizado sobre textos en inglés y pocos en español. Además no hay ningún trabajo en donde se incluya, dentro de la normalización de tuits, el estudio de los hashtags o etiquetas y los emoticonos, y su contexto. 
 Una introducción al tema de normalización de tuits es el artículo \citep{eisenstein:2013}, donde se revisa el estado del arte en NLP sobre variantes SMS y tuit, y cómo la comunidad científica ha respondido por dos caminos: normalización y adaptación de herramientas.
-El artículo \citep{baldwin:2011} es una buena referencia en el campo de la normalización de tuits en inglés. En donde para detectar palabras fuera de diccionario (OOV) utilizan GNU aspell, y los usuarios (@usuario), los hashtags y las URLs son excluidas de la normalización. En adaptación de herramientas es interesante el trabajo [9] que replantea el tema de reconocimiento de entidades nombradas en corpus de tuits. Combina un clasificador KNN con CRF (Conditional Random Fields).
+El artículo \citep{baldwin:2011} es una buena referencia en el campo de la normalización de tuits en inglés. En donde para detectar palabras fuera de diccionario (OOV) utilizan GNU aspell, y los usuarios (@usuario), los hashtags y las URLs son excluidas de la normalización. En adaptación de herramientas es interesante el trabajo \citep{liu:2011} que replantea el tema de reconocimiento de entidades nombradas en corpus de tuits. Combina un clasificador KNN con CRF (Conditional Random Fields).
 \\\\
-Una introducción a la normalización de tuits en español es \citep{alegria:2013}[6]. Utiliza la herramienta Freeling [10] para detectar palabras OOV. Uno de los sistemas de normalización de tuits en español, que participó en Tweet-Norm 2013 \citep{alegria:2013}, es \citep{ruizcuadros:2013}, que usa reglas de preproceso, un modelo de distancias de edición adecuado al dominio y modelos de lengua para seleccionar candidatos de corrección según el contexto. El sistema obtuvo resultados superiores a la media en la tarea \citep{alegria:2013}[11]. Una mejora a este trabajo por los mismos autores es \citep{ruizcuadros:2014}. En el trabajo \citep{cotelocruz:2015} hace uso de una combinación de varios “módulos expertos” independientes, cada uno especializado en una tarea concreta de la normalización de tuits, en lugar de centrarse en una sola técnica. En este trabajo además realiza un estado del arte actual de la normalización de tuits y en concreto para el idioma español.
+Una introducción a la normalización de tuits en español es \citep{alegria:2013}\citep{alegria:2015}. Utiliza la herramienta Freeling \citep{freeling} para detectar palabras OOV. Uno de los sistemas de normalización de tuits en español, que participó en Tweet-Norm 2013 \citep{alegria:2013}, es \citep{ruizcuadros:2013}, que usa reglas de preproceso, un modelo de distancias de edición adecuado al dominio y modelos de lengua para seleccionar candidatos de corrección según el contexto. El sistema obtuvo resultados superiores a la media en la tarea \citep{alegria:2013}\citep{tweetnorm}. Una mejora a este trabajo por los mismos autores es \citep{ruizcuadros:2014}. En el trabajo \citep{cotelocruz:2015} hace uso de una combinación de varios “módulos expertos” independientes, cada uno especializado en una tarea concreta de la normalización de tuits, en lugar de centrarse en una sola técnica. En este trabajo además realiza un estado del arte actual de la normalización de tuits y en concreto para el idioma español.
 \\\\
-Un campo muy relacionado con la normalización de tuits es el análisis de sentimientos y un trabajo que realiza un estudio sobre técnicas de análisis de sentimientos de tuits en español es [12]. El trabajo [13] se centra en una técnica Naive-Bayes para el análisis de sentimientos en tuits en español.
+Un campo muy relacionado con la normalización de tuits es el análisis de sentimientos y un trabajo que realiza un estudio sobre técnicas de análisis de sentimientos de tuits en español es \citep{fernandezanta:2013}. El trabajo \citep{gamallo:2013} se centra en una técnica Naive-Bayes para el análisis de sentimientos en tuits en español.
 \\\\
 Sistemas que participaron en la tarea Tweet-Norm 2013 y que son públicos:
-Vicomtech \citep{ruizcuadros:2013} \citep{ruizcuadros:2014} [14]
-RAE (Mejores resultados) [15]
+Vicomtech \citep{ruizcuadros:2013} \citep{ruizcuadros:2014} \citep{vicomtech}
+RAE (Mejores resultados) \citep{porta:2013}
 
 \section{Análisis y diseño}\label{sec:analisisydiseno}
 \subsection{Metodología de desarrollo}\label{sec:metodologiadedesarrollo}
@@ -201,7 +209,6 @@ RAE (Mejores resultados) [15]
 \subsection{Apéndice A: Bibliografía}\label{sec:bibliografia}
 \bibliographystyle{plainnat}
 \bibliography{References}
-
 
 \newpage
 \subsection{Apéndice B: Glosario de Términos}\label{sec:glosariodeterminos}
