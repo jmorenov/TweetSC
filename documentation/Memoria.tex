@@ -1,172 +1,116 @@
-\documentclass[14pt]{extarticle}
+\documentclass[spanish,12pt, a4paper,twoside]{paper}
 
-% Esto es para poder escribir acentos directamente:
-\usepackage[utf8]{inputenc}
-% Esto es para que el LaTeX sepa que el texto est en espaol:
+\let\oldsection\section
+\def\section{\cleardoublepage\oldsection}
+
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+\usepackage[textwidth=15cm, textheight=22.5cm, top=3.5cm, bottom=3.5cm,left= 4cm,right=2cm]{geometry}
+
+
 \usepackage[spanish, activeacute]{babel}
-
-% Paquetes de la AMS:
-\usepackage{amsmath, amsthm, amsfonts}
-
-\usepackage{extsizes}
-
-\usepackage{pdflscape}
-\usepackage{fontawesome}
-
-\usepackage[round]{natbib}
+%\usepackage[applemac]{inputenc} 
+\usepackage[utf8]{inputenc}
 
 \usepackage{graphicx}
-\graphicspath{ {./images/} }
+\usepackage{graphics}
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+\usepackage{changepage}
+\usepackage{subcaption}
 
-\usepackage[margin=1in]{geometry}
-
-\usepackage{listings}
-\usepackage{natbib}
 \usepackage{url}
 \usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage{algorithm}
 \usepackage{multirow}
-\usepackage{xifthen}
-\usepackage{tabularx}
-
-% Teoremas
-%--------------------------------------------------------------------------
-\newtheorem{thm}{Teorema}[section]
-\newtheorem{cor}[thm]{Corolario}
-\newtheorem{lem}[thm]{Lema}
-\newtheorem{prop}[thm]{Proposicin}
-\theoremstyle{definition}
-\newtheorem{defn}[thm]{Definicin}
-\theoremstyle{remark}
-\newtheorem{rem}[thm]{Observacin}
-
-% Atajos.
-% Se pueden definir comandos nuevos para acortar cosas que se usan
-% frecuentemente. Como ejemplo, aqu se definen la R y la Z dobles que
-% suelen representar a los conjuntos de nmeros reales y enteros.
-%--------------------------------------------------------------------------
-
-\def\RR{\mathbb{R}}
-\def\ZZ{\mathbb{Z}}
-
-% De la misma forma se pueden definir comandos con argumentos. Por
-% ejemplo, aqu definimos un comando para escribir el valor absoluto
-% de algo ms fcilmente.
-%--------------------------------------------------------------------------
-\newcommand{\abs}[1]{\left\vert#1\right\vert}
-
-\newcommand{\newtableitem}[1] {
-	\multicolumn{4}{|l|}{· #1} \\
-}
-
-\newcommand{\newtableline}[1] { %55 caracteres
-	\multicolumn{4}{|l|}{#1} \\
-}
-
-\newcommand{\userstory}[9]{
-	\begin{center}
-	\resizebox{15cm}{!} {
-	\begin{tabular}{|c|c|c|c|}
-    	\hline 
-		\multicolumn{4}{|c|}{\textbf{#1}} \\
-		\multicolumn{4}{|c|}{} \\
-		\hline	
-		\textbf{Identificador:} #2 & \textbf{Prioridad:} #3 & \textbf{Iteración:} #4 & \textbf{Puntos de historia:} #5 \\ 
-		\hline 
-		\multicolumn{4}{|l|}{\textbf{Descripción:}} \\
-		#6
-		\hline 
-		\multicolumn{4}{|l|}{\textbf{Tareas:}} \\
-		#7
-		\hline 
-		\multicolumn{4}{|l|}{\textbf{Pruebas de aceptación:}} \\
-		#8
-		\hline 
-		\multicolumn{4}{|l|}{\textbf{Observaciones:}} \\
-		#9
-		\hline 
-	\end{tabular}
-	}
-	\end{center}
-}
-
-\newcommand{\sprinttask}[2] {
-	\multicolumn{1}{|>{\hsize=\dimexpr1\hsize+1\tabcolsep+\arrayrulewidth\relax}X|}{#1} & \multicolumn{3}{|>{\hsize=\dimexpr3\hsize+3\tabcolsep+\arrayrulewidth\relax}X|}{#2}\\
-}
-
-\newcommand{\sprint}[4]{
-	\begin{center}
-	\begin{tabularx}{\textwidth}{|X|X|X|X|}
-    	\hline 
-		\multicolumn{2}{|>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X|}{\textbf{Sprint:} #1} &
-		\multicolumn{2}{|>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X|}{\textbf{Inicio:} #2} \\
-		\hline 
-		Versión & \multicolumn{3}{|>{\hsize=\dimexpr3\hsize+3\tabcolsep+\arrayrulewidth\relax}X|}{#4} \\
-		\hline 
-		Identificador & \multicolumn{3}{|>{\hsize=\dimexpr3\hsize+3\tabcolsep+\arrayrulewidth\relax}X|}{Historia de usuario} \\
-		\hline
-		#3
-		\hline 
-	\end{tabularx}
-	\end{center}
-}
-
-% Operadores.
-% Los operadores nuevos deben definirse como tales para que aparezcan
-% correctamente. Como ejemplo definimos en jacobiano:
-%--------------------------------------------------------------------------
-\DeclareMathOperator{\Jac}{Jac}
-
-%--------------------------------------------------------------------------
-%\title{Trabajo Fin de Máster \\  TweetSC: Corrector de texto para twitter.}
-%\author{Javier Moreno}
 \begin{document}
 %\maketitle
+%\thispagestyle{empty}
 \begin{titlepage}
 
-\begin{center}
-\vspace*{-1in}
-\begin{figure}[htb]
-\begin{center}
-\includegraphics[scale=0.8]{logoUPM.jpg}
-\end{center}
-\end{figure}
-ESCUELA TÉCNICA SUPERIOR DE INGENIEROS INFORMÁTICOS\\
-\vspace*{0.15in}
-MÁSTER UNIVERSITARIO EN INTELIGENCIA ARTIFICIAL \\
-\vspace*{0.6in}
-\begin{large}
-TRABAJO DE FIN DE MÁSTER:\\
-\end{large}
-\vspace*{0.2in}
-\begin{Large}
-\textbf{TWEETSC: CORRECTOR DE TEXTO PARA TWITTER} \\
-\end{Large}
-\vspace*{0.3in}
-\begin{large}
-JAVIER MORENO VEGA\\
-\end{large}
-\vspace*{0.3in}
-\rule{80mm}{0.1mm}\\
-\vspace*{0.1in}
-\begin{large}
-TUTOR DE PROYECTO: \\
-OSCAR CORCHO GARCÍA \\
-\vspace*{0.3in}
-CO-TUTOR DE PROYECTO: \\
-VÍCTOR RODRÍGUEZ DONCEL \\
-\end{large}
-\vspace*{2in}
-\url{http://tweetsc.github.io}
-\vspace*{0.2in}\\
-\today
-\end{center}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%	HEADING SECTIONS
+\includegraphics[width=2.25cm]{recursos/logoFi.png}
+  \hspace{8cm}
+\includegraphics[width=2cm]{recursos/logoupm.png}
+\\[1cm]
+
+\textsc{\Large Escuela Técnica Superior de Ingenieros Informáticos}\\[0.5cm]
+\textsc{\large Universidad Polítecnica de Madrid}
+\\[3cm]
+
+
+%	TITLE SECTION
+ \HRule \\[0.4cm]
+{ \huge \bfseries TweetSC: Corrector de texto para twitter}\\[0.4cm] % Title of your document
+\HRule \\[2.5cm]
+
+\textsc{\LARGE Trabajo Fin de Máster}\\[0.5cm] 
+\textsc{\Large Máster Universitario en Inteligencia Artificial }\\[2.5cm]
+
+ %	AUTHOR SECTION
+\begin{flushright}
+\large
+AUTOR: Javier Moreno Vega\\
+TUTOR/ES: Óscar Corcho García y \linebreak
+                    Víctor Rodríguez Doncel
+\end{flushright}
+
+%\vspace{0.5cm}
+
+%	URL SECTION
+{{\url{https://tweetsc.github.io}}}\\[1cm]
+
+%\vspace{0.5cm}
+
+%	DATE SECTION
+{ {\today}}\\[1cm]
+
+\vfill % Fill the rest of the page with whitespace
+
 \end{titlepage}
+
+\afterpage{\blankpage}
+\pagenumbering{roman}
+
+%	RESUMEN
+\section*{RESUMEN}
+Extensión máxima de una página
+
+
+%	SUMMARY
+\section*{SUMMARY}
+Extensión máxima de una página
+
+
+%	ÍNDICE
+\tableofcontents % indice de contenidos
+
+
+
+%	INDICE DE FIGURAS Y TABLAS
+\listoffigures
+\listoftables
+
+
+
+%	CAPÍTULOS DEL TRABAJO FIN DE MÁSTER
 \newpage
-\tableofcontents % índice de contenidos
-\cleardoublepage
+\pagenumbering{arabic} 
+
 \section{Introducción}\label{sec:introduccion}
 \subsection{Motivación}\label{sec:motivacion}
-Los nuevos sistemas de comunicación como la mensajería instantánea, chats, redes sociales han generado un uso diferente de los idiomas en estos ámbitos, llamado lenguaje tipo chat \citep{forsyth:2007}. Una de estas redes sociales y en la que este trabajo va a centrarse es Twitter. En esta red social predomina el Uso de emoticonos, repetición de vocales o eliminación de las mismas, uso abusivo de mayúsculas o asusencia, siglas de expresiones populares; lo que dificulta el análisis de los textos. Las ventajas que ofrece esta red social para investigar sobre ella son la cantidad de datos en tiempo real y su fácil acceso.\\\\Uno de los principales problemas a la hora de analizar textos procedentes de las redes sociales son los errores gramaticales que suelen contener, así como la presencia de elementos propios de este tipo de foros que requieren de un procesamiento especial (i.e. hashtags, formas de mencionar a otros usuarios o emoticonos y expresiones habituales en las redes). Además, la limitación en el número de caracteres existente en Twitter la convierte en un caso singular dentro de las redes sociales, ya que los usuarios tienden a adaptar su forma de escribir a dicha limitación, omitiendo palabras y creando abreviaturas que dificultan el uso de herramientas genéricas de procesamiento del lenguaje, especialmente a la hora de realizar tareas como el Análisis de Sentimientos.\\\\Los usuarios en twitter tienden a cometer errores tipográficos, abreviaciones, sustituciones fonéticas y estructuras no gramaticales en los mensajes cortos de texto, causando problemas en las herramientas de análisis. Esto es lo que se consideran palabras mal formadas y la detección de las palabras mal formadas es difícil debido al contexto ruidoso. El objetivo es normalizar estas palabra mal formadas.\\A parte de un uso puramente de investigación, este tipo de trabajo también es beneficioso para un estudio de marcas o personas y sobre lo que las persones opinan sobre ello en las redes social, ya que sin el proceso de normalización y análisis de sentimientos estariamos ante millones de datos que costarían mucho trabajo analizar de una forma automática.
+Los nuevos sistemas de comunicación como la mensajería instantánea, chats, redes sociales han generado un uso diferente de los idiomas en estos ámbitos, llamado lenguaje tipo chat \cite{forsyth:2007}. Una de estas redes sociales y en la que este trabajo va a centrarse es Twitter. En esta red social predomina el Uso de emoticonos, repetición de vocales o eliminación de las mismas, uso abusivo de mayúsculas o asusencia, siglas de expresiones populares; lo que dificulta el análisis de los textos. Las ventajas que ofrece esta red social para investigar sobre ella son la cantidad de datos en tiempo real y su fácil acceso.\\\\Uno de los principales problemas a la hora de analizar textos procedentes de las redes sociales son los errores gramaticales que suelen contener, así como la presencia de elementos propios de este tipo de foros que requieren de un procesamiento especial (i.e. hashtags, formas de mencionar a otros usuarios o emoticonos y expresiones habituales en las redes). Además, la limitación en el número de caracteres existente en Twitter la convierte en un caso singular dentro de las redes sociales, ya que los usuarios tienden a adaptar su forma de escribir a dicha limitación, omitiendo palabras y creando abreviaturas que dificultan el uso de herramientas genéricas de procesamiento del lenguaje, especialmente a la hora de realizar tareas como el Análisis de Sentimientos.\\\\Los usuarios en twitter tienden a cometer errores tipográficos, abreviaciones, sustituciones fonéticas y estructuras no gramaticales en los mensajes cortos de texto, causando problemas en las herramientas de análisis. Esto es lo que se consideran palabras mal formadas y la detección de las palabras mal formadas es difícil debido al contexto ruidoso. El objetivo es normalizar estas palabra mal formadas.\\A parte de un uso puramente de investigación, este tipo de trabajo también es beneficioso para un estudio de marcas o personas y sobre lo que las persones opinan sobre ello en las redes social, ya que sin el proceso de normalización y análisis de sentimientos estariamos ante millones de datos que costarían mucho trabajo analizar de una forma automática.
 
 \subsection{Objetivos}\label{sec:objetivos}
 El objetivo principal de este trabajo es la creación de un corrector que "normalice" tweets en español.\\Para cumplir con este objetivo principal se ha dividido en los siguientes subobjetivos.
@@ -176,7 +120,7 @@ El objetivo principal de este trabajo es la creación de un corrector que "norma
 \item Expandir hashtags
 \item Procesar las conversaciones de los tweets, así como las URLs o imágenes para añadir contexto
 \end{itemize}
-Estos subojetivos se cumplirán con su implementación en un módulo software que además estará disponible en una aplicación web \citep{tweetscweb}.
+Estos subojetivos se cumplirán con su implementación en un módulo software que además estará disponible en una aplicación web \cite{tweetscweb}.
 
 \subsection{Resumen del documento}\label{sec:resumen}
 Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado.\\\\
@@ -186,41 +130,75 @@ Posteriormente se plantea la implementación que se ha seguido entrando en detal
 Por último se muestran unas conclusiones, incluyendo un resumen del trabajo desarrollado y los objetivos conseguidos.
 \section{Estado del arte}\label{sec:estadodelarte}
 \subsection{Introducción}\label{introduccion}
-En la actualidad, la normalización lingüística de tweets \citep{baldwin:2011} supone un campo de gran interés y en donde la mayoría de trabajos se han realizado sobre textos en inglés y pocos en español. Además no hay ningún trabajo en donde se incluya, dentro de la normalización de tuits, el estudio de los hashtags o etiquetas y los emoticonos, y su contexto. 
-Una introducción al tema de normalización de tuits es el artículo \citep{eisenstein:2013}, donde se revisa el estado del arte en NLP sobre variantes SMS y tweets, y cómo la comunidad científica ha respondido por dos caminos: normalización y adaptación de herramientas.
+En la actualidad, la normalización lingüística de tweets \cite{baldwin:2011} supone un campo de gran interés y en donde la mayoría de trabajos se han realizado sobre textos en inglés y pocos en español. Además no hay ningún trabajo en donde se incluya, dentro de la normalización de tuits, el estudio de los hashtags o etiquetas y los emoticonos, y su contexto. 
+Una introducción al tema de normalización de tuits es el artículo \cite{eisenstein:2013}, donde se revisa el estado del arte en NLP sobre variantes SMS y tweets, y cómo la comunidad científica ha respondido por dos caminos: normalización y adaptación de herramientas.
 \subsection{Normalización}\label{normalizacion}
-El modelo de canal ruidoso \citep{shannon:1948} ha sido tradicionalmente la primera aproximación a la normalización de textos. Supone que el texto mal formado es T y su forma normalizada es S, por lo que hay que encontrar: arg max $P(S|T)$, calculando arg max $P(T|S) P(S)$, P(S) es el modelo del lenguaje y $P(T|S)$ es el modelo de error. \citep{brillmoore:2000} caracterizan el modelo de error calculando el producto de operaciones de probabilidad en partes de cadenas de caracteres. \citep{toutanovamoore:2002} mejoraron el modelo incorporando información de la pronunciación. \citep{choudhury:2007} modela el proceso de generación de texto a nivel de palabra para mensajes SMS considerando las abreviaturas grafémicas/fonéticas y los errores tipográficos involuntarios como transiciones de estado ocultas del modelo de Markov (HMM) y emisiones, respectivamente. \citep{cookstevenson:2009} expandieron el modelo de error introduciendo inferencias de diferentes procesos de formación erróneos, de acuerdo con la distribución de errores muestreada.\\\\Mientras el modelo de canal ruidoso es apropiado para normalización de textos, es difícil aproximar la normalización con exactitud, además estos métodos ignoran el contexto alrededor del OOV, el cual ayuda a resolver ambigüedades. La traducción automática estadística (SMT) se ha propuesto como un medio de normalización de texto sensible al contexto, al tratar el texto mal formado como el idioma de origen, y la forma estándar como el idioma de destino. Por ejemplo \citep{aw:2006}. Normalización de textos como un problema de reconocimiento de voz \citep{kobus:2008}. \citep{beaufort:2002} métodos de estado finitos combinando las ventajas de SMS y el modelo de canal ruidoso. \citep{kaufmannkalita:2010} usan un enfoque de traducción automática con un preprocesador para la normalización sintáctica (en lugar de léxica).\\\\El problema de estos trabajos anteriores es que requieren datos de entrenamiento anotados a gran escala, lo que limita su adaptabilidad a nuevos dominios o idiomas, mientras que el trabajo \citep{baldwin:2011} no. Este trabajo es una buena referencia en el campo de la normalización de tuits en inglés. En donde para detectar palabras fuera de diccionario (OOV) utilizan GNU aspell, y los usuarios (@usuario), los hashtags y las URLs son excluidas de la normalización. La normalización tiene relación con los correctores de texto \citep{peterson:1980} pero difiere en que las palabras mal formadas en los mensajes de texto suelen ser intencionadas, para ahorrar caracteres, como identidad social, o debido a la convención en este subgénero de texto. La detección de las palabras mal formadas es difícil debido al contexto ruidoso. El objetivo es normalizar estas palabra mal formadas, además muchas palabras mal formadas son ambiguas y requieren el contexto para poder normalizarlas.
+El modelo de canal ruidoso \cite{shannon:1948} ha sido tradicionalmente la primera aproximación a la normalización de textos. Supone que el texto mal formado es T y su forma normalizada es S, por lo que hay que encontrar: arg max $P(S|T)$, calculando arg max $P(T|S) P(S)$, P(S) es el modelo del lenguaje y $P(T|S)$ es el modelo de error. \cite{brillmoore:2000} caracterizan el modelo de error calculando el producto de operaciones de probabilidad en partes de cadenas de caracteres. \cite{toutanovamoore:2002} mejoraron el modelo incorporando información de la pronunciación. \cite{choudhury:2007} modela el proceso de generación de texto a nivel de palabra para mensajes SMS considerando las abreviaturas grafémicas/fonéticas y los errores tipográficos involuntarios como transiciones de estado ocultas del modelo de Markov (HMM) y emisiones, respectivamente. \cite{cookstevenson:2009} expandieron el modelo de error introduciendo inferencias de diferentes procesos de formación erróneos, de acuerdo con la distribución de errores muestreada.\\\\Mientras el modelo de canal ruidoso es apropiado para normalización de textos, es difícil aproximar la normalización con exactitud, además estos métodos ignoran el contexto alrededor del OOV, el cual ayuda a resolver ambigüedades. La traducción automática estadística (SMT) se ha propuesto como un medio de normalización de texto sensible al contexto, al tratar el texto mal formado como el idioma de origen, y la forma estándar como el idioma de destino. Por ejemplo \cite{aw:2006}. Normalización de textos como un problema de reconocimiento de voz \cite{kobus:2008}. \cite{beaufort:2002} métodos de estado finitos combinando las ventajas de SMS y el modelo de canal ruidoso. \cite{kaufmannkalita:2010} usan un enfoque de traducción automática con un preprocesador para la normalización sintáctica (en lugar de léxica).\\\\El problema de estos trabajos anteriores es que requieren datos de entrenamiento anotados a gran escala, lo que limita su adaptabilidad a nuevos dominios o idiomas, mientras que el trabajo \cite{baldwin:2011} no. Este trabajo es una buena referencia en el campo de la normalización de tuits en inglés. En donde para detectar palabras fuera de diccionario (OOV) utilizan GNU aspell, y los usuarios (@usuario), los hashtags y las URLs son excluidas de la normalización. La normalización tiene relación con los correctores de texto \cite{peterson:1980} pero difiere en que las palabras mal formadas en los mensajes de texto suelen ser intencionadas, para ahorrar caracteres, como identidad social, o debido a la convención en este subgénero de texto. La detección de las palabras mal formadas es difícil debido al contexto ruidoso. El objetivo es normalizar estas palabra mal formadas, además muchas palabras mal formadas son ambiguas y requieren el contexto para poder normalizarlas.
 \subsection{Adaptación de herramientas}\label{adaptaciondeherramientas}
-En vez de adaptar el texto a herramientas de análisis otro de los caminos a seguir es adaptar las herramientas de análisis al texto. Destacan los trabajos de reconocimiento de voz \citep{gimpel:2011}; \citep{owoputi:2013}, reconocimiento de entidades \citep{finin:2010}; \citep{ritter:2011}; \citep{liu:2011}, análisis gramatical \citep{foster:2011}, modelización de diálogos \citep{ritter:2010} y resumen \citep{sharifi:2010}. El trabajo \citep{liu:2011} sobre NER (reconocimiento de entidades) replantea el tema de reconocimiento de entidades nombradas en corpus de tuits. Combina un clasificador KNN con CRF (Conditional Random Fields).
+En vez de adaptar el texto a herramientas de análisis otro de los caminos a seguir es adaptar las herramientas de análisis al texto. Destacan los trabajos de reconocimiento de voz \cite{gimpel:2011}; \cite{owoputi:2013}, reconocimiento de entidades \cite{finin:2010}; \cite{ritter:2011}; \cite{liu:2011}, análisis gramatical \cite{foster:2011}, modelización de diálogos \cite{ritter:2010} y resumen \cite{sharifi:2010}. El trabajo \cite{liu:2011} sobre NER (reconocimiento de entidades) replantea el tema de reconocimiento de entidades nombradas en corpus de tuits. Combina un clasificador KNN con CRF (Conditional Random Fields).
 \subsection{Normalización en espa'nol}\label{normalzacionenespanol}
-Una introducción a la normalización de tuits en español es \citep{alegria:2013}\citep{alegria:2015}. Utiliza la herramienta Freeling \citep{freeling} para detectar palabras OOV. Uno de los sistemas de normalización de tuits en español, que participó en Tweet-Norm 2013 \citep{alegria:2013}, es \citep{ruizcuadros:2013}\citep{vicomtech}, que usa reglas de preproceso, un modelo de distancias de edición adecuado al dominio y modelos de lengua para seleccionar candidatos de corrección según el contexto. El sistema obtuvo resultados superiores a la media en la tarea \citep{alegria:2013}\citep{tweetnorm}. Una mejora a este trabajo por los mismos autores es \citep{ruizcuadros:2014}. El trabajo que mejores resultados obtuvo en Tweet-Norm 2013 fue RAE \citep{porta:2013}, consiste en transductores que se aplican a tokens OOV. Los transductores implementan modelos lingüísticos de variación que generan conjuntos de candidatos de acuerdo con un léxico. Se usa un modelo de lenguaje estadístico para obtener la secuencia de palabras más probable. En el trabajo \citep{cotelocruz:2015} hace uso de una combinación de varios “módulos expertos” independientes, cada uno especializado en una tarea concreta de la normalización de tuits, en lugar de centrarse en una sola técnica. En este trabajo además realiza un estado del arte actual de la normalización de tuits y en concreto para el idioma español. Otros trabajos sobre normalización en español son \citep{gomezhidalgo:2013} \citep{mosquera:2012} \citep{oliva:2011} principalmente sobre mensajes SMS, pero que no abordan la normalización de tuits en su conjunto.
+Una introducción a la normalización de tuits en español es \cite{alegria:2013}\cite{alegria:2015}. Utiliza la herramienta Freeling \cite{freeling} para detectar palabras OOV. Uno de los sistemas de normalización de tuits en español, que participó en Tweet-Norm 2013 \cite{alegria:2013}, es \cite{ruizcuadros:2013}\cite{vicomtech}, que usa reglas de preproceso, un modelo de distancias de edición adecuado al dominio y modelos de lengua para seleccionar candidatos de corrección según el contexto. El sistema obtuvo resultados superiores a la media en la tarea \cite{alegria:2013}\cite{tweetnorm}. Una mejora a este trabajo por los mismos autores es \cite{ruizcuadros:2014}. El trabajo que mejores resultados obtuvo en Tweet-Norm 2013 fue RAE \cite{porta:2013}, consiste en transductores que se aplican a tokens OOV. Los transductores implementan modelos lingüísticos de variación que generan conjuntos de candidatos de acuerdo con un léxico. Se usa un modelo de lenguaje estadístico para obtener la secuencia de palabras más probable. En el trabajo \cite{cotelocruz:2015} hace uso de una combinación de varios “módulos expertos” independientes, cada uno especializado en una tarea concreta de la normalización de tuits, en lugar de centrarse en una sola técnica. En este trabajo además realiza un estado del arte actual de la normalización de tuits y en concreto para el idioma español. Otros trabajos sobre normalización en español son \cite{gomezhidalgo:2013} \cite{mosquera:2012} \cite{oliva:2011} principalmente sobre mensajes SMS, pero que no abordan la normalización de tuits en su conjunto.
 \subsection{Análisis de sentimientos}\label{analisisdesentimientos}
-Un campo muy relacionado con la normalización de tuits es el análisis de sentimientos y un trabajo que realiza un estudio sobre técnicas de análisis de sentimientos de tuits en español es \citep{fernandezanta:2013}. El trabajo \citep{gamallo:2013} se centra en una técnica Naive-Bayes para el análisis de sentimientos en tuits en español.
-\section{Análisis y diseño}\label{sec:analisisydiseno}
-En esta sección se explica el análisis que se ha realizado para la construcción de este proyecto junto con la solución propuesta.
-\subsection{Metodología de desarrollo}\label{sec:metodologiadedesarrollo}
+Un campo muy relacionado con la normalización de tuits es el análisis de sentimientos y un trabajo que realiza un estudio sobre técnicas de análisis de sentimientos de tuits en español es \cite{fernandezanta:2013}. El trabajo \cite{gamallo:2013} se centra en una técnica Naive-Bayes para el análisis de sentimientos en tuits en español.
 
-
-\subsection{Análisis de requisitos}\label{sec:analisisderequisitos}
-
-\subsection{Solución propuesta}\label{sec:solucionpropuesta}
+\section{Solución propuesta}\label{sec:solucionpropuesta}
+La solución propuesta y a la que hemos llamado TweetSC (Tweet Spell Checker) \cite{tweetscweb} se llegó a ella a partir de varios análisis y evaluaciones que se hicieron con diversas bibliotecas y algoritmos, y todos ellos se pueden encontrar en la solución final para su uso.\\\\
+En la primera versión de nuestra solución se construyó un corrector de texto sencillo basándonos en el creado por Peter Norvig \cite{peternorvig}, el cuál utiliza un diccionario para seleccionar las palabras incorrectas y las corrige mediante el teorema de Bayes usando probabilidades. Se usa la fórmula: $argmax_{c\ \in\  candidates}P(c|w)$, que mediante el teorema de Bayes es equivalente a: $argmax_{c\ \in\  candidates}P(c) P(w|c) / P(w)$, y como P(w)es igual para cada candidato c: $argmax_{c\ \in\  candidates}P(c) P(w|c)$. Esta fórmula trata de seleccionar el candidato de probabilidad máxima para cada palabra. Para calcular la probabilidad se usan dos diccionarios, uno de palabras en Español y otro de nombres propios. Se utilizó esta primera versión como punto de partida e ir creando versiones más avanzadas.\\\\
+Para mejorar la versión inicial se hizo uso de la biblioteca Stanford NLP \cite{stanfordnlp}. Esta biblioteca creada por Stanford NLP Group ofrece tanto etiquetado gramatical (POS Tagging o POST) cómo deteccion de etiquetas (Named Entity Recognition o NER), y ambas funcionalidades fueron usadas para nuestra solución.\\\\
+Además se ha utilizado la API ofrecida por IBM \cite{ibmwatsonnlu} para análisis de lenguaje y cómo con la biblioteca de Stanford la utilizamos tanto para POST como NER.\\\\
+Tras utilizar estas dos tecnologías en la primera fase llamada preproceso, dónde se seleccionan las palabras incorrectas y se generan los candidatos, utilizaremos los Modelos de Markov (MMO) y n-gramas para seleccionar el candidato final para cada palabra incorrecta.\\\\
+Cómo se utilizan varias tecnologías y algoritmos en las diferentes fases se ha utilizado un estudio y evaluación de cuál es el mejor para la solución final.\\\\
+Para facilitar el uso de nuestra solución con tweets de twitter se ha definido una conexión con su API para acceder a los mismos.
 
 
 \section{Implementación}\label{sec:implementacion}
+En esta sección se pretende explicar toda la implementación software que se ha realizado de nuestra solución. Primero se realizará una introducción comentando lenguajes y herramientas utilizadas. Segundo unos instrucciones sobre dónde encontrar y cómo utilizar nuestro software . Y por último la documentación generada del código fuente.
 \subsection{Introducción}\label{sec:introduccion}
-\subsection{Cómo usarlo}\label{sec:readmegithub}
+La implementación se ha realizado en tres módulos o componentes, por una parte tenemos la biblioteca con la funcionalidad necesaria para corregir textos de twitter y acceder a su API, después un modulo que es la aplicación web y por último otro que ofrece funcionalidad para utilizar la biblioteca desde línea de comandos.\\\\
+El lenguaje utilizado en todo el proyecto ha sido Java y hemos hecho uso de Google Cloud Engine \cite{googlecloudengine} para que la aplicación web esté disponible para cualquier usuario \cite{tweetscweb:spellchecker}. Además de Gradle para compilar el código.
+\subsection{Cómo usarlo}\label{sec:comousarlo}
+Para utilizar nuestro software primero es necesario tener instalado Git y Java 1.8. Después realizar un clonado del código fuente: 
+\begin{verbatim}
+git clone https://github.com/jmorenov/TweetSC
+\end{verbatim}
+Posteriormente se compila el código con gradle: 
+\begin{verbatim}
+gradlew clean build && gradlew createJar
+\end{verbatim}
+y para ejecutarlo:
+\begin{verbatim}
+java -jar org.jmorenov.tweetsc-0.3.0-alpha.jar -text "Texto de prueba"
+\end{verbatim}
+
 \subsection{Documentación del código}\label{sec:javadoc}
+
+
 \section{Evaluación}\label{sec:evaluacion}
+Esta sección describe la evaluación que se ha hecho de la solución propuesta. Primero se define la metodología utilizada para evaluar la solución, en segundo lugar explicamos el corpus utilizado como datos de entrada, posteriormente el gold standard actual y por último los experimentos que hemos realizada con sus resultados.
 \subsection{Metodología}\label{sec:metodologia}
+
 \subsection{Corpus}\label{sec:corpus}
-\subsection{Gold Standard}\label{sec:goalstandard}
+\subsection{Gold Standard}\label{sec:goldstandard}
 \subsection{Experimentos}\label{sec:experimentos}
-\section{Conclusiones y vías futuras}\label{conclusionesyviasfuturas}
-\section{Apéndices}\label{sec:apendices}
-\subsection{Apéndice A: Bibliografía}\label{sec:bibliografia}
-\bibliographystyle{plainnat}
+
+
+\section{Conclusiones}\label{conclusiones}
+Resumen corto del proyecto (el largo en la primera hoja)
+Demostrar que se han cumplido los objetivos mientras se redacta el resumen
+
+Se puede concluir que se han conseguido los objetivos planificados al inicio del proyecto: ...
+
+\section{Líneas Futuras}\label{lineasfuturas}
+Hacía donde mejorar el proyecto
+Mejoras futuras
+Que podríamos hacer hecho mejor
+
+\section*{ANEXOS}
+
+%	REFERENCIAS
+\newpage
+
+\bibliographystyle{plain}
 \bibliography{References}
 
-\newpage
-\subsection{Apéndice B: Glosario de Términos}\label{sec:glosariodeterminos}
 \end{document}

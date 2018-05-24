@@ -110,5 +110,8 @@ ENV/
 *.synctex.gz
 *.toc
 *.bbl
+*.lof
+*.lot
+
 
 *.iml
