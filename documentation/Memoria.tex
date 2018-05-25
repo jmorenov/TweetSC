@@ -171,33 +171,37 @@ java -jar org.jmorenov.tweetsc-0.3.0-alpha.jar -text "Texto de prueba"
 \end{verbatim}
 
 \subsection{Documentación del código}\label{sec:javadoc}
-
+(Javadoc del código)
 
 \section{Evaluación}\label{sec:evaluacion}
 Esta sección describe la evaluación que se ha hecho de la solución propuesta. Primero se define la metodología utilizada para evaluar la solución, en segundo lugar explicamos el corpus utilizado como datos de entrada, posteriormente el gold standard actual y por último los experimentos que hemos realizada con sus resultados.
 \subsection{Metodología}\label{sec:metodologia}
+La metodología que hemos seguido ha sido la misma que en la tarea compartida Tweet-Norm 2013 \cite{tweetnorm}. Ellos utilizan como medida de evaluación la corrección de errores, sólo tiene en cuenta si la forma propuesta es correcta en base a los criterios: \textbf{correcta} si la forma original era correcta y no se ha realizado ninguna normalización o si la forma original era incorrecta y el candidato seleccionado es el correcto; \textbf{errónea} en cualquier otro caso. La evaluación final es el número de decisiones realizadas correctamente sobre el total de palabras OOV.
 
 \subsection{Corpus}\label{sec:corpus}
-\subsection{Gold Standard}\label{sec:goldstandard}
-\subsection{Experimentos}\label{sec:experimentos}
+El corpus utilizado es el mismo que en la tarea compartida Tweet-Norm 2013 \cite{tweetnorm}, en donde utilizan dos subconjuntos uno de desarrollo con 500 tweets y otro de evaluación con 600 tweets.
 
+\subsection{Gold Standard}\label{sec:goldstandard}
+Nuestro gold standard ha sido el sistema propuesto RAE \cite{porta:2013} en Tweet-Norm 2013 \cite{tweetnorm} donde consiguieron un resultado de 0.781 de precisión. Su sistema se basa en trasductores de estados finitos con pesos. 
+
+\subsection{Experimentos}\label{sec:experimentos}
+(Experimentos realizados)
 
 \section{Conclusiones}\label{conclusiones}
-Resumen corto del proyecto (el largo en la primera hoja)
-Demostrar que se han cumplido los objetivos mientras se redacta el resumen
-
-Se puede concluir que se han conseguido los objetivos planificados al inicio del proyecto: ...
+El proyecto realizado está compuesto de una parte de investigación, cómo se demuestra con el estado del arte y las diferentes soluciones que se han ido realizando hasta llegar a nuestra solución final. Además de la otra parte de desarrollo e implementación de software, ofrenciéndolo para todos en código abierto y en una aplicación web \cite{tweetscweb}.\\\\
+Este desarrollo software se ha dividido en tres componentes o módulos:
+\begin{itemize}
+	\item TweetSCCore: Núcleo del proyecto con la funcionalidad para corregir textos de twitter.
+	\item TweetSCWeb: Aplicación web para corregir textos.
+	\item TweetSCExecutable: Ejecutable java para corregir textos desde línea de comandos.
+\end{itemize}
+Se puede concluir que nuestro objetivo era construir un corrector de texto para twitter (\hyperref[sec:objetivos]{sección 1.2}) y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{3}, \hyperref[sec:implementacion]{sección 4} y \hyperref[sec:implementacion]{5}.
 
 \section{Líneas Futuras}\label{lineasfuturas}
-Hacía donde mejorar el proyecto
-Mejoras futuras
-Que podríamos hacer hecho mejor
+Las líneas futuras son muy ámplias ya que estamos en un tema bastante reciente, sobre todo en español, y se los resultados se pueden mejorar de bastantes formas.
 
 \section*{ANEXOS}
-
 %	REFERENCIAS
-\newpage
-
 \bibliographystyle{plain}
 \bibliography{References}
 
