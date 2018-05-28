@@ -9,7 +9,7 @@ public class SpellChecker {
     private POSTagging _post;
 
     public SpellChecker(String text) {
-        _post = new StanfordNLP(text);
+        //_post = new StanfordNLP(text);
     }
 
     public ArrayList<String> words() {

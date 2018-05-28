@@ -1,10 +1,13 @@
 package com.jmorenov.tweetscweb;
 
+import com.jmorenov.tweetsccore.spellchecker.SpellCheckerByDictionary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
+
+import java.io.IOException;
 
 @Controller
 public class TweetCorrectorController {
@@ -16,8 +19,12 @@ public class TweetCorrectorController {
 
     @PostMapping("/")
     public String homeSubmit(@ModelAttribute TweetModel tweetModel) {
-        SpellChecker spellChecker = new SpellChecker(tweetModel.getContent());
-        tweetModel.setCorrectedContent(spellChecker.correct());
+        try {
+            SpellCheckerByDictionary spellChecker = new SpellCheckerByDictionary();
+            tweetModel.setCorrectedContent(spellChecker.correctText(tweetModel.getContent()));
+        } catch (IOException ex) {
+            tweetModel.setCorrectedContent("Error loading files!");
+        }
 
         return "tweet-corrector-result";
     }

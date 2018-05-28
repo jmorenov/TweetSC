@@ -14,6 +14,8 @@ git clone https://github.com/jmorenov/TweetSC
 ```
 gradlew clean build
 gradlew createJar
+gradlew appengineRun
+gradlew appengineDeploy
 ```
 
 ## How to run an example

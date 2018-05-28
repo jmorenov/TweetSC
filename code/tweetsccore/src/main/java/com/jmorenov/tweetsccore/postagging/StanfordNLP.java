@@ -1,20 +1,26 @@
 package com.jmorenov.tweetsccore.postagging;
 
-import edu.stanford.nlp.ie.AbstractSequenceClassifier;
+/*import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.*;
 import edu.stanford.nlp.io.IOUtils;
 import edu.stanford.nlp.ling.tokensregex.TokenSequenceMatcher;
 import edu.stanford.nlp.ling.tokensregex.TokenSequencePattern;
 import edu.stanford.nlp.pipeline.*;
-import edu.stanford.nlp.util.CoreMap;
+import edu.stanford.nlp.util.CoreMap;*/
 
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.*;
 
 public class StanfordNLP extends POSTagging {
-    private Properties props;
+    public ArrayList<String> getTokens() {
+        ArrayList<String> tokens = new ArrayList<String>();
+
+        return tokens;
+    }
+
+    /*private Properties props;
     private StanfordCoreNLP pipeline;
     private CoreDocument document;
 
@@ -62,5 +68,5 @@ public class StanfordNLP extends POSTagging {
         } catch (Exception ex) {}
 
         return tokenRegex;
-    }
+    }*/
 }

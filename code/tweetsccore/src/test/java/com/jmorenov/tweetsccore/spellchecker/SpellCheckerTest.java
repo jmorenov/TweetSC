@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import static junit.framework.TestCase.assertEquals;
 
 public class SpellCheckerTest {
-    @Test
+    /*@Test
     public void spellcheckerShouldReturnWordsOfAText() {
         String text = "Hola mi nombre es Javier.";
         SpellChecker spellChecker = new SpellChecker(text);
@@ -19,5 +19,5 @@ public class SpellCheckerTest {
         assertEquals("failure - strings are not equal", "es-4", words.get(3));
         assertEquals("failure - strings are not equal", "Javier-5", words.get(4));
         assertEquals("failure - strings are not equal", ".-6", words.get(5));
-    }
+    }*/
 }
