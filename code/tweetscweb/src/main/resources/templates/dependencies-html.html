@@ -1,0 +1,15 @@
+<dependencies th:fragment="dependencies-html">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/tweet-corrector.js"></script>
+    <script>
+        window.onload = function () {
+            jQuery.getScript("js/new-age.min.js")
+                .done(function() {
+                }).fail(function() {
+                console.log("ERROR: Loading new-age.min.js");
+            });
+        }
+    </script>
+</dependencies>

@@ -3,7 +3,7 @@ package com.jmorenov.tweetscweb;
 public class TweetModel {
     private long id;
     private String content;
-    private String correctedContent;
+    private String correctedContent = null;
 
     public long getId() {
         return id;
@@ -27,5 +27,9 @@ public class TweetModel {
 
     public void setCorrectedContent(String correctedContent) {
         this.correctedContent = correctedContent;
+    }
+
+    public boolean isCorrected() {
+        return this.correctedContent != null;
     }
 }

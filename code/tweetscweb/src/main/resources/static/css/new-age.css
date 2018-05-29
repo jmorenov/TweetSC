@@ -9,14 +9,14 @@ body {
 }
 
 a {
-  color: #fdcc52;
+  color: #9DB6BB;
   -webkit-transition: all .35s;
   -moz-transition: all .35s;
   transition: all .35s;
 }
 
 a:hover, a:focus {
-  color: #fcbd20;
+  color: #9DB6BB;
 }
 
 hr {
@@ -67,7 +67,7 @@ section h2 {
 }
 
 #mainNav .navbar-brand {
-  color: #fdcc52;
+  color: #9DB6BB;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px;
@@ -91,7 +91,7 @@ section h2 {
 }
 
 #mainNav .navbar-nav > li > a.active {
-  color: #fdcc52 !important;
+  color: #0BA0F2 !important;
   background-color: transparent;
 }
 
@@ -136,7 +136,7 @@ section h2 {
     color: #222222;
   }
   #mainNav.navbar-shrink .navbar-brand:hover, #mainNav.navbar-shrink .navbar-brand:focus {
-    color: #fdcc52;
+    color: #0BA0F2;
   }
   #mainNav.navbar-shrink .navbar-nav > li > a,
   #mainNav.navbar-shrink .navbar-nav > li > a:focus {
@@ -144,7 +144,7 @@ section h2 {
   }
   #mainNav.navbar-shrink .navbar-nav > li > a:hover,
   #mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {
-    color: #fdcc52;
+    color: #0BA0F2;
   }
 }
 
@@ -154,9 +154,9 @@ header.masthead {
   padding-top: 150px;
   padding-bottom: 100px;
   color: white;
-  background: url("../img/bg-pattern.png"), #7b4397;
-  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #7b4397, #dc2430);
-  background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+  background: url("../img/bg-pattern.png"), #085078;
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #0BA0F2, #085078);
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #0BA0F2, #085078);
 }
 
 header.masthead .header-content {
@@ -398,9 +398,9 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 }
 
 .bg-primary {
-  background: #fdcc52;
-  background: -webkit-linear-gradient(#fdcc52, #fdc539);
-  background: linear-gradient(#fdcc52, #fdc539);
+  background: #9DB6BB;
+  background: -webkit-linear-gradient(#9DB6BB,#8BDAEA);
+  background: linear-gradient(#9DB6BB,#8BDAEA);
 }
 
 .text-primary {
@@ -420,8 +420,8 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
   color: white;
-  border-color: #fdcc52;
-  background-color: #fdcc52;
+  border-color: #9DB6BB;
+  background-color: #9DB6BB;
 }
 
 .btn {
