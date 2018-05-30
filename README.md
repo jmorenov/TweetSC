@@ -1,7 +1,7 @@
 # TweetSC
 Tweet Spell Checker (TweetSC) is a spell checker for tweets. It corrects errors in a Spanish short text, e.g., a Tweet.
 
-## How to compile / Requirements
+## How to clone / Requirements
 
 - Java 1.8
 - Gradle
@@ -10,18 +10,27 @@ Tweet Spell Checker (TweetSC) is a spell checker for tweets. It corrects errors 
 git clone https://github.com/jmorenov/TweetSC
 ```
 
-### Linux
+## How to use from command line
 ```
-gradlew clean build
-gradlew createJar
-gradlew appengineRun
-gradlew appengineDeploy
+cd TweetSC/code/tweetscexecutable
+./gradlew clean build
+./gradlew createJar
+
+java -jar org.jmorenov.tweetscexecutable-0.1.0-alpha.jar -text "Texto de prueba"
 ```
 
-## How to run an example
+## How to run local web application
 ```
-java -jar org.jmorenov.tweetsc-0.3.0-alpha.jar -text "Texto de prueba"
+cd TweetSC/code/tweetscweb
+./gradlew clean build
+./gradle run
+
+java -jar org.jmorenov.tweetscexecutable-0.1.0-alpha.jar -text "Texto de prueba"
 ```
+
+## Web online application
+
+https://jmorenov.github.io/TweetSC/
 
 ## Where to find test files
 
@@ -29,7 +38,7 @@ https://github.com/jmorenov/TweetSC/blob/master/resources/
 
 ## Final Master's Work Report
 
-https://github.com/jmorenov/TweetSC/blob/master/documentation/Memoria.pdf
+https://github.com/jmorenov/TweetSC/blob/master/docs/Memory/Memory.pdf
 
 ## Software versioning
 
