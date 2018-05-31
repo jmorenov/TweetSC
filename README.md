@@ -13,9 +13,13 @@ git clone https://github.com/jmorenov/TweetSC
 ## How to use from command line
 ```
 cd TweetSC/code/tweetscexecutable
+```
+```
 ./gradlew clean build
+```
 ./gradlew createJar
-
+```
+```
 java -jar org.jmorenov.tweetscexecutable-0.1.0-alpha.jar -text "Texto de prueba"
 ```
 
