@@ -17,6 +17,7 @@ cd TweetSC/code/tweetscexecutable
 ```
 ./gradlew clean build
 ```
+```
 ./gradlew createJar
 ```
 ```
@@ -26,9 +27,14 @@ java -jar org.jmorenov.tweetscexecutable-0.1.0-alpha.jar -text "Texto de prueba"
 ## How to run local web application
 ```
 cd TweetSC/code/tweetscweb
+```
+```
 ./gradlew clean build
+```
+```
 ./gradle run
-
+```
+```
 java -jar org.jmorenov.tweetscexecutable-0.1.0-alpha.jar -text "Texto de prueba"
 ```
 
