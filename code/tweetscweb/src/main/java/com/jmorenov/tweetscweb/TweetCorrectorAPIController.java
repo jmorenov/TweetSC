@@ -1,6 +1,7 @@
 package com.jmorenov.tweetscweb;
 
-import com.jmorenov.tweetsccore.spellchecker.SpellCheckerByDictionary;
+import com.jmorenov.tweetsccore.spellchecker.DictionaryMethod;
+import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class TweetCorrectorAPIController {
         Response response = new Response();
 
         try {
-            SpellCheckerByDictionary spellChecker = new SpellCheckerByDictionary();
+            SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
 
             tweetModel.setCorrectedContent(spellChecker.correctText(tweetModel.getContent()));
             response.setData(tweetModel);

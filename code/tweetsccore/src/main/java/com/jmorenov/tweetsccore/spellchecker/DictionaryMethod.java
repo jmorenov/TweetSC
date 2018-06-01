@@ -18,15 +18,20 @@ import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class SpellCheckerByDictionary {
+public class DictionaryMethod extends Method {
     private Map<String, Integer> _dictionaryWords;
     private Map<String, Integer> _nombresPropiosWords;
     private static String _alphabet = "aábcdeéfghiíjklmnñoópqrstuúvwxyz";
     private static final String _dictionaryFileName = "dic.txt";
     private static final String _nombresPropiosFileName = "nombres_propios.txt";
 
-    public SpellCheckerByDictionary() throws IOException {
+    public DictionaryMethod() throws IOException {
         readDictionaries();
+    }
+
+    @Override
+    public String toString() {
+        return "Dictionary Method";
     }
 
     public String correctTextForTweetNorm(String text) {

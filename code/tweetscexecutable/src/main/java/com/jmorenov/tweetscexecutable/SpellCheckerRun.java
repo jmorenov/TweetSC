@@ -1,12 +1,10 @@
 package com.jmorenov.tweetscexecutable;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.jmorenov.tweetsccore.spellchecker.DictionaryMethod;
 import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
-import com.jmorenov.tweetsccore.spellchecker.SpellCheckerByDictionary;
 
 public class SpellCheckerRun {
     public static void main(String[] args) throws IOException {
@@ -16,7 +14,7 @@ public class SpellCheckerRun {
             if ((argumentIndex = Arrays.asList(args).indexOf("-text")) != -1) {
                 String text = getTextFromArguments(args, argumentIndex+1);
 
-                SpellCheckerByDictionary spellChecker = new SpellCheckerByDictionary();
+                SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
 
                 System.out.println(spellChecker.correctText(text));
             } else {
@@ -36,7 +34,7 @@ public class SpellCheckerRun {
                 }
             }
         } else {
-            System.out.println("Error arguments");
+            System.out.println("Arguments error");
         }
     }
 
@@ -61,6 +59,10 @@ public class SpellCheckerRun {
     }
 
     private static void correctFromTweets(String anotatedFile, String tweetsFile) {
+        //read tweets file to list of tweets and list of ids
+        //correct tweet by tweet to another array of corrected tweets
+        //save corrected tweets to result file
+        //run python script with anotated file and result file
 
     }
 }

@@ -1,6 +1,5 @@
 package com.jmorenov.tweetscweb;
 
-import com.jmorenov.tweetsccore.spellchecker.SpellCheckerByDictionary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

@@ -6,17 +6,25 @@ import com.jmorenov.tweetsccore.postagging.StanfordNLP;
 import java.util.ArrayList;
 
 public class SpellChecker {
-    private POSTagging _post;
+    private Method _method;
 
-    public SpellChecker(String text) {
-        //_post = new StanfordNLP(text);
+    public SpellChecker(Method method) {
+        setMethod(method);
     }
 
-    public ArrayList<String> words() {
-        return _post.getTokens();
+    public void setMethod(Method method) {
+        this._method = method;
     }
 
-    public String correct() {
-        return "corregido...";
+    public String getMethodDescription() {
+        return this._method.toString();
+    }
+
+    public String correctText(String text) {
+        return this._method.correctText(text);
+    }
+
+    public String correctTextForTweetNorm(String text) {
+        return this._method.correctTextForTweetNorm(text);
     }
 }

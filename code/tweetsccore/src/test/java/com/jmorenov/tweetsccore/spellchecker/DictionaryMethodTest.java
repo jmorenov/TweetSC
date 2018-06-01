@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class SpellCheckerByDictionaryTest {
+public class DictionaryMethodTest {
     /*@Test
     public void correctTextForTweetNormShouldReturnTheCorrectResult() throws IOException {
         String text = "Holo mi nombre es Javier xD.";
