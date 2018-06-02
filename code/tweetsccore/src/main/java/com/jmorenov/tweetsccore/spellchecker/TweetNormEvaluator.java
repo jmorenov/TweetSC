@@ -11,13 +11,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class TweetNormEvaluator {
     private boolean _verbose;
-    private String _anotatedFile;
+    private String _annotatedFile;
     private String _idsFile;
+    private String _evaluatorScriptFile = "tweet-norm-eval.py";
+    private String _workingDirectory;
     private String _tweetsFile;
+    private String _resultFile;
     private ArrayList<Tweet> _tweetList;
 
     public TweetNormEvaluator() {
@@ -25,7 +30,7 @@ public class TweetNormEvaluator {
     }
 
     public TweetNormEvaluator(String anotatedFile, boolean verbose) {
-        setAnotatedFile(anotatedFile);
+        setAnnotatedFile(anotatedFile);
         this._verbose = verbose;
     }
 
@@ -41,8 +46,20 @@ public class TweetNormEvaluator {
         this._tweetsFile = tweetsFile;
     }
 
-    public void setAnotatedFile(String anotatedFile) {
-        this._anotatedFile = anotatedFile;
+    public void setAnnotatedFile(String annotatedFile) {
+        this._annotatedFile = annotatedFile;
+    }
+
+    public void setEvaluatorScriptFile(String evaluatorScriptFile) {
+        this._evaluatorScriptFile = evaluatorScriptFile;
+    }
+
+    public void setWorkingDirectory(String workingDirectory) {
+        this._workingDirectory = workingDirectory + "/";
+    }
+
+    public void setResultFile(String resultFile) {
+        this._resultFile = resultFile;
     }
 
     public String evalutate(Method method) throws IOException {
@@ -56,13 +73,19 @@ public class TweetNormEvaluator {
 
         List<String> spellCheckerResultLines = new ArrayList<String>();
         SpellChecker spellChecker = new SpellChecker(method);
+        String tweetCorrected;
 
         for (Tweet tweet : _tweetList) {
-            spellCheckerResultLines.add(tweet.getId());
-            spellCheckerResultLines.add(spellChecker.correctTextForTweetNorm(tweet.getText()));
+            tweetCorrected = spellChecker.correctTextForTweetNorm(tweet.getText());
+
+            if (tweetCorrected.equals("")) {
+                spellCheckerResultLines.add(tweet.getId() + "\t");
+            } else {
+                spellCheckerResultLines.add(tweet.getId() + "\t" + tweetCorrected);
+            }
         }
 
-        Path resultFile = Paths.get("resultFile.txt");
+        Path resultFile = Paths.get(_workingDirectory + _resultFile);
         Files.write(resultFile, spellCheckerResultLines, Charset.forName("UTF-8"));
 
         return executeEvaluatorScript();
@@ -74,28 +97,34 @@ public class TweetNormEvaluator {
 
     private void readTweets() throws IOException {
         _tweetList = new ArrayList<Tweet>();
-        Path tweetsFilePath = Paths.get(_tweetsFile);
+        Path tweetsFilePath = Paths.get(_workingDirectory + _tweetsFile);
         Stream<String> tweetsFileLines = Files.lines(tweetsFilePath);
 
         tweetsFileLines.forEach(this::readTweet);
     }
 
     private void readTweet(String tweetLine) {
-        String[] elementOfTweet = tweetLine.split(" ");
+        String[] elementOfTweet = tweetLine.split("\t");
         Tweet tweet = new Tweet(elementOfTweet[0], elementOfTweet[1], elementOfTweet[2], elementOfTweet[3]);
 
         _tweetList.add(tweet);
     }
 
     private String executeEvaluatorScript() throws IOException {
-        Process processScript = Runtime.getRuntime().exec("python ../");
+        String command = "python " + _workingDirectory + _evaluatorScriptFile + " " + _workingDirectory + _annotatedFile + " " + _workingDirectory + _resultFile;
+        Process processScript = Runtime.getRuntime().exec(command);
         BufferedReader stdOutput = new BufferedReader(new InputStreamReader(processScript.getInputStream()));
-        String output = "", outputLine;
+        BufferedReader stdError = new BufferedReader(new InputStreamReader(processScript.getErrorStream()));
+        String output = "", error = "", outputLine;
+
+        while ((outputLine = stdError.readLine()) != null) {
+            error = error.concat(outputLine + "\n");
+        }
 
         while ((outputLine = stdOutput.readLine()) != null) {
             output = output.concat(outputLine + "\n");
         }
 
-        return output;
+        return error + "\n" + output;
     }
 }

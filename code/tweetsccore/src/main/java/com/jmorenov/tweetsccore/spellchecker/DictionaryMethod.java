@@ -60,8 +60,6 @@ public class DictionaryMethod extends Method {
             }
         }
 
-        textCorrected = textCorrected + "\n";
-
         return textCorrected;
     }
 
