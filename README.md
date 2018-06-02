@@ -32,7 +32,7 @@ java -jar tweetscexecutable/build/libs/tweetscexecutable-all-v0.1.0-alpha.jar \
 
 ## How to run local web application
 ```
-cd TweetSC/code/tweetscweb
+cd tweetscweb
 ./gradle run
 ```
 
@@ -42,7 +42,7 @@ https://jmorenov.github.io/TweetSC/
 
 ## Where to find test files
 
-https://github.com/jmorenov/TweetSC/blob/master/resources/
+https://github.com/jmorenov/TweetSC/blob/master/code/evaluation
 
 ## Final Master's Work Report
 
