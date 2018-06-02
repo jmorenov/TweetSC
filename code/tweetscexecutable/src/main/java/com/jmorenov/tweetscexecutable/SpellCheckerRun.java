@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import com.jmorenov.tweetsccore.spellchecker.DictionaryMethod;
 import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
+import com.jmorenov.tweetsccore.spellchecker.TweetNormEvaluator;
 
 public class SpellCheckerRun {
     public static void main(String[] args) throws IOException {
@@ -58,11 +59,9 @@ public class SpellCheckerRun {
         System.out.println("TO DO");
     }
 
-    private static void correctFromTweets(String anotatedFile, String tweetsFile) {
-        //read tweets file to list of tweets and list of ids
-        //correct tweet by tweet to another array of corrected tweets
-        //save corrected tweets to result file
-        //run python script with anotated file and result file
-
+    private static void correctFromTweets(String anotatedFile, String tweetsFile) throws IOException {
+        TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(anotatedFile, true);
+        tweetNormEvaluator.setTweetsFile(tweetsFile);
+        System.out.println(tweetNormEvaluator.evalutate(new DictionaryMethod()));
     }
 }
