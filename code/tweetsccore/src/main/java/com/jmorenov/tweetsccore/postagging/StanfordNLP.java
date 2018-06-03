@@ -13,7 +13,16 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.*;
 
+/**
+ * StanfordNLP class.
+ *
+ * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
+ */
 public class StanfordNLP extends POSTagging {
+    /**
+     * Method to get the tokens from a text.
+     * @return ArrayList with the tokens.
+     */
     public ArrayList<String> getTokens() {
         ArrayList<String> tokens = new ArrayList<String>();
 

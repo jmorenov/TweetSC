@@ -11,10 +11,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+/**
+ * TweetNormEvaluator class to evaluate methods of spell checker
+ * with Tweet Norm 2013 files to test.
+ *
+ * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
+ */
 public class TweetNormEvaluator {
     private boolean _verbose;
     private String _annotatedFile;
@@ -25,43 +29,95 @@ public class TweetNormEvaluator {
     private String _resultFile;
     private ArrayList<Tweet> _tweetList;
 
+    /**
+     * Default constructor of the class.
+     */
     public TweetNormEvaluator() {
         this._verbose = false;
     }
 
-    public TweetNormEvaluator(String anotatedFile, boolean verbose) {
-        setAnnotatedFile(anotatedFile);
+    /**
+     * Constructor of the class with parameters.
+     *
+     * @param annotatedFile String parameter with the name of the file with the annotated tweets.
+     * @param verbose Boolean parameter to define the verbose control.
+     */
+    public TweetNormEvaluator(String annotatedFile, boolean verbose) {
+        setAnnotatedFile(annotatedFile);
         this._verbose = verbose;
     }
 
-    public TweetNormEvaluator(String anotatedFile) {
-        this(anotatedFile, false);
+    /**
+     * Constructor of the class with parameter.
+     *
+     * @param annotatedFile String parameter with the name of the file with the annotated tweets.
+     */
+    public TweetNormEvaluator(String annotatedFile) {
+        this(annotatedFile, false);
     }
 
+    /**
+     * Method to define the file with the ids of the tweets.
+     *
+     * @param idsFile String parameter with the name of the file with the ids of the tweets.
+     */
     public void setIdsFile(String idsFile) {
         this._idsFile = idsFile;
     }
 
+    /**
+     * Method to define the file with the tweets.
+     *
+     * @param tweetsFile String parameter with the name of the file with the tweets.
+     */
     public void setTweetsFile(String tweetsFile) {
         this._tweetsFile = tweetsFile;
     }
 
+    /**
+     * Method to define the file with the annotated tweets.
+     *
+     * @param annotatedFile String parameter with the name of the file with the annotated tweets.
+     */
     public void setAnnotatedFile(String annotatedFile) {
         this._annotatedFile = annotatedFile;
     }
 
+    /**
+     * Method to define the file of the evaluator script.
+     *
+     * @param evaluatorScriptFile String parameter with the name of the evaluator script.
+     */
     public void setEvaluatorScriptFile(String evaluatorScriptFile) {
         this._evaluatorScriptFile = evaluatorScriptFile;
     }
 
+    /**
+     * Method to define the working directory.
+     *
+     * @param workingDirectory String parameter with the working directory.
+     */
     public void setWorkingDirectory(String workingDirectory) {
         this._workingDirectory = workingDirectory + "/";
     }
 
+    /**
+     * Method to define the result file.
+     *
+     * @param resultFile String parameter with the result file.
+     */
     public void setResultFile(String resultFile) {
         this._resultFile = resultFile;
     }
 
+    /**
+     * Method to evaluate the defined file with a method of spell checker.
+     *
+     * @param method {@link Method} parameter with the method to use.
+     * @return String with the output of the evaluation.
+     * @throws IOException when the file not found.
+     * @see Method
+     */
     public String evalutate(Method method) throws IOException {
         if (_tweetList == null) {
             if (_tweetsFile == null) {
@@ -91,10 +147,17 @@ public class TweetNormEvaluator {
         return executeEvaluatorScript();
     }
 
+    /**
+     * Method to download the tweets from the ids file.
+     */
     private void downloadTweets() {
         //TODO
     }
 
+    /**
+     * Method to read the tweets from the tweets file.
+     * @throws IOException when the file not found.
+     */
     private void readTweets() throws IOException {
         _tweetList = new ArrayList<Tweet>();
         Path tweetsFilePath = Paths.get(_workingDirectory + _tweetsFile);
@@ -103,6 +166,11 @@ public class TweetNormEvaluator {
         tweetsFileLines.forEach(this::readTweet);
     }
 
+    /**
+     * Method to read a tweet.
+     * @param tweetLine String with the line of the file with the tweet.
+     * @see Tweet
+     */
     private void readTweet(String tweetLine) {
         String[] elementOfTweet = tweetLine.split("\t");
         Tweet tweet = new Tweet(elementOfTweet[0], elementOfTweet[1], elementOfTweet[2], elementOfTweet[3]);
@@ -110,6 +178,11 @@ public class TweetNormEvaluator {
         _tweetList.add(tweet);
     }
 
+    /**
+     * Method to execute the python script to evaluate.
+     * @throws IOException when the file not found.
+     * @return String with the output of the execution.
+     */
     private String executeEvaluatorScript() throws IOException {
         String command = "python " + _workingDirectory + _evaluatorScriptFile + " " + _workingDirectory + _annotatedFile + " " + _workingDirectory + _resultFile;
         Process processScript = Runtime.getRuntime().exec(command);
