@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.spellchecker;
 
+import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.twitter.Tweet;
 
 import java.io.BufferedReader;
@@ -160,22 +161,14 @@ public class TweetNormEvaluator {
      */
     private void readTweets() throws IOException {
         _tweetList = new ArrayList<Tweet>();
-        Path tweetsFilePath = Paths.get(_workingDirectory + _tweetsFile);
-        Stream<String> tweetsFileLines = Files.lines(tweetsFilePath);
+        String[] tweets = File.readToStringArray(_workingDirectory + _tweetsFile);
 
-        tweetsFileLines.forEach(this::readTweet);
-    }
+        for(String tweetLine : tweets) {
+            String[] elementOfTweet = tweetLine.split("\t");
+            Tweet tweet = new Tweet(elementOfTweet[0], elementOfTweet[1], elementOfTweet[2], elementOfTweet[3]);
 
-    /**
-     * Method to read a tweet.
-     * @param tweetLine String with the line of the file with the tweet.
-     * @see Tweet
-     */
-    private void readTweet(String tweetLine) {
-        String[] elementOfTweet = tweetLine.split("\t");
-        Tweet tweet = new Tweet(elementOfTweet[0], elementOfTweet[1], elementOfTweet[2], elementOfTweet[3]);
-
-        _tweetList.add(tweet);
+            _tweetList.add(tweet);
+        }
     }
 
     /**

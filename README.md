@@ -27,7 +27,8 @@ java -jar tweetscexecutable/build/libs/tweetscexecutable-all-v0.1.0-alpha.jar \
     -workingDirectory evaluation \
     -annotatedFile tweet-norm-dev10_annotated.txt \
     -tweetsFile tweet-norm-dev10.txt \
-    -resultFile results-test-dev10.txt
+    -resultFile results-test-dev10.txt \
+    -method DictionaryMethod
 ```
 
 ## How to run local web application

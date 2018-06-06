@@ -1,16 +1,14 @@
-package com.jmorenov.tweetsccore.postagging;
+package com.jmorenov.tweetsccore.ner;
 
-/*import edu.stanford.nlp.ie.AbstractSequenceClassifier;
+import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ie.crf.CRFClassifier;
-import edu.stanford.nlp.ling.*;
 import edu.stanford.nlp.io.IOUtils;
-import edu.stanford.nlp.ling.tokensregex.TokenSequenceMatcher;
-import edu.stanford.nlp.ling.tokensregex.TokenSequencePattern;
-import edu.stanford.nlp.pipeline.*;
-import edu.stanford.nlp.util.CoreMap;*/
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.CoreDocument;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -18,18 +16,8 @@ import java.util.*;
  *
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
-public class StanfordNLP extends POSTagging {
-    /**
-     * Method to get the tokens from a text.
-     * @return ArrayList with the tokens.
-     */
-    public ArrayList<String> getTokens() {
-        ArrayList<String> tokens = new ArrayList<String>();
-
-        return tokens;
-    }
-
-    /*private Properties props;
+public class StanfordNLP extends NER {
+    private Properties props;
     private StanfordCoreNLP pipeline;
     private CoreDocument document;
 
@@ -39,7 +27,6 @@ public class StanfordNLP extends POSTagging {
         try {
             props.load(IOUtils.readerFromString("StanfordCoreNLP-spanish.properties"));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -52,7 +39,7 @@ public class StanfordNLP extends POSTagging {
     }
 
     public ArrayList<String> getTokens() {
-        ArrayList<String> tokens = new ArrayList<String>();
+        ArrayList<String> tokens = new ArrayList<>();
 
         for (CoreLabel token : document.tokens()) {
             tokens.add(token.toString());
@@ -61,7 +48,7 @@ public class StanfordNLP extends POSTagging {
         return tokens;
     }
 
-    public ArrayList<String> getTokenRegex() {
+    public ArrayList<String> getTokensRegex() {
         String serializedClassifier = "edu/stanford/nlp/models/ner/spanish.kbp.ancora.distsim.s512.crf.ser.gz";
         ArrayList<String> tokenRegex = new ArrayList<>();
 
@@ -77,5 +64,5 @@ public class StanfordNLP extends POSTagging {
         } catch (Exception ex) {}
 
         return tokenRegex;
-    }*/
+    }
 }

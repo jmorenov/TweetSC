@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import com.jmorenov.tweetsccore.spellchecker.DictionaryMethod;
+import com.jmorenov.tweetsccore.spellchecker.Method;
 import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
 import com.jmorenov.tweetsccore.spellchecker.TweetNormEvaluator;
 
@@ -31,6 +32,8 @@ public class SpellCheckerRun {
             //String evaluatorScriptFile = getValueOfArgument(args, "-evaluatorScriptFile");
             String workingDirectory = getValueOfArgument(args, "-workingDirectory");
             String resultFile = getValueOfArgument(args, "-resultFile");
+            String methodToUseDescription = getValueOfArgument(args, "-method");
+
             TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(annotatedFile, true);
 
             tweetNormEvaluator.setWorkingDirectory(workingDirectory);
@@ -38,9 +41,12 @@ public class SpellCheckerRun {
             //tweetNormEvaluator.setEvaluatorScriptFile(evaluatorScriptFile);
             tweetNormEvaluator.setIdsFile(idsFile);
             tweetNormEvaluator.setResultFile(resultFile);
-            System.out.println(tweetNormEvaluator.evalutate(new DictionaryMethod()));
+
+            Method method = getMethodFromArgument(methodToUseDescription);
+
+            System.out.println(tweetNormEvaluator.evalutate(method));
         } else {
-            System.out.println("Arguments error");
+            System.out.println("Arguments error: -text, -anotatedFile, -idsFile, -tweetsFile, -workingDirectory, -resultFile, -method");
         }
     }
 
@@ -93,5 +99,13 @@ public class SpellCheckerRun {
         } else {
             return "";
         }
+    }
+
+    private static Method getMethodFromArgument(String methodToUseDescription) throws IOException {
+        if (methodToUseDescription.equals("")) {
+            return new DictionaryMethod();
+        }
+
+        return new DictionaryMethod();
     }
 }

@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.spellchecker;
 
+import com.jmorenov.tweetsccore.extra.File;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.io.IOUtils;
 
@@ -44,7 +45,7 @@ public class DictionaryMethod extends Method {
      */
     @Override
     public String toString() {
-        return "Dictionary Method";
+        return "DictionaryMethod";
     }
 
     /**
@@ -133,8 +134,7 @@ public class DictionaryMethod extends Method {
      * @throws IOException when the file not found.
      */
     private Map<String, Integer> readDictionary(String fileName) throws IOException {
-        InputStream streamOfDictionaryFile = getClass().getClassLoader().getResourceAsStream(fileName);
-        byte[] bytesOfDictionaryFile = IOUtils.toByteArray(streamOfDictionaryFile);
+        byte[] bytesOfDictionaryFile = File.readToByte(fileName);
         Map<String, Integer> dictionaryMap = new HashMap<String, Integer>();
 
         Stream.of(new String(bytesOfDictionaryFile).toLowerCase().split("\n")).forEach( (word) ->{

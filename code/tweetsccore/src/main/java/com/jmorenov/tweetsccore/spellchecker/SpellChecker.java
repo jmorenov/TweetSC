@@ -1,10 +1,5 @@
 package com.jmorenov.tweetsccore.spellchecker;
 
-import com.jmorenov.tweetsccore.postagging.POSTagging;
-import com.jmorenov.tweetsccore.postagging.StanfordNLP;
-
-import java.util.ArrayList;
-
 /**
  * SpellChecker class to correct a text.
  *
