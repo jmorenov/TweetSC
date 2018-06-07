@@ -1,0 +1,26 @@
+<div th:fragment="advanced-correct-tweet" class="modal fade" id="advancedCorrectTweetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">TweetSC Advanced Use</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form th:replace="advanced/search-tweets-component :: advanced-search-tweets"/>
+                <div th:replace="advanced/example-search-component :: advanced-example-search"/>
+                <div th:replace="advanced/tweets-list-component :: advanced-tweets-list"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button th:fragment="button-advanced-correct-tweet"
+        type="button" value="Advanced use" class="btn btn-xl btn-correct btn-outline"
+        data-toggle="modal" data-target="#advancedCorrectTweetModal">
+    Advanced use
+</button>

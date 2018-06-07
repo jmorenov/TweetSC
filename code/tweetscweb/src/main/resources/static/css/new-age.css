@@ -398,9 +398,10 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 }
 
 .bg-primary {
-  background: #9DB6BB;
+  /*background: #9DB6BB;
   background: -webkit-linear-gradient(#9DB6BB,#8BDAEA);
-  background: linear-gradient(#9DB6BB,#8BDAEA);
+  background: linear-gradient(#9DB6BB,#8BDAEA);*/
+  background-color: #65B8F6 !important;
 }
 
 .text-primary {
@@ -434,4 +435,38 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 .btn-xl {
   font-size: 11px;
   padding: 15px 45px;
+}
+
+.btn-correct {
+  background-color: transparent;
+}
+
+.btn-advanced-correct {
+  color: black;
+  border-color: black;
+}
+
+.from-search-tweet, .input-search-tweet {
+  width: 100% !important;
+}
+
+.form-group-search-tweet {
+    padding-bottom: 20px;
+}
+
+.modal-dialog {
+  overflow-y: initial !important
+}
+.modal-body {
+  height: 500px;
+  overflow-y: auto;
+}
+
+.tweet-container {
+  margin-top: 10px;
+}
+
+.tweet {
+  font-size: 16px;
+  text-align: left;
 }

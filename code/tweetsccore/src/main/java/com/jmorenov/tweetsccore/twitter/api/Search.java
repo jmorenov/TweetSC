@@ -54,6 +54,24 @@ public class Search {
     }
 
     /**
+     * Method to search a tweet by id.
+     * @param id the id of the tweet
+     * @return Status with the tweet.
+     */
+    private Status searchTweetById(String id) {
+        Status tweet = null;
+
+        try {
+            long longId = Long.parseLong(id);
+            tweet = this._twitterAccess.showStatus(longId);
+        } catch (TwitterException twitterException) {
+            twitterException.printStackTrace();
+        }
+
+        return tweet;
+    }
+
+    /**
      * Default constructor of the class.
      */
     public Search() {

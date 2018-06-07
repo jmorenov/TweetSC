@@ -15,12 +15,12 @@ import java.io.IOException;
 @RequestMapping("/api/tweet")
 public class TweetCorrectorAPIController {
     /**
-     * Method to control the api calls.
+     * Method to control the api calls of simple corrector.
      * @param tweetModel {@link TweetModel} with the model of the call.
      * @return {@link Response} with the response of the call.
      */
     @PostMapping("/corrector")
-    public Response homeSubmit(@RequestBody TweetModel tweetModel) {
+    public Response simpleCorrectSubmit(@RequestBody TweetModel tweetModel) {
         Response response = new Response();
 
         try {
@@ -31,6 +31,27 @@ public class TweetCorrectorAPIController {
             response.setStatus("Done");
         } catch (IOException ex) {
             response.setStatus("Error");
+        }
+
+        return response;
+    }
+
+    /**
+     * Method to control the api calls.
+     * @param tweetSearchQueryModel {@link TweetModel} with the model of the call.
+     * @return {@link Response} with the response of the call.
+     */
+    @PostMapping("/get")
+    public Response getTweets(@RequestBody TweetSearchQueryModel tweetSearchQueryModel) {
+        Response response = new Response();
+
+        if (tweetSearchQueryModel.isValidQuery()) {
+            tweetSearchQueryModel.loadTweets();
+
+            response.setData(tweetSearchQueryModel);
+            response.setStatus("Done");
+        } else {
+            response.setStatus("Invalid query");
         }
 
         return response;
