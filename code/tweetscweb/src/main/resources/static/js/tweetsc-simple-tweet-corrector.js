@@ -1,13 +1,13 @@
 function successCorrection(result) {
     if(result.status === "Done"){
-        $("#tweet-corrected").html(result.data.correctedContent);
+        $("#simple-tweet-corrected").html(result.data.correctedContent);
     }else{
         errorCorrection();
     }
 }
 
 function errorCorrection(error) {
-    $("#tweet-corrected").html("<strong>Error</strong>");
+    console.log(error);
 }
 
 $( document ).ready(function() {
@@ -17,7 +17,9 @@ $( document ).ready(function() {
         if ($("#tweet").val() !== "") {
             var formData = {
                 id: "",
-                content : $("#tweet").val(),
+                username: "",
+                hash: "",
+                text : $("#tweet").val(),
                 correctedContent: ""
             };
 

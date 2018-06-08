@@ -2,12 +2,17 @@
     <form class="navbar-form navbar-left" role="search" id="tweet-form">
         <div class="form-group">
             <input type="text" class="form-control form-control-lg" placeholder="Search" id="tweet">
+            <div class="list-group">
+                <div class="list-group-item flex-column align-items-start tweet-container">
+                    <span class="tweet">Text corrected:</span>
+                    <div id="simple-tweet-corrected"></div>
+                </div>
+            </div>
         </div>
         <button type="submit" value="Corregir" class="btn btn-xl btn-correct btn-outline">Correct</button>
         <button th:replace="advanced/correct-tweet-component :: button-advanced-correct-tweet"/>
     </form>
 
-    <div id="tweet-corrected"></div>
-
     <div th:replace="advanced/correct-tweet-component :: advanced-correct-tweet"/>
+    <div th:replace="advanced/correct-tweet-component :: advanced-correct-tweet-result"/>
 </div>

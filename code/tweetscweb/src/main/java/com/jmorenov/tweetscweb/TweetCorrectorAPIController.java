@@ -2,6 +2,8 @@ package com.jmorenov.tweetscweb;
 
 import com.jmorenov.tweetsccore.spellchecker.DictionaryMethod;
 import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
+import com.jmorenov.tweetsccore.twitter.Tweet;
+import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -16,18 +18,43 @@ import java.io.IOException;
 public class TweetCorrectorAPIController {
     /**
      * Method to control the api calls of simple corrector.
-     * @param tweetModel {@link TweetModel} with the model of the call.
+     * @param tweetCorrected {@link TweetCorrected} with the model of the call.
      * @return {@link Response} with the response of the call.
      */
     @PostMapping("/corrector")
-    public Response simpleCorrectSubmit(@RequestBody TweetModel tweetModel) {
+    public Response simpleCorrectSubmit(@RequestBody TweetCorrected tweetCorrected) {
         Response response = new Response();
 
         try {
             SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
 
-            tweetModel.setCorrectedContent(spellChecker.correctText(tweetModel.getContent()));
-            response.setData(tweetModel);
+            tweetCorrected.setCorrectedContent(spellChecker.correctText(tweetCorrected.getText()));
+            response.setData(tweetCorrected);
+            response.setStatus("Done");
+        } catch (IOException ex) {
+            response.setStatus("Error");
+        }
+
+        return response;
+    }
+
+    /**
+     * Method to control the api calls of advanced corrector.
+     * @param tweetListModel {@link TweetListModel} with the model of the call.
+     * @return {@link Response} with the response of the call.
+     */
+    @PostMapping("/advancedcorrector")
+    public Response advancedCorrectSubmit(@RequestBody TweetListModel tweetListModel) {
+        Response response = new Response();
+
+        try {
+            SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
+
+            for (TweetCorrected tweetCorrected : tweetListModel.getTweets()) {
+                tweetCorrected.setCorrectedContent(spellChecker.correctText(tweetCorrected.getText()));
+            }
+
+            response.setData(tweetListModel);
             response.setStatus("Done");
         } catch (IOException ex) {
             response.setStatus("Error");
@@ -38,7 +65,7 @@ public class TweetCorrectorAPIController {
 
     /**
      * Method to control the api calls.
-     * @param tweetSearchQueryModel {@link TweetModel} with the model of the call.
+     * @param tweetSearchQueryModel {@link TweetSearchQueryModel} with the model of the call.
      * @return {@link Response} with the response of the call.
      */
     @PostMapping("/get")

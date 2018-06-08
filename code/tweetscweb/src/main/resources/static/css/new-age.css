@@ -464,9 +464,16 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 
 .tweet-container {
   margin-top: 10px;
+  text-align: left;
 }
 
 .tweet {
   font-size: 16px;
   text-align: left;
+}
+
+#tweets-list-search {
+  margin-top: 10px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 10px;
 }

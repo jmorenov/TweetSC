@@ -1,22 +1,36 @@
 package com.jmorenov.tweetsccore.twitter;
 
+import twitter4j.Status;
+
 /**
  * Tweet class with the structure of a tweet.
  *
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class Tweet {
-    private String _id;
-    private String _username;
-    private String _hash;
-    private String _text;
+    private String id;
+    private String username;
+    private String hash;
+    private String text;
+
+    /**
+     * Default constructor of the class.
+     */
+    public Tweet() {}
+
+    public Tweet(Status tweetStatus) {
+        id = Long.toString(tweetStatus.getId());
+        username = tweetStatus.getUser().toString();
+        hash = "";
+        text = tweetStatus.getText();
+    }
 
     /**
      * Constructor of the class.
      * @param text String with the text of the tweet.
      */
     public Tweet(String text) {
-        this._text = text;
+        this.text = text;
     }
 
     /**
@@ -27,10 +41,10 @@ public class Tweet {
      * @param text String with the text of the tweet.
      */
     public Tweet(String id, String username, String hash, String text) {
-        this._id = id;
-        this._username = username;
-        this._hash = hash;
-        this._text = text;
+        this.id = id;
+        this.username = username;
+        this.hash = hash;
+        this.text = text;
     }
 
     /**
@@ -38,7 +52,7 @@ public class Tweet {
      * @return String with the id of the tweet.
      */
     public String getId() {
-        return _id;
+        return id;
     }
 
     /**
@@ -46,7 +60,7 @@ public class Tweet {
      * @return String with the username of the tweet.
      */
     public String getUsername() {
-        return _username;
+        return username;
     }
 
     /**
@@ -54,7 +68,7 @@ public class Tweet {
      * @return String with the hash of the tweet.
      */
     public String getHash() {
-        return _hash;
+        return hash;
     }
 
     /**
@@ -62,7 +76,7 @@ public class Tweet {
      * @return String with the text of the tweet.
      */
     public String getText() {
-        return _text;
+        return text;
     }
 
     /**

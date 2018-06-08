@@ -1,5 +1,6 @@
 package com.jmorenov.tweetscweb;
 
+import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class TweetCorrectorController {
      */
     @GetMapping("/")
     public String homeForm(Model model) {
-        model.addAttribute("tweetModel", new TweetModel());
+        model.addAttribute("tweetCorrected", new TweetCorrected());
         return "tweet-corrector";
     }
 }

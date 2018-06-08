@@ -4,10 +4,18 @@ import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
+/**
+ * TwitterConfiguration class with the configuration of the connection with the API of twitter.
+ *
+ * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
+ */
 public class TwitterConfiguration {
     private static TwitterConfiguration _twitterConfiguration = null;
     private Twitter _twitterAccess;
 
+    /**
+     * Private constructor of the class.
+     */
     private TwitterConfiguration() {
         ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.setDebugEnabled(true);
@@ -20,12 +28,19 @@ public class TwitterConfiguration {
         this._twitterAccess = tf.getInstance();
     }
 
+    /**
+     * Method to create the instance of the class.
+     */
     private synchronized static void createInstance() {
         if (_twitterConfiguration == null) {
             _twitterConfiguration = new TwitterConfiguration();
         }
     }
 
+    /**
+     * Method to get the instance of the class.
+     * @return TwitterConfiguration the instance of the class
+     */
     public static TwitterConfiguration getInstance() {
         if (_twitterConfiguration == null) {
             createInstance();
@@ -34,6 +49,10 @@ public class TwitterConfiguration {
         return _twitterConfiguration;
     }
 
+    /**
+     * Method to get the access to the API.
+     * @return Twitter
+     */
     public Twitter getTwitterAccess() {
         return this._twitterAccess;
     }

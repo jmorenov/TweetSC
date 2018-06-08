@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.twitter.api;
 
+import com.jmorenov.tweetsccore.twitter.Tweet;
 import com.jmorenov.tweetsccore.twitter.TwitterConfiguration;
 import twitter4j.*;
 
@@ -58,12 +59,12 @@ public class Search {
      * @param id the id of the tweet
      * @return Status with the tweet.
      */
-    private Status searchTweetById(String id) {
-        Status tweet = null;
+    private Tweet searchTweetById(String id) {
+        Tweet tweet = null;
 
         try {
             long longId = Long.parseLong(id);
-            tweet = this._twitterAccess.showStatus(longId);
+            tweet = (Tweet) this._twitterAccess.showStatus(longId);
         } catch (TwitterException twitterException) {
             twitterException.printStackTrace();
         }
@@ -111,7 +112,7 @@ public class Search {
      * @param id the id of the tweet
      * @return Status The tweet
      */
-    public Status getTweetById(String id) {
+    public Tweet getTweetById(String id) {
         return this.searchTweetById(id);
     }
 }
