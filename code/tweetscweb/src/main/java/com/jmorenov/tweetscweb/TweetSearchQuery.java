@@ -8,10 +8,20 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * TypeOfQuery class enum with the types of query.
+ *
+ * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
+ */
 enum TypeOfQuery {
     ID, USER, TEXT, USERTEXT, TEXTUSER, UNKNOWN
 }
 
+/**
+ * TweetSearchQuery class with the functionality to work over the queries.
+ *
+ * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
+ */
 public class TweetSearchQuery {
     private static String idPattern = "^id=(\\w+)$";
     private static String userPattern = "^user=(\\w+)$";
@@ -20,10 +30,18 @@ public class TweetSearchQuery {
     private static String textPattern = "^text=([\\w\\W]+)$";
     private TweetSearchQueryModel tweetSearchQueryModel;
 
+    /**
+     * Constructor of the class.
+     * @param tweetSearchQueryModel TweetSearchQueryModel with the data.
+     */
     public TweetSearchQuery(TweetSearchQueryModel tweetSearchQueryModel) {
         this.tweetSearchQueryModel = tweetSearchQueryModel;
     }
 
+    /**
+     * Method to get the type of query.
+     * @return TypeOfQuery
+     */
     private TypeOfQuery getTypeOfQuery() {
         TypeOfQuery typeOfQuery;
         String query = this.tweetSearchQueryModel.getQuery();
@@ -45,6 +63,10 @@ public class TweetSearchQuery {
         return typeOfQuery;
     }
 
+    /**
+     * Method to get the id from the query.
+     * @return String
+     */
     private String getId() {
         String id = null;
 
@@ -60,6 +82,10 @@ public class TweetSearchQuery {
         return id;
     }
 
+    /**
+     * Method to get the user from the query.
+     * @return String
+     */
     private String getUser() {
         String user = null;
         String pattern;
@@ -87,6 +113,10 @@ public class TweetSearchQuery {
         return user;
     }
 
+    /**
+     * Method to get the text from the query.
+     * @return String
+     */
     private String getText() {
         String text = null;
         String pattern;
@@ -114,6 +144,10 @@ public class TweetSearchQuery {
         return text;
     }
 
+    /**
+     * Method to add a tweet to the list if it tweet is not null.
+     * @return List of Tweet
+     */
     private List<Tweet> add(List<Tweet> tweets, Tweet tweet) {
         if (tweet != null) {
             tweets.add(tweet);
@@ -122,6 +156,11 @@ public class TweetSearchQuery {
         return tweets;
     }
 
+    /**
+     * Method to add a list of tweets to the list if it
+     * list of tweets have at least one.
+     * @return List of Tweet
+     */
     private List<Tweet> addAll(List<Tweet> tweets, List<Tweet> tweetsToInsert) {
         if (tweetsToInsert.size() > 0) {
             tweets.addAll(tweetsToInsert);
@@ -130,10 +169,18 @@ public class TweetSearchQuery {
         return tweets;
     }
 
+    /**
+     * Method to get if the query is valid or not.
+     * @return Boolean
+     */
     public boolean isValidQuery() {
         return getTypeOfQuery() != TypeOfQuery.UNKNOWN;
     }
 
+    /**
+     * Method to load the tweets from the query.
+     * @return List of tweet
+     */
     public List<Tweet> loadTweets() {
         List<Tweet> tweets = new ArrayList<>();
         String user, id, text;
