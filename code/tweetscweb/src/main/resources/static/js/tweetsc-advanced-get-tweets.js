@@ -1,6 +1,8 @@
 var tweetsSearches = [];
 
 function successGet(result) {
+    $("#loading").hide();
+
     if(result.status === "Done"){
         if (result.data.tweets.length > 0) {
             var me = this;
@@ -28,6 +30,7 @@ function successGet(result) {
 }
 
 function errorGet(error) {
+    $("#loading").hide();
     $("#tweets-list-search").append('<div class="alert alert-danger" role="alert"><strong>Error: </strong>' + error.status || error.message + '</div>');
 }
 
@@ -54,6 +57,7 @@ $( document ).ready(function() {
             };
 
             clearTweets();
+            $("#loading").show();
             ajaxPost("/api/tweet/get", formData, successGet, errorGet);
         }
     });

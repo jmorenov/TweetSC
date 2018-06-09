@@ -20,7 +20,7 @@ public class Tweet {
 
     public Tweet(Status tweetStatus) {
         id = Long.toString(tweetStatus.getId());
-        username = tweetStatus.getUser().toString();
+        username = tweetStatus.getUser().getName();
         hash = "";
         text = tweetStatus.getText();
     }

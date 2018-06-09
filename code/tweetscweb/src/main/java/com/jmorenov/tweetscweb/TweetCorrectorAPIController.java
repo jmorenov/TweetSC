@@ -71,9 +71,10 @@ public class TweetCorrectorAPIController {
     @PostMapping("/get")
     public Response getTweets(@RequestBody TweetSearchQueryModel tweetSearchQueryModel) {
         Response response = new Response();
+        TweetSearchQuery tweetSearchQuery = new TweetSearchQuery(tweetSearchQueryModel);
 
-        if (tweetSearchQueryModel.isValidQuery()) {
-            tweetSearchQueryModel.loadTweets();
+        if (tweetSearchQuery.isValidQuery()) {
+            tweetSearchQueryModel.setTweets(tweetSearchQuery.loadTweets());
 
             response.setData(tweetSearchQueryModel);
             response.setStatus("Done");

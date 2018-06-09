@@ -29,7 +29,14 @@ function toggleSelectTweet(event) {
 }
 
 $( document ).ready(function() {
-    $("#advanced-correct-tweets").click(function(event) {
+    $("#button-advanced-correct-tweet").click(function (event) {
+        event.preventDefault();
+        clearTweets();
+        $("#loading").hide();
+        clearQuerySearch();
+    });
+
+    $("#advanced-correct-tweets").click(function (event) {
         event.preventDefault();
 
         if (tweetsSelected.length > 0) {

@@ -15,20 +15,30 @@ import java.util.List;
 public class Search {
     private Twitter _twitterAccess;
 
+    private List<Tweet> listOfStatusToListOfTweet (List<Status> statuses) {
+        List<Tweet> tweets = new ArrayList<>();
+
+        for (Status status : statuses) {
+            tweets.add(new Tweet(status));
+        }
+
+        return tweets;
+    }
+
     /**
      * Method to search tweets of an user.
      * @param username the user
      * @param text the text to search
      * @return List of Status with the tweets.
      */
-    private List<Status> searchTweetsOfUsers(String username, String text) {
-        List<Status> tweets = new ArrayList<>();
+    private List<Tweet> searchTweetsOfUsers(String username, String text) {
+        List<Tweet> tweets = new ArrayList<>();
         try {
             Query query = new Query(text + " from:" + username + " AND -filter:retweets");
             query.setCount(100);
             QueryResult result;
             result = this._twitterAccess.search(query);
-            tweets = result.getTweets();
+            tweets = listOfStatusToListOfTweet(result.getTweets());
         } catch (TwitterException twitterException) {
             twitterException.printStackTrace();
         }
@@ -40,14 +50,14 @@ public class Search {
      * @param text the text to search
      * @return List of Status with the tweets.
      */
-    private List<Status> searchTweets(String text) {
-        List<Status> tweets = new ArrayList<>();
+    private List<Tweet> searchTweets(String text) {
+        List<Tweet> tweets = new ArrayList<>();
         try {
             Query query = new Query(text);
             query.setCount(100);
             QueryResult result;
             result = this._twitterAccess.search(query);
-            tweets = result.getTweets();
+            tweets = listOfStatusToListOfTweet(result.getTweets());
         } catch (TwitterException twitterException) {
             twitterException.printStackTrace();
         }
@@ -64,7 +74,7 @@ public class Search {
 
         try {
             long longId = Long.parseLong(id);
-            tweet = (Tweet) this._twitterAccess.showStatus(longId);
+            tweet = new Tweet(this._twitterAccess.showStatus(longId));
         } catch (TwitterException twitterException) {
             twitterException.printStackTrace();
         }
@@ -84,7 +94,7 @@ public class Search {
      * @param username the user
      * @return List of Status with the tweets
      */
-    public List<Status> getAllTweetsOfUser(String username) {
+    public List<Tweet> getAllTweetsOfUser(String username) {
         return this.searchTweetsOfUsers(username, "");
     }
 
@@ -94,7 +104,7 @@ public class Search {
      * @param text the text to search
      * @return List of Status with the tweets
      */
-    public List<Status> getTweetsByTextOfUser(String username, String text) {
+    public List<Tweet> getTweetsByTextOfUser(String username, String text) {
         return this.searchTweetsOfUsers(username, text);
     }
 
@@ -103,7 +113,7 @@ public class Search {
      * @param text the text to search
      * @return List of Status with the tweets
      */
-    public List<Status> getTweetsByText(String text) {
+    public List<Tweet> getTweetsByText(String text) {
         return this.searchTweets(text);
     }
 
