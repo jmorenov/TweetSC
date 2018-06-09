@@ -23,6 +23,7 @@ $( document ).ready(function() {
                 correctedContent: ""
             };
 
+            $("#simple-tweet-corrected").html("Loading...");
             ajaxPost("/api/tweet/corrector", formData, successCorrection, errorCorrection);
         }
     });

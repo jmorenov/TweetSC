@@ -22,21 +22,39 @@ function toggleSelectTweet(event) {
     }
 
     if (tweetsSelected.length > 0) {
-        $("#advanced-correct-tweets").prop('disabled', false);
+        $("#advanced-correct-tweets-button").prop('disabled', false);
     } else {
-        $("#advanced-correct-tweets").prop('disabled', true);
+        $("#advanced-correct-tweets-button").prop('disabled', true);
     }
+}
+
+function openTweetSearchModal() {
+    clearTweets();
+    clearQuerySearch();
+    $("#loading").hide();
+    $("#advanced-correct-tweets-button").show();
+    $("#advanced-search-again-button").hide();
+    $("#advanced-search-tweets").show();
+    $("#advanced-example-search").show();
+}
+
+function openTweetCorrectionResultModal() {
+    clearTweets();
+    clearQuerySearch();
+    $("#loading").hide();
+    $("#advanced-correct-tweets-button").hide();
+    $("#advanced-search-again-button").show();
+    $("#advanced-search-tweets").hide();
+    $("#advanced-example-search").hide();
 }
 
 $( document ).ready(function() {
     $("#button-advanced-correct-tweet").click(function (event) {
         event.preventDefault();
-        clearTweets();
-        $("#loading").hide();
-        clearQuerySearch();
+        openTweetSearchModal();
     });
 
-    $("#advanced-correct-tweets").click(function (event) {
+    $("#advanced-correct-tweets-button").click(function (event) {
         event.preventDefault();
 
         if (tweetsSelected.length > 0) {
@@ -46,9 +64,8 @@ $( document ).ready(function() {
             };
 
             ajaxPost("/api/tweet/advancedcorrector", formData, successAdvancedCorrection, errorAdvancedCorrection);
-            clearQuerySearch();
-            clearTweets();
             openTweetCorrectionResultModal();
+            $("#loading").show();
         }
     });
 });

@@ -1,16 +1,18 @@
 function successAdvancedCorrection(result) {
+    $("#loading").hide();
+
     if(result.status === "Done"){
         var me = this;
 
         result.data.tweets.forEach(function (tweet) {
-            me.$("#tweets-list-result").append('<div id="' + tweet.id + '" class="list-group-item ' +
+            me.$("#tweets-list").append('<div id="' + tweet.id + '" class="list-group-item ' +
                 '           flex-column align-items-start tweet-container">\n' +
                 '            <div class="d-flex w-100 justify-content-between">\n' +
                 '                <h6 class="mb-1">' + tweet.username + '</h6>\n' +
                 '                <small>Date</small>\n' +
                 '            </div>\n' +
-                '            <span class="tweet">' + tweet.text + '</span>\n' +
-                '            <div class="alert alert-success" role="alert">' + tweet.correctedContent + '</div>' +
+                '            <pre class="tweet html-text">' + tweet.text + '</pre>\n' +
+                '            <pre class="alert alert-success html-text" role="alert">' + tweet.correctedContent + '</pre>' +
                 '        </div>');
         });
     }else{
@@ -19,16 +21,12 @@ function successAdvancedCorrection(result) {
 }
 
 function errorAdvancedCorrection(error) {
-    $("#tweets-list-result").append('<div class="alert alert-danger" role="alert"><strong>Error: </strong>' + error.status || error.message + '</div>');
-}
-
-function openTweetCorrectionResultModal() {
-    $("#advancedCorrectTweetModal").modal("toggle");
-    $("#advancedCorrectTweetModalResult").modal("toggle");
+    $("#loading").hide();
+    $("#tweets-list").append('<div class="alert alert-danger" role="alert"><strong>Error: </strong>' + error.status || error.message + '</div>');
 }
 
 $( document ).ready(function() {
-    $("#advanced-correct-tweets-search-again").click(function(event) {
-        clearTweets();
+    $("#advanced-search-again-button").click(function(event) {
+        openTweetSearchModal();
     });
 });

@@ -10,35 +10,13 @@
             <div class="modal-body">
                 <form th:replace="advanced/search-tweets-component :: advanced-search-tweets"/>
                 <div th:replace="advanced/example-search-component :: advanced-example-search"/>
-                <div th:replace="advanced/tweets-list-component :: advanced-tweets-list-search"/>
+                <div th:replace="advanced/tweets-list-component :: advanced-tweets-list"/>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary"
-                        data-toggle="modal" data-target="#advancedCorrectTweetModalResult"
-                        data-dismiss="modal" id="advanced-correct-tweets" disabled>
+            <div class="modal-footer" id="advanced-correct-tweets-buttons">
+                <button type="button" class="btn btn-primary" id="advanced-correct-tweets-button" disabled>
                     Correct tweets
                 </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div th:fragment="advanced-correct-tweet-result" class="modal fade" id="advancedCorrectTweetModalResult" tabindex="-1" role="dialog" aria-labelledby="advancedCorrectTweetModalResult" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">TweetSC Advanced Use</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div th:replace="advanced/tweets-list-component :: advanced-tweets-list-result"/>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary"
-                        data-dismiss="modal" data-toggle="modal" data-target="#advancedCorrectTweetModal"
-                        id="advanced-correct-tweets-search-again">
+                <button type="button" class="btn btn-primary" id="advanced-search-again-button">
                     Search again
                 </button>
             </div>

@@ -472,10 +472,14 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   text-align: left;
 }
 
-#tweets-list-search {
-  margin-top: 10px;
-  border-top: 1px solid #e9ecef;
-  padding-top: 10px;
+.html-text {
+  white-space: pre-wrap;
+}
+
+.search-example {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 10px;
 }
 
 .hide {
