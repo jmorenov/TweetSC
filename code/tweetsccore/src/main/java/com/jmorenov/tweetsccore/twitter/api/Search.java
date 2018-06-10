@@ -4,6 +4,7 @@ import com.jmorenov.tweetsccore.twitter.Tweet;
 import com.jmorenov.tweetsccore.twitter.TwitterConfiguration;
 import twitter4j.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +53,9 @@ public class Search {
      */
     private List<Tweet> searchTweets(String text) {
         List<Tweet> tweets = new ArrayList<>();
+
         try {
-            Query query = new Query(text);
+            Query query = new Query(text + " -filter:retweets");
             query.setCount(100);
             QueryResult result;
             result = this._twitterAccess.search(query);
@@ -61,6 +63,7 @@ public class Search {
         } catch (TwitterException twitterException) {
             twitterException.printStackTrace();
         }
+
         return tweets;
     }
 
@@ -81,6 +84,36 @@ public class Search {
 
         return tweet;
     }
+
+    /*
+    private String downloadFullTextOfTweet(long id) {
+        String text;
+        String link;
+
+        try {
+            Document doc = Jsoup.connect("https://twitter.com/statuses/" + id).get();
+            Element tweetContainer = doc.getElementsByAttributeValue("data-tweet-id", "" + id).first();
+            Element tweet = tweetContainer.selectFirst("p.tweet-text");
+
+            try {
+                Element linkElement = tweet.selectFirst("a");
+                link = linkElement.text();
+            } catch (NullPointerException linkException) {
+                link = "";
+            }
+            text = tweet.text();
+
+            if (!link.equals("")) {
+                text = text.replace(link, " " + link);
+                text = text.substring(0, text.length()-2);
+            }
+
+        } catch (IOException urlException) {
+            text = "";
+        }
+
+        return text;
+    }*/
 
     /**
      * Default constructor of the class.

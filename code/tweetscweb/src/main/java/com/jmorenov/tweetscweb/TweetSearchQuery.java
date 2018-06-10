@@ -23,7 +23,7 @@ enum TypeOfQuery {
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class TweetSearchQuery {
-    private static String idPattern = "^id=(\\w+)$";
+    private static String idPattern = "^id=(\\d+)$";
     private static String userPattern = "^user=(\\w+)$";
     private static String userTextPattern = "^user=(\\w+)&text=([\\w\\W]+)$";
     private static String textUserPattern = "^text=([\\w\\W]+)&user=(\\w+)$";

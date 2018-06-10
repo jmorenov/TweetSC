@@ -23,6 +23,7 @@ public class TwitterConfiguration {
         configurationBuilder.setOAuthConsumerSecret("hNahic5RSY9P6LdB8hkbEyNDDSm2Cm3kgYt6tIacesgLfkoQx4");
         configurationBuilder.setOAuthAccessToken("300124028-SYZzjOSEV73RzX80pyXl9ivZFR7AlVh9Nz4okHCO");
         configurationBuilder.setOAuthAccessTokenSecret("4xyeRFCCcMDlkjzZ7PVc3OI7RBRy5fPrETK3ynXVFkoVd");
+        configurationBuilder.setTweetModeExtended(true);
 
         TwitterFactory tf = new TwitterFactory(configurationBuilder.build());
         this._twitterAccess = tf.getInstance();

@@ -92,7 +92,6 @@ public class DictionaryMethod extends Method {
         String normalizedText = getValidText(text);
         ArrayList<String> wordsOfText = getWords(normalizedText);
 
-
         for (String word : wordsOfText) {
             if (!isPunctuationSign(word)) {
                 if (!_dictionaryWords.containsKey(word)) {
