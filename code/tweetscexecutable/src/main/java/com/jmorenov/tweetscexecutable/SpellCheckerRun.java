@@ -1,12 +1,12 @@
 package com.jmorenov.tweetscexecutable;
 
+import com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator;
+import com.jmorenov.tweetsccore.method.DictionaryMethod;
+import com.jmorenov.tweetsccore.method.Method;
+import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
+
 import java.io.IOException;
 import java.util.Arrays;
-
-import com.jmorenov.tweetsccore.spellchecker.DictionaryMethod;
-import com.jmorenov.tweetsccore.spellchecker.Method;
-import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
-import com.jmorenov.tweetsccore.spellchecker.TweetNormEvaluator;
 
 /**
  * SpellCheckerRun class.

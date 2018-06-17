@@ -1,5 +1,8 @@
 package com.jmorenov.tweetsccore.method;
 
+import com.jmorenov.tweetsccore.twitter.Tweet;
+import com.jmorenov.tweetsccore.twitter.TweetCorrected;
+
 /**
  * Method abstract class.
  *
@@ -19,16 +22,9 @@ public abstract class Method {
     public abstract String toString();
 
     /**
-     * Abstract method to get the corrected text.
-     * @param text String with the text to correct.
-     * @return String with the correctec text.
+     * Abstract method to get the corrected tweet.
+     * @param tweet Tweet with the tweet to correct.
+     * @return TweetCorrected with the corrected tweet.
      */
-    public abstract String correctText(String text);
-
-    /**
-     * Abstract method to get the corrected text for Tweet Norm 2013.
-     * @param text String with the text to correct.
-     * @return String with the corrected text.
-     */
-    public abstract String correctTextForTweetNorm(String text);
+    public abstract TweetCorrected correctTweet(Tweet tweet);
 }

@@ -4,6 +4,7 @@ import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.method.Method;
 import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
 import com.jmorenov.tweetsccore.twitter.Tweet;
+import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -131,16 +132,11 @@ public class TweetNormEvaluator {
 
         List<String> spellCheckerResultLines = new ArrayList<String>();
         SpellChecker spellChecker = new SpellChecker(method);
-        String tweetCorrected;
 
         for (Tweet tweet : _tweetList) {
-            tweetCorrected = spellChecker.correctTextForTweetNorm(tweet.getText());
+            TweetCorrected tweetCorrected = spellChecker.correctTweet(tweet);
 
-            if (tweetCorrected.equals("")) {
-                spellCheckerResultLines.add(tweet.getId() + "\t");
-            } else {
-                spellCheckerResultLines.add(tweet.getId() + "\t" + tweetCorrected);
-            }
+            spellCheckerResultLines.add(tweetCorrected.toTweetNormString());
         }
 
         Path resultFile = Paths.get(_workingDirectory + _resultFile);

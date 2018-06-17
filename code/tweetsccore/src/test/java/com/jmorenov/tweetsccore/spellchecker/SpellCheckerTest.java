@@ -1,23 +1,54 @@
 package com.jmorenov.tweetsccore.spellchecker;
 
+import com.jmorenov.tweetsccore.method.DictionaryMethod;
+import com.jmorenov.tweetsccore.twitter.Tweet;
+import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 import org.junit.Test;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class SpellCheckerTest {
-    /*@Test
-    public void spellcheckerShouldReturnWordsOfAText() {
+    @Test
+    public void spellCheckerWithDictionaryAndCorrectTextMethodShouldReturnTheCorrectText() throws IOException {
         String text = "Hola mi nombre es Javier.";
-        SpellChecker spellChecker = new SpellChecker(text);
-        ArrayList<String> words = spellChecker.words();
+        SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
+        String textCorrected = spellChecker.correctText(text);
 
-        assertEquals("failure - dimensions are not equal", 6, words.size());
-        assertEquals("failure - strings are not equal", "Hola-1", words.get(0));
-        assertEquals("failure - strings are not equal", "mi-2", words.get(1));
-        assertEquals("failure - strings are not equal", "nombre-3", words.get(2));
-        assertEquals("failure - strings are not equal", "es-4", words.get(3));
-        assertEquals("failure - strings are not equal", "Javier-5", words.get(4));
-        assertEquals("failure - strings are not equal", ".-6", words.get(5));
-    }*/
+        assertEquals("failure - the correction is incorrect", "Hola mi nombre es Javier.", textCorrected);
+    }
+
+    @Test
+    public void spellCheckerWithDictionaryAndCorrectTweetMethodShouldReturnTheCorrectTweetWithoutVariationAsTweetNormForm() throws IOException {
+        String id = "318676223985336320";
+        String username = "YoqueseYatusaeh";
+        String hash = "49bc1393f28d8eb119e02d410fa9a2d8";
+        String text = "Hoy llevo la camiseta de Batman jdjejdkahflwkdjwpvqh.";
+
+        Tweet tweet = new Tweet(id, username, hash, text);
+        SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
+        TweetCorrected tweetCorrected = spellChecker.correctTweet(tweet);
+
+        assertEquals("failure - the correction is incorrect", "318676223985336320\n" +
+                "\tBatman 1 -\n" +
+                "\tjdjejdkahflwkdjwpvqh 2 -", tweetCorrected.toTweetNormString());
+    }
+
+    @Test
+    public void spellCheckerWithDictionaryAndCorrectTweetMethodShouldReturnTheCorrectTweetAsTweetNormForm() throws IOException {
+        String id = "318819189580263425";
+        String username = "Irene_kyoto";
+        String hash = "0034c035b4328bfbdb2b90be52c2d598";
+        String text = "Esperando walking dead. A ver como acaba...";
+
+        Tweet tweet = new Tweet(id, username, hash, text);
+        SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
+        TweetCorrected tweetCorrected = spellChecker.correctTweet(tweet);
+
+        assertEquals("failure - the correction is incorrect", "318819189580263425\n" +
+                "\twalking 0 Walking\n" +
+                "\tdead 0 Dead", tweetCorrected.toTweetNormString());
+    }
 }

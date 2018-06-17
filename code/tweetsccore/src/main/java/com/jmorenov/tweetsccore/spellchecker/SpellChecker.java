@@ -43,16 +43,9 @@ public class SpellChecker {
      * @return String with the corrected text.
      */
     public String correctText(String text) {
-        return this._method.correctText(text);
-    }
+        Tweet tweet = new Tweet(text);
 
-    /**
-     * Method to correct the text to Tweet Norm 2013.
-     * @param text String with the text to correct.
-     * @return String with the corrected Text.
-     */
-    public String correctTextForTweetNorm(String text) {
-        return this._method.correctTextForTweetNorm(text);
+        return this._method.correctTweet(tweet).getCorrectedText();
     }
 
     /**
@@ -61,10 +54,6 @@ public class SpellChecker {
      * @return TweetCorrected with the corrected tweet.
      */
     public TweetCorrected correctTweet(Tweet tweet) {
-        TweetCorrected tweetCorrected = new TweetCorrected(tweet);
-
-        tweetCorrected.setCorrectedText(this._method.correctText(tweet.getText()));
-
-        return tweetCorrected;
+        return this._method.correctTweet(tweet);
     }
 }

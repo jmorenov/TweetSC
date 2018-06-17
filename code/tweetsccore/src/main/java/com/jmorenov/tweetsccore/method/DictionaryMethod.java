@@ -1,7 +1,13 @@
 package com.jmorenov.tweetsccore.method;
 
+import com.jmorenov.tweetsccore.extra.Anotation;
 import com.jmorenov.tweetsccore.extra.File;
+import com.jmorenov.tweetsccore.extra.OOV;
+import com.jmorenov.tweetsccore.extra.Parser;
+import com.jmorenov.tweetsccore.twitter.Tweet;
+import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 import com.vdurmont.emoji.EmojiParser;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,9 +27,11 @@ import java.util.stream.Stream;
 public class DictionaryMethod extends Method {
     private Map<String, Integer> _dictionaryWords;
     private Map<String, Integer> _nombresPropiosWords;
+    private Map<String, Integer> _entitiesWords;
     private static String _alphabet = "aábcdeéfghiíjklmnñoópqrstuúvwxyz";
     private static final String _dictionaryFileName = "dic.txt";
     private static final String _nombresPropiosFileName = "nombres_propios.txt";
+    private static final String _entitiesFileName = "entities.txt";
 
     /**
      * Default constructor of the class.
@@ -43,72 +51,34 @@ public class DictionaryMethod extends Method {
     }
 
     /**
-     * Method to get the corrected text for Tweet Norm 2013.
-     * @param text String with the text to correct.
-     * @return String with the correctec text.
+     * Method to get the corrected tweet.
+     * @param tweet Tweet with the tweet to correct.
+     * @return TweetCorrected with the corrected tweet.
      */
-    public String correctTextForTweetNorm(String text) {
-        String textCorrected = "";
+    public TweetCorrected correctTweet(Tweet tweet) {
+        TweetCorrected tweetCorrected = new TweetCorrected(tweet);
 
-        if (!text.equals("Not Available")) {
-            String normalizedText = getValidText(text);
-            ArrayList<String> wordsOfText = getWords(normalizedText);
+        tweetCorrected.setOOVWords(getOOVs(tweet.getText()));
 
-            for (String word : wordsOfText) {
-                if (!isPunctuationSign(word)) {
-                    if (!_dictionaryWords.containsKey(word)) {
-                        if (_nombresPropiosWords.containsKey(word)) {
-                            textCorrected = textCorrected + "\n\t" + word + " 1 -";
-                        } else {
-                            String wordCorrect = correctWord(word);
+        for (OOV oov : tweetCorrected.getOOVWords()) {
+            if (_entitiesWords.containsKey(oov.getToken()) || _nombresPropiosWords.containsKey(oov.getToken())) {
+                oov.setAnotation(Anotation.Correct);
+            } else
+              {
+                String correction = correctWord(oov.getToken().toLowerCase());
 
-                            if (wordCorrect.equals(word)) {
-                                textCorrected = textCorrected + "\n\t" + word + " 2 -";
-                            } else {
-                                textCorrected = textCorrected + "\n\t" + word + " 0 " + wordCorrect;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        return textCorrected;
-    }
-
-    /**
-     * Method to get the corrected text.
-     * @param text String with the text to correct.
-     * @return String with the correctec text.
-     */
-    public String correctText(String text) {
-        String textCorrected = "";
-        String normalizedText = getValidText(text);
-        ArrayList<String> wordsOfText = getWords(normalizedText);
-
-        for (String word : wordsOfText) {
-            if (!isPunctuationSign(word)) {
-                if (!_dictionaryWords.containsKey(word)) {
-                    if (_nombresPropiosWords.containsKey(word)) {
-                        textCorrected = textCorrected + word;
-                    } else {
-                        String wordCorrect = correctWord(word);
-
-                        if (wordCorrect.equals(word)) {
-                            textCorrected = textCorrected + word;
-                        } else {
-                            textCorrected = textCorrected + wordCorrect;
-                        }
-                    }
+                if (!correction.equals(oov.getToken())) {
+                    oov.setAnotation(Anotation.Variation);
+                    oov.setCorrection(correction);
                 } else {
-                    textCorrected = textCorrected + word;
+                    oov.setAnotation(Anotation.NoEs);
                 }
-
-                textCorrected = textCorrected + " ";
             }
         }
 
-        return textCorrected;
+        tweetCorrected.computeCorrectedText();
+
+        return tweetCorrected;
     }
 
     /**
@@ -118,6 +88,7 @@ public class DictionaryMethod extends Method {
     private void readDictionaries() throws IOException {
         _dictionaryWords = readDictionary(_dictionaryFileName);
         _nombresPropiosWords = readDictionary(_nombresPropiosFileName);
+        _entitiesWords = readDictionary(_entitiesFileName);
     }
 
     /**
@@ -130,7 +101,7 @@ public class DictionaryMethod extends Method {
         byte[] bytesOfDictionaryFile = File.readToByte(fileName);
         Map<String, Integer> dictionaryMap = new HashMap<String, Integer>();
 
-        Stream.of(new String(bytesOfDictionaryFile).toLowerCase().split("\n")).forEach( (word) ->{
+        Stream.of(new String(bytesOfDictionaryFile).split("\n")).forEach( (word) ->{
             dictionaryMap.compute( word, (k,v) -> v == null ? 1 : v + 1  );
         });
 
@@ -166,6 +137,12 @@ public class DictionaryMethod extends Method {
      * @return String with the word corrected.
      */
     private String correctWord(String word) {
+        String capitalizedWord = StringUtils.capitalize(word);
+
+        if (_entitiesWords.containsKey(capitalizedWord) || _nombresPropiosWords.containsKey(capitalizedWord)) {
+            return capitalizedWord;
+        }
+
         Optional<String> e1 = known(edits1(word)).max( (a, b) -> _dictionaryWords.get(a) - _dictionaryWords.get(b) );
 
         if(e1.isPresent())
@@ -177,93 +154,33 @@ public class DictionaryMethod extends Method {
     }
 
     /**
+     * Method to check if a word is an OOV
+     * @param word String the word to check
+     * @return boolean
+     */
+    private boolean isOOV(String word) {
+        return !_dictionaryWords.containsKey(word.toLowerCase());
+    }
+
+    /**
      * Method to get all the words from a text.
      * @param text String with the text.
      * @return ArrayList with the words from the text.
      */
-    private ArrayList<String> getWords(String text) {
-        ArrayList<String> words = new ArrayList<>();
+    private ArrayList<OOV> getOOVs(String text) {
+        ArrayList<OOV> oovWords = new ArrayList<>();
         Pattern p = Pattern.compile("[\\w']+");
         Matcher m = p.matcher(text);
 
         while (m.find()) {
-            words.add(text.substring(m.start(), m.end()));
-        }
+            String word = text.substring(m.start(), m.end());
+            OOV oov = new OOV(word, m.start(), m.end());
 
-        return words;
-    }
-
-    /**
-     * Method to remove the emojis from a text.
-     * @param text String with the text to remove the emojis.
-     * @return String with the text without the emojis.
-     */
-    private String removeEmojiFromText(String text) {
-        return EmojiParser.removeAllEmojis(text);
-    }
-
-    /**
-     * Method to check if a word is a Url.
-     * @param word String with the word to check.
-     * @return Boolean control parameter.
-     */
-    private Boolean isUrl(String word) {
-        return word.matches("http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+");
-    }
-
-    /**
-     * Method to check if a word is a username of Twitter.
-     * @param word String with the word to check.
-     * @return Boolean control parameter.
-     */
-    private Boolean isUsername(String word) {
-        return word.matches("@[a-zA-Z0-9_]*$");
-    }
-
-    /**
-     * Method to check if a word is a hashtag of Twitter.
-     * @param word String with the word to check.
-     * @return Boolean control parameter.
-     */
-    private Boolean isHashtag(String word) {
-        return word.matches("#[a-zA-Z0-9_]*$");
-    }
-
-    /**
-     * Method to check if a word is a valid word.
-     * @param word String with the word to check.
-     * @return Boolean control parameter.
-     */
-    private Boolean validWord(String word) {
-        return !isUsername(word) && !isHashtag(word) && !isUrl(word);
-    }
-
-    /**
-     * Method to check if a word is a punctuation sign.
-     * @param word String with the word to check.
-     * @return Boolean control parameter.
-     */
-    private Boolean isPunctuationSign(String word) {
-        return !word.matches("^[a-zA-Z0-9_]*$");
-    }
-
-    /**
-     * Method to get the valid text from a text.
-     * @param text String with the text.
-     * @return String with the valid text.
-     */
-    private String getValidText(String text) {
-        String textWithoutEmojis = removeEmojiFromText(text.toLowerCase());
-        String validText = "";
-
-        ArrayList<String> wordsOfText = getWords(textWithoutEmojis);
-
-        for (String word : wordsOfText) {
-            if (validWord(word)) {
-                validText = validText + word + " ";
+            if (isOOV(word)) {
+                oovWords.add(oov);
             }
         }
 
-        return validText;
+        return oovWords;
     }
 }
