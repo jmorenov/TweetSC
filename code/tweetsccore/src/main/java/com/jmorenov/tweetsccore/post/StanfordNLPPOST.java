@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
-public class StanfordNLP extends POSTagger {
+public class StanfordNLPPOST extends POST {
     private String text;
 
-    public StanfordNLP(String text) {
+    public StanfordNLPPOST(String text) {
         this.text = text;
     }
 

@@ -18,6 +18,21 @@ public class Tweet {
      */
     public Tweet() {}
 
+    /**
+     * Copy constructor
+     * @param tweet Tweet to copy from.
+     */
+    public Tweet(Tweet tweet) {
+        this.id = tweet.getId();
+        this.username = tweet.getUsername();
+        this.hash = tweet.getHash();
+        this.text = tweet.getText();
+    }
+
+    /**
+     * Constructor of the class.
+     * @param tweetStatus Status from the object of Twitter4j.
+     */
     public Tweet(Status tweetStatus) {
         id = Long.toString(tweetStatus.getId());
         username = tweetStatus.getUser().getName();
@@ -80,8 +95,8 @@ public class Tweet {
     }
 
     /**
-     * Method to get the string of the method.
-     * @return String with the String of the method.
+     * Method to get the string of the Tweet.
+     * @return String with the String of the Tweet.
      */
     @Override
     public String toString() {

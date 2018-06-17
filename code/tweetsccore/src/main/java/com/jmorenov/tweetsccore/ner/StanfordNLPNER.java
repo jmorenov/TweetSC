@@ -16,12 +16,12 @@ import java.util.*;
  *
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
-public class StanfordNLP extends NER {
+public class StanfordNLPNER extends NER {
     private Properties props;
     private StanfordCoreNLP pipeline;
     private CoreDocument document;
 
-    public StanfordNLP(String text) {
+    public StanfordNLPNER(String text) {
         props = new Properties();
 
         try {

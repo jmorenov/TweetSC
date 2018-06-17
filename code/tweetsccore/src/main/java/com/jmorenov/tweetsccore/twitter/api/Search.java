@@ -35,7 +35,7 @@ public class Search {
     private List<Tweet> searchTweetsOfUsers(String username, String text) {
         List<Tweet> tweets = new ArrayList<>();
         try {
-            Query query = new Query(text + " from:" + username + " AND -filter:retweets");
+            Query query = new Query(text + " lang:es AND from:" + username + " AND -filter:retweets");
             query.setCount(100);
             QueryResult result;
             result = this._twitterAccess.search(query);
@@ -55,7 +55,7 @@ public class Search {
         List<Tweet> tweets = new ArrayList<>();
 
         try {
-            Query query = new Query(text + " -filter:retweets");
+            Query query = new Query(text + " lang:es AND -filter:retweets");
             query.setCount(100);
             QueryResult result;
             result = this._twitterAccess.search(query);

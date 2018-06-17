@@ -1,4 +1,4 @@
-package com.jmorenov.tweetsccore.spellchecker;
+package com.jmorenov.tweetsccore.method;
 
 /**
  * Method abstract class.
@@ -28,7 +28,7 @@ public abstract class Method {
     /**
      * Abstract method to get the corrected text for Tweet Norm 2013.
      * @param text String with the text to correct.
-     * @return String with the correctec text.
+     * @return String with the corrected text.
      */
     public abstract String correctTextForTweetNorm(String text);
 }

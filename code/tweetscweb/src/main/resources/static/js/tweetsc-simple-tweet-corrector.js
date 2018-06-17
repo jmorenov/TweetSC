@@ -1,6 +1,6 @@
 function successCorrection(result) {
     if(result.status === "Done"){
-        $("#simple-tweet-corrected").html(result.data.correctedContent);
+        $("#simple-tweet-corrected").html(result.data.correctedText);
     }else{
         errorCorrection();
     }
@@ -19,8 +19,7 @@ $( document ).ready(function() {
                 id: "",
                 username: "",
                 hash: "",
-                text : $("#tweet").val(),
-                correctedContent: ""
+                text : $("#tweet").val()
             };
 
             $("#simple-tweet-corrected").html("Loading...");

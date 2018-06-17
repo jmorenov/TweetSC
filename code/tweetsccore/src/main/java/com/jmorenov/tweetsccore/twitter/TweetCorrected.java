@@ -6,7 +6,7 @@ package com.jmorenov.tweetsccore.twitter;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class TweetCorrected extends Tweet {
-    private String correctedContent = null;
+    private String correctedText = null;
 
     /**
      * Default constuctor of the class.
@@ -33,18 +33,35 @@ public class TweetCorrected extends Tweet {
     }
 
     /**
+     * Constructor from tweet.
+     * @param tweet Tweet
+     */
+    public TweetCorrected(Tweet tweet) {
+        super(tweet);
+    }
+
+    /**
      * Method to get the corrected tweet.
      * @return
      */
-    public String getCorrectedContent() {
-        return this.correctedContent;
+    public String getCorrectedText() {
+        return this.correctedText;
     }
 
     /**
      * Method to set the corrected tweet.
-     * @param correctedContent the corrected text
+     * @param correctedText the corrected text
      */
-    public void setCorrectedContent(String correctedContent) {
-        this.correctedContent = correctedContent;
+    public void setCorrectedText(String correctedText) {
+        this.correctedText = correctedText;
+    }
+
+    /**
+     * Method to get the string of the Tweet Corrected.
+     * @return String with the String of the class.
+     */
+    @Override
+    public String toString() {
+        return super.toString() + " --> " +  getCorrectedText();
     }
 }

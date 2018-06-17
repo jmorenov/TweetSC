@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class TweetSearchQueryModel {
     private String query;
-    private List<Tweet> tweets;
+    private List<TweetModel> tweets;
 
     /**
      * Method to get the query.
@@ -32,7 +32,7 @@ public class TweetSearchQueryModel {
      * Method to get the tweets.
      * @return List of tweet
      */
-    public List<Tweet> getTweets() {
+    public List<TweetModel> getTweets() {
         return this.tweets;
     }
 
@@ -40,7 +40,7 @@ public class TweetSearchQueryModel {
      * Method to set the tweets.
      * @param tweets List of tweet
      */
-    public void setTweets(List<Tweet> tweets) {
+    public void setTweets(List<TweetModel> tweets) {
         this.tweets = tweets;
     }
 }

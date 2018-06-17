@@ -1,6 +1,8 @@
-package com.jmorenov.tweetsccore.spellchecker;
+package com.jmorenov.tweetsccore.evaluation;
 
 import com.jmorenov.tweetsccore.extra.File;
+import com.jmorenov.tweetsccore.method.Method;
+import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
 import com.jmorenov.tweetsccore.twitter.Tweet;
 
 import java.io.BufferedReader;
@@ -12,7 +14,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * TweetNormEvaluator class to evaluate methods of spell checker

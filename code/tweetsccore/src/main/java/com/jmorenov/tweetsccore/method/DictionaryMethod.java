@@ -1,15 +1,9 @@
-package com.jmorenov.tweetsccore.spellchecker;
+package com.jmorenov.tweetsccore.method;
 
 import com.jmorenov.tweetsccore.extra.File;
 import com.vdurmont.emoji.EmojiParser;
-import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

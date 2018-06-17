@@ -12,7 +12,7 @@ function successAdvancedCorrection(result) {
                 '                <small>Date</small>\n' +
                 '            </div>\n' +
                 '            <pre class="tweet html-text">' + tweet.text + '</pre>\n' +
-                '            <pre class="alert alert-success html-text" role="alert">' + tweet.correctedContent + '</pre>' +
+                '            <pre class="alert alert-success html-text" role="alert">' + tweet.correctedText + '</pre>' +
                 '        </div>');
         });
     }else{

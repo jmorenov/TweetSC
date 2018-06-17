@@ -1,5 +1,9 @@
 package com.jmorenov.tweetsccore.spellchecker;
 
+import com.jmorenov.tweetsccore.method.Method;
+import com.jmorenov.tweetsccore.twitter.Tweet;
+import com.jmorenov.tweetsccore.twitter.TweetCorrected;
+
 /**
  * SpellChecker class to correct a text.
  *
@@ -49,5 +53,18 @@ public class SpellChecker {
      */
     public String correctTextForTweetNorm(String text) {
         return this._method.correctTextForTweetNorm(text);
+    }
+
+    /**
+     * Method to correct a tweet.
+     * @param tweet Tweet with the tweet.
+     * @return TweetCorrected with the corrected tweet.
+     */
+    public TweetCorrected correctTweet(Tweet tweet) {
+        TweetCorrected tweetCorrected = new TweetCorrected(tweet);
+
+        tweetCorrected.setCorrectedText(this._method.correctText(tweet.getText()));
+
+        return tweetCorrected;
     }
 }

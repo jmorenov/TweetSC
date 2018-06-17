@@ -148,9 +148,9 @@ public class TweetSearchQuery {
      * Method to add a tweet to the list if it tweet is not null.
      * @return List of Tweet
      */
-    private List<Tweet> add(List<Tweet> tweets, Tweet tweet) {
+    private List<TweetModel> add(List<TweetModel> tweets, Tweet tweet) {
         if (tweet != null) {
-            tweets.add(tweet);
+            tweets.add(new TweetModel(tweet));
         }
 
         return tweets;
@@ -161,9 +161,11 @@ public class TweetSearchQuery {
      * list of tweets have at least one.
      * @return List of Tweet
      */
-    private List<Tweet> addAll(List<Tweet> tweets, List<Tweet> tweetsToInsert) {
+    private List<TweetModel> addAll(List<TweetModel> tweets, List<Tweet> tweetsToInsert) {
         if (tweetsToInsert.size() > 0) {
-            tweets.addAll(tweetsToInsert);
+            for(Tweet tweet : tweetsToInsert) {
+                tweets.add(new TweetModel(tweet));
+            }
         }
 
         return tweets;
@@ -181,8 +183,8 @@ public class TweetSearchQuery {
      * Method to load the tweets from the query.
      * @return List of tweet
      */
-    public List<Tweet> loadTweets() {
-        List<Tweet> tweets = new ArrayList<>();
+    public List<TweetModel> loadTweets() {
+        List<TweetModel> tweets = new ArrayList<>();
         String user, id, text;
         Search twitterSearch = new Search();
         TypeOfQuery typeOfQuery = getTypeOfQuery();
