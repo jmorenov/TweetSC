@@ -51,4 +51,19 @@ public class SpellCheckerTest {
                 "\twalking 0 Walking\n" +
                 "\tdead 0 Dead", tweetCorrected.toTweetNormString());
     }
+
+    @Test
+    public void spellCheckerWithDictionaryAndCorrectTweetMethodShouldReturnTheCorrectTweetAsTweetNormForm2() throws IOException {
+        String id = "318596947432841216";
+        String username = "MariaaNogales";
+        String hash = "76529c7a59fc697d73bfdf323bf60d50";
+        String text = "El siestón que me voy a echar hoy va a ser digno...!";
+
+        Tweet tweet = new Tweet(id, username, hash, text);
+        SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
+        TweetCorrected tweetCorrected = spellChecker.correctTweet(tweet);
+
+        assertEquals("failure - the correction is incorrect", "318596947432841216",
+                tweetCorrected.toTweetNormString());
+    }
 }

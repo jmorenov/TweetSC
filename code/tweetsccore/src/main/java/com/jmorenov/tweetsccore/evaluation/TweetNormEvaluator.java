@@ -121,7 +121,7 @@ public class TweetNormEvaluator {
      * @throws IOException when the file not found.
      * @see Method
      */
-    public String evalutate(Method method) throws IOException {
+    public TwetNormEvaluationResult evalutate(Method method) throws IOException {
         if (_tweetList == null) {
             if (_tweetsFile == null) {
                 downloadTweets();
@@ -173,7 +173,7 @@ public class TweetNormEvaluator {
      * @throws IOException when the file not found.
      * @return String with the output of the execution.
      */
-    private String executeEvaluatorScript() throws IOException {
+    private TwetNormEvaluationResult executeEvaluatorScript() throws IOException {
         String command = "python " + _workingDirectory + _evaluatorScriptFile + " " + _workingDirectory + _annotatedFile + " " + _workingDirectory + _resultFile;
         Process processScript = Runtime.getRuntime().exec(command);
         BufferedReader stdOutput = new BufferedReader(new InputStreamReader(processScript.getInputStream()));
@@ -188,6 +188,6 @@ public class TweetNormEvaluator {
             output = output.concat(outputLine + "\n");
         }
 
-        return error + "\n" + output;
+        return new TwetNormEvaluationResult(error + "\n" + output);
     }
 }

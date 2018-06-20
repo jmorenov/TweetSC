@@ -21,7 +21,7 @@ public class SearchTest {
     @Test
     public void getTweetsOfAnUserByATextShouldReturnAtLeastOneTweet() {
         String username = "marca";
-        String text = "Pochettino";
+        String text = "fútbol";
 
         Search search = new Search();
         List<Tweet> tweets = search.getTweetsByTextOfUser(username, text);

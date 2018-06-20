@@ -1,6 +1,6 @@
 package com.jmorenov.tweetsccore.twitter;
 
-import com.jmorenov.tweetsccore.extra.Anotation;
+import com.jmorenov.tweetsccore.extra.Annotation;
 import com.jmorenov.tweetsccore.extra.OOV;
 
 import java.util.List;
@@ -98,10 +98,10 @@ public class TweetCorrected extends Tweet {
             for (OOV oov : getOOVWords()) {
                 tweetNormString += "\n\t" + oov.getToken();
 
-                if (oov.getAnotation() == Anotation.Variation) {
+                if (oov.getAnnotation() == Annotation.Variation) {
                     tweetNormString += " 0 " + oov.getCorrection();
                 } else {
-                    tweetNormString += " " + oov.getAnotation().value + " -";
+                    tweetNormString += " " + oov.getAnnotation().value + " -";
                 }
             }
         }
@@ -118,11 +118,11 @@ public class TweetCorrected extends Tweet {
             StringBuilder correctedTextBuffer = new StringBuilder(correctedText);
 
             for (OOV oov : getOOVWords()) {
-                if (oov.getAnotation() == Anotation.Variation) {
+                if (oov.getAnnotation() == Annotation.Variation) {
                     correctedTextBuffer.replace(oov.getStartPosition(), oov.getEndPosition(), oov.getCorrection());
 
                     correctedText = correctedTextBuffer.toString();
-                }
+                }   
             }
         } else {
             correctedText = getText();

@@ -1,12 +1,10 @@
 package com.jmorenov.tweetsccore.method;
 
-import com.jmorenov.tweetsccore.extra.Anotation;
+import com.jmorenov.tweetsccore.extra.Annotation;
 import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.extra.OOV;
-import com.jmorenov.tweetsccore.extra.Parser;
 import com.jmorenov.tweetsccore.twitter.Tweet;
 import com.jmorenov.tweetsccore.twitter.TweetCorrected;
-import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -28,10 +26,12 @@ public class DictionaryMethod extends Method {
     private Map<String, Integer> _dictionaryWords;
     private Map<String, Integer> _nombresPropiosWords;
     private Map<String, Integer> _entitiesWords;
+    private Map<String, Integer> _englishWords;
     private static String _alphabet = "aábcdeéfghiíjklmnñoópqrstuúvwxyz";
     private static final String _dictionaryFileName = "dic.txt";
     private static final String _nombresPropiosFileName = "nombres_propios.txt";
     private static final String _entitiesFileName = "entities.txt";
+    private static final String _englishFileName = "english.txt";
 
     /**
      * Default constructor of the class.
@@ -61,24 +61,61 @@ public class DictionaryMethod extends Method {
         tweetCorrected.setOOVWords(getOOVs(tweet.getText()));
 
         for (OOV oov : tweetCorrected.getOOVWords()) {
-            if (_entitiesWords.containsKey(oov.getToken()) || _nombresPropiosWords.containsKey(oov.getToken())) {
-                oov.setAnotation(Anotation.Correct);
-            } else
-              {
-                String correction = correctWord(oov.getToken().toLowerCase());
+            OOV correctedOOV = correctOOV(oov);
 
-                if (!correction.equals(oov.getToken())) {
-                    oov.setAnotation(Anotation.Variation);
-                    oov.setCorrection(correction);
-                } else {
-                    oov.setAnotation(Anotation.NoEs);
-                }
-            }
+            oov.setAnnotation(correctedOOV.getAnnotation());
+            oov.setCorrection(correctedOOV.getCorrection());
         }
 
         tweetCorrected.computeCorrectedText();
 
         return tweetCorrected;
+    }
+
+    /**
+     * Method to correct an Out-Of-Vocabulary word.
+     * @param oov OOV
+     * @return OOV the corrected OOV.
+     */
+    private OOV correctOOV(OOV oov) {
+        if (isACorrectOOV(oov.getToken())) {
+            oov.setAnnotation(Annotation.Correct);
+        } else
+        {
+            String correctedWord = correctWord(oov.getToken());
+            String correctedEntity = correctEntity(oov.getToken());
+
+            if (!correctedEntity.equals(oov.getToken())) {
+                oov.setAnnotation(Annotation.Variation);
+                oov.setCorrection(correctedEntity);
+            } else if (isAEnglishOOV(oov.getToken())) {
+                oov.setAnnotation(Annotation.NoEs);
+            } else if (!correctedWord.equals(oov.getToken())) {
+                oov.setAnnotation(Annotation.Variation);
+                oov.setCorrection(correctedWord);
+            } else {
+                oov.setAnnotation(Annotation.NoEs);
+            }
+        }
+
+        return oov;
+    }
+
+    private boolean isACorrectOOV(String oov) {
+        return _entitiesWords.containsKey(oov) || _nombresPropiosWords.containsKey(oov);
+    }
+
+    private boolean isAEnglishOOV(String oov) {
+        return _englishWords.containsKey(oov);
+    }
+
+    private String correctEntity(String oov) {
+        String capitalizedWord = StringUtils.capitalize(oov);
+
+        if (_entitiesWords.containsKey(capitalizedWord) || _nombresPropiosWords.containsKey(capitalizedWord)) {
+            return capitalizedWord;
+        }
+        return oov;
     }
 
     /**
@@ -89,6 +126,7 @@ public class DictionaryMethod extends Method {
         _dictionaryWords = readDictionary(_dictionaryFileName);
         _nombresPropiosWords = readDictionary(_nombresPropiosFileName);
         _entitiesWords = readDictionary(_entitiesFileName);
+        _englishWords = readDictionary(_englishFileName);
     }
 
     /**
@@ -137,12 +175,6 @@ public class DictionaryMethod extends Method {
      * @return String with the word corrected.
      */
     private String correctWord(String word) {
-        String capitalizedWord = StringUtils.capitalize(word);
-
-        if (_entitiesWords.containsKey(capitalizedWord) || _nombresPropiosWords.containsKey(capitalizedWord)) {
-            return capitalizedWord;
-        }
-
         Optional<String> e1 = known(edits1(word)).max( (a, b) -> _dictionaryWords.get(a) - _dictionaryWords.get(b) );
 
         if(e1.isPresent())
@@ -169,7 +201,8 @@ public class DictionaryMethod extends Method {
      */
     private ArrayList<OOV> getOOVs(String text) {
         ArrayList<OOV> oovWords = new ArrayList<>();
-        Pattern p = Pattern.compile("[\\w']+");
+        Pattern p = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
+
         Matcher m = p.matcher(text);
 
         while (m.find()) {

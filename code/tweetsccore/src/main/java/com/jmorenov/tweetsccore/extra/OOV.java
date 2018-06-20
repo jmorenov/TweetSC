@@ -7,7 +7,7 @@ package com.jmorenov.tweetsccore.extra;
  */
 public class OOV {
     private String token;
-    private Anotation anotation = Anotation.NoEs;
+    private Annotation annotation = Annotation.NoEs;
     private String correction;
     private int startPosition;
     private int endPosition;
@@ -24,8 +24,8 @@ public class OOV {
         this.endPosition = endPosition;
     }
 
-    public void setAnotation(Anotation anotation) {
-        this.anotation = anotation;
+    public void setAnnotation(Annotation annotation) {
+        this.annotation = annotation;
     }
 
     public void setCorrection(String correction) {
@@ -36,8 +36,8 @@ public class OOV {
         return token;
     }
 
-    public Anotation getAnotation() {
-        return anotation;
+    public Annotation getAnnotation() {
+        return annotation;
     }
 
     public String getCorrection() {
