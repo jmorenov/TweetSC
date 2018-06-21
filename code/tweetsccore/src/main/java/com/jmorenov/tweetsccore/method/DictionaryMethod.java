@@ -3,6 +3,7 @@ package com.jmorenov.tweetsccore.method;
 import com.jmorenov.tweetsccore.extra.Annotation;
 import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.extra.OOV;
+import com.jmorenov.tweetsccore.extra.Parser;
 import com.jmorenov.tweetsccore.twitter.Tweet;
 import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 import org.apache.commons.lang3.StringUtils;
@@ -191,7 +192,8 @@ public class DictionaryMethod extends Method {
      * @return boolean
      */
     private boolean isOOV(String word) {
-        return !_dictionaryWords.containsKey(word.toLowerCase());
+        return !_dictionaryWords.containsKey(word.toLowerCase())
+                && Parser.isValidWord(word);
     }
 
     /**
@@ -201,16 +203,21 @@ public class DictionaryMethod extends Method {
      */
     private ArrayList<OOV> getOOVs(String text) {
         ArrayList<OOV> oovWords = new ArrayList<>();
-        Pattern p = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
-
+        //Pattern p = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
+        Pattern p = Pattern.compile("([^\\s]*)[\\s$]*");
         Matcher m = p.matcher(text);
 
         while (m.find()) {
-            String word = text.substring(m.start(), m.end());
+            String word = text.substring(m.start(1), m.end(1));
             OOV oov = new OOV(word, m.start(), m.end());
 
             if (isOOV(word)) {
-                oovWords.add(oov);
+                Pattern p1 = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
+                Matcher m1 = p1.matcher(text);
+
+                if (m1.find()) {
+                    oovWords.add(oov);
+                }
             }
         }
 
