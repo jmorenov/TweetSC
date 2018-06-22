@@ -203,8 +203,8 @@ public class DictionaryMethod extends Method {
      */
     private ArrayList<OOV> getOOVs(String text) {
         ArrayList<OOV> oovWords = new ArrayList<>();
-        //Pattern p = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
-        Pattern p = Pattern.compile("([^\\s]*)[\\s$]*");
+        Pattern p = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
+        //Pattern p = Pattern.compile("([^\\s]*)[\\s$]*");
         Matcher m = p.matcher(text);
 
         while (m.find()) {
@@ -212,12 +212,10 @@ public class DictionaryMethod extends Method {
             OOV oov = new OOV(word, m.start(), m.end());
 
             if (isOOV(word)) {
-                Pattern p1 = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
-                Matcher m1 = p1.matcher(text);
+                //Pattern p1 = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
+                //Matcher m1 = p1.matcher(text);
 
-                if (m1.find()) {
-                    oovWords.add(oov);
-                }
+                oovWords.add(oov);
             }
         }
 
