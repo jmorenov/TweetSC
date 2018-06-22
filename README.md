@@ -47,7 +47,7 @@ https://github.com/jmorenov/TweetSC/blob/master/code/evaluation
 
 ## Final Master's Work Report
 
-https://github.com/jmorenov/TweetSC/blob/master/docs/Memory/Memory.pdf
+https://github.com/jmorenov/TweetSC/blob/master/docs/thesis/thesis.pdf
 
 ## Software versioning
 
