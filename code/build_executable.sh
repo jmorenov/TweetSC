@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd tweetscexecutable
-./gradlew build
+./gradlew assemble
 ./gradlew createJar

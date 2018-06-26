@@ -203,18 +203,15 @@ public class DictionaryMethod extends Method {
      */
     private ArrayList<OOV> getOOVs(String text) {
         ArrayList<OOV> oovWords = new ArrayList<>();
-        Pattern p = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
-        //Pattern p = Pattern.compile("([^\\s]*)[\\s$]*");
+        String oovRegex = "[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+";
+        Pattern p = Pattern.compile(Parser.getURLRegex() + "|" + oovRegex + "|" + Parser.getUsernameRegex() + "|" + Parser.getHashtagRegex());
         Matcher m = p.matcher(text);
 
         while (m.find()) {
-            String word = text.substring(m.start(1), m.end(1));
+            String word = text.substring(m.start(), m.end());
             OOV oov = new OOV(word, m.start(), m.end());
 
             if (isOOV(word)) {
-                //Pattern p1 = Pattern.compile("[\\wÀÈÌÒÙÂÊÎÔÛÁÉÍÓÚÄËÏÖÜàèìòùâêîôûáéíóúäëïöüçñÑ\\-_'´]+");
-                //Matcher m1 = p1.matcher(text);
-
                 oovWords.add(oov);
             }
         }
