@@ -40,8 +40,18 @@ public class File {
      * @throws IOException when the file is not found.
      */
     public static byte[] readToByte(String fileName) throws IOException {
-        InputStream streamOfDictionaryFile = File.class.getClassLoader().getResourceAsStream(fileName);
+        InputStream stream = File.class.getClassLoader().getResourceAsStream(fileName);
 
-        return IOUtils.toByteArray(streamOfDictionaryFile);
+        return IOUtils.toByteArray(stream);
+    }
+
+    /**
+     * Method to read a file stream from resources.
+     * @param fileName the name of the file.
+     * @return InputStream of the file.
+     * @throws IOException when the file is not found.
+     */
+    public static InputStream getStreamFromResources(String fileName) throws IOException {
+        return File.class.getClassLoader().getResourceAsStream(fileName);
     }
 }

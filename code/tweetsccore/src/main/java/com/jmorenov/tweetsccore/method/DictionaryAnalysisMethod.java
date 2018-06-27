@@ -2,6 +2,11 @@ package com.jmorenov.tweetsccore.method;
 
 import java.io.IOException;
 
+/**
+ * DictionaryAnalysisMethod class with the method of spell checker with dictionaries with analysis.
+ *
+ * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
+ */
 public class DictionaryAnalysisMethod extends DictionaryMethod {
     /**
      * Default constructor of the class.
@@ -19,6 +24,5 @@ public class DictionaryAnalysisMethod extends DictionaryMethod {
     public String toString() {
         return "DictionaryAnalysisMethod";
     }
-
 
 }
