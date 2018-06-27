@@ -1,11 +1,12 @@
-echo off
+@echo off
 cd tweetsccore
-./gradlew assemble
+call gradlew.bat assemble
 cd ..
 cd tweetscweb
-./gradlew assemble
+call gradlew.bat assemble
 cd ..
 cd tweetscexecutable
-./gradlew assemble
-./gradlew createJar
+call gradlew.bat assemble
+call gradlew.bat createJar
 cd ..
+move tweetscexecutable\build\libs\tweetscexecutable-all-v*.jar .

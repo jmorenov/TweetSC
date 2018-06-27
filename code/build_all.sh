@@ -10,4 +10,4 @@ cd tweetscexecutable
 ./gradlew assemble
 ./gradlew createJar
 cd ..
-move tweetscexecutable/build/libs/tweetscexecutable-all-v*.jar .
+mv tweetscexecutable/build/libs/tweetscexecutable-all-v*.jar .
