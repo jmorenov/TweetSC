@@ -25,7 +25,7 @@ public class OpenNLPTokenizer extends Tokenizer {
      * @throws IOException
      */
     public OpenNLPTokenizer() throws IOException {
-        try (InputStream modelIn = File.getStreamFromResources("opennlp/SpanishTokChunk.bin")) {
+        try (InputStream modelIn = File.getStreamFromResources("opennlp/SpanishPOS.bin")) {
             openNLPTokenizerModel = new opennlp.tools.tokenize.TokenizerModel(modelIn);
             openNLPTokenizer = new TokenizerME(openNLPTokenizerModel);
         }

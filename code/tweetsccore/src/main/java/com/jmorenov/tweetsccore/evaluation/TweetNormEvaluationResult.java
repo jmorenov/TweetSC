@@ -3,14 +3,14 @@ package com.jmorenov.tweetsccore.evaluation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TwetNormEvaluationResult {
+public class TweetNormEvaluationResult {
     private String resultText;
     private float accurancy;
     private int errors;
     private int positives;
     private int negatives;
 
-    public TwetNormEvaluationResult(String resultText) {
+    public TweetNormEvaluationResult(String resultText) {
         this.resultText = resultText;
 
         setErrorsValue();

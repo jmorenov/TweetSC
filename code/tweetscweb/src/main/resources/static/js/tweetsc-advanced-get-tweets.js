@@ -12,7 +12,7 @@ function successGet(result) {
                     '           flex-column align-items-start tweet-container">\n' +
                     '            <div class="d-flex w-100 justify-content-between">\n' +
                     '                <h6 class="mb-1">' + tweet.username + '</h6>\n' +
-                    '                <small>Date</small>\n' +
+                    '                <small>'+ tweet.date +'</small>\n' +
                     '            </div>\n' +
                     '            <pre class="tweet html-text">' + tweet.text + '</pre>\n' +
                     '        </a>');

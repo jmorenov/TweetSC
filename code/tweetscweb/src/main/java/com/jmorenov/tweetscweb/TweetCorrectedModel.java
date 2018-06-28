@@ -13,5 +13,6 @@ public class TweetCorrectedModel extends TweetModel {
         this.hash = tweetCorrected.getHash();
         this.text = tweetCorrected.getText();
         this.correctedText = tweetCorrected.getCorrectedText();
+        this.date = tweetCorrected.getDate();
     }
 }

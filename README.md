@@ -6,12 +6,19 @@ Tweet Spell Checker (TweetSC) is a spell checker for tweets. It corrects errors 
 - Java 1.8
 - Gradle
 
+### Linux/Mac
 ```
 git clone https://github.com/jmorenov/TweetSC
 cd TweetSC/code/
 chmod +x build_all.sh
 ./build_all.sh
+```
 
+### Windows
+```
+git clone https://github.com/jmorenov/TweetSC
+cd TweetSC\code\
+.\build_all.bat
 ```
 
 ## How to use from command line
@@ -34,7 +41,7 @@ java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
 ## How to run local web application
 ```
 cd tweetscweb
-./gradle run
+./gradlew run
 ```
 
 ## Web online application

@@ -33,9 +33,10 @@ public class TweetCorrected extends Tweet {
      * @param username
      * @param hash of the tweet
      * @param text of the tweet
+     * @param date of the tweet
      */
-    public TweetCorrected(String id, String username, String hash, String text) {
-        super(id, username, hash, text);
+    public TweetCorrected(String id, String username, String hash, String text, String date) {
+        super(id, username, hash, text, date);
     }
 
     /**

@@ -12,6 +12,7 @@ public class Tweet {
     private String username;
     private String hash;
     private String text;
+    private String date;
 
     /**
      * Default constructor of the class.
@@ -27,6 +28,7 @@ public class Tweet {
         this.username = tweet.getUsername();
         this.hash = tweet.getHash();
         this.text = tweet.getText();
+        this.date = tweet.getDate();
     }
 
     /**
@@ -38,6 +40,7 @@ public class Tweet {
         username = tweetStatus.getUser().getName();
         hash = "";
         text = tweetStatus.getText();
+        date = tweetStatus.getCreatedAt().toString();
     }
 
     /**
@@ -60,6 +63,22 @@ public class Tweet {
         this.username = username;
         this.hash = hash;
         this.text = text;
+    }
+
+    /**
+     * Constructor of the class.
+     * @param id String with the id of the tweet.
+     * @param username String with the username of the tweet.
+     * @param hash String with the hash of the tweet.
+     * @param text String with the text of the tweet.
+     * @param date String with the date of the tweet.
+     */
+    public Tweet(String id, String username, String hash, String text, String date) {
+        this.id = id;
+        this.username = username;
+        this.hash = hash;
+        this.text = text;
+        this.date = date;
     }
 
     /**
@@ -92,6 +111,14 @@ public class Tweet {
      */
     public String getText() {
         return text;
+    }
+
+    /**
+     * Method to get the date of the tweet.
+     * @return String with the date of the tweet.
+     */
+    public String getDate() {
+        return date;
     }
 
     /**

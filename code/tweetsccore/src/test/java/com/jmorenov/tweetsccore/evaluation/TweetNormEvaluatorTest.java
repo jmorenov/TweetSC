@@ -20,7 +20,7 @@ public class TweetNormEvaluatorTest {
         tweetNormEvaluator.setTweetsFile("tweet-norm-dev3.txt");
         tweetNormEvaluator.setResultFile("results-dev3.txt");
 
-        TwetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new DictionaryMethod());
+        TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new DictionaryMethod());
 
         assertEquals("failure - the result is incorrect", 0, evaluationResult.getErrors());
         assertEquals("failure - the result is incorrect", 0, evaluationResult.getNegatives());
@@ -38,7 +38,7 @@ public class TweetNormEvaluatorTest {
         tweetNormEvaluator.setTweetsFile("tweet-norm-dev10.txt");
         tweetNormEvaluator.setResultFile("results-dev10.txt");
 
-        TwetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new DictionaryMethod());
+        TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new DictionaryMethod());
 
         assertEquals("failure - the result is incorrect", 15, evaluationResult.getErrors());
         assertEquals("failure - the result is incorrect", 7, evaluationResult.getNegatives());
@@ -56,7 +56,7 @@ public class TweetNormEvaluatorTest {
         tweetNormEvaluator.setTweetsFile("tweet-norm-dev3.txt");
         tweetNormEvaluator.setResultFile("results-dev3.txt");
 
-        TwetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new DictionaryMethod());
+        TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new DictionaryMethod());
 
         assertEquals("failure - the result is incorrect", 0, evaluationResult.getErrors());
         assertEquals("failure - the result is incorrect", 0, evaluationResult.getNegatives());

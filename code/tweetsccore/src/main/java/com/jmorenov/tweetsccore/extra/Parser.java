@@ -12,14 +12,26 @@ public class Parser {
         return EmojiParser.removeAllEmojis(text);
     }
 
+    /**
+     * Method to get the url regex pattern.
+     * @return String with the pattern
+     */
     public static String getURLRegex() {
-        return "([a-zA-Z0-9]+:\\/\\/)*[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&=]*)(\\/[^\\s]+)*";
+        return "([a-zA-Z0-9]+:\\/\\/)*[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&=]*)(\\/[^\\s]+)*";
     }
 
+    /**
+     * Method to get the user name regex pattern.
+     * @return String with the pattern
+     */
     public static String getUsernameRegex() {
         return "@[a-zA-Z0-9_]*";
     }
 
+    /**
+     * Method to get the hashtag regex pattern.
+     * @return String with the pattern
+     */
     public static String getHashtagRegex() {
         return "#[a-zA-Z0-9_]*";
     }
