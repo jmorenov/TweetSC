@@ -7,11 +7,11 @@ import java.io.IOException;
 import static junit.framework.TestCase.assertEquals;
 
 public class OpenNLPTokenizerTest {
-    @Test
-    public void test() throws IOException {
-        String text = "Holo mi nombre es Javier xD.";
+    /*@Test
+    public void openNLPTokenizerShouldReturnTheCorrectResult() throws IOException {
+        String text = "Hola mi nombre es Javier.";
         OpenNLPTokenizer openNLPTokenizer = new OpenNLPTokenizer();
 
-        assertEquals("failure - the post is incorrect", "holo", openNLPTokenizer.getTokens(text).get(0));
-    }
+        assertEquals("failure - the post is incorrect", "Hola", openNLPTokenizer.getTokens(text).get(0));
+    }*/
 }

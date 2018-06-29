@@ -26,18 +26,14 @@ public class StanfordNLPTokenizer extends Tokenizer {
     /**
      * Constructor of the class
      */
-    public StanfordNLPTokenizer() {
+    public StanfordNLPTokenizer() throws IOException {
         Properties props = new Properties();
         TokenizerAnnotator.TokenizerType type = TokenizerAnnotator.TokenizerType.Spanish;
 
-        try {
-            props.load(IOUtils.readerFromString("StanfordCoreNLP-spanish.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        props.load(IOUtils.readerFromString("StanfordCoreNLP-spanish.properties"));
 
         String options = props.getProperty("tokenize.options", null);
-        // currently there are some which don't have that
+
         if (options == null) {
             options = type.getDefaultOptions();
         }
@@ -58,11 +54,6 @@ public class StanfordNLPTokenizer extends Tokenizer {
         List<String> tokenList = new ArrayList<>();
 
         for(CoreLabel token : tokens.tokenize()) {
-            String word = token.word();
-            String lemma = token.lemma();
-            String ner = token.ner();
-            String value = token.value();
-
             tokenList.add(token.toString());
         }
 

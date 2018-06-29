@@ -8,10 +8,10 @@ import static junit.framework.TestCase.assertEquals;
 
 public class StanfordNLPTokenizerTest {
     @Test
-    public void test() throws IOException {
-        String text = "Holo mi nombrees Javier xD y trabajo para Facebook y Google.";
-        StanfordNLPTokenizer openNLPTokenizer = new StanfordNLPTokenizer();
+    public void stanfordNLPTokenizerShouldReturnTheCorrectResult() throws IOException {
+        String text = "Hola mi nombre es Javier xD.";
+        StanfordNLPTokenizer stanfordNLPTokenizer = new StanfordNLPTokenizer();
 
-        assertEquals("failure - the post is incorrect", "holo", openNLPTokenizer.getTokens(text).get(0));
+        assertEquals("failure - the tokenizer result is incorrect", "Hola", stanfordNLPTokenizer.getTokens(text).get(0));
     }
 }

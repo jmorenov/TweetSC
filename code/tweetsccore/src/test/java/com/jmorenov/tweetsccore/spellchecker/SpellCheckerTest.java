@@ -12,7 +12,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class SpellCheckerTest {
     @Test
-    public void spellCheckerWithDictionaryAndCorrectTextMethodShouldReturnTheCorrectText() throws IOException {
+    public void spellCheckerWithDictionaryMethodAndCorrectTextMethodShouldReturnTheCorrectText() throws IOException {
         String text = "Hola mi nombre es Javier.";
         SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
         String textCorrected = spellChecker.correctText(text);
@@ -21,7 +21,7 @@ public class SpellCheckerTest {
     }
 
     @Test
-    public void spellCheckerWithDictionaryAndCorrectTweetMethodShouldReturnTheCorrectTweetWithoutVariationAsTweetNormForm() throws IOException {
+    public void spellCheckerWithDictionaryMethodAndCorrectTweetMethodShouldReturnTheCorrectTweetWithoutVariationAsTweetNormForm() throws IOException {
         String id = "318676223985336320";
         String username = "YoqueseYatusaeh";
         String hash = "49bc1393f28d8eb119e02d410fa9a2d8";
@@ -37,7 +37,7 @@ public class SpellCheckerTest {
     }
 
     @Test
-    public void spellCheckerWithDictionaryAndCorrectTweetMethodShouldReturnTheCorrectTweetAsTweetNormForm() throws IOException {
+    public void spellCheckerWithDictionaryMethodAndCorrectTweetMethodShouldReturnTheCorrectTweetAsTweetNormForm() throws IOException {
         String id = "318819189580263425";
         String username = "Irene_kyoto";
         String hash = "0034c035b4328bfbdb2b90be52c2d598";
@@ -53,7 +53,7 @@ public class SpellCheckerTest {
     }
 
     @Test
-    public void spellCheckerWithDictionaryAndCorrectTweetMethodShouldReturnTheCorrectTweetAsTweetNormForm2() throws IOException {
+    public void spellCheckerWithDictionaryMethodAndCorrectTweetMethodShouldReturnTheCorrectTweetAsTweetNormForm2() throws IOException {
         String id = "318596947432841216";
         String username = "MariaaNogales";
         String hash = "76529c7a59fc697d73bfdf323bf60d50";
