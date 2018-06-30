@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * OpenNLPTokenizer class to tokenize a text.
- * https://opennlp.apache.org/docs/1.8.4/manual/opennlp.html
+ * FreelingTokenizer class to tokenize a text.
  *
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
