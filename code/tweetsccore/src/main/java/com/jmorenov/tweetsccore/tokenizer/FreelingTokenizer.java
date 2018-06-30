@@ -19,11 +19,13 @@ public class FreelingTokenizer extends Tokenizer {
      * Constructor of the class
      */
     public FreelingTokenizer() {
-        String freeling_javaAPIPath = FreelingTokenizer.class.getClassLoader().getResource("freeling_javaAPI.so").getPath();
-        String libfreelingPath = FreelingTokenizer.class.getClassLoader().getResource("freeling_javaAPI.so").getPath();
+        //String freeling_javaAPIPath = FreelingTokenizer.class.getClassLoader().getResource("freeling_javaAPI.so").getPath();
+        //String libfreelingPath = FreelingTokenizer.class.getClassLoader().getResource("freeling_javaAPI.so").getPath();
+        String freeling_javaAPIPath = FreelingTokenizer.class.getClassLoader().getResource("libfreeling_javaAPI.dylib").getPath();
+        String libfreelingPath = FreelingTokenizer.class.getClassLoader().getResource("libfreeling.dylib").getPath();
 
-        System.load(freeling_javaAPIPath);
         System.load(libfreelingPath);
+        System.load(freeling_javaAPIPath);
 
         String freelingDataPath =  Paths.get("src","main","resources", "freeling").toAbsolutePath() + "/";
         Util.initLocale( "default" );
@@ -42,6 +44,7 @@ public class FreelingTokenizer extends Tokenizer {
         List<String> tokens = new ArrayList<>();
         ListWord words = tokenizer.tokenize(text);
         int wordsCount = (int) words.size();
+        Word a = words.front();
 
         for (int i = 0; i < wordsCount; i++) {
             tokens.add(words.front().getForm());
