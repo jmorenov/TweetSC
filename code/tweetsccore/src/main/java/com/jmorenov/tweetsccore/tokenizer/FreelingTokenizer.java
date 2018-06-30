@@ -20,11 +20,11 @@ public class FreelingTokenizer extends Tokenizer {
     public FreelingTokenizer() {
         //String freeling_javaAPIPath = FreelingTokenizer.class.getClassLoader().getResource("freeling_javaAPI.so").getPath();
         //String libfreelingPath = FreelingTokenizer.class.getClassLoader().getResource("freeling_javaAPI.so").getPath();
-        String freeling_javaAPIPath = FreelingTokenizer.class.getClassLoader().getResource("libfreeling_javaAPI.dylib").getPath();
+        String ffreeling_javaAPIPath = FreelingTokenizer.class.getClassLoader().getResource("libfreeling_javaAPI.dylib").getPath();
         String libfreelingPath = FreelingTokenizer.class.getClassLoader().getResource("libfreeling.dylib").getPath();
 
         System.load(libfreelingPath);
-        System.load(freeling_javaAPIPath);
+        System.load(ffreeling_javaAPIPath);
 
         String freelingDataPath =  Paths.get("src","main","resources", "freeling").toAbsolutePath() + "/";
         Util.initLocale( "default" );
