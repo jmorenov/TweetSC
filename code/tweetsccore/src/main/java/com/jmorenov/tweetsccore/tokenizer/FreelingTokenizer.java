@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.tokenizer;
 
+import com.jmorenov.tweetsccore.extra.FreelingInitializator;
 import edu.upc.freeling.*;
 
 import java.nio.file.Paths;
@@ -18,17 +19,9 @@ public class FreelingTokenizer extends Tokenizer {
      * Constructor of the class
      */
     public FreelingTokenizer() {
-        String freeling_javaAPIPath = FreelingTokenizer.class.getClassLoader().getResource("freeling_javaAPI.so").getPath();
-        String libfreelingPath = FreelingTokenizer.class.getClassLoader().getResource("freeling_javaAPI.so").getPath();
+        String freelingDataPath = FreelingInitializator.init();
 
-        System.load(freeling_javaAPIPath);
-        System.load(libfreelingPath);
-
-        String freelingDataPath =  Paths.get("src","main","resources", "freeling").toAbsolutePath() + "/";
-        Util.initLocale( "default" );
-        String LANG = "es";
-
-        tokenizer = new edu.upc.freeling.Tokenizer( freelingDataPath + LANG + "/tokenizer.dat" );
+        tokenizer = new edu.upc.freeling.Tokenizer( freelingDataPath + "es/tokenizer.dat" );
     }
 
     /**

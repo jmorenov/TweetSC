@@ -1,6 +1,7 @@
 package com.jmorenov.tweetsccore.tokenizer;
 
 import com.jmorenov.tweetsccore.extra.File;
+import opennlp.tools.languagemodel.NGramLanguageModel;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.util.Span;
 
@@ -38,12 +39,8 @@ public class OpenNLPTokenizer extends Tokenizer {
      */
     @Override
     public List<String> getTokens(String text) {
-        Span tokenSpans[] = openNLPTokenizer.tokenizePos(text);
-        String tokens[] = openNLPTokenizer.tokenize(text);
-
         TokenizerME tokenizerME = new TokenizerME(openNLPTokenizerModel);
-        tokens = tokenizerME.tokenize(text);
-        double tokenProbs[] = tokenizerME.getTokenProbabilities();
+        String[] tokens = tokenizerME.tokenize(text);
 
         return Arrays.asList(tokens);
     }

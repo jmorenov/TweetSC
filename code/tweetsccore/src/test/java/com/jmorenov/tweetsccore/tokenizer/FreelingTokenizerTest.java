@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.tokenizer;
 
+import com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -10,6 +11,6 @@ public class FreelingTokenizerTest {
         String text = "Hola mi nombre es Javier xD.";
         FreelingTokenizer freelingTokenizer = new FreelingTokenizer();
 
-        assertEquals("failure - the post is incorrect", "Hola", freelingTokenizer.getTokens(text).get(0));
+        assertEquals("failure - the tokenizer result is incorrect", "Hola", freelingTokenizer.getTokens(text).get(0));
     }
 }

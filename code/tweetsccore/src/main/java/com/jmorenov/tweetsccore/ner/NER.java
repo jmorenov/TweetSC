@@ -1,6 +1,6 @@
 package com.jmorenov.tweetsccore.ner;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * POSTagging abstract class.
@@ -9,14 +9,8 @@ import java.util.ArrayList;
  */
 public abstract class NER {
     /**
-     * Method to get the tokens from a text.
-     * @return ArrayList with the tokens.
+     * Method to get a list with the NER Elements detected.
+     * @return List with the NER Elements.
      */
-    public abstract ArrayList<String> getTokens();
-
-    /**
-     * Method to get the tokens from a text.
-     * @return ArrayList with the tokens and the class.
-     */
-    public abstract ArrayList<String> getTokensRegex();
+    public abstract List<NERELement> getNERElements(String text);
 }

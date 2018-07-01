@@ -18,8 +18,7 @@ import java.util.*;
  */
 public class StanfordNLPNER extends NER {
     private Properties props;
-    private StanfordCoreNLP pipeline;
-    private CoreDocument document;
+    private AbstractSequenceClassifier<CoreLabel> classifier;
 
     public StanfordNLPNER(String text) {
         props = new Properties();
@@ -32,37 +31,34 @@ public class StanfordNLPNER extends NER {
 
         props.setProperty("coref.algorithm", "neural");
 
-        pipeline = new StanfordCoreNLP(props);
-        document = new CoreDocument(text);
-
-        pipeline.annotate(document);
-    }
-
-    public ArrayList<String> getTokens() {
-        ArrayList<String> tokens = new ArrayList<>();
-
-        for (CoreLabel token : document.tokens()) {
-            tokens.add(token.toString());
-        }
-
-        return tokens;
-    }
-
-    public ArrayList<String> getTokensRegex() {
         String serializedClassifier = "edu/stanford/nlp/models/ner/spanish.kbp.ancora.distsim.s512.crf.ser.gz";
-        ArrayList<String> tokenRegex = new ArrayList<>();
 
         try {
-            AbstractSequenceClassifier<CoreLabel> classifier = CRFClassifier.getClassifier(serializedClassifier);
-
-            List<List<CoreLabel>> out = classifier.classify(document.text());
-            for (List<CoreLabel> sentence : out) {
-                for (CoreLabel word : sentence) {
-                    tokenRegex.add(word.word() + '/' + word.get(CoreAnnotations.AnswerAnnotation.class) + ' ');
-                }
-            }
+            classifier = CRFClassifier.getClassifier(serializedClassifier);
         } catch (Exception ex) {}
 
-        return tokenRegex;
+    }
+
+    /**
+     * Method to get a list with the NER Elements detected.
+     * @return List with the NER Elements.
+     */
+    public List<NERELement> getNERElements(String text) {
+        ArrayList<NERELement> nerElements = new ArrayList<>();
+
+        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+        CoreDocument document = new CoreDocument(text);
+
+        pipeline.annotate(document);
+
+        List<List<CoreLabel>> out = classifier.classify(document.text());
+        for (List<CoreLabel> sentence : out) {
+            for (CoreLabel word : sentence) {
+                NERELement nereLement = new NERELement(word.word(), word.get(CoreAnnotations.AnswerAnnotation.class));
+                nerElements.add(nereLement);
+            }
+        }
+
+        return nerElements;
     }
 }
