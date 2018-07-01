@@ -15,8 +15,8 @@ public class FreelingInitializator {
      */
     public static String init() {
         String freelingDataPath =  Paths.get("src","main","resources", "freeling").toAbsolutePath() + "/";
-        String libfreelingPath = FreelingInitializator.class.getClassLoader().getResource("libfreeling.so").getPath();
-        String freeling_javaAPIPath = FreelingInitializator.class.getClassLoader().getResource("libfreeling_javaAPI.so").getPath();
+        String libfreelingPath = freelingDataPath + "libfreeling.so";
+        String freeling_javaAPIPath = freelingDataPath + "libfreeling_javaAPI.so";
         //String libfreelingPath = freelingDataPath + "libfreeling.jnilib";
         //String freeling_javaAPIPath = freelingDataPath + "libfreeling_javaAPI.jnilib";
 
