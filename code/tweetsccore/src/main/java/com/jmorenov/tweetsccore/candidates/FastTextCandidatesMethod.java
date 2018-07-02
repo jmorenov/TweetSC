@@ -33,7 +33,7 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
      */
     @Override
     public String toString() {
-        return null;
+        return "FastText";
     }
 
     /**
