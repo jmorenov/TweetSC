@@ -121,14 +121,11 @@ El objetivo principal de este trabajo es la creación de un corrector que "norma
 \item Anotar el tipo de palabras OOV.
 \item Corregir palabras OOV. 
 \end{itemize}
-Estos subojetivos se cumplirán con su implementación en un módulo software que además estará disponible en una aplicación web \cite{tweetscweb}.
+Estos subojetivos se cumplirán con su implementación en un módulo software que además estará disponible en una aplicación web \cite{tweetscweb}.\\\\
+También ejecutaremos este corrector sobre un corpus de tweets disponible en \cite{tweetnorm} y compararemos nuestros resultados con los que se consiguieron en \cite{alegria:2013}.
 
 \subsection{Resumen del documento}\label{sec:resumen}
-Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado.\\\\
-Primero se expone el estado del arte desarrollado sobre el tema de la corrección de textos, específicamente en twitter y en español.\\\\
-En segundo lugar se presenta el análisis realizado, atendiendo a: metodologías de desarrollo utilizadas, análisis de requisitos, solución propuesta.\\\\
-Posteriormente se plantea la implementación que se ha seguido entrando en detalle en cómo usar el software y en detalles técnicos.\\\\
-Por último se muestran unas conclusiones, incluyendo un resumen del trabajo desarrollado y los objetivos conseguidos.
+Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado. Primero se expone el estado del arte desarrollado sobre el tema de la corrección de textos, específicamente en twitter y en español. En segundo lugar se presenta el análisis realizado, atendiendo a: metodologías de desarrollo utilizadas, análisis de requisitos, solución propuesta. Posteriormente se plantea la implementación que se ha seguido entrando en detalle en cómo usar el software y en detalles técnicos. A continuación se presentaran los recursos utilizados y la evaluación sobre un corpus de tweets. Por último se muestran unas conclusiones, incluyendo un resumen del trabajo desarrollado y los objetivos conseguidos.
 \section{Estado del arte}\label{sec:estadodelarte}
 \subsection{Introducción}\label{sec:introduccion}
 En la actualidad, la normalización lingüística de tweets \cite{baldwin:2011} supone un campo de gran interés y en donde la mayoría de trabajos se han realizado sobre textos en inglés y pocos en español. Además no hay ningún trabajo en donde se incluya, dentro de la normalización de tuits, el estudio de los hashtags o etiquetas y los emoticonos, y su contexto. 
@@ -164,9 +161,31 @@ La mayoría de las técnicas de representación continua de vectores de palabras
 
 \section{Solución propuesta}\label{sec:solucionpropuesta}
 La solución propuesta y a la que hemos llamado TweetSC (Tweet Spell Checker) \cite{tweetscweb} se llegó a ella a partir de varios análisis y evaluaciones que se hicieron con diversas bibliotecas y algoritmos, y todos ellos se pueden encontrar en la solución final para su uso.\\\\
-En la primera versión de nuestra solución se construyó un corrector de texto sencillo basándonos en el creado por Peter Norvig \cite{peternorvig}, el cuál utiliza un diccionario para seleccionar las palabras incorrectas y las corrige mediante el teorema de Bayes usando probabilidades. Se usa la fórmula: $argmax_{c\ \in\  candidates}P(c|w)$, que mediante el teorema de Bayes es equivalente a: $argmax_{c\ \in\  candidates}P(c) P(w|c) / P(w)$, y como P(w)es igual para cada candidato c: $argmax_{c\ \in\  candidates}P(c) P(w|c)$. Esta fórmula trata de seleccionar el candidato de probabilidad máxima para cada palabra. Para calcular la probabilidad se usan dos diccionarios, uno de palabras en Español y otro de nombres propios. Se utilizó esta primera versión como punto de partida e ir creando versiones más avanzadas.\\\\
-Para mejorar la versión inicial se hizo uso de la biblioteca Stanford NLP \cite{stanfordnlp}. Esta biblioteca creada por Stanford NLP Group ofrece tanto etiquetado gramatical (POS Tagging o POST) cómo deteccion de etiquetas (Named Entity Recognition o NER), y ambas funcionalidades fueron usadas para nuestra solución.\\\\
-Además se ha utilizado la API ofrecida por IBM \cite{ibmwatsonnlu} para análisis de lenguaje y cómo con la biblioteca de Stanford la utilizamos tanto para POST como NER.\\\\
+En la primera versión de nuestra solución se construyó un corrector de texto sencillo basándonos en el creado por Peter Norvig \cite{peternorvig}, el cuál utiliza un diccionario para seleccionar las palabras incorrectas y las corrige mediante el teorema de Bayes usando probabilidades. Se usa la fórmula: $argmax_{c\ \in\  candidates}P(c|w)$, que mediante el teorema de Bayes es equivalente a: $argmax_{c\ \in\  candidates}P(c) P(w|c) / P(w)$, y como P(w) es igual para cada candidato c: $argmax_{c\ \in\  candidates}P(c) P(w|c)$. Esta fórmula trata de seleccionar el candidato de probabilidad máxima para cada palabra. Para calcular la probabilidad se usan dos diccionarios, uno de palabras en Español y otro de nombres propios. Se utilizó esta primera versión como punto de partida para ir creando versiones más avanzadas.\\\\
+
+El resultado final y por tanto nuestra versión definitiva consiste en un proceso iterativo sobre el tweet que se puede dividir en 6 fases: Tokenización, reglas de preproceso, detección de OOVs, generación de candidatos para cada OOV, ranking de candidatos y postproceso. A continuación se explicará en detalle cada fase.\\\\
+
+\subsection{Tokenización}\label{sec:tokenizacion}
+Cómo realizan los analizadores léxicos en los compiladores, en la primera fase de nuestro proceso se realiza una tokenización del texto o tweet, un tokenizador genera una salida compuesta de tokens o símbolos.\\\\
+
+Para mejorar la versión inicial se hizo uso de la biblioteca Stanford NLP \cite{stanfordnlp}. Esta biblioteca creada por Stanford NLP Group ofrece tanto etiquetado gramatical (POS Tagging o POST) cómo deteccion de etiquetas (Named Entity Recognition o NER), nosotros la hemos utilizado para esta fase de tokenización. Además de StanfordNLP para la tokenización hemos utilizado Freeling \cite{freeling}, también se ha añadido al sistema el análisis que ofrece freeling.\\\\
+
+En esta primera fase se recibe como entrada el texto del tweet y genera una lista de tokens que pasaran a la siguiente fase.
+
+\subsection{Preprocess rules}\label{sec:preprocessrules}
+Una vez que hemos obtenido todos los tokens de un tweet se aplican unas reglas de preproceso para normalizar palabras típicas de la red social, pictogramas, fonogramas, onomatopeyas, números, acrónimos, etc. Tras aplicar estas reglas a los tokens que las acepten, se crean OOVs con estos token y se anotan como variaciones.
+
+\subsection{Detección de OOV}\label{sec:detecciondeoov}
+
+
+\subsection{Generación de candidatos OOV}\label{sec:generaciondecandidatosoov}
+\subsection{Ranking de candidatos}\label{sec:rankingdecandidatos}
+\subsection{Postprocess}\label{sec:postprocess}
+
+
+
+
+
 Tras utilizar estas dos tecnologías en la primera fase llamada preproceso, dónde se seleccionan las palabras incorrectas y se generan los candidatos, utilizaremos los Modelos de Markov (MMO) y n-gramas para seleccionar el candidato final para cada palabra incorrecta.\\\\
 Cómo se utilizan varias tecnologías y algoritmos en las diferentes fases se ha utilizado un estudio y evaluación de cuál es el mejor para la solución final.\\\\
 Para facilitar el uso de nuestra solución con tweets de twitter se ha definido una conexión con su API para acceder a los mismos.
@@ -193,6 +212,9 @@ java -jar org.jmorenov.tweetsc-0.3.0-alpha.jar -text "Texto de prueba"
 
 \subsection{Documentación del código}\label{sec:javadoc}
 (Javadoc del código)
+
+\subsection{Aplicación web}\label{sec:aplicacionweb}
+(Capturas de pantalla)
 
 \section{Recursos utilizados}\label{sec:recursosutilizados}
 Diccionario de inglés: https://github.com/dwyl/english-words
