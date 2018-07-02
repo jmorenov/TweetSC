@@ -115,10 +115,11 @@ Los nuevos sistemas de comunicación como la mensajería instantánea, chats, re
 \subsection{Objetivos}\label{sec:objetivos}
 El objetivo principal de este trabajo es la creación de un corrector que "normalice" tweets en español.\\Para cumplir con este objetivo principal se ha dividido en los siguientes subobjetivos.
 \begin{itemize}
-\item Corregir tweets (palabras y gramaticalmente)
-\item Procesar emoticonos deduciendo su significado en el contexto de análisis de sentimientos
-\item Expandir hashtags
-\item Procesar las conversaciones de los tweets, así como las URLs o imágenes para añadir contexto
+\item Acceso a la API de Twitter para obtener tweets.
+\item Tokenizar tweets.
+\item Detectar entre los tokens las palabras fuera del vocabulario (Out-of-Vocabulary, OOV).
+\item Anotar el tipo de palabras OOV.
+\item Corregir palabras OOV. 
 \end{itemize}
 Estos subojetivos se cumplirán con su implementación en un módulo software que además estará disponible en una aplicación web \cite{tweetscweb}.
 
