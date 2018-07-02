@@ -14,18 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * LevenshteinDistanceCandidatesMethod class that define a method to generate candidates.
+ * LevenshteinFSTCandidatesMethod class that define a method to generate candidates.
  *
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
-public class LevenshteinDistanceCandidatesMethod extends CandidatesMethod {
+public class LevenshteinFSTCandidatesMethod extends CandidatesMethod {
     private  ITransducer<com.github.liblevenshtein.transducer.Candidate> transducer;
     private SortedDawg dictionary;
 
     /**
      * Constructor of the class.
      */
-    public LevenshteinDistanceCandidatesMethod() throws Exception {
+    public LevenshteinFSTCandidatesMethod() throws Exception {
         InputStream stream = File.getStreamFromResources("aspellNormalized.dict");
         Serializer serializer = new PlainTextSerializer(false);
         dictionary = serializer.deserialize(SortedDawg.class, stream);
@@ -58,10 +58,10 @@ public class LevenshteinDistanceCandidatesMethod extends CandidatesMethod {
 
     /**
      * Method to obtain the method description.
-     * @return String
+     * @return CandidatesMethodType
      */
     @Override
-    public String toString() {
-        return "LevenshteinDistance";
+    public CandidatesMethodType getMethod() {
+        return CandidatesMethodType.LevenshteinFST;
     }
 }

@@ -31,10 +31,10 @@ public class MetaphoneCandidatesMethod extends CandidatesMethod {
 
     /**
      * Method to obtain the method description.
-     * @return String
+     * @return CandidatesMethodType
      */
     @Override
-    public String toString() {
-        return "Metaphone";
+    public CandidatesMethodType getMethod() {
+        return CandidatesMethodType.Metaphone;
     }
 }

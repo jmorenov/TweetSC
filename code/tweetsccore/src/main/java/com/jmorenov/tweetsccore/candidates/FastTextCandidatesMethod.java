@@ -29,11 +29,11 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
 
     /**
      * Method to obtain the method description.
-     * @return String
+     * @return CandidatesMethodType
      */
     @Override
-    public String toString() {
-        return "FastText";
+    public CandidatesMethodType getMethod() {
+        return CandidatesMethodType.FastText;
     }
 
     /**

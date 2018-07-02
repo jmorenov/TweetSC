@@ -19,8 +19,7 @@ public abstract class CandidatesMethod {
 
     /**
      *  Abstract method to obtain the method description.
-     * @return String
+     * @return CandidatesMethodType
      */
-    @Override
-    public abstract String toString();
+    public abstract CandidatesMethodType getMethod();
 }
