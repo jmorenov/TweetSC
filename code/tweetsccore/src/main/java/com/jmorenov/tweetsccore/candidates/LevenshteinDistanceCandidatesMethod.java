@@ -20,20 +20,20 @@ import java.util.List;
  */
 public class LevenshteinDistanceCandidatesMethod extends CandidatesMethod {
     private  ITransducer<com.github.liblevenshtein.transducer.Candidate> transducer;
+    private SortedDawg dictionary;
 
     /**
      * Constructor of the class.
      */
     public LevenshteinDistanceCandidatesMethod() throws Exception {
-        SortedDawg dictionary;
-        InputStream stream = File.getStreamFromResources("dic.txt");
+        InputStream stream = File.getStreamFromResources("aspellNormalized.dict");
         Serializer serializer = new PlainTextSerializer(false);
         dictionary = serializer.deserialize(SortedDawg.class, stream);
 
         transducer = new TransducerBuilder()
                 .dictionary(dictionary)
                 .algorithm(Algorithm.TRANSPOSITION)
-                .defaultMaxDistance(3)
+                .defaultMaxDistance(2)
                 .includeDistance(true)
                 .build();
     }
@@ -48,7 +48,9 @@ public class LevenshteinDistanceCandidatesMethod extends CandidatesMethod {
         List<Candidate> candidates = new ArrayList<>();
 
         for (com.github.liblevenshtein.transducer.Candidate candidate : transducer.transduce(oov.getToken())) {
-            candidates.add(new Candidate(candidate.term(), this.toString()));
+            String term = candidate.term();
+
+            candidates.add(new Candidate(term, this.toString()));
         }
 
         return candidates;
