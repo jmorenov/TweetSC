@@ -177,7 +177,7 @@ La solución propuesta y a la que hemos llamado TweetSC (Tweet Spell Checker) \c
 
 En la primera versión de nuestra solución se construyó un corrector de texto sencillo basándonos en el creado por Peter Norvig \cite{peternorvig}, el cuál utiliza un diccionario para seleccionar las palabras incorrectas y las corrige mediante el teorema de Bayes usando probabilidades. Se usa la fórmula: $argmax_{c\ \in\  candidates}P(c|w)$, que mediante el teorema de Bayes es equivalente a: $argmax_{c\ \in\  candidates}P(c) P(w|c) / P(w)$, y como P(w) es igual para cada candidato c: $argmax_{c\ \in\  candidates}P(c) P(w|c)$. Esta fórmula trata de seleccionar el candidato de probabilidad máxima para cada palabra. Para calcular la probabilidad se usan dos diccionarios, uno de palabras en Español y otro de nombres propios. Se utilizó esta primera versión como punto de partida para ir creando versiones más avanzadas.\\
 
-El resultado final y por tanto nuestra versión definitiva consiste en un proceso iterativo sobre el tweet que se puede dividir en 6 fases: Tokenización, reglas de preproceso, detección de OOVs, generación de candidatos para cada OOV, ranking de candidatos y postproceso.\\
+El resultado final y por tanto nuestra versión definitiva consiste en un proceso iterativo sobre el tweet que se puede dividir en 6 fases: Tokenización, reglas de preproceso, detección de OOVs, generación de candidatos para cada OOV y ranking de candidatos.\\
 
 Además para convertir el sistema en uno más dinámico se ha desarrollado una aplicación web con acceso a la API de Twitter para obtener los tweets mediante querys introducidas en un formulario de nuestra aplicación web.
 
@@ -188,7 +188,7 @@ Para mejorar la versión inicial se hizo uso de la biblioteca Stanford NLP \cite
 
 En esta primera fase se recibe como entrada el texto del tweet y genera una lista de tokens que pasaran a la siguiente fase.
 
-\subsection{Preprocess rules}\label{sec:preprocessrules}
+\subsection{Reglas de preprocesado}\label{sec:reglasdepreprocesado}
 Una vez que hemos obtenido todos los tokens de un tweet se aplican unas reglas de preproceso para normalizar palabras típicas de la red social, pictogramas, fonogramas, onomatopeyas, números, acrónimos, etc. Tras aplicar estas reglas a los tokens que las acepten, se crean OOVs con estos token, se anotan como variaciones y se eliminan de la lista de tokens para las fases siguientes. Los OOV generados se añaden a la lista final de OOV.
 
 \subsection{Detección de OOV}\label{sec:detecciondeoov}
@@ -210,31 +210,54 @@ Esta fase tiene como entrada la lista de OOV que no han sido etiquetados en la f
 Estos métodos se ejecutan sobre todos los OOV y generan una lista de candidatos que pasarán a la siguiente fase.
 
 \subsection{Ranking de candidatos}\label{sec:rankingdecandidatos}
-El ranking de candidatos es la fase que define la corrección de un OOV, o si no tiene corrección (se anota como NoEs). Para generar este ranking hemos utilizado dos marcadores, uno un modelo del lenguaje N-Gram mediante la biblioteca OpenNLP \cite{opennlp} y el otro la distancia de editado Damerau-Levenshtein.\\
+El ranking de candidatos es la fase que define la corrección de un OOV, o si no tiene corrección (se anota como NoEs). Para generar este ranking hemos utilizado dos marcadores, uno un modelo del lenguaje N-Gram (Modelo del lenguaje \ref{sec:glosariodeterminos}) mediante la biblioteca OpenNLP \cite{opennlp} y el otro la distancia de editado Damerau-Levenshtein.\\
 
+El marcador N-Gram se realiza mediante la comparación de los candidatos de su puntuación en el modelo del lenguaje, es decir, para cada candidato se calcula su puntuación si fuera el elegido. Para el marcador de la distancia Damerau-Levenshtein se calculan la distancia entre el OOV y cada candidato. Finalmente mediante estas dos puntuaciones se calcula se realiza el ranking de candidatos posicionando primero los candidatos con mejor puntuación en el modelo del lenguaje y menor distancia de editado al OOV.\\
 
-\subsection{Postprocess}\label{sec:postprocess}
-
+Se ha definido además un umbral mínimo para realizar el ranking, los candidatos que no lo cumplan con los marcadores son eliminados. Al finalizar este proceso para cada OOV se selecciona el mejor candidato del ranking, y se anota como Variation, y si no tuviera candidatos, debido al umbral, se anotan como NoEs.
 
 \section{Implementación}\label{sec:implementacion}
-En esta sección se pretende explicar toda la implementación software que se ha realizado de nuestra solución. Primero se realizará una introducción comentando lenguajes y herramientas utilizadas. Segundo unos instrucciones sobre dónde encontrar y cómo utilizar nuestro software . Y por último la documentación generada del código fuente.
+En esta sección se pretende explicar toda la implementación software que se ha realizado de nuestra solución. Primero se realizará una introducción comentando lenguajes y herramientas utilizadas. Segundo se explicará dónde encontrar y cómo utilizar nuestro software . Posteriormente la documentación generada del código fuente. Y por último se explicará la aplicación web que se ha desarrollado.
 
 \subsection{Introducción}\label{sec:introduccion}
-La implementación se ha realizado en tres módulos o componentes, por una parte tenemos la biblioteca con la funcionalidad necesaria para corregir textos de twitter y acceder a su API, después un modulo que es la aplicación web y por último otro que ofrece funcionalidad para utilizar la biblioteca desde línea de comandos.\\
+La implementación se ha realizado en tres módulos o componentes, por una parte tenemos la biblioteca con la funcionalidad necesaria para corregir textos de twitter, acceder a su API y evaluar los resultados sobre un corpus de tweets; después un modulo que implementa aplicación web y por último otro que ofrece funcionalidad para utilizar la biblioteca desde línea de comandos.\\
 
-El lenguaje utilizado en todo el proyecto ha sido Java y hemos hecho uso de Google Cloud Engine \cite{googlecloudengine} para que la aplicación web esté disponible para cualquier usuario \cite{tweetscweb:spellchecker}. Además de Gradle para compilar el código.
+El lenguaje principal utilizado en todo el proyecto ha sido Java, con la excepción de Python para los script de evaluación y normalización de archivos de datos, y hemos hecho uso de Google Cloud Engine \cite{googlecloudengine} para que la aplicación web esté disponible para cualquier usuario \cite{tweetscweb:spellchecker}.\\
+
+Nuestro sistema software se ha intentado desarrollar de forma que sea un sistema de procesamiento dinámico pudiendo añadir y quitar funcionalidad de manera sencilla, cualquier algoritmo o método implementado funciona a partir de una clase superior para que se puedan añadir nuevos métodos.\\
+
+El módulo principal del sistema es TweetSCCore que implementa la biblioteca para corregir tweets, acceder a la API de twitter y evaluar resultados mediante el script ofrecido por Tweet-Norm 2013 \cite{alegria:2013}. Los módulos que funcionan a partir de TweetSCCore son: TweetSCExecutable que implementa la funcionalidad necesaria para ejectar nuestro sistema a partir de línea de comandos, y TweetSCWeb donde se implementa la aplicacion web.\\
+
+El diagrama de clases del sistema completo se muestra a continuación:
+
 \subsection{Cómo usarlo}\label{sec:comousarlo}
-Para utilizar nuestro software primero es necesario tener instalado Git y Java 1.8. Después realizar un clonado del código fuente: 
+Para utilizar nuestro software primero es necesario tener instalado Git y Java 1.8. Después de bajar el código fuente: 
 \begin{verbatim}
 git clone https://github.com/jmorenov/TweetSC
 \end{verbatim}
-Posteriormente se compila el código con gradle: 
+Posteriormente se compila el código: 
 \begin{verbatim}
-gradlew clean build && gradlew createJar
+cd TweetSC/code/
+chmod +x build_all.sh
+./build_all.sh
 \end{verbatim}
-y para ejecutarlo:
+Para ejecutarlo desde línea de comandos:
 \begin{verbatim}
-java -jar org.jmorenov.tweetsc-0.3.0-alpha.jar -text "Texto de prueba"
+java -jar tweetscexecutable-all-v0.5.0-alpha.jar -text Texto de prueba
+\end{verbatim}
+La ejecución de la evaluación sobre el corpus de Tweet-Norm 2013 \cite{alegria:2013}
+\begin{verbatim}
+java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
+    -workingDirectory evaluation \
+    -annotatedFile tweet-norm-dev10_annotated.txt \
+    -tweetsFile tweet-norm-dev10.txt \
+    -resultFile results-test-dev10.txt \
+    -method DictionaryMethod
+\end{verbatim}
+La ejecución de la aplicación web:
+\begin{verbatim}
+cd tweetscweb
+./gradlew run
 \end{verbatim}
 
 \subsection{Documentación del código}\label{sec:javadoc}
@@ -244,7 +267,11 @@ java -jar org.jmorenov.tweetsc-0.3.0-alpha.jar -text "Texto de prueba"
 (Capturas de pantalla)
 
 \section{Recursos utilizados}\label{sec:recursosutilizados}
+
+
 Diccionario de inglés: https://github.com/dwyl/english-words
+
+
 
 \section{Evaluación}\label{sec:evaluacion}
 Esta sección describe la evaluación que se ha hecho de la solución propuesta. Primero se define la metodología utilizada para evaluar la solución, en segundo lugar explicamos el corpus utilizado como datos de entrada, posteriormente el gold standard actual y por último los experimentos que hemos realizada con sus resultados.
@@ -260,7 +287,7 @@ Nuestro gold standard ha sido el sistema propuesto RAE \cite{porta:2013} en Twee
 \subsection{Experimentos}\label{sec:experimentos}
 (Experimentos realizados)
 
-\section{Conclusiones}\label{conclusiones}
+\section{Conclusiones}\label{sec:conclusiones}
 El proyecto realizado está compuesto de una parte de investigación, cómo se demuestra con el estado del arte y las diferentes soluciones que se han ido realizando hasta llegar a nuestra solución final. Además de la otra parte de desarrollo e implementación de software, ofrenciéndolo para todos en código abierto y en una aplicación web \cite{tweetscweb}.\\
 
 Este desarrollo software se ha dividido en tres componentes o módulos:
@@ -271,12 +298,12 @@ Este desarrollo software se ha dividido en tres componentes o módulos:
 \end{itemize}
 Se puede concluir que nuestro objetivo era construir un corrector de texto para twitter (\hyperref[sec:objetivos]{sección 1.2}) y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{3}, \hyperref[sec:implementacion]{sección 4} y \hyperref[sec:implementacion]{5}.
 
-\section{Líneas Futuras}\label{lineasfuturas}
+\section{Líneas Futuras}\label{sec:lineasfuturas}
 Las líneas futuras son muy ámplias ya que estamos en un tema bastante reciente, sobre todo en español, y se los resultados se pueden mejorar de bastantes formas.
 
 \section*{ANEXOS}
 
-\subsection*{Glosario de términos}
+\subsection*{Glosario de términos}\label{sec:glosariodeterminos}
 \begin{itemize}
 	\item \textbf{Modelo (estadístico) del lenguaje:} Un modelo estadístico del lenguaje es una distribución de probabilidad sobre secuencias de palabras. Un tipo de modelo del lenguaje es el unigrama, también se suele llamar modelo de bolsa de palabras. La dispersidad en los datos es un problema al construir modelos del lenguaje. La secuencia de palabras más probable puede no aparecer en los datos de entrenamiento. Una solución es realizar la suposición de que la probabilidad de una palabra sólo depende de las n palabras previas. Esto es conocido como el modelo n-grama, unigrama cuando n=1. Los modelos del lenguaje neuronales o modelos del lenguaje continuos: modelo del lenguaje Skip-gram, base de word2vec.
 	\item \textbf{Modelo del lenguaje N-grama:} Un modelo de n-grama es un tipo de modelo probabilístico que permite hacer predicción estadística del próximo elemento de cierta secuencia de elementos sucedida hasta el momento. Un modelo de n-grama puede ser definido por una cadena de Márkov de orden n-1. Predice $x_i$ basándose en los n elementos anteriores. 
