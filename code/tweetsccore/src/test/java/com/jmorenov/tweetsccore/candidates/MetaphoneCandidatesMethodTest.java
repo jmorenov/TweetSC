@@ -14,6 +14,6 @@ public class MetaphoneCandidatesMethodTest {
         MetaphoneCandidatesMethod method = new MetaphoneCandidatesMethod();
         List<Candidate> candidates = method.generateCandidates(oov);
 
-        assertEquals("Error generating candidates", 46, candidates.size());
+        assertEquals("Error generating candidates", 234, candidates.size());
     }
 }

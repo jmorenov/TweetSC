@@ -29,7 +29,7 @@ public class DictionaryMethod extends Method {
     private Map<String, Integer> _entitiesWords;
     private Map<String, Integer> _englishWords;
     private static String _alphabet = "aábcdeéfghiíjklmnñoópqrstuúvwxyz";
-    private static final String _dictionaryFileName = "dic.txt";
+    private static final String _dictionaryFileName = "aspellNormalized.dict";
     private static final String _nombresPropiosFileName = "nombres_propios.txt";
     private static final String _entitiesFileName = "entities.txt";
     private static final String _englishFileName = "english.txt";

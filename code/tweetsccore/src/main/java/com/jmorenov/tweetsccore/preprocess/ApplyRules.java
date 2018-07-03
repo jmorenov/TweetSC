@@ -2,6 +2,7 @@ package com.jmorenov.tweetsccore.preprocess;
 
 import com.jmorenov.tweetsccore.extra.Annotation;
 import com.jmorenov.tweetsccore.extra.OOV;
+import com.jmorenov.tweetsccore.extra.Token;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -50,5 +51,31 @@ public class ApplyRules {
         }
 
         return oovs;
+    }
+
+    /**
+     * Method to apply the rules to a text.
+     * @param tokens List of tokens
+     * @return ApplyRulesResult
+     */
+    public ApplyRulesResult apply(List<Token> tokens) {
+        ApplyRulesResult applyRulesResult = new ApplyRulesResult();
+        /*List<OOV> oovs = new ArrayList<>();
+
+        for (Rule rule : rules.getRules()) {
+            Pattern p = Pattern.compile(rule.getRegex());
+            Matcher m = p.matcher(text);
+
+            while (m.find()) {
+                String word = text.substring(m.start(1), m.end(1));
+                OOV oov = new OOV(word, m.start(1), m.end(1));
+
+                oov.setCorrection(rule.getResult());
+                oov.setAnnotation(Annotation.Variation);
+                oovs.add(oov);
+            }
+        }*/
+
+        return applyRulesResult;
     }
 }

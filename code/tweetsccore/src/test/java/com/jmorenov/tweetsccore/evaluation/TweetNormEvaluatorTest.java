@@ -40,10 +40,10 @@ public class TweetNormEvaluatorTest {
 
         TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new DictionaryMethod());
 
-        assertEquals("failure - the result is incorrect", 15, evaluationResult.getErrors());
-        assertEquals("failure - the result is incorrect", 7, evaluationResult.getNegatives());
-        assertEquals("failure - the result is incorrect", 4, evaluationResult.getPositives());
-        assertEquals("failure - the result is incorrect", (float) 21.052631, evaluationResult.getAccurancy());
+        assertEquals("failure - the result is incorrect", 12, evaluationResult.getErrors());
+        assertEquals("failure - the result is incorrect", 10, evaluationResult.getNegatives());
+        assertEquals("failure - the result is incorrect", 5, evaluationResult.getPositives());
+        assertEquals("failure - the result is incorrect", (float) 26.31579, evaluationResult.getAccurancy());
     }
 
     @Test
