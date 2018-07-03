@@ -21,15 +21,19 @@ public class MetaphoneCandidatesMethod extends CandidatesMethod {
     /**
      * Constructor of the class.
      */
-    public MetaphoneCandidatesMethod() throws IOException {
-        phoneticWordsDictionaryMap = new HashMap<>();
-        String[] phoneticWordsDictionary = File.readToStringArray(
-                Paths.get("src", "main", "resources", "aspellNormalizedPhonetic.dict").toAbsolutePath() + "");
+    public MetaphoneCandidatesMethod() {
+        try {
+            phoneticWordsDictionaryMap = new HashMap<>();
+            String[] phoneticWordsDictionary = File.readToStringArray(
+                    Paths.get("src", "main", "resources", "aspellNormalizedPhonetic.dict").toAbsolutePath() + "");
 
-        for (String phoneticWordsDictionaryLine : phoneticWordsDictionary) {
-            String wordsLine[] = phoneticWordsDictionaryLine.split(" : ");
+            for (String phoneticWordsDictionaryLine : phoneticWordsDictionary) {
+                String wordsLine[] = phoneticWordsDictionaryLine.split(" : ");
 
-            phoneticWordsDictionaryMap.put(wordsLine[0], wordsLine[1]);
+                phoneticWordsDictionaryMap.put(wordsLine[0], wordsLine[1]);
+            }
+        } catch (IOException ex) {
+            phoneticWordsDictionaryMap = null;
         }
     }
 

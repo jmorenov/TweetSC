@@ -20,22 +20,26 @@ import java.util.List;
  */
 public class LevenshteinFSTCandidatesMethod extends CandidatesMethod {
     private  ITransducer<com.github.liblevenshtein.transducer.Candidate> transducer;
-    private SortedDawg dictionary;
 
     /**
      * Constructor of the class.
      */
-    public LevenshteinFSTCandidatesMethod() throws Exception {
-        InputStream stream = File.getStreamFromResources("aspellNormalized.dict");
-        Serializer serializer = new PlainTextSerializer(false);
-        dictionary = serializer.deserialize(SortedDawg.class, stream);
+    public LevenshteinFSTCandidatesMethod() {
+        try {
+            InputStream stream = File.getStreamFromResources("aspellNormalized.dict");
+            Serializer serializer = new PlainTextSerializer(false);
+            SortedDawg dictionary = serializer.deserialize(SortedDawg.class, stream);
 
-        transducer = new TransducerBuilder()
-                .dictionary(dictionary)
-                .algorithm(Algorithm.TRANSPOSITION)
-                .defaultMaxDistance(2)
-                .includeDistance(true)
-                .build();
+            transducer = new TransducerBuilder()
+                    .dictionary(dictionary)
+                    .algorithm(Algorithm.TRANSPOSITION)
+                    .defaultMaxDistance(2)
+                    .includeDistance(true)
+                    .build();
+        } catch (Exception ex) {
+            transducer = null;
+        }
+
     }
 
     /**
@@ -47,10 +51,12 @@ public class LevenshteinFSTCandidatesMethod extends CandidatesMethod {
     public List<Candidate> generateCandidates(OOV oov) {
         List<Candidate> candidates = new ArrayList<>();
 
-        for (com.github.liblevenshtein.transducer.Candidate candidate : transducer.transduce(oov.getToken())) {
-            String term = candidate.term();
+        if (transducer != null) {
+            for (com.github.liblevenshtein.transducer.Candidate candidate : transducer.transduce(oov.getToken())) {
+                String term = candidate.term();
 
-            candidates.add(new Candidate(term, this.getMethod()));
+                candidates.add(new Candidate(term, this.getMethod()));
+            }
         }
 
         return candidates;

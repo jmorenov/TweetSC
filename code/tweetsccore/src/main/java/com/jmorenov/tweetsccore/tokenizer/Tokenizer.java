@@ -1,5 +1,7 @@
 package com.jmorenov.tweetsccore.tokenizer;
 
+import com.jmorenov.tweetsccore.extra.Token;
+
 import java.util.List;
 
 /**
@@ -11,7 +13,7 @@ public abstract class Tokenizer {
     /**
      * Method to get the tokens from a text.
      * @param text String with the text
-     * @return List of String with the tokens
+     * @return List of Token
      */
-    public abstract List<String> getTokens(String text);
+    public abstract List<Token> getTokens(String text);
 }

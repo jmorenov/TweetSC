@@ -22,10 +22,13 @@ public class ApplyRules {
 
     /**
      * Constructor of the class.
-     * @throws IOException
      */
-    public ApplyRules() throws IOException {
-        rules = new Rules(rulesFileName);
+    public ApplyRules() {
+        try {
+            rules = new Rules(rulesFileName);
+        } catch (IOException ex) {
+            rules = null;
+        }
     }
 
     /**
@@ -36,17 +39,19 @@ public class ApplyRules {
     public List<OOV> apply(String text) {
         List<OOV> oovs = new ArrayList<>();
 
-        for (Rule rule : rules.getRules()) {
-            Pattern p = Pattern.compile(rule.getRegex());
-            Matcher m = p.matcher(text);
+        if (rules != null) {
+            for (Rule rule : rules.getRules()) {
+                Pattern p = Pattern.compile(rule.getRegex());
+                Matcher m = p.matcher(text);
 
-            while (m.find()) {
-                String word = text.substring(m.start(1), m.end(1));
-                OOV oov = new OOV(word, m.start(1), m.end(1));
+                while (m.find()) {
+                    String word = text.substring(m.start(1), m.end(1));
+                    OOV oov = new OOV(word, m.start(1), m.end(1));
 
-                oov.setCorrection(rule.getResult());
-                oov.setAnnotation(Annotation.Variation);
-                oovs.add(oov);
+                    oov.setCorrection(rule.getResult());
+                    oov.setAnnotation(Annotation.Variation);
+                    oovs.add(oov);
+                }
             }
         }
 
@@ -54,27 +59,28 @@ public class ApplyRules {
     }
 
     /**
-     * Method to apply the rules to a text.
+     * Method to apply the rules to a List of Token.
      * @param tokens List of tokens
      * @return ApplyRulesResult
      */
     public ApplyRulesResult apply(List<Token> tokens) {
         ApplyRulesResult applyRulesResult = new ApplyRulesResult();
-        /*List<OOV> oovs = new ArrayList<>();
 
-        for (Rule rule : rules.getRules()) {
-            Pattern p = Pattern.compile(rule.getRegex());
-            Matcher m = p.matcher(text);
+        if (rules != null) {
+            for (Rule rule : rules.getRules()) {
+                for (Token token : tokens) {
+                    if (token.getText().matches(rule.getRegex())) {
+                        OOV oov = new OOV(token);
 
-            while (m.find()) {
-                String word = text.substring(m.start(1), m.end(1));
-                OOV oov = new OOV(word, m.start(1), m.end(1));
-
-                oov.setCorrection(rule.getResult());
-                oov.setAnnotation(Annotation.Variation);
-                oovs.add(oov);
+                        oov.setCorrection(rule.getResult());
+                        oov.setAnnotation(Annotation.Variation);
+                        applyRulesResult.addOOV(oov);
+                    } else {
+                        applyRulesResult.addToken(token);
+                    }
+                }
             }
-        }*/
+        }
 
         return applyRulesResult;
     }

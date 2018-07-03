@@ -1,14 +1,20 @@
 package com.jmorenov.tweetsccore.extra;
 
+import com.jmorenov.tweetsccore.candidates.Candidate;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Out-Of-Vocabulary class with the structure of a OOV word.
  *
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class OOV {
-    private Annotation annotation = Annotation.NoEs;
+    private Annotation annotation = Annotation.Unknown;
     private String correction;
     private Token token;
+    private List<Candidate> candidates;
 
     /**
      * Constructor of the class.
@@ -82,5 +88,21 @@ public class OOV {
      */
     public int getEndPosition() {
         return this.token.getEndPosition();
+    }
+
+    /**
+     * Method to set the candidates of an OOV.
+     * @param candidates List of Candidate
+     */
+    public void setCandidates(List<Candidate> candidates) {
+        this.candidates = candidates;
+    }
+
+    /**
+     * Method to get the candidates of an OOV.
+     * @return List of Candidate
+     */
+    public List<Candidate> getCandidates() {
+        return candidates;
     }
 }

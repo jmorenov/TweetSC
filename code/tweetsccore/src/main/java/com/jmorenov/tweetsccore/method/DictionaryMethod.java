@@ -102,14 +102,29 @@ public class DictionaryMethod extends Method {
         return oov;
     }
 
+    /**
+     * Method to get if an OOV is correct.
+     * @param oov String
+     * @return boolean
+     */
     private boolean isACorrectOOV(String oov) {
         return _entitiesWords.containsKey(oov) || _nombresPropiosWords.containsKey(oov);
     }
 
+    /**
+     * Method to get if an OOV is english.
+     * @param oov String
+     * @return boolean
+     */
     private boolean isAEnglishOOV(String oov) {
         return _englishWords.containsKey(oov);
     }
 
+    /**
+     * Method to correct an entity.
+     * @param oov String
+     * @return String
+     */
     private String correctEntity(String oov) {
         String capitalizedWord = StringUtils.capitalize(oov);
 

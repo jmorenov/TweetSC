@@ -5,9 +5,10 @@ package com.jmorenov.tweetsccore.candidates;
  *
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
-public class Candidate {
+public class Candidate implements Comparable<Candidate> {
     private String candidate;
     private CandidatesMethodType generatedBy;
+    private double score;
 
     /**
      * Constructor of the class.
@@ -33,5 +34,33 @@ public class Candidate {
      */
     public CandidatesMethodType getGeneratedBy() {
         return generatedBy;
+    }
+
+    /**
+     * Method to get the score of the candidate.
+     * @return double
+     */
+    public double getScore() {
+        return score;
+    }
+
+    /**
+     * Method to set the score of the candidate.
+     * @param score double
+     */
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    /**
+     * Method to compare two candidates.
+     * @param candidate Candidate
+     * @return int
+     */
+    @Override
+    public int compareTo(Candidate candidate) {
+        return this.getScore() < candidate.getScore() ? -1
+                : this.getScore() < candidate.getScore() ? 1
+                : 0;
     }
 }

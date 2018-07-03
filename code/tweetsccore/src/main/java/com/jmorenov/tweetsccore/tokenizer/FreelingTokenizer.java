@@ -1,6 +1,7 @@
 package com.jmorenov.tweetsccore.tokenizer;
 
 import com.jmorenov.tweetsccore.extra.FreelingInitializator;
+import com.jmorenov.tweetsccore.extra.Token;
 import edu.upc.freeling.*;
 
 import java.nio.file.Paths;
@@ -30,13 +31,14 @@ public class FreelingTokenizer extends Tokenizer {
      * @return List of String with the tokens
      */
     @Override
-    public List<String> getTokens(String text) {
-        List<String> tokens = new ArrayList<>();
+    public List<Token> getTokens(String text) {
+        List<Token> tokens = new ArrayList<>();
         ListWord words = tokenizer.tokenize(text);
         int wordsCount = (int) words.size();
 
         for (int i = 0; i < wordsCount; i++) {
-            tokens.add(words.front().getForm());
+            Word word = words.front();
+            tokens.add(new Token(word.getForm(), (int) word.getSpanStart(), (int) word.getSpanFinish()));
             words.popFront();
         }
 

@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.tokenizer;
 
+import com.jmorenov.tweetsccore.extra.Token;
 import edu.stanford.nlp.international.spanish.process.SpanishTokenizer;
 import edu.stanford.nlp.io.IOUtils;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -26,19 +27,23 @@ public class StanfordNLPTokenizer extends Tokenizer {
     /**
      * Constructor of the class
      */
-    public StanfordNLPTokenizer() throws IOException {
-        Properties props = new Properties();
-        TokenizerAnnotator.TokenizerType type = TokenizerAnnotator.TokenizerType.Spanish;
+    public StanfordNLPTokenizer() {
+        try {
+            Properties props = new Properties();
+            TokenizerAnnotator.TokenizerType type = TokenizerAnnotator.TokenizerType.Spanish;
 
-        props.load(IOUtils.readerFromString("StanfordCoreNLP-spanish.properties"));
+            props.load(IOUtils.readerFromString("StanfordCoreNLP-spanish.properties"));
 
-        String options = props.getProperty("tokenize.options", null);
+            String options = props.getProperty("tokenize.options", null);
 
-        if (options == null) {
-            options = type.getDefaultOptions();
+            if (options == null) {
+                options = type.getDefaultOptions();
+            }
+
+            tokenizerFactory = SpanishTokenizer.factory(new CoreLabelTokenFactory(), options);
+        }catch (IOException ex) {
+            tokenizerFactory = null;
         }
-
-        tokenizerFactory = SpanishTokenizer.factory(new CoreLabelTokenFactory(), options);
     }
 
     /**
@@ -47,14 +52,14 @@ public class StanfordNLPTokenizer extends Tokenizer {
      * @return List of String with the tokens
      */
     @Override
-    public List<String> getTokens(String text) {
+    public List<Token> getTokens(String text) {
         Reader reader = new StringReader(text);
 
         edu.stanford.nlp.process.Tokenizer<CoreLabel> tokens = tokenizerFactory.getTokenizer(reader);
-        List<String> tokenList = new ArrayList<>();
+        List<Token> tokenList = new ArrayList<>();
 
         for(CoreLabel token : tokens.tokenize()) {
-            tokenList.add(token.toString());
+            tokenList.add(new Token(token.toString(), token.beginPosition(), token.endPosition()));
         }
 
         return tokenList;

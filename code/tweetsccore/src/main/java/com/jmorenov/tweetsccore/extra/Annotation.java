@@ -6,7 +6,7 @@ package com.jmorenov.tweetsccore.extra;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public enum Annotation {
-    Variation(0), Correct(1), NoEs(2);
+    Variation(0), Correct(1), NoEs(2), Unknown(3);
 
     public int value;
     private Annotation(int value) {
