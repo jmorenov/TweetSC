@@ -50,7 +50,7 @@ public class LevenshteinFSTCandidatesMethod extends CandidatesMethod {
         for (com.github.liblevenshtein.transducer.Candidate candidate : transducer.transduce(oov.getToken())) {
             String term = candidate.term();
 
-            candidates.add(new Candidate(term, this.toString()));
+            candidates.add(new Candidate(term, this.getMethod()));
         }
 
         return candidates;
