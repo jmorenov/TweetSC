@@ -1,0 +1,4027 @@
+\subsection*{Class Hierarchy}{
+\thispagestyle{empty}
+\markboth{Class Hierarchy}{Class Hierarchy}
+\addcontentsline{toc}{subsection}{Class Hierarchy}
+\subsubsection*{Classes}
+{\raggedright
+\hspace{0.0cm} $\bullet$ java.lang.Object {\tiny \refdefined{java.lang.Object}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.analyzer.AnalysisElement {\tiny \refdefined{com.jmorenov.tweetsccore.analyzer.AnalysisElement}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.analyzer.Analyzer {\tiny \refdefined{com.jmorenov.tweetsccore.analyzer.Analyzer}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer {\tiny \refdefined{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.candidates.Candidate {\tiny \refdefined{com.jmorenov.tweetsccore.candidates.Candidate}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.candidates.CandidatesMethod {\tiny \refdefined{com.jmorenov.tweetsccore.candidates.CandidatesMethod}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod {\tiny \refdefined{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod {\tiny \refdefined{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod {\tiny \refdefined{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult {\tiny \refdefined{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator {\tiny \refdefined{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.extra.File {\tiny \refdefined{com.jmorenov.tweetsccore.extra.File}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.extra.FreelingInitializator {\tiny \refdefined{com.jmorenov.tweetsccore.extra.FreelingInitializator}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.extra.OOV {\tiny \refdefined{com.jmorenov.tweetsccore.extra.OOV}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.extra.Parser {\tiny \refdefined{com.jmorenov.tweetsccore.extra.Parser}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.method.Method {\tiny \refdefined{com.jmorenov.tweetsccore.method.Method}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.method.DictionaryMethod {\tiny \refdefined{com.jmorenov.tweetsccore.method.DictionaryMethod}} \\
+\hspace{3.0cm} $\bullet$ com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod {\tiny \refdefined{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.ner.NER {\tiny \refdefined{com.jmorenov.tweetsccore.ner.NER}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.ner.StanfordNLPNER {\tiny \refdefined{com.jmorenov.tweetsccore.ner.StanfordNLPNER}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.ner.NERELement {\tiny \refdefined{com.jmorenov.tweetsccore.ner.NERELement}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.post.FreeLingPOST {\tiny \refdefined{com.jmorenov.tweetsccore.post.FreeLingPOST}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.post.OpenNLPPOST {\tiny \refdefined{com.jmorenov.tweetsccore.post.OpenNLPPOST}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.post.POST {\tiny \refdefined{com.jmorenov.tweetsccore.post.POST}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.post.StanfordNLPPOST {\tiny \refdefined{com.jmorenov.tweetsccore.post.StanfordNLPPOST}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.preprocess.ApplyRules {\tiny \refdefined{com.jmorenov.tweetsccore.preprocess.ApplyRules}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.preprocess.Rule {\tiny \refdefined{com.jmorenov.tweetsccore.preprocess.Rule}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.preprocess.Rules {\tiny \refdefined{com.jmorenov.tweetsccore.preprocess.Rules}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.spellchecker.SpellChecker {\tiny \refdefined{com.jmorenov.tweetsccore.spellchecker.SpellChecker}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.tokenizer.Tokenizer {\tiny \refdefined{com.jmorenov.tweetsccore.tokenizer.Tokenizer}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer {\tiny \refdefined{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.tokenizer.NGramTokenizer {\tiny \refdefined{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer {\tiny \refdefined{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer {\tiny \refdefined{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.twitter.Tweet {\tiny \refdefined{com.jmorenov.tweetsccore.twitter.Tweet}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.twitter.TweetCorrected {\tiny \refdefined{com.jmorenov.tweetsccore.twitter.TweetCorrected}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.twitter.TwitterConfiguration {\tiny \refdefined{com.jmorenov.tweetsccore.twitter.TwitterConfiguration}} \\
+\hspace{1.0cm} $\bullet$ com.jmorenov.tweetsccore.twitter.api.Search {\tiny \refdefined{com.jmorenov.tweetsccore.twitter.api.Search}} \\
+\hspace{1.0cm} $\bullet$ java.lang.Enum {\tiny \refdefined{java.lang.Enum}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.candidates.CandidatesMethodType {\tiny \refdefined{com.jmorenov.tweetsccore.candidates.CandidatesMethodType}} \\
+\hspace{2.0cm} $\bullet$ com.jmorenov.tweetsccore.extra.Annotation {\tiny \refdefined{com.jmorenov.tweetsccore.extra.Annotation}} \\
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.preprocess}{
+\label{com.jmorenov.tweetsccore.preprocess}\hypertarget{com.jmorenov.tweetsccore.preprocess}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{ApplyRules}{com.jmorenov.tweetsccore.preprocess.ApplyRules}{ApplyRules class to apply preprocess rules.}
+\entityintro{Rule}{com.jmorenov.tweetsccore.preprocess.Rule}{Rule class that define a rule element.}
+\entityintro{Rules}{com.jmorenov.tweetsccore.preprocess.Rules}{Rule class that define the Rules element.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.preprocess.ApplyRules}Class ApplyRules}{
+\hypertarget{com.jmorenov.tweetsccore.preprocess.ApplyRules}{}\vskip .1in 
+ApplyRules class to apply preprocess rules.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class ApplyRules
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.preprocess.ApplyRules()}{{\bf ApplyRules()}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.preprocess.ApplyRules.apply(java.lang.String)}{{\bf apply(String)}} Method to apply the rules to a text.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{ApplyRules()}
+\hypertarget{com.jmorenov.tweetsccore.preprocess.ApplyRules()}{{\bf  ApplyRules}\\}
+\begin{lstlisting}[frame=none]
+public ApplyRules() throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- }
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{apply(String)}
+\hypertarget{com.jmorenov.tweetsccore.preprocess.ApplyRules.apply(java.lang.String)}{{\bf  apply}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List apply(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to apply the rules to a text.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- String with the text}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of OOVs 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.preprocess.Rule}Class Rule}{
+\hypertarget{com.jmorenov.tweetsccore.preprocess.Rule}{}\vskip .1in 
+Rule class that define a rule element.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class Rule
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.preprocess.Rule(java.lang.String, java.lang.String)}{{\bf Rule(String, String)}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.preprocess.Rule.getRegex()}{{\bf getRegex()}} Method to get the regex of the rule.\\
+\hyperlink{com.jmorenov.tweetsccore.preprocess.Rule.getResult()}{{\bf getResult()}} Method to get the result of a rule.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Rule(String, String)}
+\hypertarget{com.jmorenov.tweetsccore.preprocess.Rule(java.lang.String, java.lang.String)}{{\bf  Rule}\\}
+\begin{lstlisting}[frame=none]
+public Rule(java.lang.String regex,java.lang.String result)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{regex} -- String}
+   \item{
+\texttt{result} -- String}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getRegex()}
+\hypertarget{com.jmorenov.tweetsccore.preprocess.Rule.getRegex()}{{\bf  getRegex}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getRegex()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the regex of the rule.
+}
+\item{{\bf  Returns} -- 
+String 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getResult()}
+\hypertarget{com.jmorenov.tweetsccore.preprocess.Rule.getResult()}{{\bf  getResult}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getResult()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the result of a rule.
+}
+\item{{\bf  Returns} -- 
+String 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.preprocess.Rules}Class Rules}{
+\hypertarget{com.jmorenov.tweetsccore.preprocess.Rules}{}\vskip .1in 
+Rule class that define the Rules element.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class Rules
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.preprocess.Rules(java.lang.String)}{{\bf Rules(String)}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.preprocess.Rules.addRule(com.jmorenov.tweetsccore.preprocess.Rule)}{{\bf addRule(Rule)}} Method to add a new rule.\\
+\hyperlink{com.jmorenov.tweetsccore.preprocess.Rules.getRules()}{{\bf getRules()}} Method to get the rules.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Rules(String)}
+\hypertarget{com.jmorenov.tweetsccore.preprocess.Rules(java.lang.String)}{{\bf  Rules}\\}
+\begin{lstlisting}[frame=none]
+public Rules(java.lang.String rulesFilename) throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{rulesFilename} -- String with the file name of the rules}
+  \end{itemize}
+}%end item
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- When the file is not found}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{addRule(Rule)}
+\hypertarget{com.jmorenov.tweetsccore.preprocess.Rules.addRule(com.jmorenov.tweetsccore.preprocess.Rule)}{{\bf  addRule}\\}
+\begin{lstlisting}[frame=none]
+public void addRule(Rule rule)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to add a new rule.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{rule} -- Rule}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getRules()}
+\hypertarget{com.jmorenov.tweetsccore.preprocess.Rules.getRules()}{{\bf  getRules}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getRules()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the rules.
+}
+\item{{\bf  Returns} -- 
+List of Rule 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.twitter}{
+\label{com.jmorenov.tweetsccore.twitter}\hypertarget{com.jmorenov.tweetsccore.twitter}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{Tweet}{com.jmorenov.tweetsccore.twitter.Tweet}{Tweet class with the structure of a tweet.}
+\entityintro{TweetCorrected}{com.jmorenov.tweetsccore.twitter.TweetCorrected}{Tweet corrected class with the structure of a corrected tweet.}
+\entityintro{TwitterConfiguration}{com.jmorenov.tweetsccore.twitter.TwitterConfiguration}{TwitterConfiguration class with the configuration of the connection with the API of twitter.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.twitter.Tweet}Class Tweet}{
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet}{}\vskip .1in 
+Tweet class with the structure of a tweet.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class Tweet
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{All known subclasses}{TweetCorrected\small{\refdefined{com.jmorenov.tweetsccore.twitter.TweetCorrected}}}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet()}{{\bf Tweet()}} Default constructor of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet(Status)}{{\bf Tweet(Status)}} Constructor of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet(java.lang.String, java.lang.String, java.lang.String, java.lang.String)}{{\bf Tweet(String, String, String, String)}} Constructor of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)}{{\bf Tweet(String, String, String, String, String)}} Constructor of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf Tweet(Tweet)}} Copy constructor\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet.getDate()}{{\bf getDate()}} Method to get the date of the tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet.getHash()}{{\bf getHash()}} Method to get the hash of the tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet.getId()}{{\bf getId()}} Method to get the id of the tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet.getText()}{{\bf getText()}} Method to get the text of the tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet.getUsername()}{{\bf getUsername()}} Method to get the username of the tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.Tweet.toString()}{{\bf toString()}} Method to get the string of the Tweet.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Tweet()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet()}{{\bf  Tweet}\\}
+\begin{lstlisting}[frame=none]
+public Tweet()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Default constructor of the class.
+}
+\end{itemize}
+}%end item
+\item{ 
+\index{Tweet(Status)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet(Status)}{{\bf  Tweet}\\}
+\begin{lstlisting}[frame=none]
+public Tweet(Status tweetStatus)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{tweetStatus} -- Status from the object of Twitter4j.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{Tweet(String, String, String, String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet(java.lang.String, java.lang.String, java.lang.String, java.lang.String)}{{\bf  Tweet}\\}
+\begin{lstlisting}[frame=none]
+public Tweet(java.lang.String id,java.lang.String username,java.lang.String hash,java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{id} -- String with the id of the tweet.}
+   \item{
+\texttt{username} -- String with the username of the tweet.}
+   \item{
+\texttt{hash} -- String with the hash of the tweet.}
+   \item{
+\texttt{text} -- String with the text of the tweet.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{Tweet(String, String, String, String, String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)}{{\bf  Tweet}\\}
+\begin{lstlisting}[frame=none]
+public Tweet(java.lang.String id,java.lang.String username,java.lang.String hash,java.lang.String text,java.lang.String date)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{id} -- String with the id of the tweet.}
+   \item{
+\texttt{username} -- String with the username of the tweet.}
+   \item{
+\texttt{hash} -- String with the hash of the tweet.}
+   \item{
+\texttt{text} -- String with the text of the tweet.}
+   \item{
+\texttt{date} -- String with the date of the tweet.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{Tweet(Tweet)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf  Tweet}\\}
+\begin{lstlisting}[frame=none]
+public Tweet(Tweet tweet)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Copy constructor
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{tweet} -- Tweet to copy from.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getDate()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet.getDate()}{{\bf  getDate}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getDate()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the date of the tweet.
+}
+\item{{\bf  Returns} -- 
+String with the date of the tweet. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getHash()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet.getHash()}{{\bf  getHash}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getHash()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the hash of the tweet.
+}
+\item{{\bf  Returns} -- 
+String with the hash of the tweet. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getId()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet.getId()}{{\bf  getId}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getId()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the id of the tweet.
+}
+\item{{\bf  Returns} -- 
+String with the id of the tweet. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getText()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet.getText()}{{\bf  getText}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getText()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the text of the tweet.
+}
+\item{{\bf  Returns} -- 
+String with the text of the tweet. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getUsername()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet.getUsername()}{{\bf  getUsername}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getUsername()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the username of the tweet.
+}
+\item{{\bf  Returns} -- 
+String with the username of the tweet. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{toString()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.Tweet.toString()}{{\bf  toString}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String toString()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the string of the Tweet.
+}
+\item{{\bf  Returns} -- 
+String with the String of the Tweet. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.twitter.TweetCorrected}Class TweetCorrected}{
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected}{}\vskip .1in 
+Tweet corrected class with the structure of a corrected tweet.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class TweetCorrected
+ extends com.jmorenov.tweetsccore.twitter.Tweet\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected()}{{\bf TweetCorrected()}} Default constuctor of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected(java.lang.String)}{{\bf TweetCorrected(String)}} Constructor of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)}{{\bf TweetCorrected(String, String, String, String, String)}} Constructor of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf TweetCorrected(Tweet)}} Constructor from tweet.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected.computeCorrectedText()}{{\bf computeCorrectedText()}} Method to set the corrected text from the OOV words.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected.getCorrectedText()}{{\bf getCorrectedText()}} Method to get the corrected tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected.getOOVWords()}{{\bf getOOVWords()}} Method to get the Out-Of-Vocabulary words of the tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected.setCorrectedText(java.lang.String)}{{\bf setCorrectedText(String)}} Method to set the corrected tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected.setOOVWords(java.util.List)}{{\bf setOOVWords(List)}} Method to set the Out-Of-Vocabulary words of the tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected.toString()}{{\bf toString()}} Method to get the string of the Tweet Corrected.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TweetCorrected.toTweetNormString()}{{\bf toTweetNormString()}} Method to get the corrected text for Tweet Norm 2013.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{TweetCorrected()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected()}{{\bf  TweetCorrected}\\}
+\begin{lstlisting}[frame=none]
+public TweetCorrected()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Default constuctor of the class.
+}
+\end{itemize}
+}%end item
+\item{ 
+\index{TweetCorrected(String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected(java.lang.String)}{{\bf  TweetCorrected}\\}
+\begin{lstlisting}[frame=none]
+public TweetCorrected(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- of the tweet}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{TweetCorrected(String, String, String, String, String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)}{{\bf  TweetCorrected}\\}
+\begin{lstlisting}[frame=none]
+public TweetCorrected(java.lang.String id,java.lang.String username,java.lang.String hash,java.lang.String text,java.lang.String date)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{id} -- of the tweet}
+   \item{
+\texttt{username} -- }
+   \item{
+\texttt{hash} -- of the tweet}
+   \item{
+\texttt{text} -- of the tweet}
+   \item{
+\texttt{date} -- of the tweet}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{TweetCorrected(Tweet)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf  TweetCorrected}\\}
+\begin{lstlisting}[frame=none]
+public TweetCorrected(Tweet tweet)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor from tweet.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{tweet} -- Tweet}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{computeCorrectedText()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected.computeCorrectedText()}{{\bf  computeCorrectedText}\\}
+\begin{lstlisting}[frame=none]
+public void computeCorrectedText()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to set the corrected text from the OOV words.
+}
+\end{itemize}
+}%end item
+\item{ 
+\index{getCorrectedText()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected.getCorrectedText()}{{\bf  getCorrectedText}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getCorrectedText()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the corrected tweet.
+}
+\item{{\bf  Returns} -- 
+String the corrected text 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getOOVWords()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected.getOOVWords()}{{\bf  getOOVWords}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getOOVWords()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the Out-Of-Vocabulary words of the tweet.
+}
+\item{{\bf  Returns} -- 
+List of OOV 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setCorrectedText(String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected.setCorrectedText(java.lang.String)}{{\bf  setCorrectedText}\\}
+\begin{lstlisting}[frame=none]
+public void setCorrectedText(java.lang.String correctedText)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to set the corrected tweet.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{correctedText} -- the corrected text}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setOOVWords(List)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected.setOOVWords(java.util.List)}{{\bf  setOOVWords}\\}
+\begin{lstlisting}[frame=none]
+public void setOOVWords(java.util.List OOVWords)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to set the Out-Of-Vocabulary words of the tweet.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{OOVWords} -- the list of OOV}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{toString()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected.toString()}{{\bf  toString}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String toString()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the string of the Tweet Corrected.
+}
+\item{{\bf  Returns} -- 
+String with the String of the class 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{toTweetNormString()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TweetCorrected.toTweetNormString()}{{\bf  toTweetNormString}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String toTweetNormString()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the corrected text for Tweet Norm 2013.
+}
+\item{{\bf  Returns} -- 
+String with the correctec text. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Tweet }{
+\texttt{com.jmorenov.tweetsccore.twitter.Tweet} {\small 
+\refdefined{com.jmorenov.tweetsccore.twitter.Tweet}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  getDate}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  getHash}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  getId}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  getText}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  getUsername}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  toString}()
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.twitter.TwitterConfiguration}Class TwitterConfiguration}{
+\hypertarget{com.jmorenov.tweetsccore.twitter.TwitterConfiguration}{}\vskip .1in 
+TwitterConfiguration class with the configuration of the connection with the API of twitter.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class TwitterConfiguration
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.twitter.TwitterConfiguration.getInstance()}{{\bf getInstance()}} Method to get the instance of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.TwitterConfiguration.getTwitterAccess()}{{\bf getTwitterAccess()}} Method to get the access to the API.\\
+\end{verse}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getInstance()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TwitterConfiguration.getInstance()}{{\bf  getInstance}\\}
+\begin{lstlisting}[frame=none]
+public static TwitterConfiguration getInstance()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the instance of the class.
+}
+\item{{\bf  Returns} -- 
+TwitterConfiguration the instance of the class 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getTwitterAccess()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.TwitterConfiguration.getTwitterAccess()}{{\bf  getTwitterAccess}\\}
+\begin{lstlisting}[frame=none]
+public Twitter getTwitterAccess()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the access to the API.
+}
+\item{{\bf  Returns} -- 
+Twitter 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.twitter.api}{
+\label{com.jmorenov.tweetsccore.twitter.api}\hypertarget{com.jmorenov.tweetsccore.twitter.api}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{Search}{com.jmorenov.tweetsccore.twitter.api.Search}{Search class to do call on the Twitter API about tweets.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.twitter.api.Search}Class Search}{
+\hypertarget{com.jmorenov.tweetsccore.twitter.api.Search}{}\vskip .1in 
+Search class to do call on the Twitter API about tweets.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class Search
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.twitter.api.Search()}{{\bf Search()}} Default constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.twitter.api.Search.getAllTweetsOfUser(java.lang.String)}{{\bf getAllTweetsOfUser(String)}} Method to get all the tweets of an user.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.api.Search.getTweetById(java.lang.String)}{{\bf getTweetById(String)}} Method to search tweets by it id.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.api.Search.getTweetsByText(java.lang.String)}{{\bf getTweetsByText(String)}} Method to search tweets.\\
+\hyperlink{com.jmorenov.tweetsccore.twitter.api.Search.getTweetsByTextOfUser(java.lang.String, java.lang.String)}{{\bf getTweetsByTextOfUser(String, String)}} Method to search tweets of an user.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Search()}
+\hypertarget{com.jmorenov.tweetsccore.twitter.api.Search()}{{\bf  Search}\\}
+\begin{lstlisting}[frame=none]
+public Search()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Default constructor of the class.
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getAllTweetsOfUser(String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.api.Search.getAllTweetsOfUser(java.lang.String)}{{\bf  getAllTweetsOfUser}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getAllTweetsOfUser(java.lang.String username)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get all the tweets of an user.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{username} -- the user}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of Status with the tweets 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getTweetById(String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.api.Search.getTweetById(java.lang.String)}{{\bf  getTweetById}\\}
+\begin{lstlisting}[frame=none]
+public com.jmorenov.tweetsccore.twitter.Tweet getTweetById(java.lang.String id)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to search tweets by it id.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{id} -- the id of the tweet}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+Status The tweet 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getTweetsByText(String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.api.Search.getTweetsByText(java.lang.String)}{{\bf  getTweetsByText}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getTweetsByText(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to search tweets.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- the text to search}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of Status with the tweets 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getTweetsByTextOfUser(String, String)}
+\hypertarget{com.jmorenov.tweetsccore.twitter.api.Search.getTweetsByTextOfUser(java.lang.String, java.lang.String)}{{\bf  getTweetsByTextOfUser}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getTweetsByTextOfUser(java.lang.String username,java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to search tweets of an user.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{username} -- the user}
+   \item{
+\texttt{text} -- the text to search}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of Status with the tweets 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.ner}{
+\label{com.jmorenov.tweetsccore.ner}\hypertarget{com.jmorenov.tweetsccore.ner}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{NER}{com.jmorenov.tweetsccore.ner.NER}{POSTagging abstract class.}
+\entityintro{NERELement}{com.jmorenov.tweetsccore.ner.NERELement}{NERELement class.}
+\entityintro{StanfordNLPNER}{com.jmorenov.tweetsccore.ner.StanfordNLPNER}{StanfordNLP class.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.ner.NER}Class NER}{
+\hypertarget{com.jmorenov.tweetsccore.ner.NER}{}\vskip .1in 
+POSTagging abstract class.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public abstract class NER
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{All known subclasses}{StanfordNLPNER\small{\refdefined{com.jmorenov.tweetsccore.ner.StanfordNLPNER}}}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.ner.NER()}{{\bf NER()}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.ner.NER.getNERElements(java.lang.String)}{{\bf getNERElements(String)}} Method to get a list with the NER Elements detected.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{NER()}
+\hypertarget{com.jmorenov.tweetsccore.ner.NER()}{{\bf  NER}\\}
+\begin{lstlisting}[frame=none]
+public NER()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getNERElements(String)}
+\hypertarget{com.jmorenov.tweetsccore.ner.NER.getNERElements(java.lang.String)}{{\bf  getNERElements}\\}
+\begin{lstlisting}[frame=none]
+public abstract java.util.List getNERElements(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get a list with the NER Elements detected.
+}
+\item{{\bf  Returns} -- 
+List with the NER Elements. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.ner.NERELement}Class NERELement}{
+\hypertarget{com.jmorenov.tweetsccore.ner.NERELement}{}\vskip .1in 
+NERELement class.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class NERELement
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.ner.NERELement(java.lang.String, java.lang.String)}{{\bf NERELement(String, String)}} Constructor of the class\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.ner.NERELement.getNerDetected()}{{\bf getNerDetected()}} Method to get the ner detected.\\
+\hyperlink{com.jmorenov.tweetsccore.ner.NERELement.getOriginalElement()}{{\bf getOriginalElement()}} Method to get the original element.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{NERELement(String, String)}
+\hypertarget{com.jmorenov.tweetsccore.ner.NERELement(java.lang.String, java.lang.String)}{{\bf  NERELement}\\}
+\begin{lstlisting}[frame=none]
+public NERELement(java.lang.String originalElement,java.lang.String nerDetected)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{originalElement} -- }
+   \item{
+\texttt{nerDetected} -- }
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getNerDetected()}
+\hypertarget{com.jmorenov.tweetsccore.ner.NERELement.getNerDetected()}{{\bf  getNerDetected}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getNerDetected()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the ner detected.
+}
+\item{{\bf  Returns} -- 
+String with the ner detected 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getOriginalElement()}
+\hypertarget{com.jmorenov.tweetsccore.ner.NERELement.getOriginalElement()}{{\bf  getOriginalElement}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getOriginalElement()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the original element.
+}
+\item{{\bf  Returns} -- 
+String with the original element 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.ner.StanfordNLPNER}Class StanfordNLPNER}{
+\hypertarget{com.jmorenov.tweetsccore.ner.StanfordNLPNER}{}\vskip .1in 
+StanfordNLP class.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class StanfordNLPNER
+ extends com.jmorenov.tweetsccore.ner.NER\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.ner.StanfordNLPNER(java.lang.String)}{{\bf StanfordNLPNER(String)}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.ner.StanfordNLPNER.getNERElements(java.lang.String)}{{\bf getNERElements(String)}} Method to get a list with the NER Elements detected.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{StanfordNLPNER(String)}
+\hypertarget{com.jmorenov.tweetsccore.ner.StanfordNLPNER(java.lang.String)}{{\bf  StanfordNLPNER}\\}
+\begin{lstlisting}[frame=none]
+public StanfordNLPNER(java.lang.String text)\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getNERElements(String)}
+\hypertarget{com.jmorenov.tweetsccore.ner.StanfordNLPNER.getNERElements(java.lang.String)}{{\bf  getNERElements}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getNERElements(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get a list with the NER Elements detected.
+}
+\item{{\bf  Returns} -- 
+List with the NER Elements. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class NER }{
+\texttt{com.jmorenov.tweetsccore.ner.NER} {\small 
+\refdefined{com.jmorenov.tweetsccore.ner.NER}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  getNERElements}(\texttt{java.lang.String} {\bf  text})
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.analyzer}{
+\label{com.jmorenov.tweetsccore.analyzer}\hypertarget{com.jmorenov.tweetsccore.analyzer}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{AnalysisElement}{com.jmorenov.tweetsccore.analyzer.AnalysisElement}{AnalysisElement class.}
+\entityintro{Analyzer}{com.jmorenov.tweetsccore.analyzer.Analyzer}{Analyzer abstract class.}
+\entityintro{FreelingAnalyzer}{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer}{FreelingTokenizer class to tokenize a text.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.analyzer.AnalysisElement}Class AnalysisElement}{
+\hypertarget{com.jmorenov.tweetsccore.analyzer.AnalysisElement}{}\vskip .1in 
+AnalysisElement class.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class AnalysisElement
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.analyzer.AnalysisElement(java.lang.String, java.lang.String, java.lang.String, java.lang.String, boolean)}{{\bf AnalysisElement(String, String, String, String, boolean)}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.analyzer.AnalysisElement.getForm()}{{\bf getForm()}} Method to get the form.\\
+\hyperlink{com.jmorenov.tweetsccore.analyzer.AnalysisElement.getLemma()}{{\bf getLemma()}} Method to get the lemma.\\
+\hyperlink{com.jmorenov.tweetsccore.analyzer.AnalysisElement.getSenses()}{{\bf getSenses()}} Method to get the senses.\\
+\hyperlink{com.jmorenov.tweetsccore.analyzer.AnalysisElement.getTag()}{{\bf getTag()}} Method to get the tag.\\
+\hyperlink{com.jmorenov.tweetsccore.analyzer.AnalysisElement.isMultiWord()}{{\bf isMultiWord()}} Method to get if the element is multi word.\\
+\hyperlink{com.jmorenov.tweetsccore.analyzer.AnalysisElement.toString()}{{\bf toString()}} Method to get the class as String.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{AnalysisElement(String, String, String, String, boolean)}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.AnalysisElement(java.lang.String, java.lang.String, java.lang.String, java.lang.String, boolean)}{{\bf  AnalysisElement}\\}
+\begin{lstlisting}[frame=none]
+public AnalysisElement(java.lang.String form,java.lang.String lemma,java.lang.String tag,java.lang.String senses,boolean isMultiWord)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{form} -- }
+   \item{
+\texttt{lemma} -- }
+   \item{
+\texttt{tag} -- }
+   \item{
+\texttt{isMultiWord} -- }
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getForm()}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.AnalysisElement.getForm()}{{\bf  getForm}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getForm()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the form.
+}
+\item{{\bf  Returns} -- 
+String with the form 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getLemma()}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.AnalysisElement.getLemma()}{{\bf  getLemma}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getLemma()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the lemma.
+}
+\item{{\bf  Returns} -- 
+String with the lemma 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getSenses()}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.AnalysisElement.getSenses()}{{\bf  getSenses}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getSenses()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the senses.
+}
+\item{{\bf  Returns} -- 
+String with the senses 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getTag()}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.AnalysisElement.getTag()}{{\bf  getTag}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getTag()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the tag.
+}
+\item{{\bf  Returns} -- 
+String with the tag 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{isMultiWord()}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.AnalysisElement.isMultiWord()}{{\bf  isMultiWord}\\}
+\begin{lstlisting}[frame=none]
+public boolean isMultiWord()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get if the element is multi word.
+}
+\item{{\bf  Returns} -- 
+Boolean with the test 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{toString()}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.AnalysisElement.toString()}{{\bf  toString}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String toString()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the class as String.
+}
+\item{{\bf  Returns} -- 
+String 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.analyzer.Analyzer}Class Analyzer}{
+\hypertarget{com.jmorenov.tweetsccore.analyzer.Analyzer}{}\vskip .1in 
+Analyzer abstract class.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public abstract class Analyzer
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{All known subclasses}{FreelingAnalyzer\small{\refdefined{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer}}}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.analyzer.Analyzer()}{{\bf Analyzer()}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.analyzer.Analyzer.analyzeText(java.lang.String)}{{\bf analyzeText(String)}} Method to get a list with the Analysis Elements.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Analyzer()}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.Analyzer()}{{\bf  Analyzer}\\}
+\begin{lstlisting}[frame=none]
+public Analyzer()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{analyzeText(String)}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.Analyzer.analyzeText(java.lang.String)}{{\bf  analyzeText}\\}
+\begin{lstlisting}[frame=none]
+public abstract java.util.List analyzeText(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get a list with the Analysis Elements.
+}
+\item{{\bf  Returns} -- 
+List with the Analysis Elements. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer}Class FreelingAnalyzer}{
+\hypertarget{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer}{}\vskip .1in 
+FreelingTokenizer class to tokenize a text.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class FreelingAnalyzer
+ extends com.jmorenov.tweetsccore.analyzer.Analyzer\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer()}{{\bf FreelingAnalyzer()}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer.analyzeText(java.lang.String)}{{\bf analyzeText(String)}} Method to get a list with the NER Elements detected.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{FreelingAnalyzer()}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer()}{{\bf  FreelingAnalyzer}\\}
+\begin{lstlisting}[frame=none]
+public FreelingAnalyzer()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{analyzeText(String)}
+\hypertarget{com.jmorenov.tweetsccore.analyzer.FreelingAnalyzer.analyzeText(java.lang.String)}{{\bf  analyzeText}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List analyzeText(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get a list with the NER Elements detected.
+}
+\item{{\bf  Returns} -- 
+List with the NER Elements. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Analyzer }{
+\texttt{com.jmorenov.tweetsccore.analyzer.Analyzer} {\small 
+\refdefined{com.jmorenov.tweetsccore.analyzer.Analyzer}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  analyzeText}(\texttt{java.lang.String} {\bf  text})
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.candidates}{
+\label{com.jmorenov.tweetsccore.candidates}\hypertarget{com.jmorenov.tweetsccore.candidates}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{Candidate}{com.jmorenov.tweetsccore.candidates.Candidate}{Candidate class that define the candidate element.}
+\entityintro{CandidatesMethod}{com.jmorenov.tweetsccore.candidates.CandidatesMethod}{CandidatesMethod abstract class that define a method to generate candidates.}
+\entityintro{CandidatesMethodType}{com.jmorenov.tweetsccore.candidates.CandidatesMethodType}{CandidatesMethodType enum with the different methods to generate candidates.}
+\entityintro{FastTextCandidatesMethod}{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod}{FastTextCandidatesMethod class that define a method to generate candidates.}
+\entityintro{LevenshteinFSTCandidatesMethod}{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod}{LevenshteinFSTCandidatesMethod class that define a method to generate candidates.}
+\entityintro{MetaphoneCandidatesMethod}{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod}{MetaphoneCandidatesMethod class that define a method to generate candidates.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.candidates.Candidate}Class Candidate}{
+\hypertarget{com.jmorenov.tweetsccore.candidates.Candidate}{}\vskip .1in 
+Candidate class that define the candidate element.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class Candidate
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.Candidate(java.lang.String, java.lang.String)}{{\bf Candidate(String, String)}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.Candidate.getCandidate()}{{\bf getCandidate()}} Method to get the candidate.\\
+\hyperlink{com.jmorenov.tweetsccore.candidates.Candidate.getGeneratedBy()}{{\bf getGeneratedBy()}} Method to get the method that generated the candidate.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Candidate(String, String)}
+\hypertarget{com.jmorenov.tweetsccore.candidates.Candidate(java.lang.String, java.lang.String)}{{\bf  Candidate}\\}
+\begin{lstlisting}[frame=none]
+public Candidate(java.lang.String candidate,java.lang.String generatedBy)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{candidate} -- String with the candidate}
+   \item{
+\texttt{generatedBy} -- String with the method that generated the candidate}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getCandidate()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.Candidate.getCandidate()}{{\bf  getCandidate}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getCandidate()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the candidate.
+}
+\item{{\bf  Returns} -- 
+String with the candidate 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getGeneratedBy()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.Candidate.getGeneratedBy()}{{\bf  getGeneratedBy}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getGeneratedBy()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the method that generated the candidate.
+}
+\item{{\bf  Returns} -- 
+String with the generated by 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.candidates.CandidatesMethod}Class CandidatesMethod}{
+\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethod}{}\vskip .1in 
+CandidatesMethod abstract class that define a method to generate candidates.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public abstract class CandidatesMethod
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{All known subclasses}{MetaphoneCandidatesMethod\small{\refdefined{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod}}, FastTextCandidatesMethod\small{\refdefined{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod}}, LevenshteinFSTCandidatesMethod\small{\refdefined{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod}}}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethod()}{{\bf CandidatesMethod()}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethod.generateCandidates(com.jmorenov.tweetsccore.extra.OOV)}{{\bf generateCandidates(OOV)}} Abstract method to generate condidates from an OOV.\\
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethod.getMethod()}{{\bf getMethod()}} Abstract method to obtain the method description.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{CandidatesMethod()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethod()}{{\bf  CandidatesMethod}\\}
+\begin{lstlisting}[frame=none]
+public CandidatesMethod()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{generateCandidates(OOV)}
+\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethod.generateCandidates(com.jmorenov.tweetsccore.extra.OOV)}{{\bf  generateCandidates}\\}
+\begin{lstlisting}[frame=none]
+public abstract java.util.List generateCandidates(com.jmorenov.tweetsccore.extra.OOV oov)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Abstract method to generate condidates from an OOV.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{oov} -- OOV}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of Candidates 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getMethod()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethod.getMethod()}{{\bf  getMethod}\\}
+\begin{lstlisting}[frame=none]
+public abstract CandidatesMethodType getMethod()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Abstract method to obtain the method description.
+}
+\item{{\bf  Returns} -- 
+CandidatesMethodType 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.candidates.CandidatesMethodType}Class CandidatesMethodType}{
+\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethodType}{}\vskip .1in 
+CandidatesMethodType enum with the different methods to generate candidates.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public final class CandidatesMethodType
+ extends java.lang.Enum\end{lstlisting}
+\subsubsection{Field summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.FastText}{{\bf FastText}} \\
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.L_L}{{\bf L\_L}} \\
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.LevenshteinFST}{{\bf LevenshteinFST}} \\
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.Metaphone}{{\bf Metaphone}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.valueOf(java.lang.String)}{{\bf valueOf(String)}} \\
+\hyperlink{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.values()}{{\bf values()}} \\
+\end{verse}
+}
+\subsubsection{Fields}{
+\begin{itemize}
+\item{
+\index{LevenshteinFST}
+\label{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.LevenshteinFST}\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.LevenshteinFST}{\texttt{public static final CandidatesMethodType\ {\bf  LevenshteinFST}}
+}
+}
+\item{
+\index{Metaphone}
+\label{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.Metaphone}\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.Metaphone}{\texttt{public static final CandidatesMethodType\ {\bf  Metaphone}}
+}
+}
+\item{
+\index{L\_L}
+\label{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.L_L}\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.L_L}{\texttt{public static final CandidatesMethodType\ {\bf  L\_L}}
+}
+}
+\item{
+\index{FastText}
+\label{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.FastText}\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.FastText}{\texttt{public static final CandidatesMethodType\ {\bf  FastText}}
+}
+}
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{valueOf(String)}
+\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.valueOf(java.lang.String)}{{\bf  valueOf}\\}
+\begin{lstlisting}[frame=none]
+public static CandidatesMethodType valueOf(java.lang.String name)\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{values()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.CandidatesMethodType.values()}{{\bf  values}\\}
+\begin{lstlisting}[frame=none]
+public static CandidatesMethodType[] values()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Enum }{
+\texttt{java.lang.Enum} {\small 
+\refdefined{java.lang.Enum}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{protected final Object {\bf  clone}() throws CloneNotSupportedException
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final int {\bf  compareTo}(\texttt{Enum} {\bf  arg0})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final boolean {\bf  equals}(\texttt{Object} {\bf  arg0})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{protected final void {\bf  finalize}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final Class {\bf  getDeclaringClass}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final int {\bf  hashCode}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final String {\bf  name}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final int {\bf  ordinal}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  toString}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public static Enum {\bf  valueOf}(\texttt{Class} {\bf  arg0},
+\texttt{String} {\bf  arg1})
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod}Class FastTextCandidatesMethod}{
+\hypertarget{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod}{}\vskip .1in 
+FastTextCandidatesMethod class that define a method to generate candidates.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class FastTextCandidatesMethod
+ extends com.jmorenov.tweetsccore.candidates.CandidatesMethod\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod()}{{\bf FastTextCandidatesMethod()}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod.generateCandidates(com.jmorenov.tweetsccore.extra.OOV)}{{\bf generateCandidates(OOV)}} Method to generate condidates from an OOV.\\
+\hyperlink{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod.getMethod()}{{\bf getMethod()}} Method to obtain the method description.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{FastTextCandidatesMethod()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod()}{{\bf  FastTextCandidatesMethod}\\}
+\begin{lstlisting}[frame=none]
+public FastTextCandidatesMethod()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{generateCandidates(OOV)}
+\hypertarget{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod.generateCandidates(com.jmorenov.tweetsccore.extra.OOV)}{{\bf  generateCandidates}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List generateCandidates(com.jmorenov.tweetsccore.extra.OOV oov)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to generate condidates from an OOV.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{oov} -- OOV}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of Candidates 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getMethod()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.FastTextCandidatesMethod.getMethod()}{{\bf  getMethod}\\}
+\begin{lstlisting}[frame=none]
+public CandidatesMethodType getMethod()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to obtain the method description.
+}
+\item{{\bf  Returns} -- 
+CandidatesMethodType 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class CandidatesMethod }{
+\texttt{com.jmorenov.tweetsccore.candidates.CandidatesMethod} {\small 
+\refdefined{com.jmorenov.tweetsccore.candidates.CandidatesMethod}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  generateCandidates}(\texttt{com.jmorenov.tweetsccore.extra.OOV} {\bf  oov})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public abstract CandidatesMethodType {\bf  getMethod}()
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod}Class LevenshteinFSTCandidatesMethod}{
+\hypertarget{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod}{}\vskip .1in 
+LevenshteinFSTCandidatesMethod class that define a method to generate candidates.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class LevenshteinFSTCandidatesMethod
+ extends com.jmorenov.tweetsccore.candidates.CandidatesMethod\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod()}{{\bf LevenshteinFSTCandidatesMethod()}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod.generateCandidates(com.jmorenov.tweetsccore.extra.OOV)}{{\bf generateCandidates(OOV)}} Method to generate condidates from an OOV.\\
+\hyperlink{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod.getMethod()}{{\bf getMethod()}} Method to obtain the method description.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{LevenshteinFSTCandidatesMethod()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod()}{{\bf  LevenshteinFSTCandidatesMethod}\\}
+\begin{lstlisting}[frame=none]
+public LevenshteinFSTCandidatesMethod() throws java.lang.Exception\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{generateCandidates(OOV)}
+\hypertarget{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod.generateCandidates(com.jmorenov.tweetsccore.extra.OOV)}{{\bf  generateCandidates}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List generateCandidates(com.jmorenov.tweetsccore.extra.OOV oov)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to generate condidates from an OOV.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{oov} -- OOV}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of Candidates 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getMethod()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod.getMethod()}{{\bf  getMethod}\\}
+\begin{lstlisting}[frame=none]
+public CandidatesMethodType getMethod()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to obtain the method description.
+}
+\item{{\bf  Returns} -- 
+CandidatesMethodType 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class CandidatesMethod }{
+\texttt{com.jmorenov.tweetsccore.candidates.CandidatesMethod} {\small 
+\refdefined{com.jmorenov.tweetsccore.candidates.CandidatesMethod}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  generateCandidates}(\texttt{com.jmorenov.tweetsccore.extra.OOV} {\bf  oov})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public abstract CandidatesMethodType {\bf  getMethod}()
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod}Class MetaphoneCandidatesMethod}{
+\hypertarget{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod}{}\vskip .1in 
+MetaphoneCandidatesMethod class that define a method to generate candidates.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class MetaphoneCandidatesMethod
+ extends com.jmorenov.tweetsccore.candidates.CandidatesMethod\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod()}{{\bf MetaphoneCandidatesMethod()}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod.generateCandidates(com.jmorenov.tweetsccore.extra.OOV)}{{\bf generateCandidates(OOV)}} Method to generate condidates from an OOV.\\
+\hyperlink{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod.getMethod()}{{\bf getMethod()}} Method to obtain the method description.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{MetaphoneCandidatesMethod()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod()}{{\bf  MetaphoneCandidatesMethod}\\}
+\begin{lstlisting}[frame=none]
+public MetaphoneCandidatesMethod() throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{generateCandidates(OOV)}
+\hypertarget{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod.generateCandidates(com.jmorenov.tweetsccore.extra.OOV)}{{\bf  generateCandidates}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List generateCandidates(com.jmorenov.tweetsccore.extra.OOV oov)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to generate condidates from an OOV.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{oov} -- OOV}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of Candidates 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getMethod()}
+\hypertarget{com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod.getMethod()}{{\bf  getMethod}\\}
+\begin{lstlisting}[frame=none]
+public CandidatesMethodType getMethod()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to obtain the method description.
+}
+\item{{\bf  Returns} -- 
+CandidatesMethodType 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class CandidatesMethod }{
+\texttt{com.jmorenov.tweetsccore.candidates.CandidatesMethod} {\small 
+\refdefined{com.jmorenov.tweetsccore.candidates.CandidatesMethod}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  generateCandidates}(\texttt{com.jmorenov.tweetsccore.extra.OOV} {\bf  oov})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public abstract CandidatesMethodType {\bf  getMethod}()
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.evaluation}{
+\label{com.jmorenov.tweetsccore.evaluation}\hypertarget{com.jmorenov.tweetsccore.evaluation}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{TweetNormEvaluationResult}{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult}{}
+\entityintro{TweetNormEvaluator}{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator}{TweetNormEvaluator class to evaluate methods of spell checker with Tweet Norm 2013 files to test.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult}Class TweetNormEvaluationResult}{
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult}{}\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class TweetNormEvaluationResult
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult(java.lang.String)}{{\bf TweetNormEvaluationResult(String)}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getAccurancy()}{{\bf getAccurancy()}} \\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getErrors()}{{\bf getErrors()}} \\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getNegatives()}{{\bf getNegatives()}} \\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getPositives()}{{\bf getPositives()}} \\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getResultText()}{{\bf getResultText()}} \\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{TweetNormEvaluationResult(String)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult(java.lang.String)}{{\bf  TweetNormEvaluationResult}\\}
+\begin{lstlisting}[frame=none]
+public TweetNormEvaluationResult(java.lang.String resultText)\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getAccurancy()}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getAccurancy()}{{\bf  getAccurancy}\\}
+\begin{lstlisting}[frame=none]
+public float getAccurancy()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{getErrors()}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getErrors()}{{\bf  getErrors}\\}
+\begin{lstlisting}[frame=none]
+public int getErrors()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{getNegatives()}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getNegatives()}{{\bf  getNegatives}\\}
+\begin{lstlisting}[frame=none]
+public int getNegatives()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{getPositives()}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getPositives()}{{\bf  getPositives}\\}
+\begin{lstlisting}[frame=none]
+public int getPositives()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{getResultText()}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluationResult.getResultText()}{{\bf  getResultText}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getResultText()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator}Class TweetNormEvaluator}{
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator}{}\vskip .1in 
+TweetNormEvaluator class to evaluate methods of spell checker with Tweet Norm 2013 files to test.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class TweetNormEvaluator
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator()}{{\bf TweetNormEvaluator()}} Default constructor of the class.\\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator(java.lang.String)}{{\bf TweetNormEvaluator(String)}} Constructor of the class with parameter.\\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator(java.lang.String, boolean)}{{\bf TweetNormEvaluator(String, boolean)}} Constructor of the class with parameters.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.evalutate(com.jmorenov.tweetsccore.method.Method)}{{\bf evalutate(Method)}} Method to evaluate the defined file with a method of spell checker.\\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setAnnotatedFile(java.lang.String)}{{\bf setAnnotatedFile(String)}} Method to define the file with the annotated tweets.\\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setEvaluatorScriptFile(java.lang.String)}{{\bf setEvaluatorScriptFile(String)}} Method to define the file of the evaluator script.\\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setIdsFile(java.lang.String)}{{\bf setIdsFile(String)}} Method to define the file with the ids of the tweets.\\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setResultFile(java.lang.String)}{{\bf setResultFile(String)}} Method to define the result file.\\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setTweetsFile(java.lang.String)}{{\bf setTweetsFile(String)}} Method to define the file with the tweets.\\
+\hyperlink{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setWorkingDirectory(java.lang.String)}{{\bf setWorkingDirectory(String)}} Method to define the working directory.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{TweetNormEvaluator()}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator()}{{\bf  TweetNormEvaluator}\\}
+\begin{lstlisting}[frame=none]
+public TweetNormEvaluator()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Default constructor of the class.
+}
+\end{itemize}
+}%end item
+\item{ 
+\index{TweetNormEvaluator(String)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator(java.lang.String)}{{\bf  TweetNormEvaluator}\\}
+\begin{lstlisting}[frame=none]
+public TweetNormEvaluator(java.lang.String annotatedFile)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class with parameter.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{annotatedFile} -- String parameter with the name of the file with the annotated tweets.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{TweetNormEvaluator(String, boolean)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator(java.lang.String, boolean)}{{\bf  TweetNormEvaluator}\\}
+\begin{lstlisting}[frame=none]
+public TweetNormEvaluator(java.lang.String annotatedFile,boolean verbose)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class with parameters.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{annotatedFile} -- String parameter with the name of the file with the annotated tweets.}
+   \item{
+\texttt{verbose} -- Boolean parameter to define the verbose control.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{evalutate(Method)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.evalutate(com.jmorenov.tweetsccore.method.Method)}{{\bf  evalutate}\\}
+\begin{lstlisting}[frame=none]
+public TweetNormEvaluationResult evalutate(com.jmorenov.tweetsccore.method.Method method) throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to evaluate the defined file with a method of spell checker.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{method} -- parameter with the method to use.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+String with the output of the evaluation. 
+}%end item
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- when the file not found.}
+  \end{itemize}
+}%end item
+\item{{\bf  See also}
+  \begin{itemize}
+\item{ \texttt{\hyperlink{com.jmorenov.tweetsccore.method.Method}{com.jmorenov.tweetsccore.method.Method}} {\small 
+\refdefined{com.jmorenov.tweetsccore.method.Method}}%end
+}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setAnnotatedFile(String)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setAnnotatedFile(java.lang.String)}{{\bf  setAnnotatedFile}\\}
+\begin{lstlisting}[frame=none]
+public void setAnnotatedFile(java.lang.String annotatedFile)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to define the file with the annotated tweets.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{annotatedFile} -- String parameter with the name of the file with the annotated tweets.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setEvaluatorScriptFile(String)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setEvaluatorScriptFile(java.lang.String)}{{\bf  setEvaluatorScriptFile}\\}
+\begin{lstlisting}[frame=none]
+public void setEvaluatorScriptFile(java.lang.String evaluatorScriptFile)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to define the file of the evaluator script.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{evaluatorScriptFile} -- String parameter with the name of the evaluator script.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setIdsFile(String)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setIdsFile(java.lang.String)}{{\bf  setIdsFile}\\}
+\begin{lstlisting}[frame=none]
+public void setIdsFile(java.lang.String idsFile)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to define the file with the ids of the tweets.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{idsFile} -- String parameter with the name of the file with the ids of the tweets.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setResultFile(String)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setResultFile(java.lang.String)}{{\bf  setResultFile}\\}
+\begin{lstlisting}[frame=none]
+public void setResultFile(java.lang.String resultFile)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to define the result file.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{resultFile} -- String parameter with the result file.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setTweetsFile(String)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setTweetsFile(java.lang.String)}{{\bf  setTweetsFile}\\}
+\begin{lstlisting}[frame=none]
+public void setTweetsFile(java.lang.String tweetsFile)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to define the file with the tweets.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{tweetsFile} -- String parameter with the name of the file with the tweets.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setWorkingDirectory(String)}
+\hypertarget{com.jmorenov.tweetsccore.evaluation.TweetNormEvaluator.setWorkingDirectory(java.lang.String)}{{\bf  setWorkingDirectory}\\}
+\begin{lstlisting}[frame=none]
+public void setWorkingDirectory(java.lang.String workingDirectory)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to define the working directory.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{workingDirectory} -- String parameter with the working directory.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.extra}{
+\label{com.jmorenov.tweetsccore.extra}\hypertarget{com.jmorenov.tweetsccore.extra}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{Annotation}{com.jmorenov.tweetsccore.extra.Annotation}{Anotation enum with the different anotations posibilities of a tweet.}
+\entityintro{File}{com.jmorenov.tweetsccore.extra.File}{File class with funcionality to files.}
+\entityintro{FreelingInitializator}{com.jmorenov.tweetsccore.extra.FreelingInitializator}{FreelingTokenizer class to initialize Freeling.}
+\entityintro{OOV}{com.jmorenov.tweetsccore.extra.OOV}{Out-Of-Vocabulary class with the structure of a OOV word.}
+\entityintro{Parser}{com.jmorenov.tweetsccore.extra.Parser}{}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.extra.Annotation}Class Annotation}{
+\hypertarget{com.jmorenov.tweetsccore.extra.Annotation}{}\vskip .1in 
+Anotation enum with the different anotations posibilities of a tweet.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public final class Annotation
+ extends java.lang.Enum\end{lstlisting}
+\subsubsection{Field summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.Annotation.Correct}{{\bf Correct}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.Annotation.NoEs}{{\bf NoEs}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.Annotation.value}{{\bf value}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.Annotation.Variation}{{\bf Variation}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.Annotation.valueOf(java.lang.String)}{{\bf valueOf(String)}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.Annotation.values()}{{\bf values()}} \\
+\end{verse}
+}
+\subsubsection{Fields}{
+\begin{itemize}
+\item{
+\index{Variation}
+\label{com.jmorenov.tweetsccore.extra.Annotation.Variation}\hypertarget{com.jmorenov.tweetsccore.extra.Annotation.Variation}{\texttt{public static final Annotation\ {\bf  Variation}}
+}
+}
+\item{
+\index{Correct}
+\label{com.jmorenov.tweetsccore.extra.Annotation.Correct}\hypertarget{com.jmorenov.tweetsccore.extra.Annotation.Correct}{\texttt{public static final Annotation\ {\bf  Correct}}
+}
+}
+\item{
+\index{NoEs}
+\label{com.jmorenov.tweetsccore.extra.Annotation.NoEs}\hypertarget{com.jmorenov.tweetsccore.extra.Annotation.NoEs}{\texttt{public static final Annotation\ {\bf  NoEs}}
+}
+}
+\item{
+\index{value}
+\label{com.jmorenov.tweetsccore.extra.Annotation.value}\hypertarget{com.jmorenov.tweetsccore.extra.Annotation.value}{\texttt{public int\ {\bf  value}}
+}
+}
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{valueOf(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.Annotation.valueOf(java.lang.String)}{{\bf  valueOf}\\}
+\begin{lstlisting}[frame=none]
+public static Annotation valueOf(java.lang.String name)\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{values()}
+\hypertarget{com.jmorenov.tweetsccore.extra.Annotation.values()}{{\bf  values}\\}
+\begin{lstlisting}[frame=none]
+public static Annotation[] values()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Enum }{
+\texttt{java.lang.Enum} {\small 
+\refdefined{java.lang.Enum}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{protected final Object {\bf  clone}() throws CloneNotSupportedException
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final int {\bf  compareTo}(\texttt{Enum} {\bf  arg0})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final boolean {\bf  equals}(\texttt{Object} {\bf  arg0})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{protected final void {\bf  finalize}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final Class {\bf  getDeclaringClass}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final int {\bf  hashCode}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final String {\bf  name}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public final int {\bf  ordinal}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  toString}()
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public static Enum {\bf  valueOf}(\texttt{Class} {\bf  arg0},
+\texttt{String} {\bf  arg1})
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.extra.File}Class File}{
+\hypertarget{com.jmorenov.tweetsccore.extra.File}{}\vskip .1in 
+File class with funcionality to files.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class File
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.File()}{{\bf File()}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.File.getStreamFromResources(java.lang.String)}{{\bf getStreamFromResources(String)}} Method to read a file stream from resources.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.File.readToByte(java.lang.String)}{{\bf readToByte(String)}} Method to read a file to byte from resources.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.File.readToStringArray(java.lang.String)}{{\bf readToStringArray(String)}} Method to read a file to array of string.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{File()}
+\hypertarget{com.jmorenov.tweetsccore.extra.File()}{{\bf  File}\\}
+\begin{lstlisting}[frame=none]
+public File()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getStreamFromResources(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.File.getStreamFromResources(java.lang.String)}{{\bf  getStreamFromResources}\\}
+\begin{lstlisting}[frame=none]
+public static java.io.InputStream getStreamFromResources(java.lang.String fileName) throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to read a file stream from resources.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{fileName} -- the name of the file.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+InputStream of the file. 
+}%end item
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- when the file is not found.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{readToByte(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.File.readToByte(java.lang.String)}{{\bf  readToByte}\\}
+\begin{lstlisting}[frame=none]
+public static byte[] readToByte(java.lang.String fileName) throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to read a file to byte from resources.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{fileName} -- the name of the file.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+byte\lbrack \rbrack\ of the file. 
+}%end item
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- when the file is not found.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{readToStringArray(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.File.readToStringArray(java.lang.String)}{{\bf  readToStringArray}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.String[] readToStringArray(java.lang.String fileName) throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to read a file to array of string.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{fileName} -- String with the name of the file.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+String\lbrack \rbrack\ with the lines. 
+}%end item
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- when the file is not found.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.extra.FreelingInitializator}Class FreelingInitializator}{
+\hypertarget{com.jmorenov.tweetsccore.extra.FreelingInitializator}{}\vskip .1in 
+FreelingTokenizer class to initialize Freeling.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class FreelingInitializator
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.FreelingInitializator()}{{\bf FreelingInitializator()}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.FreelingInitializator.init()}{{\bf init()}} Constructor of the class\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{FreelingInitializator()}
+\hypertarget{com.jmorenov.tweetsccore.extra.FreelingInitializator()}{{\bf  FreelingInitializator}\\}
+\begin{lstlisting}[frame=none]
+public FreelingInitializator()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{init()}
+\hypertarget{com.jmorenov.tweetsccore.extra.FreelingInitializator.init()}{{\bf  init}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.String init()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.extra.OOV}Class OOV}{
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV}{}\vskip .1in 
+Out-Of-Vocabulary class with the structure of a OOV word.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class OOV
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.OOV(java.lang.String, int, int)}{{\bf OOV(String, int, int)}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.OOV.getAnnotation()}{{\bf getAnnotation()}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.OOV.getCorrection()}{{\bf getCorrection()}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.OOV.getEndPosition()}{{\bf getEndPosition()}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.OOV.getStartPosition()}{{\bf getStartPosition()}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.OOV.getToken()}{{\bf getToken()}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.OOV.setAnnotation(com.jmorenov.tweetsccore.extra.Annotation)}{{\bf setAnnotation(Annotation)}} \\
+\hyperlink{com.jmorenov.tweetsccore.extra.OOV.setCorrection(java.lang.String)}{{\bf setCorrection(String)}} \\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{OOV(String, int, int)}
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV(java.lang.String, int, int)}{{\bf  OOV}\\}
+\begin{lstlisting}[frame=none]
+public OOV(java.lang.String token,int startPosition,int endPosition)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{token} -- String with the word or token of the OOV.}
+   \item{
+\texttt{startPosition} -- int with the initial position of the OOV in the original text.}
+   \item{
+\texttt{endPosition} -- int with the final position of the OOV in the original text.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getAnnotation()}
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV.getAnnotation()}{{\bf  getAnnotation}\\}
+\begin{lstlisting}[frame=none]
+public Annotation getAnnotation()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{getCorrection()}
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV.getCorrection()}{{\bf  getCorrection}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getCorrection()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{getEndPosition()}
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV.getEndPosition()}{{\bf  getEndPosition}\\}
+\begin{lstlisting}[frame=none]
+public int getEndPosition()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{getStartPosition()}
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV.getStartPosition()}{{\bf  getStartPosition}\\}
+\begin{lstlisting}[frame=none]
+public int getStartPosition()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{getToken()}
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV.getToken()}{{\bf  getToken}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getToken()\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{setAnnotation(Annotation)}
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV.setAnnotation(com.jmorenov.tweetsccore.extra.Annotation)}{{\bf  setAnnotation}\\}
+\begin{lstlisting}[frame=none]
+public void setAnnotation(Annotation annotation)\end{lstlisting} %end signature
+}%end item
+\item{ 
+\index{setCorrection(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.OOV.setCorrection(java.lang.String)}{{\bf  setCorrection}\\}
+\begin{lstlisting}[frame=none]
+public void setCorrection(java.lang.String correction)\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.extra.Parser}Class Parser}{
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser}{}\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class Parser
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser()}{{\bf Parser()}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.getHashtagRegex()}{{\bf getHashtagRegex()}} Method to get the hashtag regex pattern.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.getURLRegex()}{{\bf getURLRegex()}} Method to get the url regex pattern.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.getUsernameRegex()}{{\bf getUsernameRegex()}} Method to get the user name regex pattern.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.isHashtag(java.lang.String)}{{\bf isHashtag(String)}} Method to check if a word is a hashtag of Twitter.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.isPunctuationSign(java.lang.String)}{{\bf isPunctuationSign(String)}} Method to check if a word is a punctuation sign.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.isUrl(java.lang.String)}{{\bf isUrl(String)}} Method to check if a word is a Url.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.isUsername(java.lang.String)}{{\bf isUsername(String)}} Method to check if a word is a username of Twitter.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.isValidWord(java.lang.String)}{{\bf isValidWord(String)}} Method to check if a word is a valid word.\\
+\hyperlink{com.jmorenov.tweetsccore.extra.Parser.removeEmojiFromText(java.lang.String)}{{\bf removeEmojiFromText(String)}} Method to remove the emojis from a text.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Parser()}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser()}{{\bf  Parser}\\}
+\begin{lstlisting}[frame=none]
+public Parser()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getHashtagRegex()}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.getHashtagRegex()}{{\bf  getHashtagRegex}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.String getHashtagRegex()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the hashtag regex pattern.
+}
+\item{{\bf  Returns} -- 
+String with the pattern 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getURLRegex()}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.getURLRegex()}{{\bf  getURLRegex}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.String getURLRegex()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the url regex pattern.
+}
+\item{{\bf  Returns} -- 
+String with the pattern 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getUsernameRegex()}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.getUsernameRegex()}{{\bf  getUsernameRegex}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.String getUsernameRegex()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the user name regex pattern.
+}
+\item{{\bf  Returns} -- 
+String with the pattern 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{isHashtag(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.isHashtag(java.lang.String)}{{\bf  isHashtag}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.Boolean isHashtag(java.lang.String word)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to check if a word is a hashtag of Twitter.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{word} -- String with the word to check.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+Boolean control parameter. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{isPunctuationSign(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.isPunctuationSign(java.lang.String)}{{\bf  isPunctuationSign}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.Boolean isPunctuationSign(java.lang.String word)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to check if a word is a punctuation sign.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{word} -- String with the word to check.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+Boolean control parameter. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{isUrl(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.isUrl(java.lang.String)}{{\bf  isUrl}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.Boolean isUrl(java.lang.String word)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to check if a word is a Url.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{word} -- String with the word to check.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+Boolean control parameter. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{isUsername(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.isUsername(java.lang.String)}{{\bf  isUsername}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.Boolean isUsername(java.lang.String word)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to check if a word is a username of Twitter.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{word} -- String with the word to check.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+Boolean control parameter. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{isValidWord(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.isValidWord(java.lang.String)}{{\bf  isValidWord}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.Boolean isValidWord(java.lang.String word)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to check if a word is a valid word.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{word} -- String with the word to check.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+Boolean control parameter. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{removeEmojiFromText(String)}
+\hypertarget{com.jmorenov.tweetsccore.extra.Parser.removeEmojiFromText(java.lang.String)}{{\bf  removeEmojiFromText}\\}
+\begin{lstlisting}[frame=none]
+public static java.lang.String removeEmojiFromText(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to remove the emojis from a text.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- String with the text to remove the emojis.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+String with the text without the emojis. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.method}{
+\label{com.jmorenov.tweetsccore.method}\hypertarget{com.jmorenov.tweetsccore.method}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{DictionaryAnalysisMethod}{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod}{DictionaryAnalysisMethod class with the method of spell checker with dictionaries with analysis.}
+\entityintro{DictionaryMethod}{com.jmorenov.tweetsccore.method.DictionaryMethod}{DictionaryMethod class with the method of spell checker with dictionaries.}
+\entityintro{Method}{com.jmorenov.tweetsccore.method.Method}{Method abstract class.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod}Class DictionaryAnalysisMethod}{
+\hypertarget{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod}{}\vskip .1in 
+DictionaryAnalysisMethod class with the method of spell checker with dictionaries with analysis.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class DictionaryAnalysisMethod
+ extends com.jmorenov.tweetsccore.method.DictionaryMethod\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod()}{{\bf DictionaryAnalysisMethod()}} Default constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod.toString()}{{\bf toString()}} Method to get the String of the method.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{DictionaryAnalysisMethod()}
+\hypertarget{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod()}{{\bf  DictionaryAnalysisMethod}\\}
+\begin{lstlisting}[frame=none]
+public DictionaryAnalysisMethod() throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Default constructor of the class.
+}
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- when the file not found.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{toString()}
+\hypertarget{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod.toString()}{{\bf  toString}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String toString()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the String of the method.
+}
+\item{{\bf  Returns} -- 
+String with the String of the method. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class DictionaryMethod }{
+\texttt{com.jmorenov.tweetsccore.method.DictionaryMethod} {\small 
+\refdefined{com.jmorenov.tweetsccore.method.DictionaryMethod}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public TweetCorrected {\bf  correctTweet}(\texttt{com.jmorenov.tweetsccore.twitter.Tweet} {\bf  tweet})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public String {\bf  toString}()
+}%end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Method }{
+\texttt{com.jmorenov.tweetsccore.method.Method} {\small 
+\refdefined{com.jmorenov.tweetsccore.method.Method}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract TweetCorrected {\bf  correctTweet}(\texttt{com.jmorenov.tweetsccore.twitter.Tweet} {\bf  tweet})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public abstract String {\bf  toString}()
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.method.DictionaryMethod}Class DictionaryMethod}{
+\hypertarget{com.jmorenov.tweetsccore.method.DictionaryMethod}{}\vskip .1in 
+DictionaryMethod class with the method of spell checker with dictionaries.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class DictionaryMethod
+ extends com.jmorenov.tweetsccore.method.Method\end{lstlisting}
+\subsubsection{All known subclasses}{DictionaryAnalysisMethod\small{\refdefined{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod}}}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.method.DictionaryMethod()}{{\bf DictionaryMethod()}} Default constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.method.DictionaryMethod.correctTweet(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf correctTweet(Tweet)}} Method to get the corrected tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.method.DictionaryMethod.toString()}{{\bf toString()}} Method to get the String of the method.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{DictionaryMethod()}
+\hypertarget{com.jmorenov.tweetsccore.method.DictionaryMethod()}{{\bf  DictionaryMethod}\\}
+\begin{lstlisting}[frame=none]
+public DictionaryMethod() throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Default constructor of the class.
+}
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- when the file not found.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{correctTweet(Tweet)}
+\hypertarget{com.jmorenov.tweetsccore.method.DictionaryMethod.correctTweet(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf  correctTweet}\\}
+\begin{lstlisting}[frame=none]
+public com.jmorenov.tweetsccore.twitter.TweetCorrected correctTweet(com.jmorenov.tweetsccore.twitter.Tweet tweet)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the corrected tweet.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{tweet} -- Tweet with the tweet to correct.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+TweetCorrected with the corrected tweet. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{toString()}
+\hypertarget{com.jmorenov.tweetsccore.method.DictionaryMethod.toString()}{{\bf  toString}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String toString()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the String of the method.
+}
+\item{{\bf  Returns} -- 
+String with the String of the method. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Method }{
+\texttt{com.jmorenov.tweetsccore.method.Method} {\small 
+\refdefined{com.jmorenov.tweetsccore.method.Method}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract TweetCorrected {\bf  correctTweet}(\texttt{com.jmorenov.tweetsccore.twitter.Tweet} {\bf  tweet})
+}%end signature
+}%end item
+\item{\vskip -1.5ex 
+\texttt{public abstract String {\bf  toString}()
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.method.Method}Class Method}{
+\hypertarget{com.jmorenov.tweetsccore.method.Method}{}\vskip .1in 
+Method abstract class.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public abstract class Method
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{All known subclasses}{DictionaryAnalysisMethod\small{\refdefined{com.jmorenov.tweetsccore.method.DictionaryAnalysisMethod}}, DictionaryMethod\small{\refdefined{com.jmorenov.tweetsccore.method.DictionaryMethod}}}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.method.Method()}{{\bf Method()}} Default constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.method.Method.correctTweet(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf correctTweet(Tweet)}} Abstract method to get the corrected tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.method.Method.toString()}{{\bf toString()}} Abstract method to get the String of the method.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Method()}
+\hypertarget{com.jmorenov.tweetsccore.method.Method()}{{\bf  Method}\\}
+\begin{lstlisting}[frame=none]
+public Method()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Default constructor of the class.
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{correctTweet(Tweet)}
+\hypertarget{com.jmorenov.tweetsccore.method.Method.correctTweet(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf  correctTweet}\\}
+\begin{lstlisting}[frame=none]
+public abstract com.jmorenov.tweetsccore.twitter.TweetCorrected correctTweet(com.jmorenov.tweetsccore.twitter.Tweet tweet)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Abstract method to get the corrected tweet.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{tweet} -- Tweet with the tweet to correct.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+TweetCorrected with the corrected tweet. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{toString()}
+\hypertarget{com.jmorenov.tweetsccore.method.Method.toString()}{{\bf  toString}\\}
+\begin{lstlisting}[frame=none]
+public abstract java.lang.String toString()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Abstract method to get the String of the method.
+}
+\item{{\bf  Returns} -- 
+String with the String of the method. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.post}{
+\label{com.jmorenov.tweetsccore.post}\hypertarget{com.jmorenov.tweetsccore.post}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{FreeLingPOST}{com.jmorenov.tweetsccore.post.FreeLingPOST}{FreeLingPOST class to get the POST of a text.}
+\entityintro{OpenNLPPOST}{com.jmorenov.tweetsccore.post.OpenNLPPOST}{OpenNLPPOST class to get the POST of a text.}
+\entityintro{POST}{com.jmorenov.tweetsccore.post.POST}{}
+\entityintro{StanfordNLPPOST}{com.jmorenov.tweetsccore.post.StanfordNLPPOST}{}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.post.FreeLingPOST}Class FreeLingPOST}{
+\hypertarget{com.jmorenov.tweetsccore.post.FreeLingPOST}{}\vskip .1in 
+FreeLingPOST class to get the POST of a text. https://talp-upc.gitbooks.io/freeling-4-1-user-manual/content/\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class FreeLingPOST
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.post.FreeLingPOST()}{{\bf FreeLingPOST()}} \\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{FreeLingPOST()}
+\hypertarget{com.jmorenov.tweetsccore.post.FreeLingPOST()}{{\bf  FreeLingPOST}\\}
+\begin{lstlisting}[frame=none]
+public FreeLingPOST()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.post.OpenNLPPOST}Class OpenNLPPOST}{
+\hypertarget{com.jmorenov.tweetsccore.post.OpenNLPPOST}{}\vskip .1in 
+OpenNLPPOST class to get the POST of a text. https://opennlp.apache.org/docs/1.8.4/manual/opennlp.html\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class OpenNLPPOST
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.post.OpenNLPPOST()}{{\bf OpenNLPPOST()}} \\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{OpenNLPPOST()}
+\hypertarget{com.jmorenov.tweetsccore.post.OpenNLPPOST()}{{\bf  OpenNLPPOST}\\}
+\begin{lstlisting}[frame=none]
+public OpenNLPPOST()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.post.POST}Class POST}{
+\hypertarget{com.jmorenov.tweetsccore.post.POST}{}\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public abstract class POST
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{All known subclasses}{StanfordNLPPOST\small{\refdefined{com.jmorenov.tweetsccore.post.StanfordNLPPOST}}}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.post.POST()}{{\bf POST()}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.post.POST.getTags()}{{\bf getTags()}} \\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{POST()}
+\hypertarget{com.jmorenov.tweetsccore.post.POST()}{{\bf  POST}\\}
+\begin{lstlisting}[frame=none]
+public POST()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getTags()}
+\hypertarget{com.jmorenov.tweetsccore.post.POST.getTags()}{{\bf  getTags}\\}
+\begin{lstlisting}[frame=none]
+public abstract java.lang.String getTags()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.post.StanfordNLPPOST}Class StanfordNLPPOST}{
+\hypertarget{com.jmorenov.tweetsccore.post.StanfordNLPPOST}{}\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class StanfordNLPPOST
+ extends com.jmorenov.tweetsccore.post.POST\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.post.StanfordNLPPOST(java.lang.String)}{{\bf StanfordNLPPOST(String)}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.post.StanfordNLPPOST.getTags()}{{\bf getTags()}} \\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{StanfordNLPPOST(String)}
+\hypertarget{com.jmorenov.tweetsccore.post.StanfordNLPPOST(java.lang.String)}{{\bf  StanfordNLPPOST}\\}
+\begin{lstlisting}[frame=none]
+public StanfordNLPPOST(java.lang.String text)\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getTags()}
+\hypertarget{com.jmorenov.tweetsccore.post.StanfordNLPPOST.getTags()}{{\bf  getTags}\\}
+\begin{lstlisting}[frame=none]
+public abstract java.lang.String getTags()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class POST }{
+\texttt{com.jmorenov.tweetsccore.post.POST} {\small 
+\refdefined{com.jmorenov.tweetsccore.post.POST}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract String {\bf  getTags}()
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.spellchecker}{
+\label{com.jmorenov.tweetsccore.spellchecker}\hypertarget{com.jmorenov.tweetsccore.spellchecker}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{SpellChecker}{com.jmorenov.tweetsccore.spellchecker.SpellChecker}{SpellChecker class to correct a text.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.spellchecker.SpellChecker}Class SpellChecker}{
+\hypertarget{com.jmorenov.tweetsccore.spellchecker.SpellChecker}{}\vskip .1in 
+SpellChecker class to correct a text.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class SpellChecker
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.spellchecker.SpellChecker(com.jmorenov.tweetsccore.method.Method)}{{\bf SpellChecker(Method)}} Constructor of the class.\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.spellchecker.SpellChecker.correctText(java.lang.String)}{{\bf correctText(String)}} Method to correct the text.\\
+\hyperlink{com.jmorenov.tweetsccore.spellchecker.SpellChecker.correctTweet(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf correctTweet(Tweet)}} Method to correct a tweet.\\
+\hyperlink{com.jmorenov.tweetsccore.spellchecker.SpellChecker.getMethodDescription()}{{\bf getMethodDescription()}} Method to get spell checker method description.\\
+\hyperlink{com.jmorenov.tweetsccore.spellchecker.SpellChecker.setMethod(com.jmorenov.tweetsccore.method.Method)}{{\bf setMethod(Method)}} Method to define the spell checker method.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{SpellChecker(Method)}
+\hypertarget{com.jmorenov.tweetsccore.spellchecker.SpellChecker(com.jmorenov.tweetsccore.method.Method)}{{\bf  SpellChecker}\\}
+\begin{lstlisting}[frame=none]
+public SpellChecker(com.jmorenov.tweetsccore.method.Method method)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{method} -- parameter with the method to use.}
+  \end{itemize}
+}%end item
+\item{{\bf  See also}
+  \begin{itemize}
+\item{ \texttt{\hyperlink{com.jmorenov.tweetsccore.method.Method}{com.jmorenov.tweetsccore.method.Method}} {\small 
+\refdefined{com.jmorenov.tweetsccore.method.Method}}%end
+}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{correctText(String)}
+\hypertarget{com.jmorenov.tweetsccore.spellchecker.SpellChecker.correctText(java.lang.String)}{{\bf  correctText}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String correctText(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to correct the text.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- String with the text to correct.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+String with the corrected text. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{correctTweet(Tweet)}
+\hypertarget{com.jmorenov.tweetsccore.spellchecker.SpellChecker.correctTweet(com.jmorenov.tweetsccore.twitter.Tweet)}{{\bf  correctTweet}\\}
+\begin{lstlisting}[frame=none]
+public com.jmorenov.tweetsccore.twitter.TweetCorrected correctTweet(com.jmorenov.tweetsccore.twitter.Tweet tweet)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to correct a tweet.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{tweet} -- Tweet with the tweet.}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+TweetCorrected with the corrected tweet. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{getMethodDescription()}
+\hypertarget{com.jmorenov.tweetsccore.spellchecker.SpellChecker.getMethodDescription()}{{\bf  getMethodDescription}\\}
+\begin{lstlisting}[frame=none]
+public java.lang.String getMethodDescription()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get spell checker method description.
+}
+\item{{\bf  Returns} -- 
+String with the description of the method. 
+}%end item
+\end{itemize}
+}%end item
+\item{ 
+\index{setMethod(Method)}
+\hypertarget{com.jmorenov.tweetsccore.spellchecker.SpellChecker.setMethod(com.jmorenov.tweetsccore.method.Method)}{{\bf  setMethod}\\}
+\begin{lstlisting}[frame=none]
+public void setMethod(com.jmorenov.tweetsccore.method.Method method)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to define the spell checker method.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{method} -- parameter with the method to use.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+}
+\subsection{Package com.jmorenov.tweetsccore.tokenizer}{
+\label{com.jmorenov.tweetsccore.tokenizer}\hypertarget{com.jmorenov.tweetsccore.tokenizer}{}
+\hskip -.05in
+\hbox to \hsize{\textit{ Package Contents\hfil Page}}
+\vskip .13in
+\hbox{{\bf  Classes}}
+\entityintro{FreelingTokenizer}{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer}{FreelingTokenizer class to tokenize a text.}
+\entityintro{NGramTokenizer}{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer}{NGramTokenizer class to tokenize a text.}
+\entityintro{OpenNLPTokenizer}{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer}{OpenNLPTokenizer class to tokenize a text.}
+\entityintro{StanfordNLPTokenizer}{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer}{StanfordNLPTokenizer class to tokenize a text.}
+\entityintro{Tokenizer}{com.jmorenov.tweetsccore.tokenizer.Tokenizer}{Tokenizer abstract class.}
+\vskip .1in
+\vskip .1in
+\subsubsection{\label{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer}Class FreelingTokenizer}{
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer}{}\vskip .1in 
+FreelingTokenizer class to tokenize a text.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class FreelingTokenizer
+ extends com.jmorenov.tweetsccore.tokenizer.Tokenizer\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer()}{{\bf FreelingTokenizer()}} Constructor of the class\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer.getTokens(java.lang.String)}{{\bf getTokens(String)}} Method to get the tokens from the text.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{FreelingTokenizer()}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer()}{{\bf  FreelingTokenizer}\\}
+\begin{lstlisting}[frame=none]
+public FreelingTokenizer()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getTokens(String)}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer.getTokens(java.lang.String)}{{\bf  getTokens}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getTokens(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the tokens from the text.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- String with the text}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of String with the tokens 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Tokenizer }{
+\texttt{com.jmorenov.tweetsccore.tokenizer.Tokenizer} {\small 
+\refdefined{com.jmorenov.tweetsccore.tokenizer.Tokenizer}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  getTokens}(\texttt{java.lang.String} {\bf  text})
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer}Class NGramTokenizer}{
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer}{}\vskip .1in 
+NGramTokenizer class to tokenize a text. https://opennlp.apache.org/docs/1.8.4/manual/opennlp.html\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class NGramTokenizer
+ extends com.jmorenov.tweetsccore.tokenizer.Tokenizer\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer()}{{\bf NGramTokenizer()}} Constructor of the class\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer.getTokens(java.lang.String)}{{\bf getTokens(String)}} Method to get the tokens from the text.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{NGramTokenizer()}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer()}{{\bf  NGramTokenizer}\\}
+\begin{lstlisting}[frame=none]
+public NGramTokenizer()\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getTokens(String)}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer.getTokens(java.lang.String)}{{\bf  getTokens}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getTokens(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the tokens from the text.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- String with the text}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of String with the tokens 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Tokenizer }{
+\texttt{com.jmorenov.tweetsccore.tokenizer.Tokenizer} {\small 
+\refdefined{com.jmorenov.tweetsccore.tokenizer.Tokenizer}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  getTokens}(\texttt{java.lang.String} {\bf  text})
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer}Class OpenNLPTokenizer}{
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer}{}\vskip .1in 
+OpenNLPTokenizer class to tokenize a text. https://opennlp.apache.org/docs/1.8.4/manual/opennlp.html\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class OpenNLPTokenizer
+ extends com.jmorenov.tweetsccore.tokenizer.Tokenizer\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer()}{{\bf OpenNLPTokenizer()}} Constructor of the class\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer.getTokens(java.lang.String)}{{\bf getTokens(String)}} Method to get the tokens from the text.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{OpenNLPTokenizer()}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer()}{{\bf  OpenNLPTokenizer}\\}
+\begin{lstlisting}[frame=none]
+public OpenNLPTokenizer() throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class
+}
+\item{{\bf  Throws}
+  \begin{itemize}
+   \item{\vskip -.6ex \texttt{java.io.IOException} -- }
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getTokens(String)}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer.getTokens(java.lang.String)}{{\bf  getTokens}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getTokens(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the tokens from the text.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- String with the text}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of String with the tokens 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Tokenizer }{
+\texttt{com.jmorenov.tweetsccore.tokenizer.Tokenizer} {\small 
+\refdefined{com.jmorenov.tweetsccore.tokenizer.Tokenizer}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  getTokens}(\texttt{java.lang.String} {\bf  text})
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer}Class StanfordNLPTokenizer}{
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer}{}\vskip .1in 
+StanfordNLPTokenizer class to tokenize a text. https://stanfordnlp.github.io/CoreNLP/\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public class StanfordNLPTokenizer
+ extends com.jmorenov.tweetsccore.tokenizer.Tokenizer\end{lstlisting}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer()}{{\bf StanfordNLPTokenizer()}} Constructor of the class\\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer.getTokens(java.lang.String)}{{\bf getTokens(String)}} Method to get the tokens from the text.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{StanfordNLPTokenizer()}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer()}{{\bf  StanfordNLPTokenizer}\\}
+\begin{lstlisting}[frame=none]
+public StanfordNLPTokenizer() throws java.io.IOException\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Constructor of the class
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getTokens(String)}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer.getTokens(java.lang.String)}{{\bf  getTokens}\\}
+\begin{lstlisting}[frame=none]
+public java.util.List getTokens(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the tokens from the text.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- String with the text}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of String with the tokens 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\subsubsection{Members inherited from class Tokenizer }{
+\texttt{com.jmorenov.tweetsccore.tokenizer.Tokenizer} {\small 
+\refdefined{com.jmorenov.tweetsccore.tokenizer.Tokenizer}}
+{\small 
+
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.5ex 
+\texttt{public abstract List {\bf  getTokens}(\texttt{java.lang.String} {\bf  text})
+}%end signature
+}%end item
+\end{itemize}
+}
+}
+\subsubsection{\label{com.jmorenov.tweetsccore.tokenizer.Tokenizer}Class Tokenizer}{
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.Tokenizer}{}\vskip .1in 
+Tokenizer abstract class.\vskip .1in 
+\subsubsection{Declaration}{
+\begin{lstlisting}[frame=none]
+public abstract class Tokenizer
+ extends java.lang.Object\end{lstlisting}
+\subsubsection{All known subclasses}{FreelingTokenizer\small{\refdefined{com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer}}, StanfordNLPTokenizer\small{\refdefined{com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer}}, NGramTokenizer\small{\refdefined{com.jmorenov.tweetsccore.tokenizer.NGramTokenizer}}, OpenNLPTokenizer\small{\refdefined{com.jmorenov.tweetsccore.tokenizer.OpenNLPTokenizer}}}
+\subsubsection{Constructor summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.Tokenizer()}{{\bf Tokenizer()}} \\
+\end{verse}
+}
+\subsubsection{Method summary}{
+\begin{verse}
+\hyperlink{com.jmorenov.tweetsccore.tokenizer.Tokenizer.getTokens(java.lang.String)}{{\bf getTokens(String)}} Method to get the tokens from a text.\\
+\end{verse}
+}
+\subsubsection{Constructors}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{Tokenizer()}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.Tokenizer()}{{\bf  Tokenizer}\\}
+\begin{lstlisting}[frame=none]
+public Tokenizer()\end{lstlisting} %end signature
+}%end item
+\end{itemize}
+}
+\subsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{ 
+\index{getTokens(String)}
+\hypertarget{com.jmorenov.tweetsccore.tokenizer.Tokenizer.getTokens(java.lang.String)}{{\bf  getTokens}\\}
+\begin{lstlisting}[frame=none]
+public abstract java.util.List getTokens(java.lang.String text)\end{lstlisting} %end signature
+\begin{itemize}
+\item{
+{\bf  Description}
+
+Method to get the tokens from a text.
+}
+\item{
+{\bf  Parameters}
+  \begin{itemize}
+   \item{
+\texttt{text} -- String with the text}
+  \end{itemize}
+}%end item
+\item{{\bf  Returns} -- 
+List of String with the tokens 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+}
+}

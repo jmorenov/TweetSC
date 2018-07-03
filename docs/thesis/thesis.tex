@@ -11,8 +11,9 @@
     \addtocounter{page}{-1}%
     \newpage}
 
-\usepackage[textwidth=15cm, textheight=22.5cm, top=3.5cm, bottom=3.5cm,left= 4cm,right=2cm]{geometry}
+\input{tweetsccore_javadoc_preamble}
 
+\usepackage[textwidth=15cm, textheight=22.5cm, top=3.5cm, bottom=3.5cm,left= 4cm,right=2cm]{geometry}
 
 \usepackage[spanish, activeacute]{babel}
 %\usepackage[applemac]{inputenc} 
@@ -30,6 +31,8 @@
 
 \usepackage{algorithm}
 \usepackage{multirow}
+
+
 \begin{document}
 %\maketitle
 %\thispagestyle{empty}
@@ -85,12 +88,12 @@ TUTOR/ES: Óscar Corcho García y \linebreak
 
 %	RESUMEN
 \section*{RESUMEN}
-Extensión máxima de una página
+Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado. Primero se realiza una introducción al tema y se exponen los objetivos a realizar. En segundo lugar se presenta el estado del arte sobre el tema de la corrección de textos, específicamente en twitter y en español. Posteriormente explicamos la solución propuesta con todas sus fases. A continuación se presenta la implementación desarrollada y la documentación del código, además de los recursos utilizados. En siguiente lugar evaluamos los resultados. Y por último se desarrollan las conclusiones y líneas futuras.
 
 
 %	SUMMARY
 \section*{SUMMARY}
-Extensión máxima de una página
+This report explains all the work developed by going into detail in the state of the art and the software module developed. First an introduction to the subject is made and the objectives to be made are exposed. Second, the state of the art on the subject of normalization is presented, specifically on twitter and in Spanish. Later we explain the proposed solution with all its phases. Below is the developed implementation and documentation of the code, in addition to the resources used. Next, we evaluate the results. And finally the conclusions and future lines are developed.
 
 
 %	ÍNDICE
@@ -132,7 +135,7 @@ Estos subojetivos se cumplirán con su implementación en un módulo software qu
 También ejecutaremos este corrector sobre un corpus de tweets disponible en \cite{tweetnorm} y compararemos nuestros resultados con los que se consiguieron en \cite{alegria:2013}.
 
 \subsection{Resumen del documento}\label{sec:resumen}
-Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado. Primero se expone el estado del arte desarrollado sobre el tema de la corrección de textos, específicamente en twitter y en español. En segundo lugar se presenta el análisis realizado, atendiendo a: metodologías de desarrollo utilizadas, análisis de requisitos, solución propuesta. Posteriormente se plantea la implementación que se ha seguido entrando en detalle en cómo usar el software y en detalles técnicos. A continuación se presentaran los recursos utilizados y la evaluación sobre un corpus de tweets. Por último se muestran unas conclusiones, incluyendo un resumen del trabajo desarrollado y los objetivos conseguidos.
+Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado. Primero se realiza una introducción al tema y se exponen los objetivos a realizar. En segundo lugar se presenta el estado del arte sobre el tema de la corrección de textos, específicamente en twitter y en español. Posteriormente explicamos la solución propuesta con todas sus fases. A continuación se presenta la implementación desarrollada y la documentación del código, además de los recursos utilizados. En siguiente lugar evaluamos los resultados. Y por último se desarrollan las conclusiones y líneas futuras.
 \section{Estado del arte}\label{sec:estadodelarte}
 \subsection{Introducción}\label{sec:introduccion}
 En la actualidad, la normalización lingüística de tweets \cite{baldwin:2011} supone un campo de gran interés y en donde la mayoría de trabajos se han realizado sobre textos en inglés y pocos en español. Además no hay ningún trabajo en donde se incluya, dentro de la normalización de tuits, el estudio de los hashtags o etiquetas y los emoticonos, y su contexto. \\
@@ -177,7 +180,7 @@ La solución propuesta y a la que hemos llamado TweetSC (Tweet Spell Checker) \c
 
 En la primera versión de nuestra solución se construyó un corrector de texto sencillo basándonos en el creado por Peter Norvig \cite{peternorvig}, el cuál utiliza un diccionario para seleccionar las palabras incorrectas y las corrige mediante el teorema de Bayes usando probabilidades. Se usa la fórmula: $argmax_{c\ \in\  candidates}P(c|w)$, que mediante el teorema de Bayes es equivalente a: $argmax_{c\ \in\  candidates}P(c) P(w|c) / P(w)$, y como P(w) es igual para cada candidato c: $argmax_{c\ \in\  candidates}P(c) P(w|c)$. Esta fórmula trata de seleccionar el candidato de probabilidad máxima para cada palabra. Para calcular la probabilidad se usan dos diccionarios, uno de palabras en Español y otro de nombres propios. Se utilizó esta primera versión como punto de partida para ir creando versiones más avanzadas.\\
 
-El resultado final y por tanto nuestra versión definitiva consiste en un proceso iterativo sobre el tweet que se puede dividir en 6 fases: Tokenización, reglas de preproceso, detección de OOVs, generación de candidatos para cada OOV y ranking de candidatos.\\
+El resultado final y por tanto nuestra versión definitiva consiste en un proceso iterativo sobre el tweet que se puede dividir en 6 fases: Tokenización, reglas de preproceso, detección de OOVs, generación de candidatos para cada OOV, ranking de candidatos y postproceso.\\
 
 Además para convertir el sistema en uno más dinámico se ha desarrollado una aplicación web con acceso a la API de Twitter para obtener los tweets mediante querys introducidas en un formulario de nuestra aplicación web.
 
@@ -216,6 +219,9 @@ El marcador N-Gram se realiza mediante la comparación de los candidatos de su p
 
 Se ha definido además un umbral mínimo para realizar el ranking, los candidatos que no lo cumplan con los marcadores son eliminados. Al finalizar este proceso para cada OOV se selecciona el mejor candidato del ranking, y se anota como Variation, y si no tuviera candidatos, debido al umbral, se anotan como NoEs.
 
+\subsection{Postproceso}\label{sec:postproceso}
+Esta última fase consiste en poner mayúsculas en las palabras que fueran necesarias, así como signos de exclamación e interrogación.
+
 \section{Implementación}\label{sec:implementacion}
 En esta sección se pretende explicar toda la implementación software que se ha realizado de nuestra solución. Primero se realizará una introducción comentando lenguajes y herramientas utilizadas. Segundo se explicará dónde encontrar y cómo utilizar nuestro software . Posteriormente la documentación generada del código fuente. Y por último se explicará la aplicación web que se ha desarrollado.
 
@@ -227,6 +233,8 @@ El lenguaje principal utilizado en todo el proyecto ha sido Java, con la excepci
 Nuestro sistema software se ha intentado desarrollar de forma que sea un sistema de procesamiento dinámico pudiendo añadir y quitar funcionalidad de manera sencilla, cualquier algoritmo o método implementado funciona a partir de una clase superior para que se puedan añadir nuevos métodos.\\
 
 El módulo principal del sistema es TweetSCCore que implementa la biblioteca para corregir tweets, acceder a la API de twitter y evaluar resultados mediante el script ofrecido por Tweet-Norm 2013 \cite{alegria:2013}. Los módulos que funcionan a partir de TweetSCCore son: TweetSCExecutable que implementa la funcionalidad necesaria para ejectar nuestro sistema a partir de línea de comandos, y TweetSCWeb donde se implementa la aplicacion web.\\
+
+Se han implementado dos métodos de corrección o normalización de tweets a los que hemos llamado DictionaryMethod, método preliminar que hace uso de diccionarios y la regla de Bayes, y TweetSCMethod que es nuestro método final con las fases que han sido explicadas.
 
 El diagrama de clases del sistema completo se muestra a continuación:
 
@@ -247,12 +255,12 @@ java -jar tweetscexecutable-all-v0.5.0-alpha.jar -text Texto de prueba
 \end{verbatim}
 La ejecución de la evaluación sobre el corpus de Tweet-Norm 2013 \cite{alegria:2013}
 \begin{verbatim}
-java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
+java -jar tweetscexecutable-all-v0.5.0-alpha.jar \
     -workingDirectory evaluation \
-    -annotatedFile tweet-norm-dev10_annotated.txt \
-    -tweetsFile tweet-norm-dev10.txt \
-    -resultFile results-test-dev10.txt \
-    -method DictionaryMethod
+    -annotatedFile tweet-norm-dev500_annotated.txt \
+    -tweetsFile tweet-norm-dev500.txt \
+    -resultFile results-test-dev500.txt \
+    -method TweetSCMethod
 \end{verbatim}
 La ejecución de la aplicación web:
 \begin{verbatim}
@@ -260,21 +268,130 @@ cd tweetscweb
 ./gradlew run
 \end{verbatim}
 
-\subsection{Documentación del código}\label{sec:javadoc}
-(Javadoc del código)
-
 \subsection{Aplicación web}\label{sec:aplicacionweb}
-(Capturas de pantalla)
+En esta sección se explicará el funcionamiento de la aplicación web desarrollada y se mostrarán capturas de pantalla de la misma en funcionamiento.\\
+
+La aplicación web se encuentra en nuestro paquete TweetSCWeb y hace uso del framework Spring Boot. Para el backend se utiliza Java y para el frontend Javascript (Jquery). Se ha intentado realizar un diseño sencillo y fluido usando la biblioteca Bootstrap.\\
+
+\begin{figure}[h]
+El funcionamiento de la aplicación web es muy sencillo, tiene una sección principal desde la que se accede a las demás secciones mediante una barra de navegación.
+\begin{center}
+ \includegraphics[width=0.9\textwidth]{recursos/WebInicio.png}
+\caption{Inicio de la aplicación web}
+\label{fig:webinicio}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+En la sección siguiente se puede ver un corrector de texto simple.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{recursos/WebUseIt.png}
+\caption{Sección para utilizar el corrector}
+\label{fig:webuseit}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+ \includegraphics[width=0.9\textwidth]{recursos/WebUseIt_Corrected.png}
+\caption{Ejemplo de texto corregido}
+\label{fig:webuseitcorrected}
+\end{figure}
+
+\begin{figure}[h]
+Si accedemos al corrector de uso avanzado podemos buscar tweets mediante texto, usuarios o id del tweet.
+\begin{center}
+ \includegraphics[width=0.9\textwidth]{recursos/WebUseIt_AdvancedUse.png}
+\caption{Corrector de tweets uso avanzado}
+\label{fig:webuseitadvanceduse}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+ \includegraphics[width=0.9\textwidth]{recursos/WebUseIt_AdvancedUse_Loading.png}
+\caption{Ejemplo de búsqueda de tweets}
+\label{fig:webuseitadvanceduseloading}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+ \includegraphics[width=0.9\textwidth]{recursos/WebUseIt_AdvancedUse_SearchResult.png}
+\caption{Ejemplo de tweets encontrados}
+\label{fig:webuseitadvancedusesearchresult}
+\end{figure}
+
+\begin{figure}[h]
+Los tweets encontrados se pueden seleccionar para corregirlos.
+\begin{center}
+ \includegraphics[width=0.9\textwidth]{recursos/WebUseIt_AdvancedUse_TweetsSelected.png}
+\caption{Ejemplo de selección de tweets para corregir}
+\label{fig:webuseitadvancedusetweetselected}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+Cuando los tweets son corregidos se marcan y se muestran ambas versiones, normalizada y la inicial.
+\begin{center}
+ \includegraphics[width=0.9\textwidth]{recursos/WebUseIt_AdvancedUse_TweetCorrected.png}
+\caption{Ejemplo de tweets corregidos}
+\label{fig:webuseitadvancedusetweetcorrected}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+La siguiente sección es la de características del sistema.
+\begin{center}
+ \includegraphics[width=0.9\textwidth]{recursos/WebFeatures1}
+\caption{Sección de características de la aplicación web}
+\label{fig:webfeatures1}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+ \includegraphics[width=0.9\textwidth]{recursos/WebFeatures2}
+\caption{Sección de características de la aplicación web}
+\label{fig:webfeatures2}
+\end{figure}
+
+\begin{figure}[h]
+Además se ha añadido una sección para colaborar mediante GitHub en el desarrollo.
+\begin{center}
+ \includegraphics[width=0.9\textwidth]{recursos/WebColaborate}
+\caption{Sección de colaboración}
+\label{fig:webcolaborate}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+Por último la sección de contacto.
+\begin{center}
+ \includegraphics[width=0.9\textwidth]{recursos/WebContact}
+\caption{Sección de contacto}
+\label{fig:webcontact}
+\end{center}
+\end{figure}
+
+\section{TweetSCCore Documentación del código (Java Documentation)}\label{sec:tweetsccorejavadoc}
+\input{tweetsccore_javadoc}
+
+\section{TweetSCWeb Documentación del código (Java Documentation)}\label{sec:tweetscwebjavadoc}
+\input{tweetscweb_javadoc}
+
+\section{TweetSCExecutable Documentación del código (Java Documentation)}\label{sec:tweetscexecutablejavadoc}
+\input{tweetscexecutable_javadoc}
 
 \section{Recursos utilizados}\label{sec:recursosutilizados}
+Los recursos utilizados por nuestro sistema son variados, desde diccionarios hasta bibliotecas para el desarrollo. Empezando desde el paquete TweetSCCore, se ha utilizado la biblioteca StanfordNLP \cite{stanfordnlp} para la tokenización, además está disponible en el paquete la biblioteca Freeling \cite{freeling}. El acceso a la API de twitter se realiza mediante la bibliteca para Java Twitter4j. La detección de OOV utiliza tres diccionarios, el diccionario de español proporcionado por la herramienta Aspell, el diccionario de entidades JRC y un diccionario de inglés \cite{englishdictionary}. Los métodos de la generación de candidatos utilizan los recursos: Algoritmo del metáfono \cite{mosquera:2011}, fastText \cite{facebook:fasttext} y la biblioteca liblevenshtein \cite{liblevenshtein} para el FST. El ranking de candidatos utiliza la biblioteca \cite{opennlp} para el modelo del lenguaje N-Grama y la distancia Damerau-Levenshtein ofrecida por String.Util de java.\\
 
+Además el corpus de tweets para la evaluación es el que recopiló Tweet-Norm 2013 \cite{alegria:2013} y su script en Python para los resultados.\\
 
-Diccionario de inglés: https://github.com/dwyl/english-words
-
-
+El paquete TweetSCWeb utiliza el framework Spring Boot para la aplicación web junto con el sdk de Google Cloud para ofrecer la aplicación en la nube.
 
 \section{Evaluación}\label{sec:evaluacion}
 Esta sección describe la evaluación que se ha hecho de la solución propuesta. Primero se define la metodología utilizada para evaluar la solución, en segundo lugar explicamos el corpus utilizado como datos de entrada, posteriormente el gold standard actual y por último los experimentos que hemos realizada con sus resultados.
+
 \subsection{Metodología}\label{sec:metodologia}
 La metodología que hemos seguido ha sido la misma que en la tarea compartida Tweet-Norm 2013 \cite{tweetnorm}. Ellos utilizan como medida de evaluación la corrección de errores, sólo tiene en cuenta si la forma propuesta es correcta en base a los criterios: \textbf{correcta} si la forma original era correcta y no se ha realizado ninguna normalización o si la forma original era incorrecta y el candidato seleccionado es el correcto; \textbf{errónea} en cualquier otro caso. La evaluación final es el número de decisiones realizadas correctamente sobre el total de palabras OOV.
 
@@ -296,10 +413,10 @@ Este desarrollo software se ha dividido en tres componentes o módulos:
 	\item TweetSCWeb: Aplicación web para corregir textos.
 	\item TweetSCExecutable: Ejecutable java para corregir textos desde línea de comandos.
 \end{itemize}
-Se puede concluir que nuestro objetivo era construir un corrector de texto para twitter (\hyperref[sec:objetivos]{sección 1.2}) y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{3}, \hyperref[sec:implementacion]{sección 4} y \hyperref[sec:implementacion]{5}.
+Se puede concluir que nuestro objetivo era construir un corrector de texto para twitter (\hyperref[sec:objetivos]{sección 1.2}) y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{sección 3} y \hyperref[sec:implementacion]{sección 4}.
 
 \section{Líneas Futuras}\label{sec:lineasfuturas}
-Las líneas futuras son muy ámplias ya que estamos en un tema bastante reciente, sobre todo en español, y se los resultados se pueden mejorar de bastantes formas.
+Las líneas futuras son muy ámplias ya que estamos en un tema bastante reciente, sobre todo en español cómo se puede ver en el \hyperref[sec:estadodelarte]{sección 2}, y los resultados se pueden mejorar de bastantes formas. Centrándonos en nuestro sistema una mejora futura sería el añadir contexto a los tweets a partir de sus hashtag, usuarios, imágenes o emoticonos; de forma que se pudiera reducir el conjunto de candidatos o añadir nuevos a partir de estos datos. También se podría realizar un análisis de sentimientos sobre el tweet después de normalizar por si se pudiera mejorar la corrección de algún OOV.
 
 \section*{ANEXOS}
 
