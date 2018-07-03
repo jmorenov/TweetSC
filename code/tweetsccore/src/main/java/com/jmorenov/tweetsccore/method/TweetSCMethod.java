@@ -1,6 +1,7 @@
 package com.jmorenov.tweetsccore.method;
 
 import com.jmorenov.tweetsccore.candidates.*;
+import com.jmorenov.tweetsccore.extra.Annotation;
 import com.jmorenov.tweetsccore.extra.OOV;
 import com.jmorenov.tweetsccore.extra.OOVDetector;
 import com.jmorenov.tweetsccore.extra.Token;
@@ -57,22 +58,39 @@ public class TweetSCMethod extends Method {
         tweetCorrected.setOOVWords(applyRulesResult.getOOVList());
 
         List<OOV> oovList = oovDetector.detectOOV(applyRulesResult.getTokens());
+        List<OOV> oovs_CorrectNoEs = new ArrayList<>();
+        List<OOV> oovs_Unknown = new ArrayList<>();
 
-        //Dividir en Correct/NoEs y UnKnown
-
-        oovList = candidatesGenerator.generateCandidates(oovList);
 
         for (OOV oov : oovList) {
-            oov.setCandidates(candidatesRanking.rank(tweet.getText(), oov));
-            oov = correctOOV(oov);
+            if (oov.getAnnotation() == Annotation.Correct
+                    || oov.getAnnotation() == Annotation.NoEs) {
+                oovs_CorrectNoEs.add(oov);
+            } else {
+                oovs_Unknown.add(oov);
+            }
         }
 
-        List<OOV> finalOOVs = tweetCorrected.getOOVWords();
-        finalOOVs.addAll(oovList);
+        oovList = applyRulesResult.getOOVList();
+        oovList.addAll(oovs_CorrectNoEs);
 
-        tweetCorrected.setOOVWords(finalOOVs);
+        oovs_Unknown = candidatesGenerator.generateCandidates(oovs_Unknown);
 
-        return null;
+        for (OOV oov : oovs_Unknown) {
+            oov.setCandidates(candidatesRanking.rank(tweet.getText(), oov));
+
+            OOV oovCorrected = correctOOV(oov);
+
+            oov.setAnnotation(oovCorrected.getAnnotation());
+            oov.setCorrection(oovCorrected.getCorrection());
+        }
+
+        oovList.addAll(oovs_Unknown);
+
+        tweetCorrected.setOOVWords(oovList);
+        tweetCorrected.computeCorrectedText();
+
+        return tweetCorrected;
     }
 
     /**
@@ -90,6 +108,13 @@ public class TweetSCMethod extends Method {
      * @return OOV
      */
     private OOV correctOOV(OOV oov) {
-        return null;
+        if (oov.getCandidates().get(0).getScore() >= 0.7) {
+            oov.setCorrection(oov.getCandidates().get(0).getCandidate());
+            oov.setAnnotation(Annotation.Variation);
+        } else {
+            oov.setAnnotation(Annotation.NoEs);
+        }
+
+        return oov;
     }
 }
