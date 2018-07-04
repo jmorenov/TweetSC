@@ -41,7 +41,7 @@ java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
 ## How to run local web application
 ```
 cd tweetscweb
-./gradlew run
+./gradlew appEngineRun
 ```
 
 ## Web online application
