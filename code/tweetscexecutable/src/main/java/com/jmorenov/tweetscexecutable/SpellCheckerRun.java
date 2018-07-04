@@ -29,16 +29,22 @@ public class SpellCheckerRun {
      * @param args List of String
      * @return String with the result
      */
-    public static String run(String[] args) {
+    public static SpellCheckerRunResult run(String[] args) throws ParseException {
         Options options = getOptions();
 
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd;
-        String textValue, annotatedFileValue, idsFileValue,
-                tweetsFileValue, workingDirectoryValue, resultFileValue, methodValue;
 
         cmd = parser.parse(options, args);
+
+        if (isCorrectTextFuncionality(cmd)) {
+            return new SpellCheckerRunResult(runCorrectText(cmd, method), options);
+        } else if (isEvaluateTweetNormFuncionality(cmd)) {
+            return new SpellCheckerRunResult(runTweetNorm(cmd, method), options);
+        } else {
+            throw new ParseException("Missing required option: text");
+        }
 
         textValue = cmd.getOptionValue("text");
         annotatedFileValue = cmd.getOptionValue("annotatedFile");
@@ -48,24 +54,11 @@ public class SpellCheckerRun {
         resultFileValue = cmd.getOptionValue("resultFile");
         methodValue = cmd.getOptionValue("method");
 
-        if (textValue == null && (annotatedFileValue == null || )) {
-
-        }
-
         Method method;
-
-        try {
-            String methodToUseDescription = getValueOfArgument(args, "-method");
-            method = getMethodFromArgument(methodToUseDescription);
-        } catch (Exception ex) {
-            return "Execution error";
-        }
 
         if (isCorrectTextFuncionality(args)) {
             String text = getTextFromArguments(args);
-            SpellChecker spellChecker = new SpellChecker(method);
 
-            return spellChecker.correctText(text);
         }   else if (isEvaluateTweetNormFuncionality(args)) {
             String annotatedFile = getValueOfArgument(args, "-annotatedFile");
             String idsFile = getValueOfArgument(args, "-idsFile");
@@ -94,61 +87,36 @@ public class SpellCheckerRun {
 
     /**
      * Method to control if the execution is to correct a text.
-     * @param arguments String[] arguments of the execution.
-     * @return Boolean to control if the execution is to correct a text.
+     * @param cmd CommandLine
+     * @return Boolean to control if the execution is to correct a text
      */
-    private static boolean isCorrectTextFuncionality(String[] arguments) {
-        return Arrays.asList(arguments).contains("-text");
+    private static boolean isCorrectTextFuncionality(CommandLine cmd) {
+        return cmd.getOptionValue("text") != null;
     }
 
     /**
      * Method to control if the execution is to evaluate tweet norm funcionality.
-     * @param arguments String[] arguments of the execution.
-     * @return Boolean to control if the execution is to evaluate tweet norm funcionality.
+     * @param cmd
+     * @return Boolean to control if the execution is to evaluate tweet norm funcionality
      */
-    private static boolean isEvaluateTweetNormFuncionality(String[] arguments) {
-        return (Arrays.asList(arguments).contains("-annotatedFile")
-                && (Arrays.asList(arguments).contains("-idsFile") || Arrays.asList(arguments).contains("-tweetsFile")));
+    private static boolean isEvaluateTweetNormFuncionality(CommandLine cmd) {
+        return (cmd.getOptionValue("annotatedFile")  != null
+                && (cmd.getOptionValue("idsFile") != null || cmd.getOptionValue("tweetsFile") != null));
     }
 
-    /**
-     * Method to get the text from the arguments.
-     * @param arguments String[] arguments of the execution.
-     * @return String with the text.
-     */
-    private static String getTextFromArguments(String[] arguments) {
-        int argumentIndex = Arrays.asList(arguments).indexOf("-text") + 1;
-        String text = arguments[argumentIndex];
+    private static String runCorrectText(CommandLine cmd, Method method) {
+        SpellChecker spellChecker = new SpellChecker(method);
+        String textValue = cmd.getOptionValue("text");
 
-        for (int i = argumentIndex + 1; i < arguments.length; i++) {
-            text = text.concat(" " + arguments[i]);
-        }
-
-        return text;
+        return spellChecker.correctText(textValue);
     }
 
-    /**
-     * Method to get the value of a argument.
-     * @param arguments String[] arguments of the execution.
-     * @param argument String with the argument to get the value.
-     * @return String with the value of the argument.
-     */
-    private static String getValueOfArgument(String[] arguments, String argument) {
-        int argumentIndex = Arrays.asList(arguments).indexOf(argument);
-
-        if (argumentIndex != -1) {
-            return arguments[argumentIndex+1];
-        } else {
-            return "";
-        }
-    }
-
-    private static Method getMethodFromArgument(String methodToUseDescription) throws IOException {
-        if (methodToUseDescription.equals("TweetSCMethod")) {
-            return new TweetSCMethod();
-        } else {
-            return new DictionaryMethod();
-        }
+    private static String runTweetNorm(CommandLine cmd, Method method) {
+        String annotatedFileValue = cmd.getOptionValue("annotatedFile");
+        String idsFileValue = cmd.getOptionValue("idsFile");
+        String tweetsFileValue = cmd.getOptionValue("tweetsFile");
+        String workingDirectoryValue = cmd.getOptionValue("workingDirectory");
+        String resultFileValue = cmd.getOptionValue("resultFile");
     }
 
     private static Options getOptions() {
