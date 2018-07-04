@@ -5,12 +5,19 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 
 public class SpellCheckerRunTest {
-    /*@Test
+    @Test
     public void spellcheckerRunShouldReturnTheCorrectionOfAText() {
         String text = "Hola mi nombre es Javier.";
+        String[] args = {"-text", text};
 
-        SpellCheckerRun spellCheckerRun = new SpellCheckerRun("java -jar test.jar -text Holo");
+        assertEquals("failure - strings are not equal", "Hola mi nombre es Javier.", SpellCheckerRun.run(args));
+    }
 
-        assertEquals("failure - strings are not equal", "Hola", expected);
-    }*/
+    @Test
+    public void spellcheckerRunWithTweetSCMethodShouldReturnTheCorrectionOfAText() {
+        String text = "Hola mi nombre es Javier.";
+        String[] args = {"-text", text, "-method", "TweetSCMethod"};
+
+        assertEquals("failure - strings are not equal", "Hola mi nombre es Javier.", SpellCheckerRun.run(args));
+    }
 }
