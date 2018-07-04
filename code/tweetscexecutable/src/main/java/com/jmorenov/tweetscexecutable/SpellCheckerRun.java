@@ -34,9 +34,8 @@ public class SpellCheckerRun {
 
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
-        CommandLine cmd;
-
-        cmd = parser.parse(options, args);
+        CommandLine cmd = parser.parse(options, args);
+        Method method = getMethod(cmd);
 
         if (isCorrectTextFuncionality(cmd)) {
             return new SpellCheckerRunResult(runCorrectText(cmd, method), options);
@@ -46,26 +45,10 @@ public class SpellCheckerRun {
             throw new ParseException("Missing required option: text");
         }
 
-        textValue = cmd.getOptionValue("text");
-        annotatedFileValue = cmd.getOptionValue("annotatedFile");
-        idsFileValue = cmd.getOptionValue("idsFile");
-        tweetsFileValue = cmd.getOptionValue("tweetsFile");
-        workingDirectoryValue = cmd.getOptionValue("workingDirectory");
-        resultFileValue = cmd.getOptionValue("resultFile");
-        methodValue = cmd.getOptionValue("method");
-
-        Method method;
-
         if (isCorrectTextFuncionality(args)) {
             String text = getTextFromArguments(args);
 
         }   else if (isEvaluateTweetNormFuncionality(args)) {
-            String annotatedFile = getValueOfArgument(args, "-annotatedFile");
-            String idsFile = getValueOfArgument(args, "-idsFile");
-            String tweetFile = getValueOfArgument(args, "-tweetsFile");
-            //String evaluatorScriptFile = getValueOfArgument(args, "-evaluatorScriptFile");
-            String workingDirectory = getValueOfArgument(args, "-workingDirectory");
-            String resultFile = getValueOfArgument(args, "-resultFile");
 
             TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(annotatedFile, true);
 
@@ -112,11 +95,33 @@ public class SpellCheckerRun {
     }
 
     private static String runTweetNorm(CommandLine cmd, Method method) {
-        String annotatedFileValue = cmd.getOptionValue("annotatedFile");
-        String idsFileValue = cmd.getOptionValue("idsFile");
-        String tweetsFileValue = cmd.getOptionValue("tweetsFile");
-        String workingDirectoryValue = cmd.getOptionValue("workingDirectory");
-        String resultFileValue = cmd.getOptionValue("resultFile");
+        String annotatedFileValue = getOptionValue(cmd, "annotatedFile");
+        String idsFileValue = getOptionValue(cmd, "idsFile");
+        String tweetsFileValue = getOptionValue(cmd, "tweetsFile");
+        String workingDirectoryValue = getOptionValue(cmd, "workingDirectory");
+        String resultFileValue = getOptionValue(cmd, "resultFile");
+
+        TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(annotatedFileValue, true);
+
+        tweetNormEvaluator.setWorkingDirectory(workingDirectoryValue);
+        tweetNormEvaluator.setTweetsFile(tweetsFileValue);
+        //tweetNormEvaluator.setEvaluatorScriptFile(evaluatorScriptFile);
+        tweetNormEvaluator.setIdsFile(idsFileValue);
+        tweetNormEvaluator.setResultFile(resultFileValue);
+
+        try {
+            return tweetNormEvaluator.evalutate(method).toString();
+        } catch (Exception ex) {
+            return "Error on evaluation execution";
+        }
+    }
+
+    private static String getOptionValue(CommandLine cmd, String option) {
+        if (cmd.getOptionValue(option) == null) {
+            return "";
+        }
+
+        return cmd.getOptionValue(option);
     }
 
     private static Options getOptions() {
@@ -144,5 +149,15 @@ public class SpellCheckerRun {
         options.addOption(method);
 
         return options;
+    }
+
+    private static Method getMethod(CommandLine cmd) {
+        String methodValue = cmd.getOptionValue("method");
+
+        if (methodValue != null) {
+
+        }
+
+        return new DictionaryMethod();
     }
 }
