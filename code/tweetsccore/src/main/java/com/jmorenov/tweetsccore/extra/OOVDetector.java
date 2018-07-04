@@ -25,10 +25,10 @@ public class OOVDetector {
      */
     public OOVDetector() {
         try {
-            dictionaryWords = Arrays.asList(File.readToStringArray(Paths.get("src", "main", "resources", dictionaryFileName).toAbsolutePath() + ""));
-            nombresPropiosWord = Arrays.asList(File.readToStringArray(Paths.get("src", "main", "resources", nombresPropiosFileName).toAbsolutePath() + ""));
-            entitiesWords = Arrays.asList(File.readToStringArray(Paths.get("src", "main", "resources", entitiesFileName).toAbsolutePath() + ""));
-            englishWords = Arrays.asList(File.readToStringArray(Paths.get("src", "main", "resources", englishFileName).toAbsolutePath() + ""));
+            dictionaryWords = File.readDictionaryFromResources(dictionaryFileName);
+            nombresPropiosWord = File.readDictionaryFromResources(nombresPropiosFileName);
+            entitiesWords = File.readDictionaryFromResources(entitiesFileName);
+            englishWords = File.readDictionaryFromResources(englishFileName);
         } catch (Exception ex) {
             dictionaryWords = nombresPropiosWord = entitiesWords = englishWords = null;
         }

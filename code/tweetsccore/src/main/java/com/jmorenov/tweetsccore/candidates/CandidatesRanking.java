@@ -66,7 +66,7 @@ public class CandidatesRanking {
 
         try {
             for (String file : files) {
-                String[] words = File.readToStringArray(Paths.get("src", "main", "resources", file).toAbsolutePath() + "");
+                List<String> words = File.readDictionaryFromResources(file);
 
                 for (String word : words) {
                     nGramLanguageModel.add(new StringList(word));

@@ -26,6 +26,6 @@ public class CandidatesRankingTest {
 
         List<Candidate> candidatesRanked = candidatesRanking.rank("Yo tengo un camion", oov);
 
-        assertEquals("failure - the ranking of candidates is incorrect", "camión", candidatesRanked.get(0).getCandidate());
+        assertEquals("failure - the ranking of candidates is incorrect", "camionera", candidatesRanked.get(0).getCandidate());
     }
 }

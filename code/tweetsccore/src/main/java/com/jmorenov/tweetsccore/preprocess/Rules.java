@@ -20,7 +20,7 @@ public class Rules {
      * @throws IOException When the file is not found
      */
     public Rules(String rulesFilename) throws IOException {
-        String[] rulesFileContent = File.readToStringArray(rulesFilename);
+        List<String> rulesFileContent = File.readDictionaryFromResources(rulesFilename);
         rules = new ArrayList<>();
 
         for (String line : rulesFileContent) {

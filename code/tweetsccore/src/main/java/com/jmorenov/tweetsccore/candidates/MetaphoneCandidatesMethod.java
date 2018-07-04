@@ -24,8 +24,7 @@ public class MetaphoneCandidatesMethod extends CandidatesMethod {
     public MetaphoneCandidatesMethod() {
         try {
             phoneticWordsDictionaryMap = new HashMap<>();
-            String[] phoneticWordsDictionary = File.readToStringArray(
-                    Paths.get("src", "main", "resources", "aspellNormalizedPhonetic.dict").toAbsolutePath() + "");
+            List<String> phoneticWordsDictionary = File.readDictionaryFromResources("aspellNormalizedPhonetic.dict");
 
             for (String phoneticWordsDictionaryLine : phoneticWordsDictionary) {
                 String wordsLine[] = phoneticWordsDictionaryLine.split(" : ");
@@ -79,6 +78,12 @@ public class MetaphoneCandidatesMethod extends CandidatesMethod {
         return CandidatesMethodType.Metaphone;
     }
 
+    /**
+     * Method to get the phonetic word-
+     * @param word String
+     * @return String
+     * @throws Exception when error executing the script
+     */
     private String getPhoneticWord(String word) throws Exception {
         String command = "python " + Paths.get("src","main","resources", "phonetic_algorithms_es.py").toAbsolutePath() + " " + word;
         Process processScript = Runtime.getRuntime().exec(command);

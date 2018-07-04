@@ -1,6 +1,7 @@
 package com.jmorenov.tweetscweb;
 
 import com.jmorenov.tweetsccore.method.DictionaryMethod;
+import com.jmorenov.tweetsccore.method.TweetSCMethod;
 import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
 import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 import org.springframework.web.bind.annotation.*;
@@ -25,13 +26,13 @@ public class TweetCorrectorAPIController {
         Response response = new Response();
 
         try {
-            SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
+            SpellChecker spellChecker = new SpellChecker(new TweetSCMethod());
             TweetCorrected tweetCorrected = spellChecker.correctTweet(tweetModel.toTweet());
             TweetCorrectedModel tweetCorrectedModel = new TweetCorrectedModel(tweetCorrected);
 
             response.setData(tweetCorrectedModel);
             response.setStatus("Done");
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             response.setStatus("Error");
         }
 
@@ -49,7 +50,7 @@ public class TweetCorrectorAPIController {
         TweetCorrectedListModel tweetCorrectedListModel = new TweetCorrectedListModel();
 
         try {
-            SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
+            SpellChecker spellChecker = new SpellChecker(new TweetSCMethod());
 
             for (TweetModel tweetModel : tweetListModel.tweets) {
                 TweetCorrected tweetCorrected = spellChecker.correctTweet(tweetModel.toTweet());
@@ -60,7 +61,7 @@ public class TweetCorrectorAPIController {
 
             response.setData(tweetCorrectedListModel);
             response.setStatus("Done");
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             response.setStatus("Error");
         }
 

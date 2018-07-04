@@ -37,7 +37,7 @@ public class TweetSCMethod extends Method {
         List<CandidatesMethod> methods = new ArrayList<>();
 
         methods.add(new LevenshteinFSTCandidatesMethod());
-        methods.add(new MetaphoneCandidatesMethod());
+        //methods.add(new MetaphoneCandidatesMethod());
         //methods.add(new FastTextCandidatesMethod());
 
         candidatesGenerator = new CandidatesGenerator(methods);

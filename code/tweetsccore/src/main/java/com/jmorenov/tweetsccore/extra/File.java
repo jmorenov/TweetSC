@@ -54,4 +54,21 @@ public class File {
     public static InputStream getStreamFromResources(String fileName) throws IOException {
         return File.class.getClassLoader().getResourceAsStream(fileName);
     }
+
+    /**
+     * Method ro read a dictionary from resources.
+     * @param fileName String
+     * @return List of String
+     * @throws IOException When the file is not found
+     */
+    public static List<String> readDictionaryFromResources(String fileName) throws IOException {
+        byte[] bytesOfDictionaryFile = File.readToByte(fileName);
+        List<String> data = new ArrayList<>();
+
+        Stream.of(new String(bytesOfDictionaryFile).split("\n")).forEach( (word) ->{
+            data.add(word);
+        });
+
+        return data;
+    }
 }

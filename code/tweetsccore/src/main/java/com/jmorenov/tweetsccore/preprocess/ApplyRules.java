@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class ApplyRules {
-    private static String rulesFileName = Paths.get("src","main","resources", "preprocess", "rules.txt").toAbsolutePath() + "/";
+    private static String rulesFileName = "preprocess/rules.txt";
     private Rules rules;
     private static String[] entityFiles = {"entities.txt", "english.txt"};
     private List<String> entitiesWords;
@@ -130,9 +130,7 @@ public class ApplyRules {
         this.entitiesWords = new ArrayList<>();
 
         for (String file : entityFiles) {
-            this.entitiesWords.addAll(
-                    Arrays.asList(File.readToStringArray(Paths.get("src", "main", "resources", file)
-                            .toAbsolutePath() + "")));
+            this.entitiesWords.addAll(File.readDictionaryFromResources(file));
         }
     }
 }

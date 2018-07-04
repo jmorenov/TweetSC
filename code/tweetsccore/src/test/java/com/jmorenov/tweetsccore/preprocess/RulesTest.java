@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertEquals;
 public class RulesTest {
     @Test
     public void rulesShouldProcessTheRulesFile () throws IOException {
-        String rulesFile = Paths.get("src","main","resources", "preprocess", "rules.txt").toAbsolutePath() + "/";
+        String rulesFile = "preprocess/rules.txt";
         Rules rules = new Rules(rulesFile);
 
         assertEquals("Error processing the rules", 6, rules.getRules().size());
