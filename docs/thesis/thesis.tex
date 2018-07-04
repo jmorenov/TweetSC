@@ -379,15 +379,6 @@ Por último la sección de contacto.
 \end{center}
 \end{figure}
 
-\section{TweetSCCore Documentación del código (Java Documentation)}\label{sec:tweetsccorejavadoc}
-\input{tweetsccore_javadoc}
-
-\section{TweetSCWeb Documentación del código (Java Documentation)}\label{sec:tweetscwebjavadoc}
-\input{tweetscweb_javadoc}
-
-\section{TweetSCExecutable Documentación del código (Java Documentation)}\label{sec:tweetscexecutablejavadoc}
-\input{tweetscexecutable_javadoc}
-
 \section{Recursos utilizados}\label{sec:recursosutilizados}
 Los recursos utilizados por nuestro sistema son variados, desde diccionarios hasta bibliotecas para el desarrollo. Empezando desde el paquete TweetSCCore, se ha utilizado la biblioteca StanfordNLP \cite{stanfordnlp} para la tokenización, además está disponible en el paquete la biblioteca Freeling \cite{freeling}. El acceso a la API de twitter se realiza mediante la bibliteca para Java Twitter4j. La detección de OOV utiliza tres diccionarios, el diccionario de español proporcionado por la herramienta Aspell, el diccionario de entidades JRC y un diccionario de inglés \cite{englishdictionary}. Los métodos de la generación de candidatos utilizan los recursos: Algoritmo del metáfono \cite{mosquera:2011}, fastText \cite{facebook:fasttext} y la biblioteca liblevenshtein \cite{liblevenshtein} para el FST. El ranking de candidatos utiliza la biblioteca \cite{opennlp} para el modelo del lenguaje N-Grama y la distancia Damerau-Levenshtein ofrecida por String.Util de java.\\
 
@@ -424,9 +415,18 @@ Se puede concluir que nuestro objetivo era construir un corrector de texto para 
 \section{Líneas Futuras}\label{sec:lineasfuturas}
 Las líneas futuras son muy ámplias ya que estamos en un tema bastante reciente, sobre todo en español cómo se puede ver en el \hyperref[sec:estadodelarte]{sección 2}, y los resultados se pueden mejorar de bastantes formas. Centrándonos en nuestro sistema una mejora futura sería el añadir contexto a los tweets a partir de sus hashtag, usuarios, imágenes o emoticonos; de forma que se pudiera reducir el conjunto de candidatos o añadir nuevos a partir de estos datos. También se podría realizar un análisis de sentimientos sobre el tweet después de normalizar por si se pudiera mejorar la corrección de algún OOV.
 
-\section*{ANEXOS}
+\section{TweetSCCore Documentación del código (Java Documentation)}\label{sec:tweetsccorejavadoc}
+\input{tweetsccore_javadoc}
 
-\subsection*{Glosario de términos}\label{sec:glosariodeterminos}
+\section{TweetSCWeb Documentación del código (Java Documentation)}\label{sec:tweetscwebjavadoc}
+\input{tweetscweb_javadoc}
+
+\section{TweetSCExecutable Documentación del código (Java Documentation)}\label{sec:tweetscexecutablejavadoc}
+\input{tweetscexecutable_javadoc}
+
+\section{ANEXOS}
+
+\subsection{Glosario de términos}\label{sec:glosariodeterminos}
 \begin{itemize}
 	\item \textbf{Modelo (estadístico) del lenguaje:} Un modelo estadístico del lenguaje es una distribución de probabilidad sobre secuencias de palabras. Un tipo de modelo del lenguaje es el unigrama, también se suele llamar modelo de bolsa de palabras. La dispersidad en los datos es un problema al construir modelos del lenguaje. La secuencia de palabras más probable puede no aparecer en los datos de entrenamiento. Una solución es realizar la suposición de que la probabilidad de una palabra sólo depende de las n palabras previas. Esto es conocido como el modelo n-grama, unigrama cuando n=1. Los modelos del lenguaje neuronales o modelos del lenguaje continuos: modelo del lenguaje Skip-gram, base de word2vec.
 	\item \textbf{Modelo del lenguaje N-grama:} Un modelo de n-grama es un tipo de modelo probabilístico que permite hacer predicción estadística del próximo elemento de cierta secuencia de elementos sucedida hasta el momento. Un modelo de n-grama puede ser definido por una cadena de Márkov de orden n-1. Predice $x_i$ basándose en los n elementos anteriores. 
