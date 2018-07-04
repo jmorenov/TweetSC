@@ -55,7 +55,7 @@
 
 %	TITLE SECTION
  \HRule \\[0.4cm]
-{ \huge \bfseries TweetSC: Corrector de texto para twitter}\\[0.4cm] % Title of your document
+{ \huge \bfseries TweetSC: Corrector de texto para Twitter}\\[0.4cm] % Title of your document
 \HRule \\[2.5cm]
 
 \textsc{\LARGE Trabajo Fin de Máster}\\[0.5cm] 
@@ -88,12 +88,12 @@ TUTOR/ES: Óscar Corcho García y \linebreak
 
 %	RESUMEN
 \section*{RESUMEN}
-Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado. Primero se realiza una introducción al tema y se exponen los objetivos a realizar. En segundo lugar se presenta el estado del arte sobre el tema de la corrección de textos, específicamente en twitter y en español. Posteriormente explicamos la solución propuesta con todas sus fases. A continuación se presenta la implementación desarrollada y la documentación del código, además de los recursos utilizados. En siguiente lugar evaluamos los resultados. Y por último se desarrollan las conclusiones y líneas futuras.
+Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado. Primero se realiza una introducción al tema y se exponen los objetivos a realizar. En segundo lugar se presenta el estado del arte sobre el tema de la corrección de textos, específicamente en Twitter y en español. Posteriormente explicamos la solución propuesta con todas sus fases. A continuación se presenta la implementación desarrollada y la documentación del código, además de los recursos utilizados. En siguiente lugar evaluamos los resultados. Y por último se desarrollan las conclusiones y líneas futuras.
 
 
 %	SUMMARY
 \section*{SUMMARY}
-This report explains all the work developed by going into detail in the state of the art and the software module developed. First an introduction to the subject is made and the objectives to be made are exposed. Second, the state of the art on the subject of normalization is presented, specifically on twitter and in Spanish. Later we explain the proposed solution with all its phases. Below is the developed implementation and documentation of the code, in addition to the resources used. Next, we evaluate the results. And finally the conclusions and future lines are developed.
+This report explains all the work developed by going into detail in the state of the art and the software module developed. First an introduction to the subject is made and the objectives to be made are exposed. Second, the state of the art on the subject of normalization is presented, specifically on Twitter and in Spanish. Later I explain the proposed solution with all its phases. Below is the developed implementation and documentation of the code, in addition to the resources used. Next, we evaluate the results. And finally the conclusions and future lines are developed.
 
 
 %	ÍNDICE
@@ -117,7 +117,7 @@ Los nuevos sistemas de comunicación como la mensajería instantánea, chats, re
 
 Uno de los principales problemas a la hora de analizar textos procedentes de las redes sociales son los errores gramaticales que suelen contener, así como la presencia de elementos propios de este tipo de foros que requieren de un procesamiento especial (i.e. hashtags, formas de mencionar a otros usuarios o emoticonos y expresiones habituales en las redes). Además, la limitación en el número de caracteres existente en Twitter la convierte en un caso singular dentro de las redes sociales, ya que los usuarios tienden a adaptar su forma de escribir a dicha limitación, omitiendo palabras y creando abreviaturas que dificultan el uso de herramientas genéricas de procesamiento del lenguaje, especialmente a la hora de realizar tareas como el Análisis de Sentimientos.\\
 
-Los usuarios en twitter tienden a cometer errores tipográficos, abreviaciones, sustituciones fonéticas y estructuras no gramaticales en los mensajes cortos de texto, causando problemas en las herramientas de análisis. Esto es lo que se consideran palabras mal formadas y la detección de las palabras mal formadas es difícil debido al contexto ruidoso. El objetivo es normalizar estas palabra mal formadas.\\
+Los usuarios en Twitter tienden a cometer errores tipográficos, abreviaciones, sustituciones fonéticas y estructuras no gramaticales en los mensajes cortos de texto, causando problemas en las herramientas de análisis. Esto es lo que se consideran palabras mal formadas y la detección de las palabras mal formadas es difícil debido al contexto ruidoso. El objetivo es normalizar estas palabra mal formadas.\\
 
 A parte de un uso puramente de investigación, este tipo de trabajo también es beneficioso para un estudio de marcas o personas y sobre lo que las persones opinan sobre ello en las redes social, ya que sin el proceso de normalización y análisis de sentimientos estaríamos ante millones de datos que costarían mucho trabajo analizar de una forma automática.
 
@@ -135,7 +135,7 @@ Estos subojetivos se cumplirán con su implementación en un módulo software qu
 También ejecutaremos este corrector sobre un corpus de tweets disponible en \cite{tweetnorm} y compararemos nuestros resultados con los que se consiguieron en \cite{alegria:2013}.
 
 \subsection{Resumen del documento}\label{sec:resumen}
-Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado. Primero se realiza una introducción al tema y se exponen los objetivos a realizar. En segundo lugar se presenta el estado del arte sobre el tema de la corrección de textos, específicamente en twitter y en español. Posteriormente explicamos la solución propuesta con todas sus fases. A continuación se presenta la implementación desarrollada y la documentación del código, además de los recursos utilizados. En siguiente lugar evaluamos los resultados. Y por último se desarrollan las conclusiones y líneas futuras.
+Esta memoria explica todo el trabajo desarrollado entrando en detalle en el estado del arte y el  módulo software desarrollado. Primero se realiza una introducción al tema y se exponen los objetivos a realizar. En segundo lugar se presenta el estado del arte sobre el tema de la corrección de textos, específicamente en Twitter y en español. Posteriormente explicamos la solución propuesta con todas sus fases. A continuación se presenta la implementación desarrollada y la documentación del código, además de los recursos utilizados. En siguiente lugar evaluamos los resultados. Y por último se desarrollan las conclusiones y líneas futuras.
 \section{Estado del arte}\label{sec:estadodelarte}
 \subsection{Introducción}\label{sec:introduccion}
 En la actualidad, la normalización lingüística de tweets \cite{baldwin:2011} supone un campo de gran interés y en donde la mayoría de trabajos se han realizado sobre textos en inglés y pocos en español. Además no hay ningún trabajo en donde se incluya, dentro de la normalización de tuits, el estudio de los hashtags o etiquetas y los emoticonos, y su contexto. \\
@@ -195,7 +195,7 @@ En esta primera fase se recibe como entrada el texto del tweet y genera una list
 Una vez que hemos obtenido todos los tokens de un tweet se aplican unas reglas de preproceso para normalizar palabras típicas de la red social, pictogramas, fonogramas, onomatopeyas, números, acrónimos, etc. Tras aplicar estas reglas a los tokens que las acepten, se crean OOVs con estos token, se anotan como variaciones y se eliminan de la lista de tokens para las fases siguientes. Los OOV generados se añaden a la lista final de OOV.
 
 \subsection{Detección de OOV}\label{sec:detecciondeoov}
-Esta fase tiene como elementos de entrada los tokens restantes de la fase anterior, y se ejecuta token por token el detector de OOV. Para detectarlos se aplican reglas y se van descartando los tokens que son URLs, usuarios de twitter, hashtag de twitter y fechas; los elementos restantes se comparan con tres diccionarios utilizados como recursos: diccionario de español, diccionario de inglés y diccionario de entidades.\\
+Esta fase tiene como elementos de entrada los tokens restantes de la fase anterior, y se ejecuta token por token el detector de OOV. Para detectarlos se aplican reglas y se van descartando los tokens que son URLs, usuarios de Twitter, hashtag de Twitter y fechas; los elementos restantes se comparan con tres diccionarios utilizados como recursos: diccionario de español, diccionario de inglés y diccionario de entidades.\\
 
 Los token que se detecten dentro del diccionario de español se descartan como OOV, los que se detecten en el diccionario de inglés se anotan como NoEs (No español o ininteligible) y los que se detecten en el diccionario de entidades se anotan como Correct (palabras correspondientes a una entidad o un nuevo préstamo). Para el resto de token que no han sido aceptados en ninguna regla se crea una lista de OOV y son los que pasaran a la siguiente fase pudiendo al final ser anotados como Variation o NoEs.
 
@@ -226,13 +226,13 @@ Esta última fase consiste en poner mayúsculas en las palabras que fueran neces
 En esta sección se pretende explicar toda la implementación software que se ha realizado de nuestra solución. Primero se realizará una introducción comentando lenguajes y herramientas utilizadas. Segundo se explicará dónde encontrar y cómo utilizar nuestro software . Posteriormente la documentación generada del código fuente. Y por último se explicará la aplicación web que se ha desarrollado.
 
 \subsection{Introducción}\label{sec:introduccion}
-La implementación se ha realizado en tres módulos o componentes, por una parte tenemos la biblioteca con la funcionalidad necesaria para corregir textos de twitter, acceder a su API y evaluar los resultados sobre un corpus de tweets; después un modulo que implementa aplicación web y por último otro que ofrece funcionalidad para utilizar la biblioteca desde línea de comandos.\\
+La implementación se ha realizado en tres módulos o componentes, por una parte tenemos la biblioteca con la funcionalidad necesaria para corregir textos de Twitter, acceder a su API y evaluar los resultados sobre un corpus de tweets; después un modulo que implementa aplicación web y por último otro que ofrece funcionalidad para utilizar la biblioteca desde línea de comandos.\\
 
 El lenguaje principal utilizado en todo el proyecto ha sido Java, con la excepción de Python para los script de evaluación y normalización de archivos de datos, y hemos hecho uso de Google Cloud Engine \cite{googlecloudengine} para que la aplicación web esté disponible para cualquier usuario \cite{tweetscweb:spellchecker}.\\
 
 Nuestro sistema software se ha intentado desarrollar de forma que sea un sistema de procesamiento dinámico pudiendo añadir y quitar funcionalidad de manera sencilla, cualquier algoritmo o método implementado funciona a partir de una clase superior para que se puedan añadir nuevos métodos.\\
 
-El módulo principal del sistema es TweetSCCore que implementa la biblioteca para corregir tweets, acceder a la API de twitter y evaluar resultados mediante el script ofrecido por Tweet-Norm 2013 \cite{alegria:2013}. Los módulos que funcionan a partir de TweetSCCore son: TweetSCExecutable que implementa la funcionalidad necesaria para ejectar nuestro sistema a partir de línea de comandos, y TweetSCWeb donde se implementa la aplicacion web.\\
+El módulo principal del sistema es TweetSCCore que implementa la biblioteca para corregir tweets, acceder a la API de Twitter y evaluar resultados mediante el script ofrecido por Tweet-Norm 2013 \cite{alegria:2013}. Los módulos que funcionan a partir de TweetSCCore son: TweetSCExecutable que implementa la funcionalidad necesaria para ejectar nuestro sistema a partir de línea de comandos, y TweetSCWeb donde se implementa la aplicacion web.\\
 
 Se han implementado dos métodos de corrección o normalización de tweets a los que hemos llamado DictionaryMethod, método preliminar que hace uso de diccionarios y la regla de Bayes, y TweetSCMethod que es nuestro método final con las fases que han sido explicadas.
 
@@ -380,7 +380,7 @@ Por último la sección de contacto.
 \end{figure}
 
 \section{Recursos utilizados}\label{sec:recursosutilizados}
-Los recursos utilizados por nuestro sistema son variados, desde diccionarios hasta bibliotecas para el desarrollo. Empezando desde el paquete TweetSCCore, se ha utilizado la biblioteca StanfordNLP \cite{stanfordnlp} para la tokenización, además está disponible en el paquete la biblioteca Freeling \cite{freeling}. El acceso a la API de twitter se realiza mediante la bibliteca para Java Twitter4j. La detección de OOV utiliza tres diccionarios, el diccionario de español proporcionado por la herramienta Aspell, el diccionario de entidades JRC y un diccionario de inglés \cite{englishdictionary}. Los métodos de la generación de candidatos utilizan los recursos: Algoritmo del metáfono \cite{mosquera:2011}, fastText \cite{facebook:fasttext} y la biblioteca liblevenshtein \cite{liblevenshtein} para el FST. El ranking de candidatos utiliza la biblioteca \cite{opennlp} para el modelo del lenguaje N-Grama y la distancia Damerau-Levenshtein ofrecida por String.Util de java.\\
+Los recursos utilizados por nuestro sistema son variados, desde diccionarios hasta bibliotecas para el desarrollo. Empezando desde el paquete TweetSCCore, se ha utilizado la biblioteca StanfordNLP \cite{stanfordnlp} para la tokenización, además está disponible en el paquete la biblioteca Freeling \cite{freeling}. El acceso a la API de Twitter se realiza mediante la bibliteca para Java Twitter4j. La detección de OOV utiliza tres diccionarios, el diccionario de español proporcionado por la herramienta Aspell, el diccionario de entidades JRC y un diccionario de inglés \cite{englishdictionary}. Los métodos de la generación de candidatos utilizan los recursos: Algoritmo del metáfono \cite{mosquera:2011}, fastText \cite{facebook:fasttext} y la biblioteca liblevenshtein \cite{liblevenshtein} para el FST. El ranking de candidatos utiliza la biblioteca \cite{opennlp} para el modelo del lenguaje N-Grama y la distancia Damerau-Levenshtein ofrecida por String.Util de java.\\
 
 Además el corpus de tweets para la evaluación es el que recopiló Tweet-Norm 2013 \cite{alegria:2013} y su script en Python para los resultados.\\
 
@@ -406,11 +406,11 @@ El proyecto realizado está compuesto de una parte de investigación, cómo se d
 
 Este desarrollo software se ha dividido en tres componentes o módulos:
 \begin{itemize}
-	\item TweetSCCore: Núcleo del proyecto con la funcionalidad para corregir textos de twitter.
+	\item TweetSCCore: Núcleo del proyecto con la funcionalidad para corregir textos de Twitter.
 	\item TweetSCWeb: Aplicación web para corregir textos.
 	\item TweetSCExecutable: Ejecutable java para corregir textos desde línea de comandos.
 \end{itemize}
-Se puede concluir que nuestro objetivo era construir un corrector de texto para twitter (\hyperref[sec:objetivos]{sección 1.2}) y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{sección 3} y \hyperref[sec:implementacion]{sección 4}.
+Se puede concluir que nuestro objetivo era construir un corrector de texto para Twitter (\hyperref[sec:objetivos]{sección 1.2}) y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{sección 3} y \hyperref[sec:implementacion]{sección 4}.
 
 \section{Líneas Futuras}\label{sec:lineasfuturas}
 Las líneas futuras son muy ámplias ya que estamos en un tema bastante reciente, sobre todo en español cómo se puede ver en el \hyperref[sec:estadodelarte]{sección 2}, y los resultados se pueden mejorar de bastantes formas. Centrándonos en nuestro sistema una mejora futura sería el añadir contexto a los tweets a partir de sus hashtag, usuarios, imágenes o emoticonos; de forma que se pudiera reducir el conjunto de candidatos o añadir nuevos a partir de estos datos. También se podría realizar un análisis de sentimientos sobre el tweet después de normalizar por si se pudiera mejorar la corrección de algún OOV.
