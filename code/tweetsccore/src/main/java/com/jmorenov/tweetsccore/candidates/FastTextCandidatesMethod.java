@@ -1,8 +1,10 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.extra.OOV;
 import com.github.jfasttext.JFastText;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +20,14 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
      * Constructor of the class.
      */
     public FastTextCandidatesMethod() {
-        jft = new JFastText();
+        try {
+            jft = new JFastText();
+            String modelPath = File.getModelsPath();
 
-        jft.loadModel("cc.es.300.bin");
+            jft.loadModel(modelPath + "cc.es.300.bin");
+        } catch (Exception ex) {
+            jft = null;
+        }
     }
 
     /**
@@ -31,6 +38,10 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
     @Override
     public List<Candidate> generateCandidates(OOV oov) {
         List<Candidate> candidates = new ArrayList<>();
+
+        if (this.jft != null) {
+
+        }
 
         return candidates;
     }

@@ -4,11 +4,14 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 /**
@@ -100,5 +103,24 @@ public class File {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static String getModelsPath() {
+        String modelsPath = "";
+
+        try {
+            String actualPath = new java.io.File(File.class.getProtectionDomain()
+                    .getCodeSource().getLocation().toURI()).getPath();
+
+            Pattern r = Pattern.compile("/TweetSC/code");
+            Matcher m = r.matcher(actualPath);
+
+            if (m.find( )) {
+                modelsPath = actualPath.substring(0, m.end()) + "/models/";
+            }
+
+        } catch (URISyntaxException ex) { }
+
+        return modelsPath;
     }
 }
