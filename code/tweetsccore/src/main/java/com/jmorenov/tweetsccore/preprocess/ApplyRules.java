@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 public class ApplyRules {
     private static String rulesFileName = "preprocess/rules.txt";
     private Rules rules;
-    private static String[] entityFiles = {"entities.txt", "english.txt"};
+    private static String[] entityFiles = {"entities.txt"};
     private List<String> entitiesWords;
 
     /**
@@ -116,7 +116,7 @@ public class ApplyRules {
     private String getEntityVariation(String token) {
         String capitalizedWord = StringUtils.capitalize(token);
 
-        if (entitiesWords.contains(capitalizedWord)) {
+        if (!entitiesWords.contains(token) && entitiesWords.contains(capitalizedWord)) {
             return capitalizedWord;
         }
         return "";
@@ -124,7 +124,7 @@ public class ApplyRules {
 
     /**
      * Method to read the entities from the files.
-     * @throws IOException
+     * @throws IOException when the dictionary file is not found
      */
     private void readEntitiesWords() throws IOException {
         this.entitiesWords = new ArrayList<>();

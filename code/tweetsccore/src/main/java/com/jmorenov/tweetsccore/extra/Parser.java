@@ -25,7 +25,7 @@ public class Parser {
      * @return String with the pattern
      */
     public static String getUsernameRegex() {
-        return "@[a-zA-Z0-9_]*";
+        return "@[a-zA-Z0-9_]+";
     }
 
     /**
@@ -33,7 +33,15 @@ public class Parser {
      * @return String with the pattern
      */
     public static String getHashtagRegex() {
-        return "#[a-zA-Z0-9_]*";
+        return "#[a-zA-Z0-9_]+";
+    }
+
+    /**
+     * Method to get the hashtag regex pattern.
+     * @return String with the pattern
+     */
+    public static String getNumberRegex() {
+        return "[0-9]+";
     }
 
     /**
@@ -65,12 +73,21 @@ public class Parser {
     }
 
     /**
+     * Method to check if a word is a number.
+     * @param word String with the word to check.
+     * @return Boolean control parameter.
+     */
+    public static Boolean isNumber(String word) {
+        return word.matches(getNumberRegex());
+    }
+
+    /**
      * Method to check if a word is a valid word.
      * @param word String with the word to check.
      * @return Boolean control parameter.
      */
     public static Boolean isValidWord(String word) {
-        return !isUsername(word) && !isHashtag(word) && !isUrl(word) && !isPunctuationSign(word);
+        return !isUsername(word) && !isHashtag(word) && !isUrl(word) && !isPunctuationSign(word) && !isNumber(word);
     }
 
     /**

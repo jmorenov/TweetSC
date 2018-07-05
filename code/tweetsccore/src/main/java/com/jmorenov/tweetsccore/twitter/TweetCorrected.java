@@ -93,7 +93,7 @@ public class TweetCorrected extends Tweet {
                 tweetNormString += "\n\t" + oov.getToken();
 
                 if (oov.getAnnotation() == Annotation.Variation) {
-                    tweetNormString += " 0 " + oov.getCorrection();
+                    tweetNormString += " 0 " + oov.getCorrection().replace(" ", "_");
                 } else {
                     tweetNormString += " " + oov.getAnnotation().value + " -";
                 }

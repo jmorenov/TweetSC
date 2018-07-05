@@ -30,7 +30,11 @@ public class TweetNormEvaluator {
     private String _workingDirectory;
     private String _tweetsFile;
     private String _resultFile;
+    private int repetitionsOfExecution;
     private ArrayList<Tweet> _tweetList;
+
+    private long totalTime;
+    private float totalAccurancy;
 
     /**
      * Default constructor of the class.
@@ -45,9 +49,10 @@ public class TweetNormEvaluator {
      * @param annotatedFile String parameter with the name of the file with the annotated tweets.
      * @param verbose Boolean parameter to define the verbose control.
      */
-    public TweetNormEvaluator(String annotatedFile, boolean verbose) {
+    public TweetNormEvaluator(String annotatedFile, boolean verbose, int repetitionsOfExecution) {
         setAnnotatedFile(annotatedFile);
         this._verbose = verbose;
+        this.repetitionsOfExecution = repetitionsOfExecution;
     }
 
     /**
@@ -56,7 +61,7 @@ public class TweetNormEvaluator {
      * @param annotatedFile String parameter with the name of the file with the annotated tweets.
      */
     public TweetNormEvaluator(String annotatedFile) {
-        this(annotatedFile, false);
+        this(annotatedFile, false, 1);
     }
 
     /**
@@ -117,7 +122,7 @@ public class TweetNormEvaluator {
      * Method to evaluate the defined file with a method of spell checker.
      *
      * @param method {@link Method} parameter with the method to use.
-     * @return String with the output of the evaluation.
+     * @return TweetNormEvaluationResult with the output of the evaluation.
      * @throws IOException when the file not found.
      * @see Method
      */
@@ -130,19 +135,40 @@ public class TweetNormEvaluator {
             }
         }
 
+        this.totalTime = 0;
+        this.totalAccurancy = 0;
         List<String> spellCheckerResultLines = new ArrayList<String>();
-        SpellChecker spellChecker = new SpellChecker(method);
+        TweetNormEvaluationResult tweetNormEvaluationResult = null;
 
-        for (Tweet tweet : _tweetList) {
-            TweetCorrected tweetCorrected = spellChecker.correctTweet(tweet);
+        for (int i = 0 ; i < this.repetitionsOfExecution; i++) {
+            long startTime = System.nanoTime();
+            spellCheckerResultLines = new ArrayList<String>();
+            SpellChecker spellChecker = new SpellChecker(method);
 
-            spellCheckerResultLines.add(tweetCorrected.toTweetNormString());
+            for (Tweet tweet : this._tweetList) {
+                TweetCorrected tweetCorrected = spellChecker.correctTweet(tweet);
+
+                spellCheckerResultLines.add(tweetCorrected.toTweetNormString());
+            }
+
+            long endTime   = System.nanoTime();
+            this.totalTime += endTime - startTime;
+
+            Path resultFile = Paths.get(_workingDirectory + _resultFile);
+            Files.write(resultFile, spellCheckerResultLines, Charset.forName("UTF-8"));
+
+            String executionEvaluatorScriptResult = executeEvaluatorScript();
+            tweetNormEvaluationResult = new TweetNormEvaluationResult(executionEvaluatorScriptResult, totalTime);
+
+            this.totalAccurancy += tweetNormEvaluationResult.getAccurancy();
         }
+        this.totalTime /= this.repetitionsOfExecution;
+        this.totalAccurancy /= this.repetitionsOfExecution;
 
-        Path resultFile = Paths.get(_workingDirectory + _resultFile);
-        Files.write(resultFile, spellCheckerResultLines, Charset.forName("UTF-8"));
+        tweetNormEvaluationResult.setExecutionTime((double)this.totalTime / 1000000000.0);
+        tweetNormEvaluationResult.setAccurancy(this.totalAccurancy);
 
-        return executeEvaluatorScript();
+        return tweetNormEvaluationResult;
     }
 
     /**
@@ -173,7 +199,7 @@ public class TweetNormEvaluator {
      * @throws IOException when the file not found.
      * @return String with the output of the execution.
      */
-    private TweetNormEvaluationResult executeEvaluatorScript() throws IOException {
+    private String executeEvaluatorScript() throws IOException {
         String command = "python " + _workingDirectory + _evaluatorScriptFile + " " + _workingDirectory + _annotatedFile + " " + _workingDirectory + _resultFile;
         Process processScript = Runtime.getRuntime().exec(command);
         BufferedReader stdOutput = new BufferedReader(new InputStreamReader(processScript.getInputStream()));
@@ -188,6 +214,6 @@ public class TweetNormEvaluator {
             output = output.concat(outputLine + "\n");
         }
 
-        return new TweetNormEvaluationResult(error + "\n" + output);
+        return error + "\n" + output;
     }
 }

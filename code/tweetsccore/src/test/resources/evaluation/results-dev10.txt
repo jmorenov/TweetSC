@@ -1,5 +1,4 @@
 319106439526367234
-	y 2 -
 318676223985336320
 	Batman 1 -
 	jdjejdkahflwkdjwpvqh 2 -
@@ -9,31 +8,23 @@
 	walking 0 Walking
 	dead 0 Dead
 318806604940181505
-	esquivocao 0 equivocaos
-	y 2 -
+	esquivocao 0 he_equivocado
 	donald 0 Donald
 	piolin 0 piolan
 318776809267290113
-	paluegos 0 pliegos
-	fanegol 0 anego
+	paluegos 0 palos
+	fanegol 0 fango
 	jajajajajajajajajjajajajajajaja 2 -
-	meoooo 0 mejoro
+	meoooo 0 meo
 318954900933464066
-	05 0 la
-	02 0 la
-	UTC 2 -
-	2 2 -
-	1 0 a
-	C 2 -
-	2 2 -
-	8 0 a
-	2 2 -
-	1 0 a
+	UTC 1 -
+	Máx 0 máxima
+	Mín 0 mínima
 318728946764103680
-	xq 0 la
-	pasao 0 paso
-	to 0 toé
-	porai 0 para
-	jajaja 0 ajara
+	xq 0 porque
+	pasao 0 pasado
+	to 0 todo
+	porai 0 por_ahí
+	jajaja 0 jauja
 318874108848926720
 	Miriam 1 -

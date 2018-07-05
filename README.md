@@ -35,7 +35,8 @@ java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
     -annotatedFile tweet-norm-dev10_annotated.txt \
     -tweetsFile tweet-norm-dev10.txt \
     -resultFile results-test-dev10.txt \
-    -method DictionaryMethod
+    -method DictionaryMethod \
+    -repetitions 1
 ```
 
 ## How to run local web application

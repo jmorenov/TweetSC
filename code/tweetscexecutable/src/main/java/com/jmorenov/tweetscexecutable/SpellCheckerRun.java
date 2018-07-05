@@ -22,7 +22,7 @@ public class SpellCheckerRun {
      */
     public static void main(String[] args) {
         try {
-            System.out.println(run(args));
+            System.out.println(run(args).result);
         } catch (ParseException ex) {
             HelpFormatter formatter = new HelpFormatter();
             Options options = getOptions();
@@ -105,8 +105,9 @@ public class SpellCheckerRun {
         String tweetsFileValue = getOptionValue(cmd, "tweetsFile");
         String workingDirectoryValue = getOptionValue(cmd, "workingDirectory");
         String resultFileValue = getOptionValue(cmd, "resultFile");
+        int repetitionsValue = getRepetitions(cmd);
 
-        TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(annotatedFileValue, true);
+        TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(annotatedFileValue, true, repetitionsValue);
 
         tweetNormEvaluator.setWorkingDirectory(workingDirectoryValue);
         tweetNormEvaluator.setTweetsFile(tweetsFileValue);
@@ -163,6 +164,9 @@ public class SpellCheckerRun {
         Option method = new Option("m", "method", true, "Method");
         options.addOption(method);
 
+        Option repetitions = new Option("r", "repetitions", true, "Number of repetitions to evaluate");
+        options.addOption(repetitions);
+
         return options;
     }
 
@@ -182,5 +186,13 @@ public class SpellCheckerRun {
         }
 
         return new DictionaryMethod();
+    }
+
+    private static int getRepetitions(CommandLine cmd) {
+        if (cmd.getOptionValue("repetitions") != null) {
+            return Integer.parseInt(cmd.getOptionValue("repetitions"));
+        }
+
+        return 1;
     }
 }

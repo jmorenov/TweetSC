@@ -16,6 +16,7 @@ import java.util.List;
 public class FastTextCandidatesMethod extends CandidatesMethod {
     private JFastText jft;
 
+
     /**
      * Constructor of the class.
      */
@@ -24,7 +25,7 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
             jft = new JFastText();
             String modelPath = File.getModelsPath();
 
-            jft.loadModel(modelPath + "cc.es.300.bin");
+            //jft.loadModel(modelPath + "cc.es.300.bin");
         } catch (Exception ex) {
             jft = null;
         }
