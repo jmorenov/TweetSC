@@ -21,13 +21,23 @@ public class SpellCheckerRun {
      * @param args String[] with the arguments.
      */
     public static void main(String[] args) {
-        System.out.println(run(args));
+        try {
+            System.out.println(run(args));
+        } catch (ParseException ex) {
+            HelpFormatter formatter = new HelpFormatter();
+            Options options = getOptions();
+
+            System.out.println(ex.getMessage());
+            formatter.printHelp("utility-name", options);
+
+            System.exit(1);
+        }
     }
 
     /**
      * Method to run the Spell checker.
      * @param args List of String
-     * @return String with the result
+     * @return SpellCheckerRunResult with the result
      */
     public static SpellCheckerRunResult run(String[] args) throws ParseException {
         Options options = getOptions();
@@ -35,36 +45,19 @@ public class SpellCheckerRun {
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd = parser.parse(options, args);
-        Method method = getMethod(cmd);
 
-        if (isCorrectTextFuncionality(cmd)) {
-            return new SpellCheckerRunResult(runCorrectText(cmd, method), options);
-        } else if (isEvaluateTweetNormFuncionality(cmd)) {
-            return new SpellCheckerRunResult(runTweetNorm(cmd, method), options);
-        } else {
-            throw new ParseException("Missing required option: text");
-        }
+        try {
+            Method method = getMethod(cmd);
 
-        if (isCorrectTextFuncionality(args)) {
-            String text = getTextFromArguments(args);
-
-        }   else if (isEvaluateTweetNormFuncionality(args)) {
-
-            TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(annotatedFile, true);
-
-            tweetNormEvaluator.setWorkingDirectory(workingDirectory);
-            tweetNormEvaluator.setTweetsFile(tweetFile);
-            //tweetNormEvaluator.setEvaluatorScriptFile(evaluatorScriptFile);
-            tweetNormEvaluator.setIdsFile(idsFile);
-            tweetNormEvaluator.setResultFile(resultFile);
-
-            try {
-                return tweetNormEvaluator.evalutate(method).toString();
-            } catch (Exception ex) {
-                return "Error on evaluation execution";
+            if (isCorrectTextFuncionality(cmd)) {
+                return new SpellCheckerRunResult(runCorrectText(cmd, method), options);
+            } else if (isEvaluateTweetNormFuncionality(cmd)) {
+                return new SpellCheckerRunResult(runTweetNorm(cmd, method), options);
+            } else {
+                throw new ParseException("Missing required option: text");
             }
-        } else {
-            return "Arguments error: -text, -anotatedFile, -idsFile, -tweetsFile, -workingDirectory, -resultFile, -method";
+        } catch (IOException ex) {
+            return new SpellCheckerRunResult("Error using the spell checker method", options);
         }
     }
 
@@ -79,7 +72,7 @@ public class SpellCheckerRun {
 
     /**
      * Method to control if the execution is to evaluate tweet norm funcionality.
-     * @param cmd
+     * @param cmd CommandLine
      * @return Boolean to control if the execution is to evaluate tweet norm funcionality
      */
     private static boolean isEvaluateTweetNormFuncionality(CommandLine cmd) {
@@ -87,6 +80,12 @@ public class SpellCheckerRun {
                 && (cmd.getOptionValue("idsFile") != null || cmd.getOptionValue("tweetsFile") != null));
     }
 
+    /**
+     * Method to run the correct text funcionality.
+     * @param cmd CommandLine
+     * @param method Method
+     * @return String with the result
+     */
     private static String runCorrectText(CommandLine cmd, Method method) {
         SpellChecker spellChecker = new SpellChecker(method);
         String textValue = cmd.getOptionValue("text");
@@ -94,6 +93,12 @@ public class SpellCheckerRun {
         return spellChecker.correctText(textValue);
     }
 
+    /**
+     * Method to run the Tweet Norm funcionality.
+     * @param cmd CommandLine
+     * @param method Method
+     * @return String with the result
+     */
     private static String runTweetNorm(CommandLine cmd, Method method) {
         String annotatedFileValue = getOptionValue(cmd, "annotatedFile");
         String idsFileValue = getOptionValue(cmd, "idsFile");
@@ -116,6 +121,12 @@ public class SpellCheckerRun {
         }
     }
 
+    /**
+     * Method to get the value of an option.
+     * @param cmd CommandLine
+     * @param option Option
+     * @return String with the value
+     */
     private static String getOptionValue(CommandLine cmd, String option) {
         if (cmd.getOptionValue(option) == null) {
             return "";
@@ -124,6 +135,10 @@ public class SpellCheckerRun {
         return cmd.getOptionValue(option);
     }
 
+    /**
+     * Method to get the options.
+     * @return Options
+     */
     private static Options getOptions() {
         Options options = new Options();
 
@@ -151,11 +166,19 @@ public class SpellCheckerRun {
         return options;
     }
 
-    private static Method getMethod(CommandLine cmd) {
+    /**
+     * Method to get the method value of the options.
+     * @param cmd CommandLine
+     * @return Method
+     * @throws IOException When the files of the method not found
+     */
+    private static Method getMethod(CommandLine cmd) throws IOException {
         String methodValue = cmd.getOptionValue("method");
 
         if (methodValue != null) {
-
+            if (methodValue.equals("TweetSCMethod")) {
+                return new TweetSCMethod();
+            }
         }
 
         return new DictionaryMethod();
