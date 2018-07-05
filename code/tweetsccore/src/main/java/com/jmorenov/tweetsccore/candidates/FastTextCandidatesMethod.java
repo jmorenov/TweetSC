@@ -3,6 +3,7 @@ package com.jmorenov.tweetsccore.candidates;
 import com.jmorenov.tweetsccore.extra.OOV;
 import com.github.jfasttext.JFastText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
     public FastTextCandidatesMethod() {
         jft = new JFastText();
 
-        //jft.loadModel();
+        jft.loadModel("cc.es.300.bin");
     }
 
     /**
@@ -29,7 +30,9 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
      */
     @Override
     public List<Candidate> generateCandidates(OOV oov) {
-        return null;
+        List<Candidate> candidates = new ArrayList<>();
+
+        return candidates;
     }
 
     /**

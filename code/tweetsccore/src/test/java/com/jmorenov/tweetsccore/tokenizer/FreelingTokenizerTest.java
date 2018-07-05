@@ -1,11 +1,13 @@
 package com.jmorenov.tweetsccore.tokenizer;
 
 import com.jmorenov.tweetsccore.tokenizer.FreelingTokenizer;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class FreelingTokenizerTest {
+    @Ignore
     @Test
     public void freelingTokenizerShouldReturnTheCorrectResult() {
         String text = "Hola mi nombre es Javier vivo en España, y creo que www.google.com http://t.com/jsfkjs Soy_javi. javier_hola@gmail.com @holahola #hashtagtwitter.";
