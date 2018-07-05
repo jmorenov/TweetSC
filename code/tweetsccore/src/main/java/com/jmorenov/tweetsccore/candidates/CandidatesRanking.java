@@ -18,7 +18,7 @@ import java.util.List;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class CandidatesRanking {
-    private static final String[] files = {"aspellNormalized.dict", "nombres_propios.txt", "entities.txt", "english.txt"};
+    private static final String[] files = {"aspellNormalized.dict", "nombres_propios.txt", "entities.txt"};
 
     private NGramLanguageModel languageModel;
     private JaroWinkler jaroWinkler;
@@ -48,7 +48,12 @@ public class CandidatesRanking {
             double score1 = languageModel.calculateProbability(new StringList(textWithCandidate.toString()));
             double score2 = jaroWinkler.similarity(oov.getToken(), candidate.getCandidate());
 
-            candidate.setScore(score1 + score2);
+            candidate.addScore(score1);
+            candidate.addScore(score2);
+
+            if (candidate.getGeneratedBy() == CandidatesMethodType.L_L) {
+                candidate.addScore(0.5);
+            }
         }
 
         Collections.sort(candidates);

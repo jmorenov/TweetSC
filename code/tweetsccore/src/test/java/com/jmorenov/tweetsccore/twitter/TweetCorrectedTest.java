@@ -16,7 +16,7 @@ import static junit.framework.TestCase.assertEquals;
 public class TweetCorrectedTest {
     @Test
     public void tweetCorrectedShouldComputeTheCorrecText() {
-        TweetCorrected tweetCorrected = new TweetCorrected("ola mai nomve s javier y soiii batman.");
+        TweetCorrected tweetCorrected = new TweetCorrected("ola mai nomve s javier y soiii batman poreso.");
         List<OOV> oovs = new ArrayList<>();
 
         OOV oov = new OOV("ola", 0, 3);
@@ -54,8 +54,13 @@ public class TweetCorrectedTest {
         oov.setCorrection("Batman");
         oovs.add(oov);
 
+        oov = new OOV("poreso", 38, 44);
+        oov.setAnnotation(Annotation.Variation);
+        oov.setCorrection("por eso");
+        oovs.add(oov);
+
         tweetCorrected.setOOVWords(oovs);
 
-        assertEquals("failure - the correction is incorrect", "Hola mi nombre es Javier y soy Batman.", tweetCorrected.getCorrectedText());
+        assertEquals("failure - the correction is incorrect", "Hola mi nombre es Javier y soy Batman por eso.", tweetCorrected.getCorrectedText());
     }
 }

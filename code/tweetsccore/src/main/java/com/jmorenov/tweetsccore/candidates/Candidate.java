@@ -8,7 +8,7 @@ package com.jmorenov.tweetsccore.candidates;
 public class Candidate implements Comparable<Candidate> {
     private String candidate;
     private CandidatesMethodType generatedBy;
-    private double score;
+    private double score = 0.0;
 
     /**
      * Constructor of the class.
@@ -50,6 +50,14 @@ public class Candidate implements Comparable<Candidate> {
      */
     public void setScore(double score) {
         this.score = score;
+    }
+
+    /**
+     * Method to add score of the candidate.
+     * @param score double
+     */
+    public void addScore(double score) {
+        this.score += score;
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.jmorenov.tweetsccore.candidates;
 
 import com.jmorenov.tweetsccore.extra.OOV;
+import com.github.jfasttext.JFastText;
 
 import java.util.List;
 
@@ -10,11 +11,15 @@ import java.util.List;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class FastTextCandidatesMethod extends CandidatesMethod {
+    private JFastText jft;
+
     /**
      * Constructor of the class.
      */
     public FastTextCandidatesMethod() {
+        jft = new JFastText();
 
+        //jft.loadModel();
     }
 
     /**
