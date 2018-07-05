@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class CandidatesGeneratorTest {
     @Test
-    public void freelingTokenizerShouldReturnTheCorrectResult() {
+    public void candidatesGeneratorShouldReturnTheCorrectResult() {
         List<OOV> oovs = new ArrayList<>();
         oovs.add(new OOV("illo", 0, 3));
         oovs.add(new OOV("ke", 5, 6));
@@ -29,8 +29,8 @@ public class CandidatesGeneratorTest {
 
         List<OOV> oovsWithCandidates = candidatesGenerator.generateCandidates(oovs);
 
-        assertEquals("failure - the generation of candidates is incorrect", 0, oovsWithCandidates.get(0).getCandidates().size());
-        assertEquals("failure - the generation of candidates is incorrect", 9, oovsWithCandidates.get(1).getCandidates().size());
-        assertEquals("failure - the generation of candidates is incorrect", 12, oovsWithCandidates.get(2).getCandidates().size());
+        assertEquals("failure - the generation of candidates is incorrect", 162, oovsWithCandidates.get(0).getCandidates().size());
+        assertEquals("failure - the generation of candidates is incorrect", 200, oovsWithCandidates.get(1).getCandidates().size());
+        assertEquals("failure - the generation of candidates is incorrect", 260, oovsWithCandidates.get(2).getCandidates().size());
     }
 }

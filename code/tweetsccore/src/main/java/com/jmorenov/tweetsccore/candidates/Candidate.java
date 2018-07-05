@@ -59,8 +59,6 @@ public class Candidate implements Comparable<Candidate> {
      */
     @Override
     public int compareTo(Candidate candidate) {
-        return this.getScore() < candidate.getScore() ? 1
-                : this.getScore() < candidate.getScore() ? -1
-                : 0;
+        return Double.compare(candidate.getScore(), this.getScore());
     }
 }

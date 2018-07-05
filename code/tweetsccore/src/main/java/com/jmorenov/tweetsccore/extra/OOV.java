@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
-public class OOV {
+public class OOV implements Comparable<OOV> {
     private Annotation annotation = Annotation.Unknown;
     private String correction;
     private Token token;
@@ -99,10 +99,32 @@ public class OOV {
     }
 
     /**
+     * Method to add candidates of an OOV.
+     * @param candidates List of Candidate
+     */
+    public void addAllCandidates(List<Candidate> candidates) {
+        if (this.candidates != null) {
+            this.candidates.addAll(candidates);
+        } else {
+            this.setCandidates(candidates);
+        }
+    }
+
+    /**
      * Method to get the candidates of an OOV.
      * @return List of Candidate
      */
     public List<Candidate> getCandidates() {
         return candidates;
+    }
+
+    /**
+     * Method to compare two OOVs.
+     * @param oov OOV
+     * @return int
+     */
+    @Override
+    public int compareTo(OOV oov) {
+        return Integer.compare(this.getStartPosition(), oov.getStartPosition());
     }
 }

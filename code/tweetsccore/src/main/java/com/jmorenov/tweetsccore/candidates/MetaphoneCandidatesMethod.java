@@ -47,8 +47,6 @@ public class MetaphoneCandidatesMethod extends CandidatesMethod {
 
         try {
             String phoneticWord = getPhoneticWord(oov.getToken());
-            String word = phoneticWordsDictionaryMap.get("camión");
-
             Iterator it = phoneticWordsDictionaryMap.keySet().iterator();
 
             while(it.hasNext()) {
@@ -85,7 +83,9 @@ public class MetaphoneCandidatesMethod extends CandidatesMethod {
      * @throws Exception when error executing the script
      */
     private String getPhoneticWord(String word) throws Exception {
-        String command = "python " + Paths.get("src","main","resources", "phonetic_algorithms_es.py").toAbsolutePath() + " " + word;
+        java.io.File tempPath = File.createResourceTempFile("phonetic_algorithms_es.py", "py");
+        String scriptTempPath = ((java.io.File) tempPath).getAbsolutePath();
+        String command = "python " + scriptTempPath + " " + word;
         Process processScript = Runtime.getRuntime().exec(command);
         BufferedReader stdOutput = new BufferedReader(new InputStreamReader(processScript.getInputStream()));
         BufferedReader stdError = new BufferedReader(new InputStreamReader(processScript.getErrorStream()));

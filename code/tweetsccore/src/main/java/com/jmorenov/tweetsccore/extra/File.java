@@ -71,4 +71,34 @@ public class File {
 
         return data;
     }
+
+    /**
+     * Method to create a temp file from a resource.
+     * @param resourcePath String
+     * @return File
+     */
+    public static java.io.File createResourceTempFile(String resourcePath, String extension) {
+        try {
+            InputStream in = ClassLoader.getSystemClassLoader().getResourceAsStream(resourcePath);
+            if (in == null) {
+                return null;
+            }
+
+            java.io.File tempFile = java.io.File.createTempFile(String.valueOf(in.hashCode()), "." + extension);
+            tempFile.deleteOnExit();
+
+            try (java.io.FileOutputStream out = new java.io.FileOutputStream(tempFile)) {
+                //copy stream
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                while ((bytesRead = in.read(buffer)) != -1) {
+                    out.write(buffer, 0, bytesRead);
+                }
+            }
+            return tempFile;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

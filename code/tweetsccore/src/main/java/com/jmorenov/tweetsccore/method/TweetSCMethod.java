@@ -37,7 +37,7 @@ public class TweetSCMethod extends Method {
         List<CandidatesMethod> methods = new ArrayList<>();
 
         methods.add(new LevenshteinFSTCandidatesMethod());
-        //methods.add(new MetaphoneCandidatesMethod());
+        methods.add(new MetaphoneCandidatesMethod());
         //methods.add(new FastTextCandidatesMethod());
 
         candidatesGenerator = new CandidatesGenerator(methods);
@@ -88,7 +88,6 @@ public class TweetSCMethod extends Method {
         oovList.addAll(oovs_Unknown);
 
         tweetCorrected.setOOVWords(oovList);
-        tweetCorrected.computeCorrectedText();
 
         return tweetCorrected;
     }
@@ -108,7 +107,7 @@ public class TweetSCMethod extends Method {
      * @return OOV
      */
     private OOV correctOOV(OOV oov) {
-        if (oov.getCandidates().get(0).getScore() >= 0.7) {
+        if (oov.getCandidates().size() > 0 && oov.getCandidates().get(0).getScore() >= 0.7) {
             oov.setCorrection(oov.getCandidates().get(0).getCandidate());
             oov.setAnnotation(Annotation.Variation);
         } else {

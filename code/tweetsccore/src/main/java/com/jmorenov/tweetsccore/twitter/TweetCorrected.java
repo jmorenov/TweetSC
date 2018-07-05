@@ -3,6 +3,7 @@ package com.jmorenov.tweetsccore.twitter;
 import com.jmorenov.tweetsccore.extra.Annotation;
 import com.jmorenov.tweetsccore.extra.OOV;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,7 +12,6 @@ import java.util.List;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class TweetCorrected extends Tweet {
-    private String correctedText = null;
     private List<OOV> OOVWords;
 
     /**
@@ -52,15 +52,7 @@ public class TweetCorrected extends Tweet {
      * @return String the corrected text
      */
     public String getCorrectedText() {
-        return this.correctedText;
-    }
-
-    /**
-     * Method to set the corrected tweet.
-     * @param correctedText the corrected text
-     */
-    public void setCorrectedText(String correctedText) {
-        this.correctedText = correctedText;
+        return this.computeCorrectedText();
     }
 
     /**
@@ -69,6 +61,7 @@ public class TweetCorrected extends Tweet {
      */
     public void setOOVWords(List<OOV> OOVWords) {
         this.OOVWords = OOVWords;
+        Collections.sort(this.OOVWords);
     }
 
     /**
@@ -111,22 +104,30 @@ public class TweetCorrected extends Tweet {
     }
 
     /**
-     * Method to set the corrected text from the OOV words.
+     * Method to compute the corrected text from the OOV words.
+     * @return String with the corrected text
      */
-    public void computeCorrectedText() {
+    private String computeCorrectedText() {
+        String correctedText = getText();
+
         if (getOOVWords() != null && getOOVWords().size() > 0) {
-            correctedText = getText();
-            StringBuilder correctedTextBuffer = new StringBuilder(correctedText);
+            int diff = 0;
 
             for (OOV oov : getOOVWords()) {
                 if (oov.getAnnotation() == Annotation.Variation) {
-                    correctedTextBuffer.replace(oov.getStartPosition(), oov.getEndPosition(), oov.getCorrection());
+                    if (oov.getStartPosition() == 0) {
+                        correctedText = oov.getCorrection() + correctedText.substring(oov.getEndPosition() + diff, correctedText.length());
+                    }else {
+                        correctedText = correctedText.substring(0, oov.getStartPosition() + diff)
+                                + oov.getCorrection()
+                                + correctedText.substring(oov.getEndPosition() + diff, correctedText.length());
+                    }
 
-                    correctedText = correctedTextBuffer.toString();
+                    diff += oov.getCorrection().length() - oov.getToken().length();
                 }   
             }
-        } else {
-            correctedText = getText();
         }
+
+        return correctedText;
     }
 }

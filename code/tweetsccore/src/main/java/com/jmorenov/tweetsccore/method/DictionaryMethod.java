@@ -68,8 +68,6 @@ public class DictionaryMethod extends Method {
             oov.setCorrection(correctedOOV.getCorrection());
         }
 
-        tweetCorrected.computeCorrectedText();
-
         return tweetCorrected;
     }
 

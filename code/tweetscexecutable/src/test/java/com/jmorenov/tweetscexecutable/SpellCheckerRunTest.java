@@ -24,7 +24,7 @@ public class SpellCheckerRunTest {
 
     @Test
     public void spellcheckerRunWithTweetSCMethodShouldReturnTheCorrectionOfAText() {
-        String text = "Hola mi nombre es Javier.";
+        String text = "Hola mi nomvre es Javier.";
         String[] args = {"-text", text, "-method", "TweetSCMethod"};
 
         try {

@@ -31,7 +31,7 @@ public class CandidatesGenerator {
             for (OOV oov : oovs) {
                 List<Candidate> candidates = method.generateCandidates(oov);
 
-                oov.setCandidates(candidates);
+                oov.addAllCandidates(candidates);
             }
         }
 
