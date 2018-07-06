@@ -1,10 +1,12 @@
 # TweetSC
 Tweet Spell Checker (TweetSC) is a spell checker for tweets. It corrects errors in a Spanish short text, e.g., a Tweet.
 
-## How to build / Requirements
+## How to build
 
+### Minimum requirements
 - Java 1.8
-- Gradle
+- Gradle 4.4
+- Python 2.7
 
 ### Linux/Mac
 ```
@@ -32,10 +34,10 @@ java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
 ```
 java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
     -workingDirectory evaluation \
-    -annotatedFile tweet-norm-dev10_annotated.txt \
-    -tweetsFile tweet-norm-dev10.txt \
-    -resultFile results-test-dev10.txt \
-    -method DictionaryMethod \
+    -annotatedFile tweet-norm-dev100_annotated.txt \
+    -tweetsFile tweet-norm-dev100.txt \
+    -resultFile results-dev100.txt \
+    -method TweetSCMethod \
     -repetitions 1
 ```
 
