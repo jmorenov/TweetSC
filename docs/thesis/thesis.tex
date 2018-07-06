@@ -430,21 +430,45 @@ El corpus utilizado es el mismo que en la tarea compartida Tweet-Norm 2013 \cite
 Nuestro gold standard ha sido el sistema propuesto RAE \cite{porta:2013} en Tweet-Norm 2013 \cite{tweetnorm} donde consiguieron un resultado de 0.781 de precisión. Su sistema se basa en trasductores de estados finitos con pesos. 
 
 \subsection{Experimentos}\label{sec:experimentos}
-(Experimentos realizados)
+\begin{table}[htb]
+\centering
+\caption{Resultados de ejecución de mi sistema (DictionaryMethod y TweetSCMethod) y comparación con resultados del sistema RAE \cite{porta:2013} que obtuvo los mejores resultado en la tarea Tweet Norm 2013\cite{alegria:2013}.}
+\label{table:results}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+\textbf{Método} & \textbf{N} & \textbf{Positivos} & \textbf{Negativos} & \textbf{\textit{Accurancy}} & \textbf{Tiempo de ej.} \\ 
+\hline 
+DictionaryMethod & 10 & • & • & • & • \\ 
+\hline 
+DictionaryMethod & 100 & • & • & • & • \\ 
+\hline 
+DictionaryMethod & 500 & • & • & • & • \\ 
+\hline 
+TweetSCMethod & 10 & • & • & • & • \\ 
+\hline 
+TweetSCMethod & 100 & • & • & • & • \\ 
+\hline 
+TweetSCMethod & 500 & • & • & • & • \\ 
+\hline 
+Sistema RAE & ? & • & • & • & • \\ 
+\hline 
+\end{tabular}
+\end{table}
 
-\section{Conclusiones}\label{sec:conclusiones}
-El proyecto realizado está compuesto de una parte de investigación, cómo se demuestra con el estado del arte y las diferentes soluciones que se han ido realizando hasta llegar a nuestra solución final. Además de la otra parte de desarrollo e implementación de software, ofrenciéndolo para todos en código abierto y en una aplicación web \cite{tweetscweb}.\\
+Cómo se puede observar en la tabla \ref{table:results} se muestran los resultados de mis dos métodos desarrollados, siendo DictionaryMethod la primera versión de mi sistema y consiste en un método básico de corrección con diccionarios, explicado en la \hyperref[sec:solucionpropuesta]{sección 3}. TweetSCMethod es la versión final de mi solución.\\
 
-Este desarrollo software se ha dividido en tres componentes o módulos:
-\begin{itemize}
-	\item TweetSCCore: Núcleo del proyecto con la funcionalidad para corregir textos de Twitter.
-	\item TweetSCWeb: Aplicación web para corregir textos.
-	\item TweetSCExecutable: Ejecutable java para corregir textos desde línea de comandos.
-\end{itemize}
-Se puede concluir que nuestro objetivo era construir un corrector de texto para Twitter (\hyperref[sec:objetivos]{sección 1.2}) y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{sección 3} y \hyperref[sec:implementacion]{sección 4}.
+La ejecución se realiza sobre tres conjuntos de tweets: 10, 100 y 500. Los resultados que se ven en la tabla son: valores positivos, negativos, errores, \textit{accurancy} y tiempo de ejecución.
 
-\section{Líneas Futuras}\label{sec:lineasfuturas}
-Las líneas futuras son muy ámplias ya que estamos en un tema bastante reciente, sobre todo en español cómo se puede ver en el \hyperref[sec:estadodelarte]{sección 2}, y los resultados se pueden mejorar de bastantes formas. Centrándonos en nuestro sistema una mejora futura sería el añadir contexto a los tweets a partir de sus \textit{hashtags}, usuarios, imágenes o emoticonos; de forma que se pudiera reducir el conjunto de candidatos o añadir nuevos a partir de estos datos. También se podría realizar un análisis de sentimientos sobre el tweet después de normalizar por si se pudiera mejorar la corrección de algún OOV.
+\section{Conclusiones y líneas futuras}\label{sec:conclusiones}
+Este Trabajo de Fin de Máster ha diseñado e implementado un corrector de textos en español en Twitter. El trabajo ha tenido una componente de investigación, y en algunos aspectos se ha ido más allá del estado arte, implementando las técnicas: Word2Vec (específicamente fastText), una FST con la distancia Levenshtein, el algoritmo del metáfono para realizar similaridad fonética entre palabras y un modelo del lenguaje N-grama. El sistema se ha implementado, es plenamente funcional y su código está accesible en \url{https://github.com/jmorenov/TweetSC}. Además, es posible verlo en acción en la web \url{http://jmorenov.github.io/TweetSC/}.\\
+
+Se puede concluir que nuestro objetivo era construir un corrector de texto para Twitter (\hyperref[sec:objetivos]{sección 1.2}), juntos con los subobjetivos, y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{sección 3} y \hyperref[sec:implementacion]{sección 4}.\\
+
+Los resultados en los experimentos han sido de menor calidad que el sistema RAE con el que se han comparado \cite{porta:2013}, un x\% inferiores en \textit{accurancy} con el conjunto de 500 tweets. Tras observar los errores detalladamente en los resultados he detectado que la mayoría de ellos proviene en la detección de OOV (sobretodo en palabras de habla inglesa o anglicismos) y en el ranking (la función de distancia y el modelo del lenguaje no tiene un funcionamiento óptimo).\\
+
+Este sistema tiene proyección para mejorar estos resultados debido a que se ha diseñado de forma que sea posible añadir nuevos métodos tanto para generar candidatos cómo para realizar el ranking de los mismos o detectar palabras OOV. La primera mejora a realizar sería sobre el modelo del lenguaje N-grama para conseguir un buen funcionamiento del ranking.\\
+
+Las líneas futuras son muy amplias ya que estamos en un tema bastante reciente, sobre todo en español cómo se puede ver en el \hyperref[sec:estadodelarte]{sección 2}, y los resultados se pueden mejorar de bastantes formas. Centrándonos en nuestro sistema una mejora futura sería el añadir contexto a los tweets a partir de sus \textit{hashtags}, usuarios, imágenes o emoticonos; de forma que se pudiera reducir el conjunto de candidatos o añadir nuevos a partir de estos datos. También se podría realizar un análisis de sentimientos sobre el tweet después de normalizar por si se pudiera mejorar la corrección de algún OOV.
 
 \section{TweetSCCore Documentación del código (Java Documentation)}\label{sec:tweetsccorejavadoc}
 \input{tweetsccore_javadoc}
