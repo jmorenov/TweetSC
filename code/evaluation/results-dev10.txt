@@ -8,22 +8,23 @@
 	walking 0 Walking
 	dead 0 Dead
 318806604940181505
-	esquivocao 0 equivocaos
+	esquivocao 0 he_equivocado
 	donald 0 Donald
 	piolin 0 piolan
 318776809267290113
-	paluegos 0 pliegos
-	fanegol 0 anego
+	paluegos 0 palos
+	fanegol 0 fango
 	jajajajajajajajajjajajajajajaja 2 -
-	meoooo 0 mejoro
+	meoooo 0 meo
 318954900933464066
 	UTC 1 -
-	C 2 -
+	Máx 0 máxima
+	Mín 0 mínima
 318728946764103680
-	xq 0 la
-	pasao 0 paso
-	to 0 toé
-	porai 0 para
-	jajaja 0 ajara
+	xq 0 porque
+	pasao 0 pasado
+	to 0 todo
+	porai 0 por_ahí
+	jajaja 0 jauja
 318874108848926720
 	Miriam 1 -

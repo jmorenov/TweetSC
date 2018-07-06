@@ -8,7 +8,7 @@ Positives: 6
 Negatives: 10
 Errors: 4
 Accurancy: 31.578947
-Execution time: 1.920436583
+Execution time: 1.889993785
 
 
 Data: 100
@@ -17,7 +17,37 @@ Positives: 18
 Negatives: 82
 Errors: 39
 Accurancy: 15.652174
-Execution time: 7.321829933
+Execution time: 7.70552331
+
+
+Data: 500
+Tweet Norm 2013 evaluation result:
+Positives: 131
+Negatives: 405
+Errors: 162
+Accurancy: 21.510674
+Execution time: 18.926561766
+
+
+-----------------------------------------------------------
+TweetSCMethod:
+
+Data: 10
+Tweet Norm 2013 evaluation result:
+Positives: 11
+Negatives: 5
+Errors: 4
+Accurancy: 57.894737
+Execution time: 4.502591966
+
+
+Data: 100
+Tweet Norm 2013 evaluation result:
+Positives: 23
+Negatives: 77
+Errors: 39
+Accurancy: 20.0
+Execution time: 45.118585262
 
 
 Data: 500
@@ -26,6 +56,6 @@ Positives: 122
 Negatives: 423
 Errors: 160
 Accurancy: 20.03284
-Execution time: 229.074486512
+Execution time: 227.438954491
 
 
