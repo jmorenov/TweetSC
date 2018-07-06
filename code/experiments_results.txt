@@ -1,0 +1,31 @@
+Tweet Norm 2013:
+
+DictionaryMethod:
+
+Data: 10
+Tweet Norm 2013 evaluation result:
+Positives: 6
+Negatives: 10
+Errors: 4
+Accurancy: 31.578947
+Execution time: 1.920436583
+
+
+Data: 100
+Tweet Norm 2013 evaluation result:
+Positives: 18
+Negatives: 82
+Errors: 39
+Accurancy: 15.652174
+Execution time: 7.321829933
+
+
+Data: 500
+Tweet Norm 2013 evaluation result:
+Positives: 122
+Negatives: 423
+Errors: 160
+Accurancy: 20.03284
+Execution time: 229.074486512
+
+
