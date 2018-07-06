@@ -432,27 +432,27 @@ Nuestro gold standard ha sido el sistema propuesto RAE \cite{porta:2013} en Twee
 \subsection{Experimentos}\label{sec:experimentos}
 \begin{table}[htb]
 \centering
-\caption{Resultados de ejecución de mi sistema (DictionaryMethod y TweetSCMethod) y comparación con resultados del sistema RAE \cite{porta:2013} que obtuvo los mejores resultado en la tarea Tweet Norm 2013\cite{alegria:2013}.}
-\label{table:results}
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-\textbf{Método} & \textbf{N} & \textbf{Positivos} & \textbf{Negativos} & \textbf{\textit{Accurancy}} & \textbf{Tiempo de ej.} \\ 
+\textbf{Método} & \textbf{N} & \textbf{Positivos} & \textbf{Negativos} & \textbf{Errores} & \textbf{\textit{Accurancy (\%)}} & \textbf{Tiempo(s)} \\ 
 \hline 
-DictionaryMethod & 10 & • & • & • & • \\ 
+DictionaryM & 10 & 6 & 10 & 4 & 31.578 & 1.889 \\ 
 \hline 
-DictionaryMethod & 100 & • & • & • & • \\ 
+DictionaryM & 100 & 18 & 82 & 39 & 15.652 & 7.705 \\ 
 \hline 
-DictionaryMethod & 500 & • & • & • & • \\ 
+DictionaryM & 500 & 131 & 405 & 162 & 21.510 & 18.926 \\ 
 \hline 
-TweetSCMethod & 10 & • & • & • & • \\ 
+TweetSCM & 10 & 11 & 5 & 4 & 57.894 & 4.502 \\ 
 \hline 
-TweetSCMethod & 100 & • & • & • & • \\ 
+TweetSCM & 100 & 23 & 77 & 39 & 20.0 & 45.118 \\ 
 \hline 
-TweetSCMethod & 500 & • & • & • & • \\ 
+TweetSCM & 500 & 122 & 423 & 160 & 20.032 & 227.438 \\ 
 \hline 
-Sistema RAE & ? & • & • & • & • \\ 
+Sistema RAE & - & - & - & - & 78.1 & - \\ 
 \hline 
 \end{tabular}
+\caption{Resultados de ejecución de mi sistema (DictionaryMethod y TweetSCMethod) y comparación con resultados del sistema RAE \cite{porta:2013} que obtuvo los mejores resultado en la tarea Tweet Norm 2013\cite{alegria:2013}.}
+\label{table:results}
 \end{table}
 
 Cómo se puede observar en la tabla \ref{table:results} se muestran los resultados de mis dos métodos desarrollados, siendo DictionaryMethod la primera versión de mi sistema y consiste en un método básico de corrección con diccionarios, explicado en la \hyperref[sec:solucionpropuesta]{sección 3}. TweetSCMethod es la versión final de mi solución.\\
