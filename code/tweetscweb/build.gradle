@@ -64,3 +64,10 @@ test {
 		logger.lifecycle("test: " + descriptor + ": " + result )
 	}
 }
+
+appengine {
+	deploy {
+		version = "GCLOUD_CONFIG"
+		project = "GCLOUD_CONFIG"
+	}
+}

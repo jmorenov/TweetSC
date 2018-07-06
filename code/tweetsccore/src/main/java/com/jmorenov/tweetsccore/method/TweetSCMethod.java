@@ -8,7 +8,6 @@ import com.jmorenov.tweetsccore.extra.Token;
 import com.jmorenov.tweetsccore.preprocess.ApplyRules;
 import com.jmorenov.tweetsccore.preprocess.ApplyRulesResult;
 import com.jmorenov.tweetsccore.tokenizer.SimpleTokenizer;
-import com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer;
 import com.jmorenov.tweetsccore.tokenizer.Tokenizer;
 import com.jmorenov.tweetsccore.twitter.Tweet;
 import com.jmorenov.tweetsccore.twitter.TweetCorrected;
