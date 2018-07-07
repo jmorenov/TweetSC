@@ -113,3 +113,7 @@ ENV/
 
 *.iml
 *.class
+
+*_javadoc*.tex
+*_javadoc.tex.map
+
