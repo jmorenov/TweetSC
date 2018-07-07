@@ -7,7 +7,7 @@ import com.jmorenov.tweetsccore.extra.OOVDetector;
 import com.jmorenov.tweetsccore.extra.Token;
 import com.jmorenov.tweetsccore.preprocess.ApplyRules;
 import com.jmorenov.tweetsccore.preprocess.ApplyRulesResult;
-import com.jmorenov.tweetsccore.tokenizer.StanfordNLPTokenizer;
+import com.jmorenov.tweetsccore.tokenizer.SimpleTokenizer;
 import com.jmorenov.tweetsccore.tokenizer.Tokenizer;
 import com.jmorenov.tweetsccore.twitter.Tweet;
 import com.jmorenov.tweetsccore.twitter.TweetCorrected;
@@ -31,7 +31,7 @@ public class TweetSCMethod extends Method {
      * Constructor of the class.
      */
     public TweetSCMethod() {
-        tokenizer = new StanfordNLPTokenizer();
+        tokenizer = new SimpleTokenizer();
         applyRules = new ApplyRules();
         oovDetector = new OOVDetector();
         List<CandidatesMethod> methods = new ArrayList<>();
