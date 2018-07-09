@@ -1,8 +1,16 @@
 319106439526367234
+	se 0 ja
+	a 0 ja
+	a 0 ah
+	 2 -
 318676223985336320
 	Batman 1 -
 	jdjejdkahflwkdjwpvqh 2 -
 318596947432841216
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 319132721748267009
 318819189580263425
 	walking 0 Walking
@@ -11,10 +19,12 @@
 	esquivocao 0 he_equivocado
 	donald 0 Donald
 	piolin 0 piolan
+	ya 0 ya
 318776809267290113
 	paluegos 0 palos
 	fanegol 0 fango
-	jajajajajajajajajjajajajajajaja 2 -
+	jajajajajajajajajjajajajajajaja 0 ja
+	jajajajajajajajajjajajajajajaja 0 ja
 	meoooo 0 meo
 318954900933464066
 	UTC 1 -
@@ -25,6 +35,7 @@
 	pasao 0 pasado
 	to 0 todo
 	porai 0 por_ahí
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 318874108848926720
 	Miriam 1 -

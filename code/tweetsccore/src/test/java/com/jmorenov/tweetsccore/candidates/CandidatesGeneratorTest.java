@@ -30,7 +30,7 @@ public class CandidatesGeneratorTest {
         List<OOV> oovsWithCandidates = candidatesGenerator.generateCandidates(oovs);
 
         assertEquals("failure - the generation of candidates is incorrect", 162, oovsWithCandidates.get(0).getCandidates().size());
-        assertEquals("failure - the generation of candidates is incorrect", 200, oovsWithCandidates.get(1).getCandidates().size());
+        assertEquals("failure - the generation of candidates is incorrect", 201, oovsWithCandidates.get(1).getCandidates().size());
         assertEquals("failure - the generation of candidates is incorrect", 260, oovsWithCandidates.get(2).getCandidates().size());
     }
 }

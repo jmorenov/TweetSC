@@ -23,7 +23,9 @@ public class ApplyRules {
     private static String rulesFileName = "preprocess/rules.txt";
     private Rules rules;
     private static String[] entityFiles = {"entities.txt"};
+    private static String[] dictionaryFiles = {"aspellNormalized.dict"};
     private List<String> entitiesWords;
+    private List<String> dictionaryWords;
 
     /**
      * Constructor of the class.
@@ -32,6 +34,7 @@ public class ApplyRules {
         try {
             rules = new Rules(rulesFileName);
 
+            readDictionariesWords();
             readEntitiesWords();
         } catch (IOException ex) {
             rules = null;
@@ -78,7 +81,9 @@ public class ApplyRules {
                 boolean oovAdded = false;
 
                 for (Rule rule : rules.getRules()) {
-                    if (token.getText().matches(rule.getRegex())) {
+                    if (!this.dictionaryWords.contains(token.getText())
+                            && !this.entitiesWords.contains(token.getText())
+                            && token.getText().matches(rule.getRegex())) {
                         OOV oov = new OOV(token);
 
                         oov.setCorrection(rule.getResult());
@@ -131,6 +136,18 @@ public class ApplyRules {
 
         for (String file : entityFiles) {
             this.entitiesWords.addAll(File.readDictionaryFromResources(file));
+        }
+    }
+
+    /**
+     * Method to read the dictionaries from the files.
+     * @throws IOException when the dictionary file is not found
+     */
+    private void readDictionariesWords() throws IOException {
+        this.dictionaryWords = new ArrayList<>();
+
+        for (String file : dictionaryFiles) {
+            this.dictionaryWords.addAll(File.readDictionaryFromResources(file));
         }
     }
 }

@@ -13,6 +13,6 @@ public class RulesTest {
         String rulesFile = "preprocess/rules.txt";
         Rules rules = new Rules(rulesFile);
 
-        assertEquals("Error processing the rules", 6, rules.getRules().size());
+        assertEquals("Error processing the rules", 161, rules.getRules().size());
     }
 }

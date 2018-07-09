@@ -43,10 +43,7 @@ public class TweetNormEvaluatorTest {
 
         TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new TweetSCMethod());
 
-        /*assertEquals("failure - the result is incorrect", 12, evaluationResult.getErrors());
-        assertEquals("failure - the result is incorrect", 10, evaluationResult.getNegatives());
-        assertEquals("failure - the result is incorrect", 5, evaluationResult.getPositives());*/
-        assertEquals("failure - the result is incorrect", (float) 57.894737, evaluationResult.getAccurancy());
+        assertEquals("failure - the result is incorrect", (float) 63.157894, evaluationResult.getAccurancy());
     }
 
     @Test
@@ -62,10 +59,7 @@ public class TweetNormEvaluatorTest {
 
         TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new TweetSCMethod());
 
-        /*assertEquals("failure - the result is incorrect", 0, evaluationResult.getErrors());
-        assertEquals("failure - the result is incorrect", 0, evaluationResult.getNegatives());
-        assertEquals("failure - the result is incorrect", 2, evaluationResult.getPositives());*/
-        assertEquals("failure - the result is incorrect", (float) 19.35484, evaluationResult.getAccurancy());
+        assertEquals("failure - the result is incorrect", (float) 32.173912, evaluationResult.getAccurancy());
     }
 
     @Test
@@ -81,9 +75,6 @@ public class TweetNormEvaluatorTest {
 
         TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new TweetSCMethod());
 
-        /*assertEquals("failure - the result is incorrect", 0, evaluationResult.getErrors());
-        assertEquals("failure - the result is incorrect", 0, evaluationResult.getNegatives());
-        assertEquals("failure - the result is incorrect", 2, evaluationResult.getPositives());*/
-        assertEquals("failure - the result is incorrect", (float) 21.745789, evaluationResult.getAccurancy());
+        assertEquals("failure - the result is incorrect", (float) 26.43678, evaluationResult.getAccurancy());
     }
 }

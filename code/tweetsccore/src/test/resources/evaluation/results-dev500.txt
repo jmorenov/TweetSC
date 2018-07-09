@@ -1,8 +1,16 @@
 319106439526367234
+	se 0 ja
+	a 0 ja
+	a 0 ah
+	 2 -
 318676223985336320
 	Batman 1 -
 	jdjejdkahflwkdjwpvqh 2 -
 318596947432841216
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 319132721748267009
 318819189580263425
 	walking 0 Walking
@@ -11,10 +19,12 @@
 	esquivocao 0 he_equivocado
 	donald 0 Donald
 	piolin 0 piolan
+	ya 0 ya
 318776809267290113
 	paluegos 0 palos
 	fanegol 0 fango
-	jajajajajajajajajjajajajajajaja 2 -
+	jajajajajajajajajjajajajajajaja 0 ja
+	jajajajajajajajajjajajajajajaja 0 ja
 	meoooo 0 meo
 318954900933464066
 	UTC 1 -
@@ -25,131 +35,165 @@
 	pasao 0 pasado
 	to 0 todo
 	porai 0 por_ahí
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 318874108848926720
 	Miriam 1 -
-318803419966078976
-	Not 0 Noé
-	Available 0 bailable
 318672260078661632
+	se 0 ja
+	 2 -
 	Ok 2 -
 	Tambien 0 cambien
 318666407397163008
 318739742562865154
+	aaa 0 aa
 	aaa 0 a
+	aaa 0 á
+	aaa 0 ja
+	aaa 0 ah
 	mooovil 0 moviola
 	caasi 0 casi
-	bateriaa 0 batearais
-	Adioos 0 dios
-	twitteer 0 titar
-	adid 0 ardid
+	twitteer 0 Twitter
+	adios 2 -
 	Justin 2 -
 319006566965723136
+	a 0 ja
+	a 0 ah
 	d 0 da
 	tds 0 todos
-	compi 0 compila
+	compi 0 compañero
+	Cuidate 0 cuidarte
 319097386939076609
 	ooooooooohhhhh 2 -
 	tambien 0 tambienes
+	ya 0 ya
 319057077542727680
+	 2 -
 319081130416549890
 	q 0 que
 	siii 0 si
+	a 0 ja
+	a 0 ah
 	nadaa 0 nada_a
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 318835281417621504
 	q 0 que
 319138659175641089
 	Qiero 0 fiero
+	a 0 ja
+	a 0 ah
 319115106892005377
-	aaah 0 aba
+	aaah 0 ah
 	buenoo 0 bueno_o
 	esqe 0 ese
-	pa 0 pan
-	qe 2 -
-	jajaja 0 jauja
+	pa 0 para
+	qe 0 que
+	jajaja 0 ja
+	jajaja 0 ja
 318810133574586368
-	jajajaja 2 -
+	jajajaja 0 ja
+	jajajaja 0 ja
 	sepaaas 0 separabas
 319100975136780288
+	ya 0 ya
 318597777674358784
 	k 0 kV
 	putada 0 puta_da
 	d 0 da
 	romeria 0 romera
 	to 0 todo
-	ole 2 -
-	ole 2 -
+	ole 0 olé
+	ole 0 olé
 318847110504132610
-	jajajajaj 2 -
-	jajajajaj 2 -
-318898709410762753
-	Not 0 Noé
-	Available 0 bailable
-318822727983169537
-	Not 0 Noé
-	Available 0 bailable
-318770447523147776
-	Not 0 Noé
-	Available 0 bailable
+	a 0 ja
+	a 0 ah
+	jajajajaj 0 ja
+	jajajajaj 0 ja
+	ya 0 ya
+	ya 0 ya
+	jajajajaj 0 ja
+	jajajajaj 0 ja
 319086455450382336
 	B 2 -
+	a 0 ja
+	a 0 ah
 318757307406229506
-318505573127700480
-	Not 0 Noé
-	Available 0 bailable
 318704999339266051
-	esq 0 es
+	esq 0 es_que
 	cosillas 0 costillas
-	jaajja 0 jauja
+	jaajja 0 ja
+	jaajja 0 ja
 318799396827435011
-319086032937185280
-	Not 0 Noé
-	Available 0 bailable
 318706998424252416
+	se 0 ja
 	yuyu 0 huy
 	xd 0 éxodos
 318512617771634690
 	culpaa 0 culpa_a
 318514719961006083
+	se 0 ja
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 319037076538527744
+	a 0 ja
+	a 0 ah
 	claseee 0 clase
 318486491653357568
+	ya 0 ya
 318919584088469506
+	es 0 ja
 318721870893551617
 	Oins 0 binas
 	q 0 que
 	agustito 0 agustino
 319081607321489409
-	__ 2 -
+	es 0 ja
 319140060182237186
 318720027660546048
 	pokitin 0 potan
+	a 0 ja
+	a 0 ah
 	claseeeesss 0 clases
 318727552585846784
+	se 0 ja
 318908559578509313
 	AMI 2 -
 	JAJAJAJAJAJAJA 2 -
 	xDDDDD 2 -
 318507497193369600
 	maricon 0 maricones
+	se 0 ja
+	a 0 ja
+	a 0 ah
 318851917654671360
+	a 0 ja
+	a 0 ah
 318784166453968896
 319045131976187904
 	tendre 2 -
 318680177620160512
 	ohhh 0 oh
+	 2 -
 319119037802115073
+	es 0 ja
 	asi 0 a_si
 318507931022802944
 	Gaona 0 abona
 318730036519776261
+	es 0 ja
 319017918883049472
 	K 2 -
+	se 0 ja
+	a 0 ja
+	a 0 ah
 318850372955422720
 	jajajpero 2 -
-	esq 0 es
+	esq 0 es_que
 	llamda 0 llama
+	ya 0 ya
 318832461347962880
 	qur 0 quark
 318659894079279104
@@ -159,73 +203,83 @@
 319013015498391552
 	laura 0 laurea
 318757005055623170
+	a 0 ja
+	a 0 ah
 	pais 2 -
-319029520608923650
-	Not 0 Noé
-	Available 0 bailable
+	es 0 ja
 318856354842439680
 	Cri 0 tri
 	Cri 0 tri
 	sara 0 sarao
-319117472148103168
-	Not 0 Noé
-	Available 0 bailable
 318641194592788480
+	ya 0 ya
 319145415310192640
 	tipico 0 ti_pico
-	egocentrico 0 egocentrismo
 	asi 0 a_si
 	pnsao 0 pensado
 	to 0 todo
+	es 0 ja
 	part 2 -
 	d 0 da
-	tb 0 taba
+	tb 0 también
 318825095369990145
+	 2 -
 	Sii 0 bici
+	 2 -
 	Jajajajajajaja 2 -
 	primoo 0 primo_o
-	ajajajjaja 2 -
+	ajajajjaja 0 ja
+	ajajajjaja 0 ja
 	partoo 0 parto_o
+	 2 -
 318566795810336768
 	ker 0 ser
 	aseh 0 as_eh
 319072321627365377
-	jajajaja 2 -
-	tssss 0 tesases
+	jajajaja 0 ja
+	jajajaja 0 ja
+	tssss 0 chis
 	dspue 0 despume
 318722719531294720
-	asinque 0 afinque
-	jajajaja 2 -
 318507463093653505
+	es 0 ja
 	SOI 0 SCSI
 318512599467696128
+	a 0 ja
+	a 0 ah
+	se 0 ja
 318496561569083392
-	pa 0 pan
+	pa 0 para
 318662579226554368
 	Zenia 2 -
 	Z 2 -
 	Zara 2 -
-	jajajajaja 2 -
-318488322114723840
-	Not 0 Noé
-	Available 0 bailable
+	sí 0 ja
+	sí 0 ja
+	jajajajaja 0 ja
+	jajajajaja 0 ja
 318727802662825984
 318624227441905664
 	faltao 0 falta_o
-	pa 0 pan
+	pa 0 para
+	 2 -
 318535821772849152
 	Shine 0 hin
 	Acoustic 0 cáustica
 318501835293986816
 	graciiaaaaa 0 gracia
-	_ 2 -
 318784384754913280
+	a 0 ja
+	a 0 ah
 318772186380902401
 	gym 2 -
+	a 0 ja
+	a 0 ah
 	subreal 0 subráyela
 318760134794944513
 318827345467285504
-	jaja 0 ja_ja
+	jaja 0 ja
+	jaja 0 ja
 	boooonico 0 bonico
 	L 2 -
 319028093010456576
@@ -234,17 +288,15 @@
 318762309285707776
 	pabliukas 0 paliqueas
 	Guti 2 -
-318701030160343041
-	Not 0 Noé
-	Available 0 bailable
 319095785490878465
-	99franka99 0 franca
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 	tuu 0 tu
 	solito 0 so_lito
-	qe 2 -
+	qe 0 que
 	ooogggg 2 -
-	jajajaja 2 -
+	jajajaja 0 ja
+	jajajaja 0 ja
 318732066755850240
 318561208104017922
 	cojones 2 -
@@ -254,40 +306,56 @@
 	q 0 que
 	i 2 -
 	q 0 que
-318840120847507457
-	Not 0 Noé
-	Available 0 bailable
 318830313969180672
 	Ria 2 -
+	se 0 ja
+	a 0 ja
+	a 0 ah
 318682275229335552
-	jajajajajaj 2 -
+	jajajajajaj 0 ja
+	jajajajajaj 0 ja
 	charlita 0 carlita
-	jajaja 0 jauja
+	eh 0 je
+	eh 0 eh
+	jajaja 0 ja
+	jajaja 0 ja
 318882012486307840
 	MONTATE 2 -
 	DIA 2 -
 	PELICULA 2 -
 	LLEGE 2 -
+	 2 -
 318518211677143042
+	a 0 ja
+	a 0 ah
 	ortuella 0 orilla
 318837032908623872
 	Tendre 0 edre
 318509498715222017
 	q 0 que
-	ns 0 nasa
+	ya 0 ya
+	ns 0 nos
 	q 0 que
 318845592648437760
 	JAJAJAJAJJAJAJ 2 -
 318842568731422720
+	ya 0 ya
+	se 0 ja
+	a 0 ja
+	a 0 ah
 	tenho 0 ten
 318640032393072640
+	a 0 ja
+	a 0 ah
+	 2 -
+	a 0 ja
+	a 0 ah
 318653401363800065
-318993548911456256
-	Not 0 Noé
-	Available 0 bailable
 319095482037190656
 	JUUM 2 -
 318500606874632192
+	a 0 ja
+	a 0 ah
 318651222083129344
 	Windows 1 -
 	Phone 0 honre
@@ -295,66 +363,73 @@
 318779805191528448
 	putooo 0 puto
 	dia 0 di_a
+	 2 -
 	q 0 que
 	ascoo 0 asco_o
 319133297462616065
 	fans 2 -
 	tio 0 ti_o
 318489386348052480
+	Mencioname 0 mencionadme
 318715219553697792
+	se 0 ja
 	rie 0 riel
+	 2 -
+	 2 -
 318735263864070144
 318769856369553408
 	ESCUCHAME 2 -
 318493746733932544
-319011023124307968
-	Not 0 Noé
-	Available 0 bailable
 319092814313041920
 318625416770363392
 318591163043028992
 	agusto 0 a_gusto
-318747920759406592
-	Not 0 Noé
-	Available 0 bailable
 319060983224094720
+	sí 0 ja
+	sí 0 ja
 318796391134662657
 318818660221341697
-318694510559391744
-	Not 0 Noé
-	Available 0 bailable
+	se 0 ja
 318815190957301761
+	a 0 ja
+	a 0 ah
 	artando 0 arando
+	se 0 ja
+	a 0 ja
+	a 0 ah
+	 2 -
 319044935552749568
-319064545521987584
-	Not 0 Noé
-	Available 0 bailable
+	a 0 ja
+	a 0 ah
 319074363133554689
 	dia 0 di_a
 	estaras 0 estar_as
 	nosotrs 0 nosotras
 318872348201734147
 	rl 0 rala
+	se 0 ja
 	rie 0 riel
 	miii 0 mi
-319094081345167361
-	Not 0 Noé
-	Available 0 bailable
 318846072099315713
-	jajaaa 0 jauja
+	jajaaa 0 ja
+	jajaaa 0 ja
 	ija 0 ijar
 318728991508951042
 	senti 2 -
 	cosaas 0 cosa_as
-	qe 2 -
+	qe 0 que
 	corazon 0 corazones
 318761345640173568
 318790774613483520
 318501891900313600
 	semama 0 se_mama
+	a 0 ja
+	a 0 ah
 319034550250512384
+	se 0 ja
 318589152847343617
 318741431122546688
+	 2 -
 318872783239122944
 318729597099335681
 	gaupasa 0 guapas
@@ -363,50 +438,68 @@
 	asin 0 a_sin
 318849653405777920
 	Ps 2 -
+	a 0 ja
+	a 0 ah
 	q 0 que
 	d 0 da
 319041557141528576
+	es 0 ja
 	Derrick 2 -
+	a 0 ja
+	a 0 ah
 	Gym 2 -
 318712863718010881
 	AI 2 -
 318767349241102336
 	joe 0 jo_e
-	jejeje 0 jejenes
+	jejeje 0 ja
+	jejeje 0 je
+	jejeje 0 je
 319059065575714817
 318850782101393408
 	iva 0 diva
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 318825959648292865
 318804255769247744
 	q 0 que
 318757581852114945
 	dormistes 0 dormisteis
+	a 0 ja
+	a 0 ah
 	largittaa 0 letargia
 319049631885582336
 318793551037222913
 	Despues 0 espumes
 	visitilla 0 visita
+	 2 -
+	a 0 ja
+	a 0 ah
 	dibujiito 0 dibujo
 318496346061557760
 	BBK 2 -
+	es 0 ja
 318866291358310400
 318852405175394304
 	Richi 0 pichi
+	es 0 ja
 319141755805114368
 318848333126975488
 	nbeeeaaa 0 naba
+	a 0 ja
+	a 0 ah
 	ojiyo 0 joyo
-	D 2 -
 318749874784980992
+	a 0 ja
+	a 0 ah
 	hermaanito 0 herma_anito
 	abandonaa 0 abandona_a
 319100660744327168
+	es 0 ja
 	trompezar 0 trompe_zar
 319042369666306048
-319085483739209728
-	Not 0 Noé
-	Available 0 bailable
+	ah 0 ah
+	ah 0 ah
 318537666113187840
 	K 2 -
 	AKI 0 ANSI
@@ -414,17 +507,15 @@
 318591439376351232
 	lagrima 0 la_grima
 318795898601762816
+	a 0 ja
+	a 0 ah
 	habra 0 habría
 	ke 0 que
 	xDD 0 FDDI
-318730428850790401
-	Not 0 Noé
-	Available 0 bailable
 318654384772890624
-	cao 0 ca_o
 319039006832738305
 318687957731119104
-	francia 2 -
+	se 0 ja
 	haria 0 harija
 318624257976442880
 	quereis 0 quereos
@@ -434,140 +525,169 @@
 318784633514901505
 	queria 0 querida
 	dias 0 di_as
+	 2 -
 319004715373449216
 319125364007915520
 318728082812964865
 	ASDFGGBJKKKL 2 -
 318973108121911296
+	ay 0 ay
 	alegradp 0 alegrad
 	dias 0 di_as
 319124080328589313
+	a 0 ja
+	a 0 ah
 	tii 0 tipi
 319081819037368320
 	despues 0 des_pues
 	paseito 0 pasito
 	simba 2 -
 318788233947398144
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 318632036640387072
 	sii 0 si
 	aver 2 -
+	ya 0 ya
 	kedan 0 cedan
 	asi 0 a_si
-	asik 0 asid
-	ktal 0 tal
-	vosotrs 0 vosotras
+	asik 0 así_que
+	ktal 0 qué_tal
 	besitoo 0 besico
 318876679546236929
-	jajajajajaajaja 2 -
+	jajajajajaajaja 0 ja
+	jajajajajaajaja 0 ja
 318778803419750401
-	cn 0 cana
-	jaja 0 ja_ja
+	cn 0 con
+	13km 2 -
+	jaja 0 ja
+	jaja 0 ja
 319033207255359488
 318654173791019010
 318488275880906753
 	pueblooo 0 pueblo
-319097217795366912
-	Not 0 Noé
-	Available 0 bailable
 318869448255758336
+	a 0 ja
+	a 0 ah
 319041175212417024
-	guapaaa 0 guapa
 	pr 0 pro
 	risitas 0 risas
-	siii 0 si
-	nooo 0 no
-	jajajajaja 2 -
 318824199110152192
+	a 0 ja
+	a 0 ah
 318527291351257089
 	retwitear 0 rehúrtate
+	a 0 ja
+	a 0 ah
 	JEJEJEJEJEJEJEJEJE 2 -
 318502167055052800
 	despues 0 des_pues
-	D 2 -
 318874110992207872
 318775085169254401
+	 2 -
 	Bueh 0 fue
 	Boludeando 0 moldeando
-318486747468152832
-	Not 0 Noé
-	Available 0 bailable
 318815891024400384
 	tambien 0 tambienes
-	jaja 0 ja_ja
+	jaja 0 ja
+	jaja 0 ja
 318811195572383744
 	Alomejor 0 almejar
+	a 0 ja
+	a 0 ah
 	pillao 0 pilla_o
 	chaparron 0 chapar_ron
-	jajajajaaja 2 -
-	P 2 -
+	jajajajaaja 0 ja
+	jajajajaaja 0 ja
 318866743097434112
 	pasaa 0 pasa_a
 	link 0 lino
 319131127149371393
 	k 0 kV
+	a 0 ja
+	a 0 ah
 	k 0 kV
 	akabo 0 acabo
 	d 0 da
 318843407617380352
 	mobil 0 mobiliario
-	em 0 eme
 	vereis 0 viereis
 	gravais 0 gravas
 	jodais 0 jo_dais
 318850084395708416
 	Londres 1 -
-319049359167733762
-	Not 0 Noé
-	Available 0 bailable
+	es 0 ja
+	a 0 ja
+	a 0 ah
 318817076884156416
 	flipo 0 felpo
 	ai 0 aire
 	mai 0 macia
 319082802685571073
-	jajajajajaja 2 -
+	jajajajajaja 0 ja
+	jajajajajaja 0 ja
 	alli 0 allá
-	jajajajaja 2 -
+	jajajajaja 0 ja
+	jajajajaja 0 ja
 318849222017437697
 	Mirian 0 irisan
 	q 0 que
 	po 0 pon
+	a 0 ja
+	a 0 ah
 	zorraica 0 zorra
 318540168938258433
 	teneis 0 te_neis
+	 2 -
+	a 0 ja
+	a 0 ah
 318680716386918401
 	iraaaaaaa 0 ira
-	jajajaa 2 -
-	jejej 0 jebe
+	jajajaa 0 ja
+	jajajaa 0 ja
+	jejej 0 ja
+	jejej 0 je
+	jejej 0 je
 318828842666049536
 	MINI 2 -
 	zodiac 2 -
 318536247930916865
 	dia 0 di_a
-	jaja 0 ja_ja
+	jaja 0 ja
+	jaja 0 ja
+	a 0 ja
+	a 0 ah
 318491728913002496
 	imbeciles 2 -
 319026982086127616
 	Peliculita 0 pelicular
-	cn 0 cana
+	cn 0 con
 318964775973445632
 	mia 0 mi_a
 319143533778972673
 	seguiras 0 seguir_as
 318823828241395712
-	D 2 -
-318807932043137025
-	Not 0 Noé
-	Available 0 bailable
+	así 0 ja
+	así 0 ah
+	es 0 ja
+	a 0 ja
+	a 0 ah
 318832009092939776
 	yam 0 ya
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 	xD 2 -
 319144186228129792
+	ya 0 ya
+	eh 0 je
+	eh 0 eh
 	ke 0 que
+	na 0 nada
 	Jajajjaja 2 -
-319095916046995456
-	Not 0 Noé
-	Available 0 bailable
 318824825864990721
 	dia 0 di_a
 	q 0 que
@@ -583,21 +703,22 @@
 	c0n 0 can
 	buenn 0 buen
 	pien 2 -
-	p 0 pH
 318632879850663936
+	a 0 ja
+	a 0 ah
 	Iker 1 -
 	Diego 1 -
 	Mou 0 tour
 318854363844071424
 318671560724586496
+	a 0 ja
+	a 0 ah
 	tele 2 -
 318821560666423296
-	jajajajaja 2 -
+	jajajajaja 0 ja
+	jajajajaja 0 ja
 	tonnnntica 0 tonante
 	L 2 -
-318879700728569859
-	Not 0 Noé
-	Available 0 bailable
 318835757013929984
 	Clary 2 -
 	leido 0 le_ido
@@ -608,43 +729,69 @@
 318675393869647872
 318669387777339393
 318980426687447040
-	esk 0 es
+	esk 0 es_que
 	empiieza 0 empieza
-	kn 2 -
+	kn 0 con
 	piie 0 pifie
 	sii 0 si
 	jajajajaha 2 -
+	a 0 ja
+	a 0 ah
 	diiios 0 didimios
 	mioo 0 mio_o
 	an 2 -
 	sentao 0 sen_tao
 	mu 0 mua
-	jajajaj 2 -
+	jajajaj 0 ja
+	jajajaj 0 ja
 318509880992477184
-	tequieromucho 2 -
+	eh 0 je
+	eh 0 eh
+	es 0 ja
+	ya 0 ya
+	tequieromucho 0 te_quiero_mucho
+	tequieromucho 0 te_quiero_mucho
 318862028271939584
 	q 0 que
 	mami 0 mamila
 	gh 2 -
 	vo 0 vos
-	fono 2 -
+	a 0 ja
+	a 0 ah
+	fono 0 teléfono
 	mami 0 mamila
+	a 0 ja
+	a 0 ah
 318496178977259520
+	ahí 0 ah
+	ahí 0 ah
+	es 0 ja
 319078133506662400
+	ya 0 ya
 	qedar 0 quedar
 319059271755112449
+	a 0 ja
+	a 0 ah
+	es 0 ja
 	Q 2 -
+	ya 0 ya
 	aqui 0 caqui
 	veranito 0 vera_nito
 318856876072767489
 318846570617532417
 318914346099032064
-	TT 2 -
+	TT 0 Trendig_Topic
+	se 0 ja
 	TWD 2 -
 318859584754307072
-	jajaj 0 jauja
+	jajaj 0 ja
+	jajaj 0 ja
+	se 0 ja
 	asi 0 a_si
 318508012971126785
+	a 0 ja
+	a 0 ah
+	se 0 ja
 319132759027245056
 318755269163233282
 	q 0 que
@@ -652,100 +799,122 @@
 	antoniojajaj 0 antoja
 319030460745383936
 	WordPress 0 urdes
-	I 1 -
 318492485653508096
-318822210208944128
-	Not 0 Noé
-	Available 0 bailable
 319075279601549312
 	q 0 que
+	 2 -
+	 2 -
 	q 0 que
-319141776583692289
-	Not 0 Noé
-	Available 0 bailable
 319089651971403776
 	amol 0 a_mol
 318860383605637122
-	pa 0 pan
+	ya 0 ya
+	pa 0 para
+	se 0 ja
 318846677534507009
 319071747775266817
+	a 0 ja
+	a 0 ah
 	mesecitos 0 mese_citos
 318848840579026945
+	es 0 ja
+	a 0 ja
+	a 0 ah
 	mia 0 mi_a
 318847351215230977
 318721456571822081
 	pobrecillos 0 hombrecillos
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 319133149986705408
+	a 0 ja
+	a 0 ah
 318769189441642496
 	HAHAHAHAHAHA 2 -
-	OMG 2 -
+	OMG 1 -
 	icon 0 icono
 	Justin 2 -
 318837614109151234
 318885002723078144
-	peli 0 pelvis
+	peli 0 pelicula
 	fuando 0 fu_ando
+	a 0 ja
+	a 0 ah
 318757838409310209
 	xaaanadu 0 chalanead
 318821357683105792
-	jajajaa 2 -
+	jajajaa 0 ja
+	jajajaa 0 ja
 318753624614387712
 319107011000295425
 	New 2 -
 	cayenablanca 0 coyundeaban
 	studio 2 -
 318514331773976578
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 	Queva 0 cueva
 	Queva 0 cueva
+	a 0 ja
+	a 0 ah
+	es 0 ja
 319028326989697024
 	i 2 -
 	ninia 0 ninfa
 	aver 2 -
 	t 0 ta
-	muaxh 0 mua
+	muaxh 0 besos
+	 2 -
 319076850393554944
-318916090522632192
-	Not 0 Noé
-	Available 0 bailable
 318892656744861696
 	amoor 0 amor
+	#RT 0 Retweet
 	nesse 0 nesgase
 	link 0 lino
+	 2 -
+	 2 -
 	3x 2 -
+	 2 -
 	Obg 2 -
 318601858862174208
 319107293302112257
 319092286556356608
+	es 0 ja
 318537197571674112
 	wapita 0 apta
 	face 2 -
+	a 0 ja
+	a 0 ah
 	dia 0 di_a
 	q 0 que
-	cn 0 cana
+	cn 0 con
 318873235083108352
 	tintito 0 tintino
 	cesped 0 cese
-	yaa 0 ya_a
 318836476399988737
 	pense 2 -
 	orechio 0 recio
-319082135304679424
-	Not 0 Noé
-	Available 0 bailable
 319041863577374721
 	Aqui 0 quid
 	ticher 0 tilichero
 319109764665733120
 	Pufff 2 -
+	a 0 ja
+	a 0 ah
 	Miii 0 Minix
 	q 0 que
 	Ains 0 Aries
 	kiero 0 fiero
 319134600985182208
 318971797666152449
-	insti 0 instiga
+	insti 0 instituto
 318650187692269568
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 319087222806679552
 318811117583495169
 318827051945713664
@@ -760,27 +929,35 @@
 	idolo 0 ido_lo
 	Jajaja 0 ajaba
 318737297392668674
-	jajajaja 2 -
+	jajajaja 0 ja
+	jajajaja 0 ja
 	diita 0 di_ita
 	maricona 0 mariona
 318496415489867776
+	es 0 ja
 318862896614473728
 	arrepieento 0 arrepiento
 	flipas 0 felpas
 318723711643557889
 	ULTIMAMENTE 2 -
 319126133587197952
+	a 0 ja
+	a 0 ah
+	 2 -
 318632503537713152
 	Buuueno 0 bueno
 	puuues 0 pues
 	laa 0 la_a
-	Roomeeriiia 0 romeriega
 318959524256022528
+	se 0 ja
 318816467925729280
 318792206406258688
 	tambien 0 tambienes
 	muchisimo 0 muchísimo
 319115265638035456
+	ya 0 ya
+	a 0 ja
+	a 0 ah
 319090650874261505
 	noo 2 -
 	otraa 0 otra_a
@@ -789,53 +966,72 @@
 319112642138632192
 	ruleo 0 rule_o
 318711790638862337
-	pa 0 pan
+	pa 0 para
 319132582220554240
+	ya 0 ya
+	a 0 ja
+	a 0 ah
 319088373874712576
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 318664893698015233
 	Cream 0 Creta
 	Mandarine 0 andarines
 	Moham 2 -
 	Ram 0 Raúl
 318663578402058240
-	jajajaj 2 -
+	jajajaj 0 ja
+	jajajaj 0 ja
 319065934323142656
 	Ayayayayyay 2 -
 	pulseritas 0 pulse_ritas
-	jijiji 2 -
+	jijiji 0 ji
 318848163505135616
+	a 0 ja
+	a 0 ah
 	k 0 kV
+	 2 -
 319071752590336000
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 318860193406545920
-	esque 2 -
+	esque 0 es_que
+	esque 0 es_que
 318514191428382720
 	ciu 0 cid
 	envie 0 envide
-	whatsapp 2 -
-	jajaja 0 jauja
+	whatsapp 0 Whatsapp
+	jajaja 0 ja
+	jajaja 0 ja
 318852524478193664
 318784757745995776
 	alegria 0 alegra
+	a 0 ja
+	a 0 ah
 	dia 0 di_a
 319025488855175168
-318823626931593216
-	Not 0 Noé
-	Available 0 bailable
 318854163926745090
+	se 0 ja
 318848679442259968
 	Nochess 0 boches
 	Muacks 0 guacas
 318810717249753088
 318500654605807616
 	aqui 0 caqui
+	se 0 ja
 318808390161793024
-	jajajaja 2 -
+	se 0 ja
+	jajajaja 0 ja
+	jajajaja 0 ja
 318833357788155906
 	teamo 0 te_amo
 	muchisimo 0 muchísimo
+	 2 -
 319118504357928961
 319008928019132416
+	se 0 ja
 318848246686556162
 	pedrin 0 pedirán
 	pedrete 0 perderte
@@ -850,9 +1046,9 @@
 	Phantom 0 anatomía
 	Pain 2 -
 318487548475342848
-	D 2 -
 318831095078588416
-	jajajajajajajjaaj 2 -
+	jajajajajajajjaaj 0 ja
+	jajajajajajajjaaj 0 ja
 	kee 0 lee
 	echoo 0 echo_o
 	polvooooo 0 polvoroso
@@ -860,67 +1056,87 @@
 	dejeis 0 dejes
 	Jaja 0 aja
 318512038508888064
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 	flipo 0 felpo
 319100673201418240
 	duxita 0 bauxita
+	a 0 ja
+	a 0 ah
+	ya 0 ya
 319004225323548672
 	triana 0 trianera
 318828121228992515
 	sandungero 0 sandunguero
-	jajajjaja 2 -
+	jajajjaja 0 ja
+	jajajjaja 0 ja
 319130645794275328
+	se 0 ja
 319068927068102656
 	alli 0 allá
 	habras 0 habrías
-	jajajajaja 2 -
 318706266279145473
+	ese 0 ja
+	a 0 ja
+	a 0 ah
 	madrid 0 madrigado
+	a 0 ja
+	a 0 ah
 	sevilla 0 se_villa
 319050024317251585
 	fyqqqq 2 -
 	Pppff 2 -
 318886815169904640
 318688338863341568
+	 2 -
+	a 0 ja
+	a 0 ah
 318837455560261632
 	voi 0 vos
 318702802547400704
+	a 0 ja
+	a 0 ah
 	tuu 0 tu
-	rubiaa 0 rubia_a
 	asiquee 0 asquee
+	ya 0 ya
 	tocaa 0 toca_a
-	hooy 0 hoy
-	muchoo 0 mucho_o
 318861835170353152
 	Bueenoo 0 bueno
 	yoo 0 yo_o
 	vooy 0 voy
+	a 0 ja
+	a 0 ah
 	dormiir 0 dormir
 	ke 0 que
 	esperaa 0 espera_a
 	diiia 0 dimidia
 318859322811637760
 	despues 0 des_pues
-	conver 0 con_ver
-	TQ 2 -
+	conver 0 conversación
+	 2 -
 318993633724493825
 318841863043956737
 	inviyado 0 invitado
+	aceptame 0 acepta_me
 318814475346132992
+	a 0 ja
+	a 0 ah
 318816900161363969
 	ati 0 a_ti
 	tube 2 -
-	qe 2 -
-	insti 0 instiga
+	qe 0 que
+	insti 0 instituto
+	mñn 0 mañana
 318651036963311616
 319076412189458436
-	jajajaja 2 -
+	jajajaja 0 ja
+	jajajaja 0 ja
 	siii 0 si
 	noo 2 -
 	laa 0 la_a
 	encendioo 0 encendido
 318732358830399489
-	peli 0 pelvis
+	peli 0 pelicula
 319025265055510529
 	dias 0 di_as
 	dia 0 di_a
@@ -929,68 +1145,91 @@
 	besazo 0 besa
 319114663755411456
 	ricardo 0 Ricardo
-	cole 0 col_e
+	cole 0 colegio
 	ire 0 ir_e
 	todavia 0 todavía
 	malito 0 maldito
 318687428082810880
-	alfin 2 -
+	alfin 0 al_fin
+	se 0 ja
 318728080736792577
 	merecias 0 me_recias
 319007653797974016
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
+	cumple 0 cumpleaños
+	 2 -
 	Ok 2 -
 318486376570032128
-	wpp 2 -
-	q 0 que
+	a 0 ja
+	a 0 ah
 	pesadosss 0 pesados
-318511111701921792
-	Not 0 Noé
-	Available 0 bailable
 318691969280925696
-	Amoss 0 moisés
 	adri 0 adrice
-	unaaaaaaaaaaa 0 una
-	jajajaja 2 -
+	jajajaja 0 ja
+	jajajaja 0 ja
 318851225649049600
-	jajajaj 2 -
+	jajajaj 0 ja
+	jajajaj 0 ja
 	preparao 0 prepara_o
 	q 0 que
+	ya 0 ya
 	puebli 0 puebla
 318730519816855552
-	97Directioner_1 0 director
-	jajjajjajja 2 -
+	jajjajjajja 0 ja
+	jajjajjajja 0 ja
 	dioa 0 dio_a
 319122114978381826
+	ya 0 ya
 	corujas 0 crujas
 318680771848187907
-	whatsapp 2 -
+	a 0 ja
+	a 0 ah
+	whatsapp 0 Whatsapp
 319062038116712448
-318702046037561344
-	Not 0 Noé
-	Available 0 bailable
+	ya 0 ya
 318506739760771072
 	temillas 0 te_millas
 318692185040101377
+	se 0 ja
 	sintio 0 sitio
+	a 0 ja
+	a 0 ah
 	kiero 0 fiero
 318845043303653376
 	Buenaaas 0 buenazas
 	ncheees 0 noches
 	Relaax 0 relax
 318821404277612544
+	e 0 ja
+	e 0 ja
+	se 0 ja
+	a 0 ja
+	a 0 ah
 318767894941016065
+	es 0 ja
 318994423826485248
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 	matematicas 0 matematismo
 318722712044466176
 	horita 0 hora
+	a 0 ja
+	a 0 ah
 	miriendar 0 miranda
 	bebi 0 bebió
 318541303099039744
 	io 0 ion
+	sí 0 ja
+	sí 0 ja
 	q 0 que
 	t 0 ta
 	kiero 0 fiero
-	tkmmmmmmm 2 -
+	tkmmmmmmm 0 te_quiero_mucho
 319073414662983680
 	k 0 kV
 	xk 0 porque
@@ -1005,23 +1244,32 @@
 318973710017126401
 318645519352225792
 	duchita 0 ducha
+	 2 -
 318806470168817667
-	jajajajaj 2 -
+	jajajajaj 0 ja
+	jajajajaj 0 ja
 318831863256981505
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 	xd 0 éxodos
+	se 0 ja
+	a 0 ja
+	a 0 ah
 	daralika 0 aralia
 	chochete 0 chochee
 318994659986776064
 	Sevilla 1 -
 	triana 0 trianera
+	a 0 ja
+	a 0 ah
 	pablo 0 pabilo
 318818030949904384
 	maria 0 marica
-	pa 0 pan
+	pa 0 para
 	q 0 que
 	q 0 que
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 318823143923929088
 	tia 0 ti_a
 318846697520373760
@@ -1030,31 +1278,39 @@
 318752014320427008
 	Concursal 0 concursa
 	Master 2 -
-	pic 0 pica
 319084307308244992
-	jajajajajajjajajaja 2 -
+	ya 0 ya
+	jajajajajajjajajaja 0 ja
+	jajajajajajjajajaja 0 ja
 318682622559666176
+	a 0 ja
+	a 0 ah
 	Twitter 1 -
 318680129930944512
 	mami 0 mamila
 	malita 0 mal_ita
-318846556696633344
-	Not 0 Noé
-	Available 0 bailable
 318833417259200512
+	ea 0 ea
+	a 0 ja
+	a 0 ah
 318979997534679041
 	santaa 0 santa_a
 	tuu 0 tu
 	pasandoo 0 pasando_o
-	facturaaa 0 factura
-	q 0 que
 	caess 0 caes
 318982269077422081
+	ya 0 ya
 	Madrid 1 -
 318860425653547008
 	porqe 0 porque
-	jajajajaja 2 -
+	ya 0 ya
+	jajajajaja 0 ja
+	jajajajaja 0 ja
 318489371999367169
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
 	q 0 que
 319143466137436160
 	xd 0 éxodos
@@ -1063,25 +1319,33 @@
 	Topics 0 opios
 	hashtags 2 -
 318838470233698304
+	a 0 ja
+	a 0 ah
 	Miguel 1 -
+	 2 -
 318527657086181376
 	Still 2 -
 319020041901309952
 	dias 0 di_as
 	aver 2 -
 	ke 0 que
-	jaja 0 ja_ja
+	jaja 0 ja
+	jaja 0 ja
 	XD 2 -
 318636545248747520
-	dias 0 di_as
 	dia 0 di_a
 	malisimos 0 maliciamos
 318918653091401729
-	jaja 0 ja_ja
+	jaja 0 ja
+	jaja 0 ja
+	a 0 ja
+	a 0 ah
 	dixo 0 dio
 	k 0 kV
+	 2 -
 	baaaajaa 0 baja
-	jajajj 2 -
+	jajajj 0 ja
+	jajajj 0 ja
 318697349071376386
 	FIFA13 2 -
 	Xbox360 2 -
@@ -1090,12 +1354,16 @@
 	sii 0 si
 	peroo 0 pero_o
 	veen 2 -
-	yaa 0 ya_a
-	eem 0 edema
+	yaa 0 ya
+	eem 0 eh
 319140677017554944
+	a 0 ja
+	a 0 ah
 	Lola 2 -
-	pa 0 pan
+	pa 0 para
 	Almeria 2 -
+	a 0 ja
+	a 0 ah
 	MariDeBlasico 0 variádmelas
 318981993473904640
 	dias 0 di_as
@@ -1103,35 +1371,48 @@
 	joddeeeer 0 jodiere
 318745192926703616
 	kiero 0 fiero
-	jajaj 0 jauja
+	jajaj 0 ja
+	jajaj 0 ja
 319040937886113792
 	Piazon 0 niazo
+	se 0 ja
 318795147242508288
 	iphone 0 impone
 	movistar 0 moviste
-	RT 1 -
+	RT 0 Retweet
 	plis 0 plisa
-	info 2 -
+	info 0 información
 318871577716473856
 	Cafe 0 afea
 319103335019978754
-	jaja 0 ja_ja
+	se 0 ja
 318707548029083648
 	Jajaja 0 ajaba
-	jajajaja 2 -
+	ay 0 ay
+	a 0 ja
+	a 0 ah
+	jajajaja 0 ja
+	jajajaja 0 ja
+	es 0 ja
 	SHM 2 -
-	jaja 0 ja_ja
+	jaja 0 ja
+	jaja 0 ja
 318638890569310208
-	jajaja 0 jauja
+	Afeitate 0 afeitarte
+	ya 0 ya
+	ya 0 ya
 318678947573424128
 	Westfallenstadion 2 -
 	Signal 0 digna
 	Iduna 2 -
 	Park 2 -
 318662859682893824
+	se 0 ja
+	es 0 ja
 	dia 0 di_a
 	estais 0 estas
 318614028387770368
+	es 0 ja
 	cumpleee 0 cumple
 318846585213693952
 	rio 0 rico
@@ -1139,18 +1420,18 @@
 318790332122804224
 	q 0 que
 	Jajaja 0 ajaba
-319107445651824640
-	Not 0 Noé
-	Available 0 bailable
-319100436940455938
-	Not 0 Noé
-	Available 0 bailable
 319137029193601024
+	a 0 ja
+	a 0 ah
 318676128866906112
+	a 0 ja
+	a 0 ah
+	se 0 ja
 	cieloo 0 cielo_o
 318797763750014976
 	twitaaaah 2 -
 318852442664083456
+	se 0 ja
 	q 0 que
 	metias 0 metidas
 	q 0 que
@@ -1165,24 +1446,27 @@
 	justin 0 justifican
 	xd 0 éxodos
 318863056870453248
+	se 0 ja
 318503061016416257
-	jajaja 0 jauja
+	jajaja 0 ja
+	jajaja 0 ja
 	dicees 0 dice_es
 319080604060766209
+	a 0 ja
+	a 0 ah
 319139506999672832
 	Despues 0 espumes
 	burna 0 burlona
 	energias 0 energizas
-318877716130709504
-	Not 0 Noé
-	Available 0 bailable
-318723085979222016
-	Not 0 Noé
-	Available 0 bailable
 318828402767441920
 	loquiii 0 loquios
-	jaja 0 ja_ja
-	jejejjej 2 -
+	a 0 ja
+	a 0 ah
+	jaja 0 ja
+	jaja 0 ja
+	jejejjej 0 ja
+	jejejjej 0 je
+	jejejjej 0 je
 	XD 2 -
 	XD 2 -
 318685273900843009
@@ -1190,55 +1474,65 @@
 318832040906719233
 	the 0 toe
 	walking 0 Walking
-	dead 0 Dead
 319049276330229760
 	Susana 1 -
-	n 2 -
 318530585637310465
 	criticais 0 criticas
 	tneis 0 tenis
 	mcho 0 macho
 	cmun 0 cm_un
-	cn 0 cana
+	cn 0 con
 	myoria 0 mora
 	hems 0 hemos
 	lauristas 0 laudistas
 318814597547175936
-	jajajaja 2 -
-318827241435959296
-	Not 0 Noé
-	Available 0 bailable
+	ya 0 ya
+	se 0 ja
+	jajajaja 0 ja
+	jajajaja 0 ja
 318863353978175489
 	x 2 -
 	xD 2 -
 318501358699417602
 	Apesar 0 pesar
+	a 0 ja
+	a 0 ah
+	se 0 ja
+	se 0 ja
+	 2 -
 318844091427340290
 	Igor 1 -
+	es 0 ja
+	a 0 ja
+	a 0 ah
 318508642448076800
 	mia 0 mi_a
+	es 0 ja
+	 2 -
 318834873416679424
-	tss 0 tesase
+	tss 0 chis
 319083306530521088
 	TL 2 -
 	xd 0 éxodos
 318857601163071488
-	You 0 tour
 	count 0 con
 	on 2 -
 	like 2 -
-	there 2 -
+	a 0 ja
+	a 0 ah
 318690506097963008
-	tk 2 -
 318737048720793600
 	cuestaa 0 cuesta_a
 	dspues 0 disputes
 	d 0 da
 	unico 0 unifico
+	es 0 ja
 	betis 2 -
 	estaa 0 esta_a
 	nochee 0 noche_e
 318713551533510656
+	a 0 ja
+	a 0 ah
 	mii 0 mi
 	tambiien 0 tambienes
 	gustaria 0 gustara
@@ -1246,31 +1540,42 @@
 	quee 0 que_e
 	algun 0 alguna
 	dia 0 di_a
-	jajaja 0 jauja
+	 2 -
+	jajaja 0 ja
+	jajaja 0 ja
 318715885638533120
 	paises 0 pases
 318883001675165696
 	Miriam 1 -
 	XQ 2 -
 319008567447412736
+	a 0 ja
+	a 0 ah
 318602358831599616
+	ya 0 ya
+	a 0 ja
+	a 0 ah
+	se 0 ja
 	Dsd 0 asad
-	jaaja 0 ja_aja
-318490941117829120
-	Not 0 Noé
-	Available 0 bailable
+	jaaja 0 ja
+	jaaja 0 ja
 318695183023747072
+	ese 0 ja
+	a 0 ja
+	a 0 ah
 318551410109202433
 	Vigo 1 -
 	snif 0 esnifa
 318934650254929921
 	asi 0 a_si
-	muack 0 mua
+	muack 0 besos
 	L 2 -
 318837516377657344
 	Yeahhhhhh 2 -
 318827236117577728
 	Jooo 0 Job
+	a 0 ja
+	a 0 ah
 	Juancar 0 mancar
 318487164084187136
 	k 0 kV
@@ -1279,62 +1584,96 @@
 	xD 2 -
 318506096300007424
 318830565237342208
+	a 0 ja
+	a 0 ah
+	ya 0 ya
 318987919585067008
 	Muchisimas 0 muchísimas
 	feeaaa 0 fea
+	pasalo 0 pasa_lo
+	se 0 ja
 	dias 0 di_as
-	jaja 0 ja_ja
-	95Maria12 0 Mario
+	a 0 ja
+	a 0 ah
+	eh 0 je
+	eh 0 eh
+	jaja 0 ja
+	jaja 0 ja
 318985414008520704
 	aqi 0 a
+	se 0 ja
+	a 0 ja
+	a 0 ah
 	colacaito 0 colecto
 	abu 0 abuce
 	q 0 que
 	estan 0 es_tan
 318888065441603584
-	triceps 2 -
-	borja 0 borda
+	es 0 ja
 318819365753602048
 	JAJAJAA 2 -
-	Whatsapp 2 -
+	 2 -
 	Pd 2 -
-	baby 2 -
-	jeje 0 je_je
+	jeje 0 ja
+	jeje 0 je
+	jeje 0 je
 318718107743031296
-	jaja 0 ja_ja
+	a 0 ja
+	a 0 ah
+	jaja 0 ja
+	jaja 0 ja
 	tio 0 ti_o
+	a 0 ja
+	a 0 ah
+	a 0 ja
+	a 0 ah
+	eh 0 je
+	eh 0 eh
 	besazo 0 besa
 318838849084223488
 318894790848688128
-	jajajajajajaja 2 -
+	jajajajajajaja 0 ja
+	jajajajajajaja 0 ja
 	NOO 2 -
 	q 0 que
 318883372858474497
-	jajajajajjaja 2 -
-	pf 0 pufo
+	jajajajajjaja 0 ja
+	jajajajajjaja 0 ja
 	biiien 0 bien
+	a 0 ja
+	a 0 ah
 	educacion 0 educacional
 	fisica 0 fiscal
-	sss 0 sisase
-	jajaja 0 jauja
+	:sss 0 ja
+	:sss 0 ja
+	jajaja 0 ja
+	jajaja 0 ja
 319087791302664192
 318773689657196545
 	dia 0 di_a
+	es 0 ja
 318812841702481920
-	5Eva1 2 -
+	ya 0 ya
 	dichoo 0 dicho_o
 	tuu 0 tu
 	noo 2 -
+	 2 -
 	Buenoo 0 bueno
 	Jejejejeje 2 -
 318851031964471296
-	jajjajajaaj 2 -
+	jajjajajaaj 0 ja
+	jajjajajaaj 0 ja
 	ana 2 -
 318811298567700481
-	jajajajaajajaja 2 -
+	jajajajaajajaja 0 ja
+	jajajajaajajaja 0 ja
 318879614569172992
+	a 0 ja
+	a 0 ah
 	camita 0 ca_mita
 	q 0 que
+	ya 0 ya
+	es 0 ja
 318495771706138624
 	tuenti 0 tentéis
 318830696779104256
@@ -1342,14 +1681,16 @@
 	Rivas 0 divas
 	Vaciamadrid 2 -
 318872965070606336
-	19Lillo 2 -
 	PA 2 -
-	jajajajajajajajajajajajajajaja 2 -
+	jajajajajajajajajajajajajajaja 0 ja
+	jajajajajajajajajajajajajajaja 0 ja
 319062060430422016
 	llege 0 llegue
-	finde 0 fin_de
-	q 0 que
-	jajaja 0 jauja
+	a 0 ja
+	a 0 ah
+	finde 0 fin_de_semana
+	a 0 ja
+	a 0 ah
 318502333707321345
 	did 0 di
 	Isabel 1 -
