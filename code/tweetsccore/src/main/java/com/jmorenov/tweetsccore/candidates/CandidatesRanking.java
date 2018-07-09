@@ -18,8 +18,6 @@ import java.util.List;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class CandidatesRanking {
-    private static final String[] files = {"aspellNormalized.dict", "nombres_propios.txt", "entities.txt"};
-
     private NGramLanguageModel languageModel;
     private JaroWinkler jaroWinkler;
 
@@ -72,13 +70,14 @@ public class CandidatesRanking {
         NGramLanguageModel nGramLanguageModel = new NGramLanguageModel(n);
 
         try {
-            for (String file : files) {
+            /*for (String file : files) {
                 List<String> words = File.readDictionaryFromResources(file);
 
                 for (String word : words) {
                     nGramLanguageModel.add(new StringList(word));
                 }
-            }
+            }*/
+            nGramLanguageModel = null;
         } catch (Exception ex) {
             nGramLanguageModel = null;
         }

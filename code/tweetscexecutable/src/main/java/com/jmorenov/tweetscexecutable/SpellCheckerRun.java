@@ -8,7 +8,6 @@ import com.jmorenov.tweetsccore.spellchecker.SpellChecker;
 import org.apache.commons.cli.*;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * SpellCheckerRun class.

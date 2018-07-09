@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.extra.Dictionaries;
 import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.extra.OOV;
 import org.apache.commons.lang3.StringUtils;
@@ -16,32 +17,20 @@ import java.util.Map;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class AccentedCandidatesMethod extends CandidatesMethod {
-    private static final String[] files = {"aspellNormalized.dict", "nombres_propios.txt", "entities.txt"};
     private Map<Character, Character> accentMap;
-    private List<String> words;
 
     /**
      * Constructor of the class.
      */
     public AccentedCandidatesMethod() {
-        try {
-            this.accentMap = new HashMap<>();
+        this.accentMap = new HashMap<>();
 
-            this.accentMap.put('a', 'á');
-            this.accentMap.put('e', 'é');
-            this.accentMap.put('i', 'í');
-            this.accentMap.put('o', 'ó');
-            this.accentMap.put('u', 'ú');
-            this.accentMap.put('n', 'ñ');
-
-            words = new ArrayList<>();
-
-            for (String file : files) {
-                words.addAll(File.readDictionaryFromResources(file));
-            }
-        } catch (IOException ex) {
-            words = null;
-        }
+        this.accentMap.put('a', 'á');
+        this.accentMap.put('e', 'é');
+        this.accentMap.put('i', 'í');
+        this.accentMap.put('o', 'ó');
+        this.accentMap.put('u', 'ú');
+        this.accentMap.put('n', 'ñ');
     }
 
     /**
@@ -52,6 +41,7 @@ public class AccentedCandidatesMethod extends CandidatesMethod {
     @Override
     public List<Candidate> generateCandidates(OOV oov) {
         List<Candidate> candidates = new ArrayList<>();
+        List<String> words = Dictionaries.getInstance().getAllDictionaries();
 
         if (words != null && !isAccentedWord(oov.getToken())) {
             String word = oov.getToken().toLowerCase();

@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.extra.Dictionaries;
 import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.extra.OOV;
 import org.apache.commons.lang3.StringUtils;
@@ -16,25 +17,10 @@ import java.util.*;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class MetaphoneCandidatesMethod extends CandidatesMethod {
-    private static Map<String, String> phoneticWordsDictionaryMap;
-
     /**
      * Constructor of the class.
      */
-    public MetaphoneCandidatesMethod() {
-        try {
-            phoneticWordsDictionaryMap = new HashMap<>();
-            List<String> phoneticWordsDictionary = File.readDictionaryFromResources("aspellNormalizedPhonetic.dict");
-
-            for (String phoneticWordsDictionaryLine : phoneticWordsDictionary) {
-                String wordsLine[] = phoneticWordsDictionaryLine.split(" : ");
-
-                phoneticWordsDictionaryMap.put(wordsLine[0], wordsLine[1]);
-            }
-        } catch (IOException ex) {
-            phoneticWordsDictionaryMap = null;
-        }
-    }
+    public MetaphoneCandidatesMethod() { }
 
     /**
      * Method to generate condidates from an OOV.
@@ -44,6 +30,7 @@ public class MetaphoneCandidatesMethod extends CandidatesMethod {
     @Override
     public List<Candidate> generateCandidates(OOV oov) {
         List<Candidate> candidates = new ArrayList<>();
+        Map<String, String> phoneticWordsDictionaryMap = Dictionaries.getInstance().getSpanishPhoneticDictionary();
 
         try {
             String phoneticWord = getPhoneticWord(oov.getToken());

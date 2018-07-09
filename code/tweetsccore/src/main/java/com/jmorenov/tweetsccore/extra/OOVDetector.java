@@ -11,28 +11,10 @@ import java.util.List;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public class OOVDetector {
-    private static final String dictionaryFileName = "aspellNormalized.dict";
-    private static final String nombresPropiosFileName = "nombres_propios.txt";
-    private static final String entitiesFileName = "entities.txt";
-    private static final String englishFileName = "english.txt";
-    private static List<String> dictionaryWords;
-    private static List<String> nombresPropiosWord;
-    private static List<String > entitiesWords;
-    private static List<String> englishWords;
-
     /**
      * Constructor of the class.
      */
-    public OOVDetector() {
-        try {
-            dictionaryWords = File.readDictionaryFromResources(dictionaryFileName);
-            nombresPropiosWord = File.readDictionaryFromResources(nombresPropiosFileName);
-            entitiesWords = File.readDictionaryFromResources(entitiesFileName);
-            englishWords = File.readDictionaryFromResources(englishFileName);
-        } catch (Exception ex) {
-            dictionaryWords = nombresPropiosWord = entitiesWords = englishWords = null;
-        }
-    }
+    public OOVDetector() { }
 
     /**
      * Method to detect the OOV.
@@ -42,7 +24,7 @@ public class OOVDetector {
     public List<OOV> detectOOV(List<Token> tokens) {
         List<OOV> oovs = new ArrayList<>();
 
-        if (dictionaryWords != null) {
+        if (Dictionaries.getInstance().getSpanishDictionary() != null) {
             for (Token token : tokens) {
                 if (isOOV(token.getText())) {
                     OOV oov = new OOV(token);
@@ -67,7 +49,7 @@ public class OOVDetector {
      * @return boolean
      */
     private boolean isACorrectOOV(String oov) {
-        return entitiesWords.contains(oov) || nombresPropiosWord.contains(oov);
+        return Dictionaries.getInstance().getEntitiesDictionary().contains(oov);
     }
 
     /**
@@ -76,7 +58,7 @@ public class OOVDetector {
      * @return boolean
      */
     private boolean isAEnglishOOV(String oov) {
-        return englishWords.contains(oov);
+        return Dictionaries.getInstance().getEnglishDictionary().contains(oov);
     }
 
     /**
@@ -85,7 +67,7 @@ public class OOVDetector {
      * @return boolean
      */
     private boolean isOOV(String word) {
-        return !dictionaryWords.contains(word.toLowerCase())
+        return !Dictionaries.getInstance().getSpanishDictionary().contains(word.toLowerCase())
                 && Parser.isValidWord(word);
     }
 }

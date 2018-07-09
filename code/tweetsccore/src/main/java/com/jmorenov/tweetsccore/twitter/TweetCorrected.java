@@ -2,6 +2,7 @@ package com.jmorenov.tweetsccore.twitter;
 
 import com.jmorenov.tweetsccore.extra.Annotation;
 import com.jmorenov.tweetsccore.extra.OOV;
+import com.jmorenov.tweetsccore.postprocess.PostProcess;
 
 import java.util.Collections;
 import java.util.List;
@@ -128,6 +129,6 @@ public class TweetCorrected extends Tweet {
             }
         }
 
-        return correctedText;
+        return PostProcess.apply(correctedText);
     }
 }
