@@ -53,6 +53,8 @@ public class CandidatesRanking {
 
             if (candidate.getGeneratedBy() == CandidatesMethodType.L_L) {
                 candidate.addScore(0.5);
+            } else if (candidate.getGeneratedBy() == CandidatesMethodType.Accented) {
+                candidate.addScore(0.5);
             }
         }
 

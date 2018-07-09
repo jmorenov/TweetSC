@@ -7,6 +7,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * L_LCandidatesMethod class that define a method to generate candidates.
+ *
+ * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
+ */
 public class L_LCandidatesMethod extends CandidatesMethod {
     private static final String[] files = {"aspellNormalized.dict", "nombres_propios.txt", "entities.txt"};
     private List<String> words;

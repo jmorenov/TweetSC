@@ -9,7 +9,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class L_LCandidatesMethodTest {
     @Test
-    public void L_LCandidatesMethodShouldGenerateTheCorrectCandidates () throws Exception {
+    public void L_LCandidatesMethodShouldGenerateTheCorrectCandidates () {
         OOV oov = new OOV("poreso", 0, 5);
         L_LCandidatesMethod method = new L_LCandidatesMethod();
         List<Candidate> candidates = method.generateCandidates(oov);

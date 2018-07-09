@@ -1,21 +1,26 @@
 package com.jmorenov.tweetsccore.candidates;
 
 import com.jmorenov.tweetsccore.extra.OOV;
+import info.debatty.java.stringsimilarity.CharacterSubstitutionInterface;
+import info.debatty.java.stringsimilarity.JaroWinkler;
+import info.debatty.java.stringsimilarity.NormalizedLevenshtein;
+import info.debatty.java.stringsimilarity.WeightedLevenshtein;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 
 public class CandidatesRankingTest {
     @Test
-    public void freelingTokenizerShouldReturnTheCorrectResult() {
+    public void candidatesRankingShouldReturnTheCorrectResult() {
         List<Candidate> candidates = new ArrayList<>();
         candidates.add(new Candidate("camionera", CandidatesMethodType.LevenshteinFST));
         candidates.add(new Candidate("camionero", CandidatesMethodType.LevenshteinFST));
         candidates.add(new Candidate("camionería", CandidatesMethodType.LevenshteinFST));
-        candidates.add(new Candidate("camión", CandidatesMethodType.LevenshteinFST));
+        candidates.add(new Candidate("camión", CandidatesMethodType.Accented));
         candidates.add(new Candidate("camiones", CandidatesMethodType.LevenshteinFST));
 
         OOV oov = new OOV("camion", 13, 18);
@@ -26,6 +31,6 @@ public class CandidatesRankingTest {
 
         List<Candidate> candidatesRanked = candidatesRanking.rank("Yo tengo un camion", oov);
 
-        assertEquals("failure - the ranking of candidates is incorrect", "camiones", candidatesRanked.get(0).getCandidate());
+        assertEquals("failure - the ranking of candidates is incorrect", "camión", candidatesRanked.get(0).getCandidate());
     }
 }

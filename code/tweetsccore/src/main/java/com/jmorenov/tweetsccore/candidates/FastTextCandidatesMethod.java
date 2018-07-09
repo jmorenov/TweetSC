@@ -25,7 +25,15 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
             jft = new JFastText();
             String modelPath = File.getModelsPath();
 
-            //jft.loadModel(modelPath + "cc.es.300.bin");
+            jft.runCmd(new String[] {
+                    "skipgram",
+                    "-input", modelPath + "unlabeled_data.txt",
+                    "-output", modelPath + "cc.es.300.bin",
+                    "-bucket", "100",
+                    "-minCount", "1"
+            });
+
+            jft.loadModel(modelPath + "cc.es.300.bin");
         } catch (Exception ex) {
             jft = null;
         }

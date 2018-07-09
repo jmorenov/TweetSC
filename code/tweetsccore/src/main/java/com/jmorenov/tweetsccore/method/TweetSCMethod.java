@@ -40,6 +40,7 @@ public class TweetSCMethod extends Method {
         methods.add(new MetaphoneCandidatesMethod());
         methods.add(new L_LCandidatesMethod());
         methods.add(new FastTextCandidatesMethod());
+        methods.add(new AccentedCandidatesMethod());
 
         candidatesGenerator = new CandidatesGenerator(methods);
         candidatesRanking = new CandidatesRanking();

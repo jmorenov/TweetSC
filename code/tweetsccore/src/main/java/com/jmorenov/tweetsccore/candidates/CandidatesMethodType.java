@@ -6,5 +6,5 @@ package com.jmorenov.tweetsccore.candidates;
  * @author <a href="mailto:jmorenov28@gmail.com">Javier Moreno</a>
  */
 public enum CandidatesMethodType {
-    LevenshteinFST, Metaphone, L_L, FastText
+    LevenshteinFST, Metaphone, L_L, FastText, Accented
 }
