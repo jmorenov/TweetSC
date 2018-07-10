@@ -1,5 +1,6 @@
-package com.jmorenov.tweetsccore.candidates;
+package com.jmorenov.tweetsccore.candidates.method;
 
+import com.jmorenov.tweetsccore.candidates.Candidate;
 import com.jmorenov.tweetsccore.candidates.method.L_LCandidatesMethod;
 import com.jmorenov.tweetsccore.extra.OOV;
 import org.junit.Test;

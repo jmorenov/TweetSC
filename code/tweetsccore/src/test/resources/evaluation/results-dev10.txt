@@ -1,25 +1,24 @@
 319106439526367234
-	se 0 ja
-	a 0 ja
-	a 0 ah
+	vio 0 Vio
+	era 0 Era
 	 2 -
 318676223985336320
 	Batman 1 -
 	jdjejdkahflwkdjwpvqh 2 -
 318596947432841216
-	a 0 ja
-	a 0 ah
-	a 0 ja
-	a 0 ah
+	hoy 0 Hoy
 319132721748267009
+	hoy 0 Hoy
 318819189580263425
 	walking 0 Walking
 	dead 0 Dead
+	ver 0 Ver
+	como 0 Como
+	acaba 0 Acaba
 318806604940181505
 	esquivocao 0 he_equivocado
 	donald 0 Donald
 	piolin 0 piolan
-	ya 0 ya
 318776809267290113
 	paluegos 0 palos
 	fanegol 0 fango
@@ -31,11 +30,14 @@
 	Máx 0 máxima
 	Mín 0 mínima
 318728946764103680
+	chicas 0 Chicas
 	xq 0 porque
+	año 0 Año
 	pasao 0 pasado
-	to 0 todo
+	to 1 -
 	porai 0 por_ahí
 	jajaja 0 ja
 	jajaja 0 ja
 318874108848926720
+	todo 0 Todo
 	Miriam 1 -

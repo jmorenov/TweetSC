@@ -30,29 +30,16 @@ public class LevenshteinFSTCandidatesMethod extends CandidatesMethod {
      */
     public LevenshteinFSTCandidatesMethod() {
         try {
-            /*long startTime = System.nanoTime();
             InputStream stream = File.getStreamFromResources("aspellNormalized.dict");
-            System.out.println("Read stream: " + ((System.nanoTime() - startTime)/ 1000000000.0));
-
-            startTime = System.nanoTime();
             Serializer serializer = new PlainTextSerializer(false);
-            System.out.println("Serialize: " + ((System.nanoTime() - startTime)/ 1000000000.0));
-            */
-            long startTime = System.nanoTime();
-            SortedDawg dictionary = new SortedDawg(File.readDictionaryFromResources("LevenshteinFTSDictionary.dict"));
-            System.out.println("Read dictionary: " + ((System.nanoTime() - startTime)/ 1000000000.0));
+            SortedDawg dictionary = serializer.deserialize(SortedDawg.class, stream);
 
-            /*Files.write(Paths.get(File.getModelsPath() + "LevenshteinFTSDictionary.dict"),
-                    (Iterable<String>)dictionary.stream()::iterator);*/
-
-            startTime = System.nanoTime();
             transducer = new TransducerBuilder()
                     .dictionary(dictionary)
                     .algorithm(Algorithm.TRANSPOSITION)
                     .defaultMaxDistance(2)
                     .includeDistance(true)
                     .build();
-            System.out.println("Build: " + ((System.nanoTime() - startTime)/ 1000000000.0));
         } catch (Exception ex) {
             transducer = null;
         }

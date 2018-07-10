@@ -45,36 +45,4 @@ public class TweetNormEvaluatorTest {
 
         assertEquals("failure - the result is incorrect", (float) 63.157894, evaluationResult.getAccurancy());
     }
-
-    @Test
-    public void tweetNormEvaluationOf100TweetsWithTweetSCMethodShouldReturnAResult() throws IOException {
-        Path resourceDirectory = Paths.get("src","test","resources", "evaluation");
-        String workingDirectory = resourceDirectory.toAbsolutePath().toString();
-
-        TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(
-                "tweet-norm-dev100_annotated.txt", true, 1);
-        tweetNormEvaluator.setWorkingDirectory(workingDirectory);
-        tweetNormEvaluator.setTweetsFile("tweet-norm-dev100.txt");
-        tweetNormEvaluator.setResultFile("results-dev100.txt");
-
-        TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new TweetSCMethod());
-
-        assertEquals("failure - the result is incorrect", (float) 32.173912, evaluationResult.getAccurancy());
-    }
-
-    @Test
-    public void tweetNormEvaluationOf500TweetsWithTweetSCMethodShouldReturnAResult() throws IOException {
-        Path resourceDirectory = Paths.get("src","test","resources", "evaluation");
-        String workingDirectory = resourceDirectory.toAbsolutePath().toString();
-
-        TweetNormEvaluator tweetNormEvaluator = new TweetNormEvaluator(
-                "tweet-norm-dev500_annotated.txt", true, 1);
-        tweetNormEvaluator.setWorkingDirectory(workingDirectory);
-        tweetNormEvaluator.setTweetsFile("tweet-norm-dev500.txt");
-        tweetNormEvaluator.setResultFile("results-dev500.txt");
-
-        TweetNormEvaluationResult evaluationResult = tweetNormEvaluator.evalutate(new TweetSCMethod());
-
-        assertEquals("failure - the result is incorrect", (float) 26.43678, evaluationResult.getAccurancy());
-    }
 }

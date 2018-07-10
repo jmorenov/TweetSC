@@ -26,5 +26,5 @@ dependencies {
     compile group: 'org.apache.opennlp', name: 'opennlp-tools', version: '1.8.4'
     compile fileTree(dir: 'libs', include: '*.jar')
     compile 'com.github.universal-automata:liblevenshtein:3.0.0'
-    compile 'com.github.vinhkhuc:jfasttext:0.3'
+    //compile 'com.github.vinhkhuc:jfasttext:0.3'
 }

@@ -4,9 +4,21 @@ import com.jmorenov.tweetsccore.candidates.Candidate;
 import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.extra.OOV;
 import com.github.jfasttext.JFastText;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * FastTextCandidatesMethod class that define a method to generate candidates.
@@ -16,7 +28,6 @@ import java.util.List;
 public class FastTextCandidatesMethod extends CandidatesMethod {
     private JFastText jft;
 
-
     /**
      * Constructor of the class.
      */
@@ -25,15 +36,7 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
             jft = new JFastText();
             String modelPath = File.getModelsPath();
 
-            /*jft.runCmd(new String[] {
-                    "skipgram",
-                    "-input", modelPath + "cc.es.300.vec",
-                    "-output", modelPath + "cc.es.300.bin",
-                    "-bucket", "100",
-                    "-minCount", "1"
-            });*/
-
-            //jft.loadModel(modelPath + "cc.es.300.bin");
+            jft.loadModel(modelPath + "cc.es.300.bin");
         } catch (Exception ex) {
             jft = null;
         }
@@ -49,7 +52,26 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
         List<Candidate> candidates = new ArrayList<>();
 
         if (this.jft != null) {
+            List<Float> oovVector = jft.getVector(oov.getToken());
 
+            try (Stream<String> stream = Files.lines(Paths.get(File.getModelsPath() + "word.vec"))) {
+                stream.parallel().forEach((line) ->{
+                    String[] lineElements = line.split(" ");
+                    String word = lineElements[0];
+                    List<Float> wordVector = new ArrayList<>();
+
+                    for (int i = 1; i < lineElements.length; i++) {
+                        wordVector.add(new Float(lineElements[i]));
+                    }
+
+                    double similarity = cosineSimilarity(oovVector, wordVector);
+
+                    if (similarity > 0.995) {
+                        candidates.add(new Candidate(word, getMethod()));
+                    }
+                });
+
+            } catch (IOException e) { }
         }
 
         return candidates;
@@ -70,14 +92,14 @@ public class FastTextCandidatesMethod extends CandidatesMethod {
      * @param vectorB double[]
      * @return double with the result
      */
-    private double cosineSimilarity(double[] vectorA, double[] vectorB) {
+    private double cosineSimilarity(List<Float> vectorA, List<Float> vectorB) {
         double dotProduct = 0.0;
         double normA = 0.0;
         double normB = 0.0;
-        for (int i = 0; i < vectorA.length; i++) {
-            dotProduct += vectorA[i] * vectorB[i];
-            normA += Math.pow(vectorA[i], 2);
-            normB += Math.pow(vectorB[i], 2);
+        for (int i = 0; i < vectorA.size(); i++) {
+            dotProduct += vectorA.get(i) * vectorB.get(i);
+            normA += Math.pow(vectorA.get(i), 2);
+            normB += Math.pow(vectorB.get(i), 2);
         }
         return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
     }

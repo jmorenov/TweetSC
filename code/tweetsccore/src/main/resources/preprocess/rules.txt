@@ -11,8 +11,8 @@ ktl qué_tal
 qtal qué_tal
 ktal qué_tal
 ke que
-na+ nada
-to+ todo
+na nada
+to todo
 xk porque
 xq porque
 xfa[vb]or por_favor
@@ -93,8 +93,8 @@ capi capital
 [r]{3,} rr
 [c]{3,} cc
 [n]{3,} nn
-[ajs]+ ja
-[ejs]+ ja
+j[ajs]+ ja
+[ajs]+j ja
 (?:[mw]+a+)?(?:a+j+s*|j+a+s*)+[jq]* ja
 js([aj]+) ja
 (?:e+j+s*|j+e+s*)+j? je

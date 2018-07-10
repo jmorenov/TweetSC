@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import re
 
 '''entities_files = ["test.dict", "test2.dict"]
 
@@ -17,5 +18,10 @@ fileOut = open('entities.dict', 'w')
 
 fileOut.write("\n".join(words))'''
 
-uniqlines = set(open('entities.dict').readlines())
-out = open('out.dict', 'w').writelines(uniqlines)
+result = [re.findall(r'^[\w0-9_\']+$',line) for line in open('file.txt')]
+
+print result
+
+#fileOut = open('entities2.dict', 'w')
+
+#fileOut.write(result)

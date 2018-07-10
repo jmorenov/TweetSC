@@ -9,7 +9,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class OOVDetectorTest {
     @Test
-    public void freelingTokenizerShouldReturnTheCorrectResult() {
+    public void oovDetectorShouldReturnTheCorrectResult() {
         List<Token> tokens = new ArrayList<>();
         tokens.add(new Token("illo", 0, 3));
         tokens.add(new Token("ke", 5, 6));
@@ -20,6 +20,6 @@ public class OOVDetectorTest {
 
         List<OOV> oovs = oovDetector.detectOOV(tokens);
 
-        assertEquals("failure - the detection of OOV is incorrect", 3, oovs.size());
+        assertEquals("failure - the detection of OOV is incorrect", 2, oovs.size());
     }
 }

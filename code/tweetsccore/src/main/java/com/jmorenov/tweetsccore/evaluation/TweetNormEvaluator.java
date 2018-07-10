@@ -151,7 +151,7 @@ public class TweetNormEvaluator {
                 spellCheckerResultLines.add(tweetCorrected.toTweetNormString());
             }
 
-            long endTime   = System.nanoTime();
+            long endTime = System.nanoTime();
             this.totalTime += endTime - startTime;
 
             Path resultFile = Paths.get(_workingDirectory + _resultFile);

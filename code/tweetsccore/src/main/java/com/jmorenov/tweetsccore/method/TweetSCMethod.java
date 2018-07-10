@@ -32,16 +32,12 @@ public class TweetSCMethod extends Method {
      * Constructor of the class.
      */
     public TweetSCMethod() {
-        long startTime = System.nanoTime();
-
         tokenizer = new SimpleTokenizer();
         applyRules = new ApplyRules();
         oovDetector = new OOVDetector();
         List<CandidatesMethod> methods = CandidatesMethodCreator.getAllMethodParallel();
         candidatesGenerator = new CandidatesGenerator(methods);
         candidatesRanking = new CandidatesRanking();
-
-        System.out.println("Constructor: " + ((System.nanoTime() - startTime)/ 1000000000.0));
     }
 
     /**
@@ -52,24 +48,14 @@ public class TweetSCMethod extends Method {
     @Override
     public TweetCorrected correctTweet(Tweet tweet) {
         TweetCorrected tweetCorrected = new TweetCorrected(tweet);
-
-        long startTime = System.nanoTime();
         List<Token> tokens = tokenizer.getTokens(tweet.getText());
-        System.out.println("Tokenizer: " + ((System.nanoTime() - startTime)/ 1000000000.0));
-
-        startTime = System.nanoTime();
         ApplyRulesResult applyRulesResult = applyRules.applyParallel(tokens);
-        System.out.println("Apply Rules: " + ((System.nanoTime() - startTime)/ 1000000000.0));
 
         tweetCorrected.setOOVWords(applyRulesResult.getOOVList());
 
-        startTime = System.nanoTime();
         List<OOV> oovList = oovDetector.detectOOV(applyRulesResult.getTokens());
-        System.out.println("DetectOOV: " + ((System.nanoTime() - startTime)/ 1000000000.0));
-
         List<OOV> oovs_CorrectNoEs = new ArrayList<>();
         List<OOV> oovs_Unknown = new ArrayList<>();
-
 
         for (OOV oov : oovList) {
             if (oov.getAnnotation() == Annotation.Correct
@@ -83,11 +69,8 @@ public class TweetSCMethod extends Method {
         oovList = applyRulesResult.getOOVList();
         oovList.addAll(oovs_CorrectNoEs);
 
-        startTime = System.nanoTime();
         oovs_Unknown = candidatesGenerator.generateCandidates(oovs_Unknown);
-        System.out.println("Candidates generation: " + ((System.nanoTime() - startTime)/ 1000000000.0));
 
-        startTime = System.nanoTime();
         for (OOV oov : oovs_Unknown) {
             oov.setCandidates(candidatesRanking.rank(tweet.getText(), oov));
 
@@ -96,7 +79,6 @@ public class TweetSCMethod extends Method {
             oov.setAnnotation(oovCorrected.getAnnotation());
             oov.setCorrection(oovCorrected.getCorrection());
         }
-        System.out.println("Candidates Ranking: " + ((System.nanoTime() - startTime)/ 1000000000.0));
 
         oovList.addAll(oovs_Unknown);
 
