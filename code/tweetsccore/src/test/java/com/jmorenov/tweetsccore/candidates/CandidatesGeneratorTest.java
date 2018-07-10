@@ -1,9 +1,8 @@
 package com.jmorenov.tweetsccore.candidates;
 
-import com.jmorenov.tweetsccore.candidates.CandidatesGenerator;
-import com.jmorenov.tweetsccore.candidates.CandidatesMethod;
-import com.jmorenov.tweetsccore.candidates.LevenshteinFSTCandidatesMethod;
-import com.jmorenov.tweetsccore.candidates.MetaphoneCandidatesMethod;
+import com.jmorenov.tweetsccore.candidates.method.CandidatesMethod;
+import com.jmorenov.tweetsccore.candidates.method.LevenshteinFSTCandidatesMethod;
+import com.jmorenov.tweetsccore.candidates.method.MetaphoneCandidatesMethod;
 import com.jmorenov.tweetsccore.extra.OOV;
 import org.junit.Test;
 

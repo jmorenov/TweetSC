@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.candidates.method.FastTextCandidatesMethod;
 import com.jmorenov.tweetsccore.extra.OOV;
 import org.junit.Ignore;
 import org.junit.Test;

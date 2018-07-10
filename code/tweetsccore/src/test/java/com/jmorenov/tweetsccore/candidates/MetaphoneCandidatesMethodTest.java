@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.candidates.method.MetaphoneCandidatesMethod;
 import com.jmorenov.tweetsccore.extra.OOV;
 import org.junit.Test;
 

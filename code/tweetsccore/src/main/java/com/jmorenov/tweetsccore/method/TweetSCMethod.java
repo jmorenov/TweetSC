@@ -1,6 +1,7 @@
 package com.jmorenov.tweetsccore.method;
 
 import com.jmorenov.tweetsccore.candidates.*;
+import com.jmorenov.tweetsccore.candidates.method.*;
 import com.jmorenov.tweetsccore.extra.Annotation;
 import com.jmorenov.tweetsccore.extra.OOV;
 import com.jmorenov.tweetsccore.extra.OOVDetector;
@@ -14,7 +15,6 @@ import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
 
 /**
  * TweetSCMethod class that define a method to spell check.
@@ -28,7 +28,6 @@ public class TweetSCMethod extends Method {
     private CandidatesGenerator candidatesGenerator;
     private CandidatesRanking candidatesRanking;
 
-
     /**
      * Constructor of the class.
      */
@@ -38,39 +37,7 @@ public class TweetSCMethod extends Method {
         tokenizer = new SimpleTokenizer();
         applyRules = new ApplyRules();
         oovDetector = new OOVDetector();
-        List<CandidatesMethod> methods = new ArrayList<>();
-
-        methods.add(new LevenshteinFSTCandidatesMethod());
-        methods.add(new MetaphoneCandidatesMethod());
-        methods.add(new L_LCandidatesMethod());
-        methods.add(new FastTextCandidatesMethod());
-        methods.add(new AccentedCandidatesMethod());
-
-        /*ExecutorService executor = Executors.newFixedThreadPool(4);
-        CompletionService<CandidatesMethod> compService = new ExecutorCompletionService<>(executor);
-
-        CandidatesMethodCreator creator = new CandidatesMethodCreator(CandidatesMethodType.Accented);
-        compService.submit(creator);
-        creator = new CandidatesMethodCreator(CandidatesMethodType.LevenshteinFST);
-        compService.submit(creator);
-        creator = new CandidatesMethodCreator(CandidatesMethodType.Metaphone);
-        compService.submit(creator);
-        creator = new CandidatesMethodCreator(CandidatesMethodType.L_L);
-        compService.submit(creator);
-        creator = new CandidatesMethodCreator(CandidatesMethodType.FastText);
-        compService.submit(creator);
-
-        /*try {
-            Future<CandidatesMethod> future = compService.take();
-            try {
-                methods.add(future.get());
-            } catch (ExecutionException ex) {
-                System.out.println("ERROR1");
-            }
-        } catch (InterruptedException ex) {
-            System.out.println("ERROR2");
-        }*/
-
+        List<CandidatesMethod> methods = CandidatesMethodCreator.getAllMethodParallel();
         candidatesGenerator = new CandidatesGenerator(methods);
         candidatesRanking = new CandidatesRanking();
 
@@ -91,7 +58,7 @@ public class TweetSCMethod extends Method {
         System.out.println("Tokenizer: " + ((System.nanoTime() - startTime)/ 1000000000.0));
 
         startTime = System.nanoTime();
-        ApplyRulesResult applyRulesResult = applyRules.apply(tokens);
+        ApplyRulesResult applyRulesResult = applyRules.applyParallel(tokens);
         System.out.println("Apply Rules: " + ((System.nanoTime() - startTime)/ 1000000000.0));
 
         tweetCorrected.setOOVWords(applyRulesResult.getOOVList());

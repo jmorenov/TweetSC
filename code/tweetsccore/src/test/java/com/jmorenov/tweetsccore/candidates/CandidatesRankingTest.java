@@ -1,10 +1,7 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.candidates.method.CandidatesMethodType;
 import com.jmorenov.tweetsccore.extra.OOV;
-import info.debatty.java.stringsimilarity.CharacterSubstitutionInterface;
-import info.debatty.java.stringsimilarity.JaroWinkler;
-import info.debatty.java.stringsimilarity.NormalizedLevenshtein;
-import info.debatty.java.stringsimilarity.WeightedLevenshtein;
 import org.junit.Test;
 
 import java.util.ArrayList;

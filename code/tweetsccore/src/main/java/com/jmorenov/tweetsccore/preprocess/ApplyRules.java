@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -98,6 +99,52 @@ public class ApplyRules {
                     }
                 }
             }
+        }
+
+        return applyRulesResult;
+    }
+
+    /**
+     * Method to apply the rules with parallelism to a List of Token.
+     * @param tokens List of tokens
+     * @return ApplyRulesResult
+     */
+    public ApplyRulesResult applyParallel(List<Token> tokens) {
+        ApplyRulesResult applyRulesResult = new ApplyRulesResult();
+
+        if (rules != null) {
+            tokens.parallelStream().forEach((token) -> {
+                final AtomicReference<Boolean> oovAdded = new AtomicReference();
+                oovAdded.set(false);
+
+                rules.getRules().parallelStream().forEach((rule) -> {
+                    if (!Dictionaries.getInstance().getSpanishDictionary().contains(token.getText())
+                            && !Dictionaries.getInstance().getEntitiesDictionary().contains(token.getText())
+                            && token.getText().matches(rule.getRegex())) {
+                        OOV oov = new OOV(token);
+
+                        oov.setCorrection(rule.getResult());
+                        oov.setAnnotation(Annotation.Variation);
+                        applyRulesResult.addOOV(oov);
+
+                        oovAdded.set(true);
+                    }
+                });
+
+                if (!oovAdded.get()) {
+                    String entityVariation = getEntityVariation(token.getText());
+
+                    if (!entityVariation.equals("")) {
+                        OOV oov = new OOV(token);
+
+                        oov.setCorrection(entityVariation);
+                        oov.setAnnotation(Annotation.Variation);
+                        applyRulesResult.addOOV(oov);
+                    } else {
+                        applyRulesResult.addToken(token);
+                    }
+                }
+            });
         }
 
         return applyRulesResult;

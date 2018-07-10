@@ -1,15 +1,12 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.candidates.method.CandidatesMethodType;
 import com.jmorenov.tweetsccore.extra.Dictionaries;
-import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.extra.OOV;
 import info.debatty.java.stringsimilarity.JaroWinkler;
 import opennlp.tools.languagemodel.NGramLanguageModel;
 import opennlp.tools.util.StringList;
 
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

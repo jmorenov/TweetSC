@@ -1,5 +1,7 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.candidates.method.CandidatesMethodType;
+
 /**
  * Candidate class that define the candidate element.
  *

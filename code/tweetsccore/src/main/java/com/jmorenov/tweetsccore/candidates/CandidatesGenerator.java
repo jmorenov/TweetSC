@@ -1,8 +1,8 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.candidates.method.CandidatesMethod;
 import com.jmorenov.tweetsccore.extra.OOV;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
