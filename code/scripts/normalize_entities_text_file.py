@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-entities_files = ["test.dict", "test2.dict"]
+'''entities_files = ["test.dict", "test2.dict"]
 
 words = []
 for entityFile in entities_files:
@@ -15,4 +15,7 @@ for entityFile in entities_files:
 
 fileOut = open('entities.dict', 'w')
 
-fileOut.write("\n".join(words))
+fileOut.write("\n".join(words))'''
+
+uniqlines = set(open('entities.dict').readlines())
+out = open('out.dict', 'w').writelines(uniqlines)

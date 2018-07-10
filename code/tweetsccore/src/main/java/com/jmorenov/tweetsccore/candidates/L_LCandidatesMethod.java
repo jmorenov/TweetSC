@@ -28,7 +28,8 @@ public class L_LCandidatesMethod extends CandidatesMethod {
     public List<Candidate> generateCandidates(OOV oov) {
         List<Candidate> candidates = new ArrayList<>();
         int spacePosition = 1;
-        List<String> words = Dictionaries.getInstance().getAllDictionaries();
+        List<String> words = Dictionaries.getInstance().getSpanishDictionary();
+        words.addAll(Dictionaries.getInstance().getEntitiesDictionary());
 
         while (words != null && spacePosition < oov.getToken().length()) {
             String posibleCandidatePreSpace = oov.getToken().substring(0, spacePosition);

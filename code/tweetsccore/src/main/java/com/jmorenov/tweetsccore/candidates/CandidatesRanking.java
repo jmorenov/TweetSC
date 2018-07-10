@@ -1,5 +1,6 @@
 package com.jmorenov.tweetsccore.candidates;
 
+import com.jmorenov.tweetsccore.extra.Dictionaries;
 import com.jmorenov.tweetsccore.extra.File;
 import com.jmorenov.tweetsccore.extra.OOV;
 import info.debatty.java.stringsimilarity.JaroWinkler;
@@ -70,14 +71,11 @@ public class CandidatesRanking {
         NGramLanguageModel nGramLanguageModel = new NGramLanguageModel(n);
 
         try {
-            /*for (String file : files) {
-                List<String> words = File.readDictionaryFromResources(file);
+            List<String> words = Dictionaries.getInstance().getAllDictionaries();
 
-                for (String word : words) {
-                    nGramLanguageModel.add(new StringList(word));
-                }
-            }*/
-            nGramLanguageModel = null;
+            for (String word : words) {
+                nGramLanguageModel.add(new StringList(word));
+            }
         } catch (Exception ex) {
             nGramLanguageModel = null;
         }

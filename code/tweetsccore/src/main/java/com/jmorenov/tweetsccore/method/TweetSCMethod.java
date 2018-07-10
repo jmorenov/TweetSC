@@ -14,6 +14,7 @@ import com.jmorenov.tweetsccore.twitter.TweetCorrected;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
 
 /**
  * TweetSCMethod class that define a method to spell check.
@@ -27,10 +28,13 @@ public class TweetSCMethod extends Method {
     private CandidatesGenerator candidatesGenerator;
     private CandidatesRanking candidatesRanking;
 
+
     /**
      * Constructor of the class.
      */
     public TweetSCMethod() {
+        long startTime = System.nanoTime();
+
         tokenizer = new SimpleTokenizer();
         applyRules = new ApplyRules();
         oovDetector = new OOVDetector();
@@ -42,8 +46,35 @@ public class TweetSCMethod extends Method {
         methods.add(new FastTextCandidatesMethod());
         methods.add(new AccentedCandidatesMethod());
 
+        /*ExecutorService executor = Executors.newFixedThreadPool(4);
+        CompletionService<CandidatesMethod> compService = new ExecutorCompletionService<>(executor);
+
+        CandidatesMethodCreator creator = new CandidatesMethodCreator(CandidatesMethodType.Accented);
+        compService.submit(creator);
+        creator = new CandidatesMethodCreator(CandidatesMethodType.LevenshteinFST);
+        compService.submit(creator);
+        creator = new CandidatesMethodCreator(CandidatesMethodType.Metaphone);
+        compService.submit(creator);
+        creator = new CandidatesMethodCreator(CandidatesMethodType.L_L);
+        compService.submit(creator);
+        creator = new CandidatesMethodCreator(CandidatesMethodType.FastText);
+        compService.submit(creator);
+
+        /*try {
+            Future<CandidatesMethod> future = compService.take();
+            try {
+                methods.add(future.get());
+            } catch (ExecutionException ex) {
+                System.out.println("ERROR1");
+            }
+        } catch (InterruptedException ex) {
+            System.out.println("ERROR2");
+        }*/
+
         candidatesGenerator = new CandidatesGenerator(methods);
         candidatesRanking = new CandidatesRanking();
+
+        System.out.println("Constructor: " + ((System.nanoTime() - startTime)/ 1000000000.0));
     }
 
     /**
@@ -54,12 +85,21 @@ public class TweetSCMethod extends Method {
     @Override
     public TweetCorrected correctTweet(Tweet tweet) {
         TweetCorrected tweetCorrected = new TweetCorrected(tweet);
+
+        long startTime = System.nanoTime();
         List<Token> tokens = tokenizer.getTokens(tweet.getText());
+        System.out.println("Tokenizer: " + ((System.nanoTime() - startTime)/ 1000000000.0));
+
+        startTime = System.nanoTime();
         ApplyRulesResult applyRulesResult = applyRules.apply(tokens);
+        System.out.println("Apply Rules: " + ((System.nanoTime() - startTime)/ 1000000000.0));
 
         tweetCorrected.setOOVWords(applyRulesResult.getOOVList());
 
+        startTime = System.nanoTime();
         List<OOV> oovList = oovDetector.detectOOV(applyRulesResult.getTokens());
+        System.out.println("DetectOOV: " + ((System.nanoTime() - startTime)/ 1000000000.0));
+
         List<OOV> oovs_CorrectNoEs = new ArrayList<>();
         List<OOV> oovs_Unknown = new ArrayList<>();
 
@@ -76,8 +116,11 @@ public class TweetSCMethod extends Method {
         oovList = applyRulesResult.getOOVList();
         oovList.addAll(oovs_CorrectNoEs);
 
+        startTime = System.nanoTime();
         oovs_Unknown = candidatesGenerator.generateCandidates(oovs_Unknown);
+        System.out.println("Candidates generation: " + ((System.nanoTime() - startTime)/ 1000000000.0));
 
+        startTime = System.nanoTime();
         for (OOV oov : oovs_Unknown) {
             oov.setCandidates(candidatesRanking.rank(tweet.getText(), oov));
 
@@ -86,6 +129,7 @@ public class TweetSCMethod extends Method {
             oov.setAnnotation(oovCorrected.getAnnotation());
             oov.setCorrection(oovCorrected.getCorrection());
         }
+        System.out.println("Candidates Ranking: " + ((System.nanoTime() - startTime)/ 1000000000.0));
 
         oovList.addAll(oovs_Unknown);
 
