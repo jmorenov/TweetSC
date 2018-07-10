@@ -35,7 +35,7 @@ public class TweetSCMethod extends Method {
         tokenizer = new SimpleTokenizer();
         applyRules = new ApplyRules();
         oovDetector = new OOVDetector();
-        List<CandidatesMethod> methods = CandidatesMethodCreator.getAllMethodParallel();
+        List<CandidatesMethod> methods = CandidatesMethodCreator.getAllMethods();
         candidatesGenerator = new CandidatesGenerator(methods);
         candidatesRanking = new CandidatesRanking();
     }
@@ -49,7 +49,7 @@ public class TweetSCMethod extends Method {
     public TweetCorrected correctTweet(Tweet tweet) {
         TweetCorrected tweetCorrected = new TweetCorrected(tweet);
         List<Token> tokens = tokenizer.getTokens(tweet.getText());
-        ApplyRulesResult applyRulesResult = applyRules.applyParallel(tokens);
+        ApplyRulesResult applyRulesResult = applyRules.apply(tokens);
 
         tweetCorrected.setOOVWords(applyRulesResult.getOOVList());
 

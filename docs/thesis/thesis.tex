@@ -84,6 +84,17 @@ TUTOR/ES: Óscar Corcho García y \linebreak
 \end{titlepage}
 
 \afterpage{\blankpage}
+
+\newpage
+\null % Porque \vfill necesita algo delante para funcionar
+\vfill % Para que lo escriba al final de la página
+ 
+\includegraphics[width=0.2\textwidth]{recursos/by-nc-nd.png}\\
+This work is licensed under a
+\href{http://creativecommons.org/licenses/by-nc-nd/4.0/}
+{Creative Commons Attribution-NonCommercial-NoDerivatives
+4.0 International License}.
+
 \pagenumbering{roman}
 
 %	RESUMEN
@@ -277,6 +288,10 @@ cd TweetSC/code/
 chmod +x build_all.sh
 ./build_all.sh
 \end{verbatim}
+Se puede añadir opcionalmente un modelo para el método fastText, primero hay que descargarlo \footnote{\url{https://drive.google.com/file/d/1-1hMVIgDa-ua_4iFBzNn7LzvflchoS7z/view}}, y moverlo a la carpeta:
+\begin{verbatim}
+mv cc.es.300.bin TweetSC/code/models/cc.es.300.bin
+\end{verbatim}
 Para ejecutarlo desde línea de comandos:
 \begin{verbatim}
 java -jar tweetscexecutable-all-v0.5.0-alpha.jar -text Texto de prueba
@@ -461,11 +476,11 @@ Cómo se puede observar en la tabla \ref{table:results} se muestran los resultad
 La ejecución se realiza sobre tres conjuntos de tweets: 10, 100 y 500. Los resultados que se ven en la tabla son: valores positivos, negativos, errores, \textit{accurancy} y tiempo de ejecución.
 
 \section{Conclusiones y líneas futuras}\label{sec:conclusiones}
-Este Trabajo de Fin de Máster ha diseñado e implementado un corrector de textos en español en Twitter. El trabajo ha tenido una componente de investigación, y en algunos aspectos se ha ido más allá del estado arte, implementando las técnicas: Word2Vec (específicamente fastText), una FST con la distancia Levenshtein, el algoritmo del metáfono para realizar similaridad fonética entre palabras y un modelo del lenguaje N-grama. El sistema se ha implementado, es plenamente funcional y su código está accesible en \url{https://github.com/jmorenov/TweetSC}. Además, es posible verlo en acción en la web \url{http://jmorenov.github.io/TweetSC/}.\\
+Este Trabajo de Fin de Máster ha diseñado e implementado un corrector de textos en español en Twitter. El trabajo ha tenido una componente de investigación, y en algunos aspectos se ha ido más allá del estado arte, implementando las técnicas: Word2Vec (específicamente fastText), una FST con la distancia Levenshtein, el algoritmo del metáfono para realizar similaridad fonética entre palabras y un modelo del lenguaje N-grama. El sistema se ha implementado, es plenamente funcional y su código está accesible en \url{https://github.com/jmorenov/TweetSC}. Además, es posible verlo en acción en la web \url{http://jmorenov.github.io/TweetSC/} (la versión disponible en esta url no es la última, para ello es necesario compilarla desde el código).\\
 
 Se puede concluir que nuestro objetivo era construir un corrector de texto para Twitter (\hyperref[sec:objetivos]{sección 1.2}), juntos con los subobjetivos, y se ha conseguido cómo se ha demostrado en las secciones \hyperref[sec:solucionpropuesta]{sección 3} y \hyperref[sec:implementacion]{sección 4}.\\
 
-Los resultados en los experimentos han sido de menor calidad que el sistema RAE con el que se han comparado \cite{porta:2013}, un x\% inferiores en \textit{accurancy} con el conjunto de 500 tweets. Tras observar los errores detalladamente en los resultados he detectado que la mayoría de ellos proviene en la detección de OOV (sobretodo en palabras de habla inglesa o anglicismos) y en el ranking (la función de distancia y el modelo del lenguaje no tiene un funcionamiento óptimo).\\
+Los resultados en los experimentos han sido más modestos que el sistema RAE con el que se han comparado \cite{porta:2013}, un x\% inferiores en \textit{accurancy} con el conjunto de 500 tweets. Tras observar los errores detalladamente en los resultados he detectado que la mayoría de ellos proviene en la detección de OOV (sobretodo en palabras de habla inglesa o anglicismos) y en el ranking (la función de distancia y el modelo del lenguaje no tiene un funcionamiento óptimo).\\
 
 Este sistema tiene proyección para mejorar estos resultados debido a que se ha diseñado de forma que sea posible añadir nuevos métodos tanto para generar candidatos cómo para realizar el ranking de los mismos o detectar palabras OOV. La primera mejora a realizar sería sobre el modelo del lenguaje N-grama para conseguir un buen funcionamiento del ranking.\\
 

@@ -114,10 +114,9 @@ public class ApplyRules {
 
         if (rules != null) {
             tokens.parallelStream().forEach((token) -> {
-                final AtomicReference<Boolean> oovAdded = new AtomicReference();
-                oovAdded.set(false);
+                boolean oovAdded = false;
 
-                rules.getRules().parallelStream().forEach((rule) -> {
+                for (Rule rule : rules.getRules()) {
                     if (!Dictionaries.getInstance().getSpanishDictionary().contains(token.getText())
                             && !Dictionaries.getInstance().getEntitiesDictionary().contains(token.getText())
                             && token.getText().matches(rule.getRegex())) {
@@ -127,11 +126,12 @@ public class ApplyRules {
                         oov.setAnnotation(Annotation.Variation);
                         applyRulesResult.addOOV(oov);
 
-                        oovAdded.set(true);
+                        oovAdded = true;
+                        break;
                     }
-                });
+                }
 
-                if (!oovAdded.get()) {
+                if (!oovAdded) {
                     String entityVariation = getEntityVariation(token.getText());
 
                     if (!entityVariation.equals("")) {

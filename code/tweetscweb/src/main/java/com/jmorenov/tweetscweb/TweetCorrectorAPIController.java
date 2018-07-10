@@ -26,7 +26,7 @@ public class TweetCorrectorAPIController {
         Response response = new Response();
 
         try {
-            SpellChecker spellChecker = new SpellChecker(new TweetSCMethod());
+            SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
             TweetCorrected tweetCorrected = spellChecker.correctTweet(tweetModel.toTweet());
             TweetCorrectedModel tweetCorrectedModel = new TweetCorrectedModel(tweetCorrected);
 

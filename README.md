@@ -23,6 +23,12 @@ cd TweetSC\code\
 .\build_all.bat
 ```
 
+### fastText Model (Optional)
+Download the model generated from https://drive.google.com/file/d/1-1hMVIgDa-ua_4iFBzNn7LzvflchoS7z/view
+```
+mv cc.es.300.bin TweetSC/code/models
+```
+
 ## How to use from command line
 ### Spell checker from a text
 ```
