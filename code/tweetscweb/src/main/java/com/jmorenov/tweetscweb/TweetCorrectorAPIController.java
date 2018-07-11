@@ -50,7 +50,7 @@ public class TweetCorrectorAPIController {
         TweetCorrectedListModel tweetCorrectedListModel = new TweetCorrectedListModel();
 
         try {
-            SpellChecker spellChecker = new SpellChecker(new TweetSCMethod());
+            SpellChecker spellChecker = new SpellChecker(new DictionaryMethod());
 
             for (TweetModel tweetModel : tweetListModel.tweets) {
                 TweetCorrected tweetCorrected = spellChecker.correctTweet(tweetModel.toTweet());
