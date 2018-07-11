@@ -294,11 +294,13 @@ mv cc.es.300.bin TweetSC/code/models/cc.es.300.bin
 \end{verbatim}
 Para ejecutarlo desde línea de comandos:
 \begin{verbatim}
-java -jar tweetscexecutable-all-v0.5.0-alpha.jar -text Texto de prueba
+java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
+    -text "Texto de prueba" \
+    -method TweetSCMethod
 \end{verbatim}
 La ejecución de la evaluación sobre el corpus de Tweet-Norm 2013 \cite{alegria:2013}
 \begin{verbatim}
-java -jar tweetscexecutable-all-v0.5.0-alpha.jar \
+java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
     -workingDirectory evaluation \
     -annotatedFile tweet-norm-dev500_annotated.txt \
     -tweetsFile tweet-norm-dev500.txt \

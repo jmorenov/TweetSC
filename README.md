@@ -33,7 +33,7 @@ mv cc.es.300.bin TweetSC/code/models
 ### Spell checker from a text
 ```
 java -jar tweetscexecutable-all-v0.2.0-alpha.jar \
-    -text Texto de prueba \
+    -text "Texto de prueba" \
     -method TweetSCMethod
 ```
 
