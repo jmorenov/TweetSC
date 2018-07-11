@@ -40,7 +40,7 @@ public class CandidatesMethodCreator {
             compService.submit(new CandidatesMethodCreateInstance(CandidatesMethodType.LevenshteinFST));
             compService.submit(new CandidatesMethodCreateInstance(CandidatesMethodType.Metaphone));
             compService.submit(new CandidatesMethodCreateInstance(CandidatesMethodType.L_L));
-            compService.submit(new CandidatesMethodCreateInstance(CandidatesMethodType.FastText));
+            //compService.submit(new CandidatesMethodCreateInstance(CandidatesMethodType.FastText));
             Future<CandidatesMethod> future = compService.take();
 
             try {
@@ -61,7 +61,7 @@ public class CandidatesMethodCreator {
         methods.add(new LevenshteinFSTCandidatesMethod());
         methods.add(new MetaphoneCandidatesMethod());
         methods.add(new L_LCandidatesMethod());
-        methods.add(new FastTextCandidatesMethod());
+        //methods.add(new FastTextCandidatesMethod());
         methods.add(new AccentedCandidatesMethod());
 
         return methods;

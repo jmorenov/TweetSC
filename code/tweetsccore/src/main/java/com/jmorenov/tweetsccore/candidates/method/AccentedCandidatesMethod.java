@@ -24,12 +24,12 @@ public class AccentedCandidatesMethod extends CandidatesMethod {
     public AccentedCandidatesMethod() {
         this.accentMap = new HashMap<>();
 
-        this.accentMap.put('a', 'á');
-        this.accentMap.put('e', 'é');
-        this.accentMap.put('i', 'í');
-        this.accentMap.put('o', 'ó');
-        this.accentMap.put('u', 'ú');
-        this.accentMap.put('n', 'ñ');
+        this.accentMap.put('a', '\u00e1');
+        this.accentMap.put('e', '\u00e9');
+        this.accentMap.put('i', '\u00ed');
+        this.accentMap.put('o', '\u00f3');
+        this.accentMap.put('u', '\u00fd');
+        this.accentMap.put('n', '\u00f1');
     }
 
     /**
@@ -68,11 +68,11 @@ public class AccentedCandidatesMethod extends CandidatesMethod {
 
     private boolean isAccentedWord(String word) {
         for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == 'á'
-                    || word.charAt(i) == 'é'
-                    || word.charAt(i) == 'í'
-                    || word.charAt(i) == 'ó'
-                    || word.charAt(i) == 'ú') {
+            if (word.charAt(i) == '\u00e1'
+                    || word.charAt(i) == '\u00e9'
+                    || word.charAt(i) == '\u00ed'
+                    || word.charAt(i) == '\u00f3'
+                    || word.charAt(i) == '\u00fd') {
                 return true;
             }
         }
